@@ -29,6 +29,17 @@ These fields make the Claude gate enforceable in records instead of leaving it a
 - `claude_handoff_ref` should appear only after `approved_facts_status: Approved`.
 - `publish_ready: Yes` is invalid unless `customer_copy_status: Final Integrated` and `claude_output_ref` is filled.
 
+### Publish-Status Rules
+
+- `publish_status` must not outrun the Claude gate or `publish_ready`.
+- Prep-only assets (`customer_copy_status: Prep Only`) must stay in clearly non-publish states.
+- Listing records with `publish_ready: No`, incomplete approved facts, or an incomplete Claude gate may use only `Draft`, `Paused`, or `Archived`.
+- `Ready for Manual Publish` is valid only when the listing has cleared the Claude gate and `publish_ready: Yes`.
+- `Published` is valid only after the listing has cleared the Claude gate, `publish_ready: Yes`, and a manual publish event has happened.
+- Content records with `publish_ready: No`, incomplete approved facts, or an incomplete Claude gate may use only `Draft` or `Archived`.
+- `Ready to Schedule`, `Scheduled`, and `Published` are valid only when the content asset has cleared the Claude gate and `publish_ready: Yes`.
+- `publish_date` is the actual publish date only. Leave it blank until the asset is actually published; do not use it as a tentative schedule field for prep-only assets.
+
 ## Product Record Schema
 
 | Field | Required | Description |
@@ -74,7 +85,7 @@ These fields make the Claude gate enforceable in records instead of leaving it a
 | listing_id | Yes | Unique ID |
 | product_id | Yes | Reference to product record |
 | channel | Yes | Marketplace / Etsy / Other |
-| publish_status | Yes | Draft / Ready for Manual Publish / Published / Paused / Archived |
+| publish_status | Yes | Draft / Ready for Manual Publish / Published / Paused / Archived (`Ready for Manual Publish` and `Published` require `publish_ready: Yes`) |
 | last_updated | Yes | Date updated |
 | approved_facts_status | Yes | See copy-state governance pattern |
 | customer_copy_status | Yes | See copy-state governance pattern |
@@ -101,7 +112,7 @@ These fields make the Claude gate enforceable in records instead of leaving it a
 | optional_video | No | Video reference or plan |
 | faq_prep | No | Internal FAQ prep notes |
 | objection_handling_prep | No | Internal objection-handling prep notes |
-| publish_date | No | Planned or actual publish date |
+| publish_date | No | Actual publish date only; leave blank until manually published |
 | views | No | Count metric |
 | saves | No | Count metric |
 | messages | No | Count metric |
@@ -118,7 +129,7 @@ These fields make the Claude gate enforceable in records instead of leaving it a
 | linked_listing_id | No | Optional listing reference |
 | platform | Yes | FB Page / Instagram / TikTok / Shorts |
 | content_type | Yes | Photo post / Reel / Story / Short |
-| publish_status | Yes | Draft / Ready to Schedule / Scheduled / Published / Archived |
+| publish_status | Yes | Draft / Ready to Schedule / Scheduled / Published / Archived (`Ready to Schedule`, `Scheduled`, and `Published` require `publish_ready: Yes`) |
 | publish_ready | Yes | See copy-state governance pattern |
 | approved_facts_status | Yes | See copy-state governance pattern |
 | customer_copy_status | Yes | See copy-state governance pattern |
@@ -133,7 +144,7 @@ These fields make the Claude gate enforceable in records instead of leaving it a
 | local_context_tags | No | Local tag plan |
 | asset_refs | Yes | Image/video references |
 | thumbnail_note | No | Cover/thumbnail plan |
-| publish_date | No | Planned/actual date |
+| publish_date | No | Actual publish date only; leave blank until published |
 | outcome_notes | No | Engagement and learnings |
 
 ## Ad Test Record Schema

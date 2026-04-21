@@ -33,7 +33,8 @@ Purpose: convert strategy into a repeatable weekly rhythm that survives low-ener
 
 ## Friday — Review + Improvement Day
 
-- Run weekly review using [80_templates/weekly_review_template.md](80_templates/weekly_review_template.md)
+- Start or update the current weekly review draft using [80_templates/weekly_review_template.md](80_templates/weekly_review_template.md) in `15_weekly_review_drafts/`
+- Move the review into `90_archive/weekly_reviews/` only after the review period is actually complete
 - Log decisions in [12_DECISION_LOG.md](12_DECISION_LOG.md)
 - Update [13_BACKLOG.md](13_BACKLOG.md) with next highest-value tasks
 
@@ -52,4 +53,5 @@ This keeps momentum without burning out.
 - Marketplace listing activity happens every week.
 - At least one decision/learning is logged each week.
 - Backlog is re-prioritized weekly.
+- Upcoming or in-progress weekly review drafts stay in `15_weekly_review_drafts/`.
 - Completed weekly review files are stored in `90_archive/weekly_reviews/`.

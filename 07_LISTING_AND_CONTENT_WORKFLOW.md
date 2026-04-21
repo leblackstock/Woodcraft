@@ -43,6 +43,8 @@ Purpose: turn approved products into sales-ready listings and reusable trust con
 - Record `claude_output_ref` after the paste-back occurs.
 - GPT-5.4 then integrates the approved Claude copy into the correct asset, sets `customer_copy_status: Final Integrated`, and may mark `publish_ready: Yes` if all other required checks are complete.
 - If Claude copy is still pending, keep the asset in structured-prep form, move draft phrasing to `customer_copy_prep_notes`, or mark the field with `[[CLAUDE_FINAL_COPY_REQUIRED]]`.
+- If the Claude gate is incomplete or `publish_ready: No`, keep `publish_status` in a non-publish state only.
+- Prep-only assets may not use `Ready for Manual Publish`, `Ready to Schedule`, `Scheduled`, or `Published`, and `publish_date` stays blank until an actual publish event occurs.
 
 ## Facebook Page + Instagram Workflow (Trust/Support)
 

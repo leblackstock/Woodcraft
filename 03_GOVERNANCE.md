@@ -26,6 +26,7 @@ This file defines how this workspace is managed so strategy stays consistent ove
 - Use descriptive names; avoid clever/ambiguous file names.
 - Markdown-first for planning and operations.
 - Templates live in [80_templates/](80_templates/).
+- Upcoming or in-progress weekly review drafts live in `15_weekly_review_drafts/` using `weekly_review_draft_YYYY-MM-DD.md`.
 - Completed weekly review instance files live in `90_archive/weekly_reviews/` using `weekly_review_YYYY-MM-DD.md`.
 
 ## AI Operating Rules
@@ -104,6 +105,16 @@ This file defines how this workspace is managed so strategy stays consistent ove
   - `claude_output_ref` is filled
   - required non-copy asset fields are complete
 - `publish_ready: Yes` does not remove manual approval requirements for pricing, publishing, or scheduling.
+
+### Publish-State Truthfulness Rules
+
+- `publish_status` may not imply readiness beyond the Claude gate or `publish_ready`.
+- Assets with an incomplete Claude gate may not use readiness, scheduled, or published statuses.
+- Prep-only assets must stay in clearly non-publish states.
+- Listing records with `publish_ready: No` may use only `Draft`, `Paused`, or `Archived`.
+- Content records with `publish_ready: No` may use only `Draft` or `Archived`.
+- `Ready for Manual Publish`, `Ready to Schedule`, `Scheduled`, `Published`, and similar publish-near states are allowed only after the Claude gate is complete and `publish_ready: Yes`.
+- `publish_date` is the actual publish date only and stays blank until a manual publish event has happened.
 
 ## Change Management Rules
 

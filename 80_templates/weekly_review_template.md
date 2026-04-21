@@ -1,5 +1,7 @@
 # Weekly Review Template
 
+Use this template for active weekly review drafts. Move the completed instance to `90_archive/weekly_reviews/` only after the review period is actually complete.
+
 ## Week Snapshot
 
 - week_of:

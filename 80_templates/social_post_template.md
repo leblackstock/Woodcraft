@@ -13,6 +13,8 @@
 - claude_handoff_ref:
 - claude_output_ref:
 
+> Governed status rule: if `publish_ready: No` or the Claude gate is incomplete, keep `publish_status` at `Draft` or `Archived` only. Do not use `Ready to Schedule`, `Scheduled`, or `Published` until the asset has cleared the gate.
+
 ## Creative Direction
 
 - content_type: Photo post / Reel / Story / Short
@@ -34,5 +36,5 @@
 
 ## Publishing + Outcome
 
-- publish_date:
+- publish_date: Leave blank until the post is actually published
 - outcome_notes:

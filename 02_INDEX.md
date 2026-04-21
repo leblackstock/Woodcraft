@@ -33,6 +33,7 @@ Master map of this workspace. Start with [00_START_HERE.md](00_START_HERE.md).
 
 ## Working Folders
 
+- [15_weekly_review_drafts/](15_weekly_review_drafts/) — upcoming or in-progress weekly review drafts not yet completed.
 - [20_research/](20_research/) — market research snapshots, competitor notes, pricing observations.
 - [30_products/](30_products/) — product candidates, approved items, cost/build notes.
 - [40_listings/](40_listings/) — listing drafts, published records, variant tests.

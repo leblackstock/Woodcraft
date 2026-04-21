@@ -34,5 +34,5 @@
 
 ## Publishing + Outcome
 
-- publish_date: 2026-04-30
-- outcome_notes: Prep-only support post. Do not schedule until approved facts are complete, Claude caption output is pasted back, and the linked Marketplace record is publish-ready.
+- publish_date:
+- outcome_notes: Prep-only support post. Publish date intentionally blank until approved facts are complete, Claude caption output is pasted back, and the linked Marketplace record is publish-ready.

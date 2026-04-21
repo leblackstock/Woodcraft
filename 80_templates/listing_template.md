@@ -13,6 +13,8 @@
 - claude_output_ref:
 - publish_ready: Yes / No
 
+> Governed status rule: if `publish_ready: No` or the Claude gate is incomplete, keep `publish_status` at `Draft`, `Paused`, or `Archived` only. Do not use `Ready for Manual Publish` or `Published` until the asset has cleared the gate.
+
 ## Core Offer
 
 - listing_title: [[CLAUDE_FINAL_COPY_REQUIRED]]
@@ -47,7 +49,7 @@
 
 ## Performance Log
 
-- publish_date:
+- publish_date: Leave blank until the listing is actually published
 - views:
 - saves:
 - messages:

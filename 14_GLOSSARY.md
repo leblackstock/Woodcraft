@@ -26,6 +26,8 @@ Use these definitions consistently across this workspace.
 - **Customer Copy Status**: Governed record state showing whether customer-facing prose is still prep-only, handoff-ready, pasted back, or fully integrated.
 - **Copy Provenance**: The record trail showing which handoff and pasted-back Claude output produced the final customer-facing prose.
 - **Publish Ready**: Record state showing an asset may proceed to manual publish/schedule review because facts, final copy, and required fields are complete.
+- **Publish Status**: Operational state label for the asset. It may not imply readiness, scheduling, or publication ahead of the Claude gate and `publish_ready`.
+- **Weekly Review Draft**: Upcoming or in-progress weekly review record kept outside the completed archive until the review period is actually complete.
 
 ## Automation Terms
 
