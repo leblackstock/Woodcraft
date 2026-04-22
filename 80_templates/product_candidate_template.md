@@ -7,6 +7,23 @@
 - category:
 - date_created:
 - owner:
+- build_model: Made to Order / In Stock / Sample Built
+
+## Verification Snapshot
+
+- plans_available: Yes / No
+- plans_source_ref:
+- reference_source:
+- reference_code:
+- source_links:
+- media_truth_status: Owned Real Photo / Owned AI-Assisted Photo / Concept / Mockup / Third-Party Reference Only
+- media_provenance_note:
+- standard_spec_ref:
+- cost_sheet_ref:
+- verification_evidence_ref:
+- verification_packet_ref:
+- verification_status: Not Started / Intake Collected / Packet Ready / Approved / Blocked
+- unresolved_fact_gaps:
 
 ## Buyer + Use Case
 
@@ -18,9 +35,13 @@
 
 - material_spec:
 - build_time_estimate:
+- lead_time_estimate:
 - unit_cost_estimate:
+- materials_cost_estimate:
 - target_price:
 - margin_estimate:
+- recommended_price_floor:
+- pricing_strategy_review:
 
 ## Fulfillment Fit
 
@@ -55,6 +76,8 @@
 - fulfillment_review:
 - market_clarity_review:
 - pending_confirmation:
+
+> Listing-first rule: approved products may move toward made-to-order listing prep before a fresh build exists if the standard launch spec, price logic, lead time, delivery terms, and media truth are locked.
 
 ## Notes
 

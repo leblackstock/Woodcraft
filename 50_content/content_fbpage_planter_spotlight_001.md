@@ -17,7 +17,7 @@
 
 - content_type: Photo post
 - hook: A simple cedar planter is one of the easiest ways to upgrade a porch or patio.
-- core_message: Highlight the approved cedar planter box as a practical local handmade option and reinforce active inventory/build capability.
+- core_message: Highlight the cedar planter box as a practical local handmade option and reinforce truthful made-to-order availability tied to the linked Marketplace draft.
 - cta: Send buying intent to Marketplace after approved facts are confirmed and Claude-final caption is integrated.
 
 ## Copy
@@ -29,8 +29,8 @@
 
 ## Asset Plan
 
-- asset_refs: Use the hero planter photo plus one close-up cedar grain photo from the Marketplace photo set.
-- thumbnail_note: Use the staged porch/patio hero image.
+- asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after publishable planter media is locked in the linked Marketplace record.
+- thumbnail_note: Pending — choose from governed approved media only after publishable planter media is locked in the linked Marketplace record.
 
 ## Publishing + Outcome
 

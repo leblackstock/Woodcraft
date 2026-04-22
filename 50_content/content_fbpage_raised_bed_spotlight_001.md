@@ -17,22 +17,22 @@
 
 - content_type: Photo post
 - hook: If you want a garden bed without a full DIY weekend, this is the kind of build to watch.
-- core_message: Present the raised bed as a straightforward backyard upgrade tied directly to the Marketplace listing.
-- cta: Send buying intent to Marketplace after approved facts are confirmed and Claude-final caption is integrated.
+- core_message: Keep the raised bed positioned as a straightforward backyard upgrade while the linked Marketplace listing remains paused pending product approval.
+- cta: Hold direct Marketplace CTA until the linked product is approved, listing progression resumes, and approved facts are complete.
 
 ## Copy
 
 - caption: [[CLAUDE_FINAL_COPY_REQUIRED]]
-- customer_copy_prep_notes: Non-Claude prep only. Working caption idea highlights a cedar raised bed sized about 4x8x16 for vegetables, herbs, or flowers, points to pickup or scheduled delivery for a fee, and sends buyers to Marketplace after facts are confirmed.
+- customer_copy_prep_notes: Non-Claude prep only. Working caption idea highlights a cedar raised bed for vegetables, herbs, or flowers, keeps the standard launch size pending until approved facts are locked, mentions pickup or scheduled delivery for a fee, and avoids directing buyers to Marketplace until the linked product is approved and listing progression resumes.
 - hashtag_notes: Use a small set such as #raisedgardenbed #cedargarden #backyardgarden #handmade.
 - local_context_tags: Assumption — add local area tags before publishing.
 
 ## Asset Plan
 
-- asset_refs: Backyard hero photo, corner detail photo, and one scale photo showing bed depth.
-- thumbnail_note: Use the widest backyard hero image.
+- asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after the standard launch size and media plan are locked.
+- thumbnail_note: Pending — choose from governed approved media only after the standard launch size and media plan are locked.
 
 ## Publishing + Outcome
 
 - publish_date:
-- outcome_notes: Prep-only support post. Publish date intentionally blank until approved facts are complete, Claude caption output is pasted back, and the linked Marketplace record is publish-ready.
+- outcome_notes: Prep-only support post. Publish date intentionally blank until approved facts are complete, Claude caption output is pasted back, and the linked Marketplace record is no longer paused and is publish-ready.

@@ -7,6 +7,20 @@
 - category: Planter
 - date_created: 2026-04-21
 - owner: Lauren
+- plans_available: No
+- plans_source_ref:
+
+## Verification Snapshot
+
+- reference_source: Pending
+- reference_code: Pending
+- source_links: Pending
+- standard_spec_ref:
+- cost_sheet_ref: Pending
+- verification_evidence_ref: Pending
+- verification_packet_ref: Pending
+- verification_status: Not Started
+- unresolved_fact_gaps: Pending verification details.
 
 ## Buyer + Use Case
 

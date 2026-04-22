@@ -29,8 +29,8 @@
 
 ## Asset Plan
 
-- asset_refs: Cedar grain close-up, corner joinery shot, and optional planted top-down image.
-- thumbnail_note: Use the best grain/detail shot with visible depth.
+- asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after publishable planter media is locked in the linked Marketplace record.
+- thumbnail_note: Pending — choose from governed approved media only after publishable planter media is locked in the linked Marketplace record.
 
 ## Publishing + Outcome
 

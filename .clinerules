@@ -1,0 +1,59 @@
+# Cline Rules for Woodcraft
+
+These rules exist to prevent the exact failure modes already seen in this repo: PowerShell multiline hangs, PSReadLine crashes, oversized terminal output, and repeated restarts of partially completed research tasks.
+
+## Priority
+
+1. Follow repository source-of-truth files first:
+   - `00_START_HERE.md`
+   - `01_VISION.md`
+   - `03_GOVERNANCE.md`
+   - `04_BUSINESS_RULES.md`
+2. Then follow this file for execution safety and agent behavior.
+
+## Execution Safety Rules
+
+- Never use long or fragile inline `python -c` commands in PowerShell.
+- If Python logic is more than trivial, write a short temporary `.py` file and run that file.
+- Never rely on PowerShell multiline continuation input.
+- If PowerShell enters `>>` continuation mode, stop and replace the command with a temp-script or direct file-edit approach.
+- Prefer direct file reads/edits and repository tools over shell-heavy parsing.
+- Use bounded, non-interactive commands only.
+- Add timeouts to network requests whenever possible.
+- Do not use commands that may wait for user input.
+
+## Output Control Rules
+
+- Never print full HTML, XML, or large JSON blobs to the terminal.
+- If a response may be large, save it to a file and inspect only filtered lines or targeted fields.
+- Keep CLI output intentionally small: counts, matched lines, filenames, IDs, and short summaries.
+- Do not dump full sitemap, homepage, or rendered-page responses into the console.
+- When scraping or extracting, filter to the needed domains, selectors, keys, or line ranges first.
+
+## Stepwise Task Rules
+
+- Continue from the last confirmed good state; do not restart the entire investigation unless required.
+- Summarize findings briefly after each major step.
+- When prior results already established counts or URLs, reuse them instead of reprinting them.
+- Prefer sitemap-driven or structured-source discovery before homepage scraping.
+- If a command fails because of shell quoting, switch strategies immediately instead of retrying the same pattern.
+
+## File Editing Rules
+
+- Use template files as schema/source-of-truth references before editing records.
+- Preserve existing markdown structure and section order.
+- For unknown required values, use explicit placeholders such as `Pending`, `Not Started`, or a clearly labeled assumption instead of inventing facts.
+- Do not remove existing content unless the task explicitly requires it.
+
+## Research Rules
+
+- Do not claim evidence that was not actually captured.
+- If a page is too noisy to parse safely, use sitemaps, saved local files, or narrower extraction methods.
+- For link extraction, target only the specific domains requested.
+- Prefer saving remote content locally before parsing if parsing complexity is more than trivial.
+
+## Completion Rules
+
+- Before finishing, confirm the task matches the original request, not just the last command run.
+- Report only the necessary results with no debug chatter.
+- If a safer non-shell path exists, prefer it.

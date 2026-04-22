@@ -1,0 +1,44 @@
+# Cursor Rules for Woodcraft
+
+## Core Principle
+
+Work safely, incrementally, and with bounded output. This repository has already experienced failures caused by oversized console output and fragile PowerShell inline commands.
+
+## Required Behaviors
+
+- Read the repo’s governing files before making strategic or workflow changes:
+  - `00_START_HERE.md`
+  - `01_VISION.md`
+  - `03_GOVERNANCE.md`
+  - `04_BUSINESS_RULES.md`
+- Use repository templates as schema references before editing records.
+- Continue from the last confirmed good state when resuming interrupted work.
+
+## Shell and Command Rules
+
+- Avoid long inline shell one-liners.
+- Do not use complex `python -c` commands in PowerShell.
+- If logic requires loops, regexes, or quoting complexity, create a short script file instead.
+- Never depend on PowerShell multiline continuation prompts.
+- Stop immediately if you see `>>` and switch to a safer approach.
+- Use non-interactive, bounded commands only.
+- Apply request timeouts for network access when available.
+
+## Output Rules
+
+- Never print full HTML, XML, or large structured payloads to the terminal.
+- Save large responses to files and inspect only relevant subsets.
+- Print only concise results: counts, filenames, matched URLs, short snippets, and summaries.
+- Do not reprint large result sets that were already confirmed earlier in the task.
+
+## Editing Rules
+
+- Preserve markdown structure, headings, and field order.
+- Fill missing required fields with truthful placeholders when facts are not yet known.
+- Do not fabricate market evidence, pricing evidence, verification evidence, or copy status.
+
+## Customer-Copy Governance
+
+- Claude is the only approved writer of final customer-facing prose in this repo.
+- Non-Claude systems may prepare facts, structure, outlines, and validation notes only.
+- If a task reaches final customer copy, stop and hand off to Claude per repo governance.

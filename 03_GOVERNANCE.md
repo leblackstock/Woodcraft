@@ -20,6 +20,12 @@ This file defines how this workspace is managed so strategy stays consistent ove
 - Keep docs practical and concise.
 - If a strategy-defining file changes, add an entry to [12_DECISION_LOG.md](12_DECISION_LOG.md).
 
+## Locked Reference Files
+
+- `20_research/whosthevoss_2026_pricing_guide_reference.md` is an official reference file and is locked by default.
+- Do not edit that file unless the user gives explicit permission for the specific change.
+- When edits are approved, preserve source pricing data, customer-facing dimensions, and official table structure unless the user explicitly authorizes a broader revision.
+
 ## Naming Conventions
 
 - Root docs use numeric prefixes (`00_`, `01_`, etc.).

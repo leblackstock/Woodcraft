@@ -7,6 +7,20 @@
 - category: Furniture
 - date_created: 2026-04-21
 - owner: Lauren
+- plans_available: No
+- plans_source_ref:
+
+## Verification Snapshot
+
+- reference_source:
+- reference_code:
+- source_links:
+- standard_spec_ref:
+- cost_sheet_ref: Pending — cost sheet not started.
+- verification_evidence_ref: Pending — measured build, current receipts, labor timing, and delivery notes needed.
+- verification_packet_ref: Pending — create after evidence and cost sheet are assembled.
+- verification_status: Not Started
+- unresolved_fact_gaps: Final dimensions / current material receipts / real labor hours / fulfillment constraints / operator approval on pricing.
 
 ## Buyer + Use Case
 

@@ -10,16 +10,21 @@ Purpose: convert strategy into a repeatable weekly rhythm that survives low-ener
 - Update top product candidates in [30_products/](30_products/)
 - Select 1–2 priority products for this week
 
-## Tuesday — Build / Prep Day
+## Tuesday — Spec / Build / Prep Day
 
-- Build or prep priority items
-- Confirm costs, labor time, and margin assumptions
-- Capture progress notes for listing assets
+- Lock the standard launch spec for the week's priority items
+- Set the truthful `build_model` for each priority item (`Made to Order`, `In Stock`, or `Sample Built`)
+- Build or prep priority items when useful, but do not treat a fresh build as a universal pre-list requirement
+- Capture one raw verification evidence bundle (spec/dimensions note, current cost inputs, labor note, delivery/lead-time note, and media provenance note when needed)
+- Confirm costs, labor time, margin assumptions, and lead-time logic in a live cost sheet or linked product record
+- Capture progress notes for listing assets and any actual build learnings already available
 
 ## Wednesday — Listing Day
 
 - Draft/refine Marketplace listings in [40_listings/](40_listings/)
-- Finalize pricing, lead times, pickup/delivery terms, and approved facts
+- Use truthful made-to-order listing prep when a fresh build does not yet exist
+- Assemble one bundled verification packet and escalate only true exceptions or blockers
+- Finalize pricing, lead times, pickup/delivery terms, media-truth status, and approved facts only after the packet is approved
 - If facts are complete, prepare Claude handoff and wait for human paste-back
 - Integrate Claude final listing copy and set `publish_ready: Yes` only when the listing record is fully complete
 - Publish listings (manual) only after `publish_ready: Yes` and human approval
@@ -35,6 +40,7 @@ Purpose: convert strategy into a repeatable weekly rhythm that survives low-ener
 
 - Start or update the current weekly review draft using [80_templates/weekly_review_template.md](80_templates/weekly_review_template.md) in `15_weekly_review_drafts/`
 - Move the review into `90_archive/weekly_reviews/` only after the review period is actually complete
+- If any made-to-order sale/build finished this week, capture actual receipts, labor, finished dimensions, finished photos, and pricing learnings before closing the week
 - Log decisions in [12_DECISION_LOG.md](12_DECISION_LOG.md)
 - Update [13_BACKLOG.md](13_BACKLOG.md) with next highest-value tasks
 
@@ -42,9 +48,11 @@ Purpose: convert strategy into a repeatable weekly rhythm that survives low-ener
 
 If capacity is low, execute only:
 
-1. Complete approved facts + Claude handoff for **one** Marketplace listing and publish only if the listing reaches `publish_ready: Yes`
+1. Complete verification packet + approved facts + Claude handoff for **one** Marketplace listing and publish only if the listing reaches `publish_ready: Yes`
 2. Prepare **one** repurposed trust/support post and schedule/post it only if the Claude caption gate is complete
 3. Perform **one** 20-minute weekly review and backlog reset
+
+If the listing is `Made to Order`, the minimum-viable version may be a truthful listing-first packet rather than a fresh build.
 
 This keeps momentum without burning out.
 

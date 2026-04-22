@@ -19,9 +19,38 @@ Hard guardrails for decisions, spending, and product selection.
 
 - Every product must have a simple cost sheet before listing.
 - Include materials, labor time, delivery/shipping impact, and platform fees when relevant.
+- Run both approved pricing strategies whenever proposing a price or reviewing an already-set price.
 - Do not price below target profit floor.
 - If price needed to sell is below profit floor, pause or redesign product.
 - If cost uncertainty is still high, keep the price in draft status and do not publish yet.
+
+### Pricing Strategy 1 (Current Method) — Total-Cost Guardrail Pricing
+
+- Use the current total-cost method as the first required pricing strategy.
+- Calculate `total_unit_cost` using materials, labor, delivery/shipping impact, platform fees, and other relevant allowances.
+- Calculate the minimum guardrail-compliant price as the greater of:
+  - `total_unit_cost / 0.60` to preserve the **>= 40%** gross-margin floor
+  - `total_unit_cost + applicable profit floor`
+- This is the current baseline pricing method already used in the workspace.
+
+### Pricing Strategy 2 — Materials at 30% of Finished Price
+
+- Use a second required pricing strategy based on materials being **30% of the finished price**.
+- Define `materials_cost_total` as materials subtotal plus hardware and consumables that belong in the physical build.
+- Calculate the materials-based price as:
+  - `materials_cost_total / 0.30`
+- When reverse-checking an existing target/list price, calculate:
+  - `materials_cost_total / finished_price`
+- If the material share is above **30%**, flag the price as weak or needing review.
+
+### Dual-Strategy Pricing Rule
+
+- For every new draft price, calculate both Strategy 1 and Strategy 2.
+- Use the higher resulting price as the default pricing baseline unless an explicit human override is recorded.
+- For every existing target price or listing price, reverse-check both:
+  - Strategy 1 compliance against gross-margin and profit-floor rules
+  - Strategy 2 compliance against the 30%-materials benchmark
+- A price should not be treated as good pricing unless both strategies pass or a documented exception is approved.
 
 ### Initial Profit Rule (Starter)
 

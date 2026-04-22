@@ -22,7 +22,7 @@ Master map of this workspace. Start with [00_START_HERE.md](00_START_HERE.md).
 
 ## Data, Prompts, and Execution Tracking
 
-- [09_DATA_MODEL.md](09_DATA_MODEL.md) — record schemas and source-of-truth notes.
+- [09_DATA_MODEL.md](09_DATA_MODEL.md) — record schemas, verification refs/statuses, and source-of-truth notes.
 - [10_PROMPTS_INDEX.md](10_PROMPTS_INDEX.md) — prompt families, naming, and versioning plan.
 - [12_DECISION_LOG.md](12_DECISION_LOG.md) — key decisions and rationale.
 - [13_BACKLOG.md](13_BACKLOG.md) — prioritized next actions.
@@ -35,10 +35,10 @@ Master map of this workspace. Start with [00_START_HERE.md](00_START_HERE.md).
 
 - [15_weekly_review_drafts/](15_weekly_review_drafts/) — upcoming or in-progress weekly review drafts not yet completed.
 - [20_research/](20_research/) — market research snapshots, competitor notes, pricing observations.
-- [30_products/](30_products/) — product candidates, approved items, cost/build notes.
+- [30_products/](30_products/) — product candidates, approved items, standard specs, and cost/build notes.
 - [40_listings/](40_listings/) — listing drafts, published records, variant tests.
 - [50_content/](50_content/) — social plans, caption drafts, seasonal campaigns.
 - [60_automation/](60_automation/) — workflow automation specs and phased implementation notes.
 - [70_ads/](70_ads/) — tiny-budget ad experiments and learnings.
-- [80_templates/](80_templates/) — reusable markdown templates for execution.
+- [80_templates/](80_templates/) — reusable markdown templates for execution, including verification packets, cost sheets, and standard specs.
 - [90_archive/](90_archive/) — deprecated docs, retired plans, and completed weekly review logs.

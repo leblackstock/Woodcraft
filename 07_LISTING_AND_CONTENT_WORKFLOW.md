@@ -1,37 +1,88 @@
 # 07 Listing and Content Workflow
 
-Purpose: turn approved products into sales-ready listings and reusable trust content.
+Purpose: turn approved products into truthful made-to-order or in-stock listings and reusable trust content.
 
 ## End-to-End Flow
 
 1. Product approved in [06_PRODUCT_DECISION_WORKFLOW.md](06_PRODUCT_DECISION_WORKFLOW.md)
-2. Confirm the approved product record in [30_products/](30_products/)
-3. Prepare Marketplace listing structure in [40_listings/](40_listings/) using [80_templates/listing_template.md](80_templates/listing_template.md)
-4. Prepare photo/shot plan, fulfillment terms, and approved facts
-5. Mark `approved_facts_status` and keep `publish_ready: No` until facts are complete
-6. **Claude Final Copy Gate**
-7. Record `claude_handoff_ref`, wait for human paste-back, then record `claude_output_ref`
-8. Integrate approved Claude copy and move `customer_copy_status` to `Final Integrated`
-9. Set `publish_ready: Yes` only after copy integration and required non-copy checks are complete
-10. Publish Marketplace listing (manual)
-11. Repurpose approved listing facts into Page + Instagram content prep
-12. Run another **Claude Final Copy Gate** when final customer-facing captions or replies are needed
-13. Schedule/queue follow-up posts (manual) only after the content asset is `publish_ready: Yes`
-14. Log results and learnings
+2. Confirm the approved product record in [30_products/](30_products/) and lock the current standard launch spec when available
+3. Set `build_model` truthfully (`Made to Order`, `In Stock`, or `Sample Built`)
+4. Record plan/source truth plus locked dimensions/specs from plan, reference, or standard spec
+5. Draft or update the estimated cost sheet using [80_templates/cost_sheet_template.md](80_templates/cost_sheet_template.md), including both pricing strategies and reverse checks for any already-set price
+6. Record estimated labor time, made-to-order lead time, and delivery/pickup terms
+7. Assemble a truthful media plan using governed media types only
+8. GPT-5.4 assembles one verification packet using standard spec defaults, dual-strategy cost math, confidence labels, media-truth notes, and highlighted exceptions only
+9. Operator approves or edits one bundled approval block; update verification refs/status without inventing missing facts
+10. Mark `approved_facts_status` only when facts are truly approved and keep `publish_ready: No` until facts are complete
+11. Prepare Marketplace listing structure in [40_listings/](40_listings/) using [80_templates/listing_template.md](80_templates/listing_template.md)
+12. **Claude Final Copy Gate**
+13. Record `claude_handoff_ref`, wait for human paste-back, then record `claude_output_ref`
+14. Integrate approved Claude copy and move `customer_copy_status` to `Final Integrated`
+15. Set `publish_ready: Yes` only after copy integration and required non-copy checks are complete
+16. Publish Marketplace listing (manual)
+17. After first sale/build, capture actual receipts, labor, finished dimensions, finished photos, and pricing learnings
+18. Decide keep / drop / reprice if the actual build changes the economics or offer truth
+19. Repurpose approved listing facts and truthful media into Page + Instagram content prep
+20. Run another **Claude Final Copy Gate** when final customer-facing captions or replies are needed
+21. Schedule/queue follow-up posts (manual) only after the content asset is `publish_ready: Yes`
+22. Log results and learnings
 
-## Marketplace Listing Workflow (Sales-First)
+## Marketplace Listing Workflow (Listing-First, Made-to-Order Allowed)
 
-- **Manual:** final pricing, platform publishing, buyer chat handling
-- **GPT-5.4 orchestration:** field prep, approved-fact packaging, missing-info checks, workflow state, and Claude handoff generation
+- **Manual:** final pricing approval, verification-packet approval, platform publishing, buyer chat handling
+- **GPT-5.4 orchestration:** field prep, standard-spec defaulting, cost math, bundled missing-info escalation, approved-fact packaging, workflow state, and Claude handoff generation
 - **Claude:** final publishable listing title, description, and other customer-facing listing prose fields
+- Fresh build completion is not a universal pre-list requirement. `build_model: Made to Order` may be listed before a new build exists if the pre-sale facts are locked and truthful.
 - **Required before publish:**
-  - clear photos
+  - approved verification packet or equivalent approved fact review
+  - `build_model` recorded truthfully
   - specs/dimensions
   - pickup/delivery terms
   - lead time
-  - margin-safe price
+  - dual-strategy-validated price
+  - truthful listing media under the media-governance rules below
   - Claude final copy pass completed
   - `publish_ready: Yes`
+
+## Minimal-Input Verification Workflow (Approved Products + Listings)
+
+- Goal: do maximum internal work first, then escalate a single approval packet instead of repeated tiny questions.
+- Minimal operator evidence should be collected once and may include:
+  - locked spec/dimensions note or linked standard spec
+  - current material-cost note or receipt snapshot
+  - estimated labor-hours note
+  - delivery/lead-time note
+  - media provenance note when listing media is not a fresh current-build photo set
+  - any actual-build notes already available
+- GPT-5.4 may infer/default-fill from the linked standard spec, business guardrails, and existing approved records only when the inferred value is clearly framed as a default or recommendation.
+- GPT-5.4 must calculate both approved pricing strategies whenever price is proposed or reviewed:
+  - Strategy 1: current total-cost guardrail pricing
+  - Strategy 2: materials cost at 30% of finished price
+- GPT-5.4 must also reverse-check any already-set target/list price against both strategies before calling pricing acceptable.
+- GPT-5.4 must label verification confidence per field using:
+  - `Auto-verified`
+  - `Recommended`
+  - `Needs operator confirmation`
+  - `Blocked`
+- GPT-5.4 may not invent physical facts, delivery promises, measured values, costs, market claims, or media ownership.
+- if either pricing strategy fails, margin/profit guardrails fail, or a real-world fact is still missing, set `verification_status: Blocked` and escalate only the true blockers in one bundled approval block.
+- If defaults are usable and only a small number of exceptions remain, prepare `verification_status: Packet Ready` and present highlighted exceptions only.
+- `verification_status` supports movement toward `approved_facts_status: Approved`, but it does not replace approved-facts review, the Claude gate, or manual approval for pricing/publishing.
+
+## Media Truth Governance
+
+- Use `media_truth_status` to classify the actual listing-media type in play.
+- Allowed governed media types:
+  - `Owned Real Photo` — real photos from an owned prior build, current sample, or current finished piece
+  - `Owned AI-Assisted Photo` — AI-assisted image derived from an owned real photo
+  - `Concept / Mockup` — concept-only or mockup media that must never be implied to be a fresh finished build photo
+  - `Third-Party Reference Only` — source, tutorial, plan, inspiration, or competitor media that may be kept for internal reference only
+- Listing use rules:
+  - owned real photos from prior builds are allowed for listing use
+  - owned AI-assisted images are allowed only when derived from owned real photos and still used truthfully
+  - third-party/source/tutorial/plan images must not be used as listing photos
+  - planning docs may store third-party media as reference-only, but listing media fields must distinguish those assets from publishable media
+- If media truth could be misunderstood, record a short `media_provenance_note` in the product or listing record.
 
 ## Claude Final Copy Gate
 
@@ -45,6 +96,18 @@ Purpose: turn approved products into sales-ready listings and reusable trust con
 - If Claude copy is still pending, keep the asset in structured-prep form, move draft phrasing to `customer_copy_prep_notes`, or mark the field with `[[CLAUDE_FINAL_COPY_REQUIRED]]`.
 - If the Claude gate is incomplete or `publish_ready: No`, keep `publish_status` in a non-publish state only.
 - Prep-only assets may not use `Ready for Manual Publish`, `Ready to Schedule`, `Scheduled`, or `Published`, and `publish_date` stays blank until an actual publish event occurs.
+
+## Post-Sale / Post-Build Validation Loop
+
+After the first real sale/build for a made-to-order listing:
+
+- capture actual receipts
+- capture actual labor time
+- capture actual finished dimensions
+- capture actual finished photos
+- update the cost sheet and any pricing learnings
+- decide whether to keep, drop, or reprice the listing
+- replace weaker concept/pre-sale media with stronger actual media when available
 
 ## Facebook Page + Instagram Workflow (Trust/Support)
 
@@ -67,6 +130,7 @@ Purpose: turn approved products into sales-ready listings and reusable trust con
 ## Where AI Helps Most
 
 - converting rough notes into structured approved facts
+- turning minimal raw evidence into one verification packet with standard defaults, dual pricing checks, and cost checks
 - preparing listing and content fields before the customer-copy stage
 - generating Claude handoff prompts from approved facts
 - creating checklist reminders for missing listing elements
@@ -74,7 +138,8 @@ Purpose: turn approved products into sales-ready listings and reusable trust con
 ## What Remains Manual for Now
 
 - final product quality review
-- photo capture/staging
+- new photo capture/staging when needed
+- one-shot approval of verification exceptions and final pricing
 - platform posting actions
 - customer messaging and negotiation
 - final go/no-go on promotions
