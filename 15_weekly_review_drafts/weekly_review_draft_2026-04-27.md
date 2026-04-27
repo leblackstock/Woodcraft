@@ -30,6 +30,6 @@ Working draft for the upcoming weekly review. Do not archive until the review pe
 
 ## Next Week Plan
 
-- top_3_priorities: Confirm cost sheets and final measured dimensions for the planter box and other first-wave candidates / build and photograph the first finished planter sample / move `list_marketplace_planter_box_001` to approved-facts + Claude-handoff readiness before any raised-bed listing progression resumes
-- one_risk_to_manage: Publishing or scheduling assets before cost sheets, measured dimensions, finished photo sets, delivery wording, and Claude-final copy are complete.
+- top_3_priorities: Confirm cost sheets and any remaining launch-size decisions for the first-wave candidates / build and photograph the first finished planter sample / move `list_marketplace_planter_box_001` to approved-facts + Claude-handoff readiness before any raised-bed listing progression resumes
+- one_risk_to_manage: Publishing or scheduling assets before cost sheets, required launch-size decisions, finished photo sets, delivery wording, and Claude-final copy are complete.
 - minimum_viable_week_plan: Finalize approved facts for one listing, prepare the Claude handoff, and complete one weekly review/backlog reset.

@@ -55,7 +55,7 @@ Purpose: keep cost math simple, markdown-native, auditable, and aligned with wor
 - pricing_strategy_2_price_floor:
 - pricing_strategy_2_note: `materials_cost_total / 0.30`
 - material_cost_percent_of_price:
-- recommended_price_floor:
+- recommended_price_floor: Default pricing baseline under current policy; normally Strategy 2 unless otherwise stated, with warning if Strategy 1 differs by more than 15%
 - pricing_strategy_review: Pass / Fail / Blocked / Needs Approval
 
 ## Guardrail Check
@@ -65,7 +65,7 @@ Purpose: keep cost math simple, markdown-native, auditable, and aligned with wor
 | Gross margin floor | >= 40% | Pass / Fail / Blocked |  |
 | Profit floor | Per [04_BUSINESS_RULES.md](../04_BUSINESS_RULES.md) | Pass / Fail / Blocked |  |
 | Materials are 30% of finished price | `materials_cost_total / target_price <= 30%` | Pass / Fail / Blocked |  |
-| Recommended price floor used | Higher of Strategy 1 and Strategy 2 unless explicitly overridden | Pass / Fail / Blocked |  |
+| Strategy 1 variance warning raised when needed | Warn if Strategy 1 differs from Strategy 2 by > 15% | Pass / Fail / Blocked |  |
 | Cost uncertainty acceptable for approval | Low enough to price truthfully | Pass / Fail / Blocked |  |
 
 ## Notes and Approval

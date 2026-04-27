@@ -4,7 +4,7 @@
 
 - cost_sheet_id: cost_cedar_petite_planter_box_111113_001
 - date_prepared: 2026-04-21
-- prepared_by: GPT-5.4
+- prepared_by: GPT-5.5
 - linked_product_id: prod_cedar_petite_planter_box_111113_001
 - linked_listing_id:
 - standard_spec_ref:

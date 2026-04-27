@@ -13,17 +13,19 @@ Purpose: define the default launch spec for the cedar planter box so verificatio
 
 ## Standard Launch Definition
 
-- target_dimensions: 24in x 24in x 18in high target finished size. Use the actual measured finished sample as the publishable source of truth if a built unit varies.
+- target_dimensions: 24in x 24in x 18in high target finished size. For made-to-order pre-sale use, this locked standard size is the listing source of truth unless the launch spec itself changes or proves inaccurate enough to require revision. Capture actual measured finished dimensions after the first real build as post-build validation.
 - standard_material_stack: Cedar-board planter build for the launch version, using cedar as the visible primary material for the sides and base components. Do not imply alternate species, trim packages, liners, or hidden upgrades unless they are actually present.
 - hardware_assumption: Exterior-rated screws are the standard hardware assumption for the base build.
 - drainage_assumption: Basic drain-through / drainage-gap construction only. Do not claim sealed reservoirs, drainage hardware, or other special water-management features unless confirmed.
 - liner_included: No. The base launch version excludes a liner unless explicitly added and approved as a deviation.
 - finish_assumption: No finish, stain, or coating is assumed unless a specific finished sample confirms otherwise.
 
+For made-to-order items, `target_dimensions` are the stated standard launch dimensions used for truthful pre-sale listings. Small handmade variance does not by itself invalidate the stated standard size, but if real builds show material drift, update the standard spec and listing wording before further sales.
+
 ## Fulfillment Baseline
 
 - standard_lead_time_range: 3 to 5 days for made-to-order units, subject to current queue and material availability.
-- standard_delivery_policy: Local pickup preferred. Local delivery may be offered within 25 miles for an added fee. Deliveries beyond 25 miles require explicit fee and schedule confirmation.
+- standard_delivery_policy: Local pickup preferred. Delivery may be available within 25 miles. Ask for an estimate or quote; free delivery may be available in the local area, and a fee may apply outside this area.
 - standard_pickup_policy: Local pickup by appointment after completion confirmation.
 
 ## Included / Excluded
@@ -43,4 +45,4 @@ Purpose: define the default launch spec for the cedar planter box so verificatio
 
 ## Notes
 
-- notes: This file is a default launch baseline used to reduce repeated decisions and support one-shot verification packets. It does not override measured sample facts, live cost inputs, or required human approval for final pricing and publishing.
+- notes: This file is a default launch baseline used to reduce repeated decisions, support one-shot verification packets, and provide the pre-sale size truth for the made-to-order standard version. It does not remove the need for live cost inputs, required human approval for final pricing and publishing, or post-build actuals capture.

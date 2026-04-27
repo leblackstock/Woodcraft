@@ -72,7 +72,7 @@ Use only these confidence labels: `Auto-verified`, `Recommended`, `Needs operato
 | Gross margin meets workspace floor | Pass / Fail / Blocked |  |
 | Profit floor meets workspace rule | Pass / Fail / Blocked |  |
 | Materials are 30% of finished price | Pass / Fail / Blocked |  |
-| Higher of the two pricing strategies is respected | Pass / Fail / Blocked |  |
+| Strategy 1 variance warning raised when needed | Pass / Fail / Blocked |  |
 | Lead time and delivery terms are truthful | Pass / Fail / Blocked |  |
 | Required physical facts are supported | Pass / Fail / Blocked |  |
 

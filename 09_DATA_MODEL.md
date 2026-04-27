@@ -37,7 +37,7 @@ These fields add a lightweight audit trail for fact verification before the Clau
 |---|---|---|---|
 | standard_spec_ref | No | File path / free text ref | Standard spec used for default-fill assumptions and deviation checks. |
 | cost_sheet_ref | No | File path / free text ref | Cost sheet used for margin/profit calculations. |
-| verification_evidence_ref | No | File path / free text ref | Where raw evidence intake is stored (measurements, receipts, labor note, photo note, delivery note). |
+| verification_evidence_ref | No | File path / free text ref | Where raw evidence intake is stored (locked spec note, launch-size decision, receipts, labor note, photo note, delivery note, post-build measurements when available). |
 | verification_packet_ref | No | File path / free text ref | Where the bundled operator approval packet is stored. |
 | verification_status | Yes | `Not Started` / `Intake Collected` / `Packet Ready` / `Approved` / `Blocked` | Current verification workflow state. |
 | unresolved_fact_gaps | No | Free text list | Remaining missing facts, exceptions, or blockers that prevent truthful approval. |
@@ -47,7 +47,7 @@ These fields add a lightweight audit trail for fact verification before the Clau
 - `verification_status` is separate from `approved_facts_status`.
 - `verification_status: Not Started` means the verification structure exists but usable intake has not been assembled yet.
 - `verification_status: Intake Collected` means raw inputs have been captured, but the approval packet is not ready yet.
-- `verification_status: Packet Ready` means GPT-5.4 has done the internal work first and assembled one bundled approval packet for the operator.
+- `verification_status: Packet Ready` means GPT-5.5 has done the internal work first and assembled one bundled approval packet for the operator.
 - `verification_status: Approved` means the operator has approved or corrected the packet and the linked refs reflect the current truth.
 - `verification_status: Blocked` means at least one real-world fact is missing or a guardrail check failed.
 - A verification packet may recommend fact approval, but `approved_facts_status` stays `Working` until the facts are actually approved.
@@ -63,7 +63,7 @@ These fields support the required two-strategy pricing review whenever a price i
 | pricing_strategy_1_price_floor | No | Currency / free text note | Minimum price from the current total-cost guardrail method. |
 | pricing_strategy_2_price_floor | No | Currency / free text note | Minimum/benchmark price when materials are 30% of finished price. |
 | material_cost_percent_of_price | No | Percent / free text note | Reverse-check value for `materials_cost_estimate / target_price`. |
-| recommended_price_floor | No | Currency / free text note | Default floor after comparing both strategies; normally the higher of Strategy 1 and Strategy 2. |
+| recommended_price_floor | No | Currency / free text note | Default pricing baseline after comparing both strategies; under current policy normally Strategy 2 unless otherwise stated, with a warning when Strategy 1 differs by more than 15%. |
 | pricing_strategy_review | No | Free text note | Summary of whether both strategies pass, fail, or remain blocked pending better inputs. |
 
 ## Build Model + Media Truth Pattern
@@ -79,6 +79,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 ### Build-Model and Media Rules
 
 - `build_model: Made to Order` allows listing progression before a fresh build exists only when the standard spec, price logic, lead time, delivery terms, and media truth are locked.
+- For `build_model: Made to Order`, pre-sale dimensions may come from a locked standard spec or approved plan/reference. Actual measured finished dimensions belong in post-build validation unless the launch spec itself is still unresolved.
 - `build_model: In Stock` means the listed item already exists and fulfillment claims should match that inventory truth.
 - `build_model: Sample Built` means a real sample/prototype exists and may support truthful listing media for future builds.
 - `Owned Real Photo` is allowed for listing use when the photo comes from an owned prior build, sample, or current finished piece.
@@ -134,7 +135,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | target_price | Yes | Initial list price target |
 | margin_estimate | Yes | Estimated margin at target price |
 | material_cost_percent_of_price | No | Materials cost as a percent of target price |
-| recommended_price_floor | No | Higher of the two pricing-strategy floors unless manually overridden |
+| recommended_price_floor | No | Default pricing baseline under the current pricing policy; normally Strategy 2 unless manually overridden |
 | delivery_shipping_mode | Yes | Primary fulfillment mode(s); use slash-separated values from Pickup / Delivery / Shipping |
 | comparable_examples | No | Comparable market examples or notes |
 | local_price_range | No | Observed or assumed local price band |
@@ -199,7 +200,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | pricing_strategy_review | No | Dual-strategy pricing result note for the current listing price |
 | short_pitch | No | Internal offer summary only; not a publishable customer-facing field |
 | key_features | No | Internal feature bullets only; not a publishable customer-facing field |
-| dimensions_specs | Yes | Size/spec detail |
+| dimensions_specs | Yes | Pre-sale size/spec detail from the locked standard spec, approved plan/reference, or actual measured item when applicable |
 | material_details | Yes | Material detail |
 | location_scope | Yes | Service area/pickup details |
 | pickup_delivery_options | Yes | Fulfillment options summary |
@@ -226,7 +227,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 ### Listing Pricing Rule
 
 - `listing_price` should be traceable to the linked cost sheet's dual pricing review.
-- `pricing_strategy_review` should summarize whether the current listing price passes both strategies, is blocked, or still needs approval.
+- `pricing_strategy_review` should summarize both strategy calculations, whether Strategy 1 differs from Strategy 2 by more than 15%, and whether the current listing price still needs operator approval.
 - If a listing price is already set before a full cost sheet is finalized, reverse-check it against both pricing strategies before calling it acceptable.
 
 ### Listing Media Rule

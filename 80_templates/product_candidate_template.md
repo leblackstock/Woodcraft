@@ -38,8 +38,11 @@
 - lead_time_estimate:
 - unit_cost_estimate:
 - materials_cost_estimate:
+- pricing_strategy_1_price_floor:
+- pricing_strategy_2_price_floor:
 - target_price:
 - margin_estimate:
+- material_cost_percent_of_price:
 - recommended_price_floor:
 - pricing_strategy_review:
 

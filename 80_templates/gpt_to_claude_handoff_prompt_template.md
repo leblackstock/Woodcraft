@@ -1,6 +1,6 @@
 # GPT to Claude Handoff Prompt Template
 
-Use this template when GPT-5.4 reaches a final customer-copy step and must hand off to Claude.
+Use this template when GPT-5.5 reaches a final customer-copy step and must hand off to Claude.
 
 Use this template only after upstream validation is complete.
 If required facts are missing, stop upstream and resolve them before Claude handoff.

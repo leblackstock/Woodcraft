@@ -9,21 +9,21 @@
 - owner: Lauren
 - build_model: Made to Order
 - plans_available: Yes
-- plans_source_ref: [Build plan — Ana White: Modern Fence Picket Planter or Raised Bed – Multiple Sizes – Free DIY Plans](https://www.ana-white.com/woodworking-projects/modern-fence-picket-planter-or-raised-bed-multiple-sizes-free-diy-plans)
+- plans_source_ref: [Build plan — Ana White: Modern Fence Picket Planter or Raised Bed – Multiple Sizes – Free DIY Plans](https://www.ana-white.com/woodworking-projects/modern-fence-picket-planter-or-raised-bed-multiple-sizes-free-diy-plans) | [Who's the Voss — Post Planter Box](https://www.whosthevoss.com/product-page/post-planter-box)
 
 ## Verification Snapshot
 
 - reference_source: Pending
 - reference_code: Pending
-- source_links: [Build plan — Ana White: Modern Fence Picket Planter or Raised Bed – Multiple Sizes – Free DIY Plans](https://www.ana-white.com/woodworking-projects/modern-fence-picket-planter-or-raised-bed-multiple-sizes-free-diy-plans)
-- media_truth_status: Third-Party Reference Only
-- media_provenance_note: No owned confirmed photo set is documented in the workspace yet. Current known visuals are external plan/reference materials only and must stay internal until owned photos or a truthful concept/mockup set is approved.
+- source_links: [Build plan — Ana White: Modern Fence Picket Planter or Raised Bed – Multiple Sizes – Free DIY Plans](https://www.ana-white.com/woodworking-projects/modern-fence-picket-planter-or-raised-bed-multiple-sizes-free-diy-plans) | [Who's the Voss — Post Planter Box](https://www.whosthevoss.com/product-page/post-planter-box)
+- media_truth_status: Owned Real Photo
+- media_provenance_note: Operator confirmed owned prior-build photos exist for this first-wave product on 2026-04-22; specific listing assets still need to be selected and linked before publish. External plan/reference visuals remain internal-only.
 - standard_spec_ref: 30_products/spec_cedar_planter_box_standard.md
-- cost_sheet_ref: Pending — first live cost sheet not created yet.
-- verification_evidence_ref: Pending — measured sample note, dated material-cost note, labor note, and delivery/lead-time note still need to be bundled.
-- verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — shared first-wave bundled approval packet is prepared; operator reply and record-specific evidence completion are still pending.
+- cost_sheet_ref: 30_products/cost_cedar_planter_box_001.md
+- verification_evidence_ref: Pending — final local-delivery wording and selected owned photo assets still need to be bundled. Owner confirmed the $90 sale price and $30 estimated full-cedar material cost on 2026-04-27. Actual receipts, actual labor, final measured dimensions, and fresh finished photos remain post-build validation items.
+- verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — operator reply completed on 2026-04-22 and approved made-to-order listing-first progression, lead time, draft labor assumptions, media truth, and post-build actuals handling.
 - verification_status: Packet Ready
-- unresolved_fact_gaps: Final measured sample dimensions / dated material cost inputs / confirmed first-build labor hours / delivery fee wording within 25 miles / current queue confirmation on the draft lead time / confirmation of publishable owned media or a truthful concept/mockup set / one bundled operator approval of price and verification exceptions.
+- unresolved_fact_gaps: Final local-delivery wording within 25 miles, including whether free delivery is available in the standard area and whether a fee applies outside it / selected owned photo assets for the listing / receipt-backed material refresh and actual labor timing after first build.
 
 ## Buyer + Use Case
 
@@ -33,18 +33,18 @@
 
 ## Build + Cost Snapshot
 
-- material_spec: Draft plan-based assumption — cedar picket exterior over a hidden inner 2x4 frame with screws, nails, glue, basic drainage gaps, and no liner included in the base version.
+- material_spec: Owner-confirmed full-cedar material estimate for the standard made-to-order planter; no liner included in the base version.
 - build_time_estimate: Estimated first-run labor is about 2.5 to 4 hours because the design includes an inner frame, mitered corners, and top trim; actual first-build timing is still pending.
-- lead_time_estimate: Estimated 3 to 5 days after order for the standard 24x24x18 made-to-order version, pending current queue and material confirmation.
-- unit_cost_estimate: Materials-only planning estimate — $43.53 from the current plan-based breakdown; labor, delivery impact, and any platform fees are still pending.
-- materials_cost_estimate: $43.53 materials-only planning estimate from the current plan-based breakdown.
-- pricing_strategy_1_price_floor: Blocked — labor-inclusive total unit cost is still pending.
-- pricing_strategy_2_price_floor: $145.10 based on $43.53 / 0.30.
-- target_price: Assumption — $145 local list price.
-- margin_estimate: Material-only spread suggests about $101.47 gross before labor and delivery (~70.0%); true margin remains pending first-build labor and live cost inputs.
-- material_cost_percent_of_price: 30.0% at the current $145 target price.
-- recommended_price_floor: At least $145.10 before labor; final floor may be higher once Strategy 1 is completed.
-- pricing_strategy_review: Blocked / Needs Approval — the current target sits essentially at the materials benchmark and cannot be approved until labor-inclusive Strategy 1 math and live cost inputs are completed.
+- lead_time_estimate: Approved pre-sale estimate — 3 to 5 days after order for the standard 24x24x18 made-to-order version.
+- unit_cost_estimate: $110.00 in the linked cost sheet when the owner-confirmed $30 material estimate is combined with the current draft $80 labor allowance.
+- materials_cost_estimate: $30.00 owner-confirmed full-cedar material estimate.
+- pricing_strategy_1_price_floor: $183.33 from linked cost sheet.
+- pricing_strategy_2_price_floor: $100.00 based on $30.00 / 0.30.
+- target_price: $90.00 owner-confirmed sale price.
+- margin_estimate: Materials-only spread is $60.00 before labor and delivery; labor-inclusive gross profit is -$20.00 using the current draft labor allowance.
+- material_cost_percent_of_price: 33.3% at the owner-confirmed $90 sale price.
+- recommended_price_floor: $100.00 default Strategy 2 baseline, with $183.33 Strategy 1 comparison preserved as a warning.
+- pricing_strategy_review: Owner Approved Override / Warning — owner confirmed $90 sale price even though it is below Strategy 2 and far below Strategy 1 when draft labor is included.
 
 ## Fulfillment Fit
 
@@ -70,19 +70,19 @@
 
 - status: Approved
 - decision_reason: Still a strong near-term candidate because it is easy to understand, easy to photograph, repeatable to build, and appears to clear starter profit rules on paper. Re-review suggests it is slightly more build-involved than a basic box because of the hidden frame, mitered corners, and top trim, but not enough to change approval status.
-- next_action: Continue listing-first prep with the locked standard spec, draft lead time, delivery terms, and governed media truth; then create the first live cost sheet, verification packet, and actual-build capture set after the first real build/sale or earlier if the operator wants tighter proof before publish.
+- next_action: Continue listing-first prep with the owner-confirmed $90 sale price, selected owned listing photos, final delivery wording, and Claude handoff.
 
 ## Publish Readiness Review
 
-- pricing_validation: Draft only — the current $145 target is effectively the materials-at-30% benchmark before labor, so final pricing stays blocked until the live cost sheet and labor-inclusive Strategy 1 math are complete.
+- pricing_validation: Owner confirmed $90 sale price with guardrail warnings preserved in the linked cost sheet.
 - build_complexity_review: Low-to-moderate first-batch complexity. The design is still beginner-friendly, but the hidden frame, mitered corners, and top trim make it a little more involved than the simplest planter-box build. Keep the launch spec standardized at 24x24x18 to protect repeatability and lead time.
 - fulfillment_review: Strong local pickup/delivery fit. Size is manageable for local transport if delivery stays within the standard radius and is scheduled.
 - market_clarity_review: Strong local-market clarity. Buyers should understand the use case quickly if photos show porch/patio placement and the size is stated clearly.
-- pending_confirmation: Bundled verification packet approval / final measured dimensions on a finished sample / current material cost sheet / confirmed publishable owned media or a truthful concept/mockup set / delivery fee wording within 25 miles / current queue confirmation on lead time / human approval for final price and publish.
+- pending_confirmation: Selected owned listing photos / delivery fee wording within 25 miles / final publish approval after Claude copy.
 
 ## Notes
 
-- notes: Backfilled on 2026-04-22 to reflect a made-to-order, listing-first workflow. A fresh build is not treated as a universal pre-list requirement, but actual receipts, labor timing, final measured dimensions, and fresh finished-build photos are still pending validation. Third-party plan/reference visuals remain internal-only until owned media or a clearly governed concept/mockup set is confirmed.
+- notes: Backfilled on 2026-04-22 to reflect a made-to-order, listing-first workflow. A fresh build is not treated as a universal pre-list requirement, and the locked 24x24x18 standard spec is the truthful pre-sale dimensions source. Operator confirmed owned prior-build photos exist; selected assets still need to be linked before publish. Actual receipts, labor timing, final measured dimensions, and fresh finished-build photos remain pending post-build validation. Third-party plan/reference visuals remain internal-only.
 
 ### 24x24x18 Cedar Planter — Cost Breakdown + Plan Reference
 
@@ -157,4 +157,4 @@
 
 - Ana's shopping list specifies 72-inch × 5-1/2-inch cedar fence pickets, not dog-eared pickets, so the 8-picket count here is a practical adjustment for the current material reference rather than the exact wording of the plan.
 - Ana's plan also calls for 2-3/4-inch deck screws for the inner frame and 1-5/8-inch deck screws or galvanized nails for attaching the cedar and top trim. The 24 screws priced above only cover the inner-frame joints counted so far, so this total is still light if every recommended fastener is priced exactly.
-- This reference is useful for planning, but the product still needs a live build, real receipt-backed inputs, and a finalized cost sheet before publish approval.
+- This reference is useful for planning, but the product still needs real receipt-backed inputs and a finalized cost sheet before publish approval. A live build remains the path for post-build validation of actual receipts, labor timing, finished dimensions, and stronger owned media.

@@ -47,7 +47,7 @@ This file defines how this workspace is managed so strategy stays consistent ove
 
 ## Dual-Model Customer-Copy Rules
 
-- GPT-5.4 is the workflow orchestrator for internal workflow progression.
+- GPT-5.5 is the workflow orchestrator for internal workflow progression.
 - Claude is the only approved writer of final customer-facing prose.
 - Non-Claude models may prepare:
   - facts

@@ -6,7 +6,7 @@ It is designed to reduce decision fatigue, keep actions consistent, and prioriti
 
 ## Dual-Model Operating Note
 
-- GPT-5.4 handles workflow orchestration, preparation, validation, and queue movement.
+- GPT-5.5 handles workflow orchestration, preparation, validation, and queue movement.
 - Claude is the only approved writer of final customer-facing copy.
 - No customer-facing listing, caption, reply template, or promo asset is publish-ready until the Claude copy pass is complete.
 

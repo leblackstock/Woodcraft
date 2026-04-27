@@ -4,7 +4,7 @@ Purpose: prevent prompt sprawl and keep reusable prompt sets organized.
 
 ## Dual-Model Prompt Roles
 
-### GPT-5.4 Workflow Orchestration Prompts
+### GPT-5.5 Workflow Orchestration Prompts
 
 Use GPT prompts for:
 
@@ -29,7 +29,7 @@ Claude prompts are for final publishable customer-facing prose only.
 
 ### GPT-to-Claude Handoff Prompts
 
-- GPT-5.4 must generate Claude handoff prompts from approved facts only.
+- GPT-5.5 must generate Claude handoff prompts from approved facts only.
 - If facts are incomplete, stop upstream and resolve missing info before creating the handoff.
 - Record the resulting handoff in `claude_handoff_ref` only after `approved_facts_status: Approved`.
 - The human pastes Claude output back into the workflow for integration.
@@ -46,40 +46,40 @@ These shared prompt templates live in [80_templates/](80_templates/):
 
 ## Prompt Categories to Build Next
 
-Each future prompt family must be explicitly scoped to either GPT-5.4 orchestration/prep or Claude final customer-facing prose.
+Each future prompt family must be explicitly scoped to either GPT-5.5 orchestration/prep or Claude final customer-facing prose.
 
 1. **Market Research Prompts**
-   - Owner: GPT-5.4 orchestration/prep
+   - Owner: GPT-5.5 orchestration/prep
    - Competitor scan
    - Local pricing snapshot
    - Seasonal demand hypotheses
 2. **Product Decision Prompts**
-   - Owner: GPT-5.4 orchestration/prep
+   - Owner: GPT-5.5 orchestration/prep
    - Candidate scoring
    - Margin/risk sanity checks
    - Build-vs-list priority ranking
 3. **Listing Prompts**
-   - GPT-5.4 orchestration/prep: listing field completeness checks and approved-fact packaging
+   - GPT-5.5 orchestration/prep: listing field completeness checks and approved-fact packaging
    - Claude final customer-facing prose: title variants
    - Claude final customer-facing prose: description drafts
    - Claude final customer-facing prose: FAQ + objection handling copy
 4. **Image Planning Prompts**
-   - Owner: GPT-5.4 orchestration/prep
+   - Owner: GPT-5.5 orchestration/prep
    - Listing shot plan and required angles
    - Social content image concept prompts
    - Ad creative image prompt drafts for later testing
 5. **Content Prompts**
-   - GPT-5.4 orchestration/prep: short-form concept extraction from listings
+   - GPT-5.5 orchestration/prep: short-form concept extraction from listings
    - Claude final customer-facing prose: caption variations by platform
    - Claude final customer-facing prose: CTA variants
    - Claude final customer-facing prose: reply-template prompts
 6. **Ad Test Prompts**
-   - Owner: GPT-5.4 orchestration/prep
+   - Owner: GPT-5.5 orchestration/prep
    - Tiny-budget test planning
    - Pass/fail analysis
    - Learnings-to-next-test conversion
 7. **Weekly Ops Prompts**
-   - Owner: GPT-5.4 orchestration/prep
+   - Owner: GPT-5.5 orchestration/prep
    - Weekly planning
    - Low-energy fallback planning
    - Weekly review synthesis

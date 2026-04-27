@@ -15,8 +15,8 @@ Purpose: convert strategy into a repeatable weekly rhythm that survives low-ener
 - Lock the standard launch spec for the week's priority items
 - Set the truthful `build_model` for each priority item (`Made to Order`, `In Stock`, or `Sample Built`)
 - Build or prep priority items when useful, but do not treat a fresh build as a universal pre-list requirement
-- Capture one raw verification evidence bundle (spec/dimensions note, current cost inputs, labor note, delivery/lead-time note, and media provenance note when needed)
-- Confirm costs, labor time, margin assumptions, and lead-time logic in a live cost sheet or linked product record
+- Capture one raw verification evidence bundle (spec/dimensions note, draft cost inputs, draft labor note, delivery/lead-time note, and media provenance note when needed)
+- Confirm costs, labor assumptions, margin assumptions, and lead-time logic in a draft cost sheet or linked product record; for `Made to Order`, do not require post-build actuals before pre-sale approval when the standard offer assumptions are explicitly approved
 - Capture progress notes for listing assets and any actual build learnings already available
 
 ## Wednesday — Listing Day
@@ -24,7 +24,7 @@ Purpose: convert strategy into a repeatable weekly rhythm that survives low-ener
 - Draft/refine Marketplace listings in [40_listings/](40_listings/)
 - Use truthful made-to-order listing prep when a fresh build does not yet exist
 - Assemble one bundled verification packet and escalate only true exceptions or blockers
-- Finalize pricing, lead times, pickup/delivery terms, media-truth status, and approved facts only after the packet is approved
+- Finalize pricing, labor assumptions, lead times, pickup/delivery terms, media-truth status, and approved facts only after the packet is approved
 - If facts are complete, prepare Claude handoff and wait for human paste-back
 - Integrate Claude final listing copy and set `publish_ready: Yes` only when the listing record is fully complete
 - Publish listings (manual) only after `publish_ready: Yes` and human approval

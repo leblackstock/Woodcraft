@@ -15,15 +15,15 @@
 
 - reference_source: Who’s the Voss 2026 pricing guide
 - reference_code: Planter Box A
-- source_links: 20_research/whosthevoss_2026_pricing_guide_reference.md | 20_research/whosthevoss_planter_summary.md
-- media_truth_status: Third-Party Reference Only
-- media_provenance_note: No owned verified 3-picket planter photo set is confirmed in the workspace yet. Current known visuals are source/reference materials only and must stay internal until owned media or a truthful concept/mockup set is approved.
+- source_links: 20_research/whosthevoss_2026_pricing_guide_reference.md | 20_research/whosthevoss_planter_summary.md | https://www.whosthevoss.com/product-page/better-3-picket-planter
+- media_truth_status: Owned Real Photo
+- media_provenance_note: Operator confirmed owned prior-build photos exist for this first-wave product on 2026-04-22; specific listing assets still need to be selected and linked before publish. Source/reference visuals remain internal-only.
 - standard_spec_ref: 20_research/whosthevoss_2026_pricing_guide_reference.md — Planter Box A dimensions, pending a dedicated standard spec file.
-- cost_sheet_ref: Pending — guide-only estimate imported.
-- verification_evidence_ref: Pending — first measured sample, dated receipts, and labor note needed.
-- verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — shared first-wave bundled approval packet is prepared; operator reply and record-specific evidence completion are still pending.
+- cost_sheet_ref: Pending — first live cost sheet not created yet; guide-only estimate imported.
+- verification_evidence_ref: Pending — live cost sheet, selected owned photo assets, and final operator price choice still need to be bundled. Actual receipts, actual labor, final measured dimensions, and fresh finished photos remain post-build validation items.
+- verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — operator reply completed on 2026-04-22 and approved made-to-order listing-first progression, lead time, draft labor assumptions, media truth, and post-build actuals handling.
 - verification_status: Packet Ready
-- unresolved_fact_gaps: Live build confirmation / final measured dimensions / first-build labor timing / live receipt-backed cost sheet / current queue confirmation on the draft lead time / confirmation of publishable owned media or a truthful concept/mockup set.
+- unresolved_fact_gaps: Live cost sheet / labor-inclusive Strategy 1 pricing / selected owned photo assets for the listing / final operator price choice.
 
 ## Buyer + Use Case
 
@@ -35,8 +35,8 @@
 
 - material_spec: Verified internal build inputs — 3 cedar pickets, 1 oz glue, and 40 nails.
 - build_time_estimate: Estimated first-run labor is about 1 to 1.5 hours; actual timing is still pending.
-- lead_time_estimate: Estimated 2 to 4 days after order for the standard 16x16x16 made-to-order version, pending current queue and material confirmation.
-- unit_cost_estimate: Guide-based planning estimate — $10.82 before live receipts, labor, and delivery effects are captured.
+- lead_time_estimate: Approved pre-sale estimate — 2 to 4 days after order for the standard 16x16x16 made-to-order version.
+- unit_cost_estimate: Guide-based planning estimate — $10.82 before live cost-sheet work, labor, and delivery effects are finalized.
 - materials_cost_estimate: $10.82 guide-based cost reference pending a live cost sheet.
 - pricing_strategy_1_price_floor: Blocked — labor-inclusive total unit cost is still pending.
 - pricing_strategy_2_price_floor: $36.07 based on $10.82 / 0.30.
@@ -44,7 +44,7 @@
 - margin_estimate: Guide-only spread suggests about $29.18 gross before labor and delivery (~73.0%); real margin remains pending live labor and delivery inputs.
 - material_cost_percent_of_price: 27.1% at the current $40 target price.
 - recommended_price_floor: At least $36.07 before labor; final floor may be higher once Strategy 1 is completed.
-- pricing_strategy_review: Draft / Needs Approval — the current $40 target clears the materials benchmark on paper, but labor-inclusive Strategy 1 and a live build evidence bundle are still pending.
+- pricing_strategy_review: Draft / Needs Approval — the current $40 target clears the materials benchmark on paper, but labor-inclusive Strategy 1 and a live cost sheet are still pending.
 
 ## Fulfillment Fit
 
@@ -68,9 +68,9 @@
 
 ## Decision
 
-- status: Candidate
-- decision_reason: This is an active first-wave made-to-order candidate because it is simple, understandable, and repeatable, but first-build timing, measured sample confirmation, and governed listing media still need to be locked.
-- next_action: Keep the 16x16x16 guide size as the current launch reference, continue listing-first prep with truthful estimates, and capture actual receipts, labor, dimensions, and finished photos after the first real build or earlier if the operator wants tighter proof before publish.
+- status: Approved
+- decision_reason: Approved for first-wave made-to-order listing prep after operator confirmed listing-first assumptions, lead time, draft labor approach, and owned prior-build photo availability on 2026-04-22. Pricing still needs a live cost sheet before final publish approval.
+- next_action: Create the live cost sheet, select owned listing photos, and run final dual-strategy price approval.
 
 ## Publish Readiness Review
 
@@ -78,8 +78,8 @@
 - build_complexity_review: Low complexity and strong repeatability. Good fit for made-to-order first-wave testing.
 - fulfillment_review: Strong local pickup/delivery fit because the size is compact and the lead time can stay short if the standard version is protected.
 - market_clarity_review: Clear buyer use case if the simple compact size is stated plainly.
-- pending_confirmation: First-build labor note / final measured dimensions / live cost sheet / current queue confirmation on lead time / confirmed publishable owned media or a truthful concept/mockup set / human approval for final price and publish.
+- pending_confirmation: Live cost sheet / selected owned listing photos / human approval for final price and publish.
 
 ## Notes
 
-- notes: Backfilled on 2026-04-22 to align this first-wave record with the made-to-order, listing-first workflow. A fresh build is not required before internal listing prep, but actual receipts, labor timing, final measured dimensions, and fresh finished-build photos are still pending validation. Current source/reference visuals remain internal-only until governed listing media is confirmed.
+- notes: Backfilled on 2026-04-22 to align this first-wave record with the made-to-order, listing-first workflow. A fresh build is not required before internal listing prep, and the current 16x16x16 guide dimensions may serve as truthful pre-sale size wording while they remain the locked standard reference. Operator confirmed owned prior-build photos exist; selected assets still need to be linked before publish. Actual receipts, labor timing, final measured dimensions, and fresh finished-build photos remain pending post-build validation. Source/reference visuals remain internal-only.

@@ -15,15 +15,15 @@
 
 - reference_source: Who’s the Voss 2026 pricing guide
 - reference_code: Planter Box K
-- source_links: 20_research/whosthevoss_2026_pricing_guide_reference.md | 20_research/whosthevoss_planter_summary.md
-- media_truth_status: Third-Party Reference Only
-- media_provenance_note: No owned verified raised-bed photo set is confirmed in the workspace yet. Current known visuals are source/reference materials only and must stay internal until owned media or a truthful concept/mockup set is approved.
-- standard_spec_ref: Pending — one standard launch size still needs operator approval.
+- source_links: 20_research/whosthevoss_2026_pricing_guide_reference.md | 20_research/whosthevoss_planter_summary.md | https://www.whosthevoss.com/product-page/raised-garden-bed
+- media_truth_status: Owned Real Photo
+- media_provenance_note: Operator confirmed owned prior-build photos exist for this first-wave product on 2026-04-22; specific listing assets still need to be selected and linked before publish. Source/reference visuals remain internal-only.
+- standard_spec_ref: Approved launch spec from 20_research/first_wave_operator_approval_packet.md — 11in deep x 70in long x 36in wide.
 - cost_sheet_ref: Pending — first live cost sheet not created yet.
-- verification_evidence_ref: Pending — measured sample note, current receipts, labor note, and delivery note still need to be bundled.
-- verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — shared first-wave bundled approval packet is prepared; operator reply, launch-size approval, and record-specific evidence completion are still pending.
+- verification_evidence_ref: Pending — size-specific cost sheet, selected owned photo assets, assembled-vs-kit delivery handling, and final operator price choice still need to be bundled. Actual receipts, actual labor, final measured dimensions, and fresh finished photos remain post-build validation items.
+- verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — operator reply completed on 2026-04-22 and approved the 11in deep x 70in long x 36in wide launch size plus made-to-order listing-first progression, lead time, draft labor assumptions, media truth, and post-build actuals handling.
 - verification_status: Packet Ready
-- unresolved_fact_gaps: One standard launch size still needs to be locked / current material-cost inputs / confirmed first-build labor hours / assembled-vs-kit delivery handling / current queue confirmation on the draft lead time / confirmation of publishable owned media or a truthful concept/mockup set / one bundled operator approval of pricing and verification exceptions.
+- unresolved_fact_gaps: Size-specific cost sheet inputs / labor-inclusive Strategy 1 pricing / assembled-vs-kit delivery handling / selected owned photo assets for the listing / final operator price choice.
 
 ## Buyer + Use Case
 
@@ -35,16 +35,16 @@
 
 - material_spec: Assumption — cedar boards with exterior-rated fasteners and open-bottom bed format per the Who’s the Voss guide note.
 - build_time_estimate: Estimated first-run labor is about 2.5 to 4.5 hours depending on the final launch size; actual timing is still pending.
-- lead_time_estimate: Estimated 5 to 7 days after order for the first standard made-to-order size, pending the launch-size decision, current queue, and transport format.
-- unit_cost_estimate: Guide-based planning estimate — $21.64 before live receipts, labor, and size-specific adjustments are captured.
+- lead_time_estimate: Approved pre-sale estimate — 5 to 7 days after order for the approved 11in deep x 70in long x 36in wide made-to-order version.
+- unit_cost_estimate: Guide-based planning estimate — $21.64 before size-specific cost-sheet work, labor, and delivery handling are finalized.
 - materials_cost_estimate: $21.64 guide-based cost reference pending a real size-specific cost sheet.
-- pricing_strategy_1_price_floor: Blocked — labor-inclusive total unit cost and final launch size are still pending.
+- pricing_strategy_1_price_floor: Blocked — labor-inclusive total unit cost is still pending.
 - pricing_strategy_2_price_floor: $72.13 based on $21.64 / 0.30.
-- target_price: Guide reference only — $100 for Planter Box K; local launch pricing is still pending the one-size decision.
+- target_price: Guide reference only — $100 for Planter Box K; local launch pricing is still pending size-specific cost-sheet review.
 - margin_estimate: Guide-only spread suggests about $78.36 gross before labor and delivery (~78.4%), but the real margin remains pending the actual launch size, receipts, and labor timing.
 - material_cost_percent_of_price: 21.6% against the guide's $100 reference price; rerun this after the local launch price is set.
 - recommended_price_floor: At least $72.13 before labor; final floor will likely change once size-specific Strategy 1 math is complete.
-- pricing_strategy_review: Draft / Needs Approval — the guide reference passes the materials benchmark on paper, but final local pricing is blocked until one standard launch size, live receipts, and labor-inclusive Strategy 1 math are confirmed.
+- pricing_strategy_review: Draft / Needs Approval — the guide reference passes the materials benchmark on paper, but final local pricing is blocked until the size-specific cost sheet and labor-inclusive Strategy 1 math are completed.
 
 ## Fulfillment Fit
 
@@ -68,18 +68,18 @@
 
 ## Decision
 
-- status: Candidate
-- decision_reason: This remains a first-wave made-to-order candidate because the buyer story and local utility are strong, but one standard launch size still has to be locked before approved-facts review can treat the offer as stable.
-- next_action: Lock one standard launch size, keep the build model at made-to-order, and then move through listing-first prep with truthful lead-time, delivery, pricing, and media notes while leaving post-sale actuals clearly pending.
+- status: Approved
+- decision_reason: Approved for first-wave made-to-order listing prep after operator locked the 11in deep x 70in long x 36in wide launch size and confirmed listing-first assumptions on 2026-04-22. Pricing still needs a size-specific cost sheet before final publish approval.
+- next_action: Create the size-specific cost sheet, resolve assembled-vs-kit delivery handling, select owned listing photos, and run final dual-strategy price approval.
 
 ## Publish Readiness Review
 
-- pricing_validation: Draft only — do not approve a final raised-bed price until one standard launch size is selected and both pricing strategies are rerun from a real size-specific cost sheet.
+- pricing_validation: Draft only — do not approve a final raised-bed price until both pricing strategies are rerun from the approved 11in deep x 70in long x 36in wide launch size.
 - build_complexity_review: Moderate complexity with good repeatability once one launch size is locked. Do not open with broad custom sizing.
 - fulfillment_review: Good local pickup/delivery fit, but assembled-vs-kit handling and delivery-fee wording still need confirmation.
-- market_clarity_review: Strong buyer clarity once one standard size is named plainly and shown truthfully.
-- pending_confirmation: One standard launch size / current material cost sheet / first-build labor note / assembled-vs-kit delivery handling / current queue confirmation on lead time / confirmed publishable owned media or a truthful concept/mockup set / human approval for final pricing and publish.
+- market_clarity_review: Strong buyer clarity now that the 11in deep x 70in long x 36in wide launch size is approved, provided the listing states the size plainly and uses truthful owned media.
+- pending_confirmation: Size-specific cost sheet / first-build labor note for pricing review / assembled-vs-kit delivery handling / selected owned listing photos / human approval for final pricing and publish.
 
 ## Notes
 
-- notes: Backfilled on 2026-04-22 to align this first-wave record with the made-to-order, listing-first workflow. A fresh build, actual receipts, real labor timing, final measured dimensions, and fresh finished-build photos are still pending validation. Source/reference visuals remain internal-only until owned media or a clearly governed concept/mockup set is confirmed.
+- notes: Backfilled on 2026-04-22 to align this first-wave record with the made-to-order, listing-first workflow. The standard launch size is now approved as 11in deep x 70in long x 36in wide, so listing-first prep may continue with truthful pre-sale dimensions. Operator confirmed owned prior-build photos exist; selected assets still need to be linked before publish. Actual receipts, real labor timing, final measured dimensions, and fresh finished-build photos remain pending post-build validation. Source/reference visuals remain internal-only.

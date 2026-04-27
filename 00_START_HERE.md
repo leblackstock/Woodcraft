@@ -7,7 +7,7 @@ Primary goal: help Lauren make better decisions faster, with less stress and les
 ## Dual-Model Operating Note
 
 - This workspace uses a dual-model operating pattern.
-- GPT-5.4 handles workflow orchestration and upstream prep.
+- GPT-5.5 handles workflow orchestration and upstream prep.
 - Claude writes final customer-facing prose, and customer-facing assets must pass the Claude gate before publish approval.
 
 ## Read in This Exact Order

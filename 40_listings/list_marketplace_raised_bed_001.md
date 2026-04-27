@@ -6,53 +6,53 @@
 - product_id: prod_cedar_raised_bed_001
 - build_model: Made to Order
 - channel: Marketplace
-- publish_status: Paused
-- last_updated: 2026-04-22
+- publish_status: Draft
+- last_updated: 2026-04-27
 - approved_facts_status: Working
 - customer_copy_status: Prep Only
 - claude_handoff_ref:
 - claude_output_ref:
 - publish_ready: No
-- standard_spec_ref: Pending — one standard launch size still needs operator approval.
+- standard_spec_ref: Approved launch spec from 20_research/first_wave_operator_approval_packet.md — 11in deep x 70in long x 36in wide.
 - cost_sheet_ref: Pending — final cost sheet still needed before the price can be fully validated.
-- verification_evidence_ref: Pending — measured sample note, dated material-cost note, labor note, and delivery/lead-time note still need to be bundled.
-- verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — shared first-wave bundled approval packet is prepared; operator reply, launch-size approval, and listing-specific evidence completion are still pending.
+- verification_evidence_ref: Pending — size-specific cost sheet, selected owned photo assets, assembled-vs-kit delivery handling, and final operator price choice still need to be bundled. Actual receipts, actual labor, final measured dimensions, and fresh finished photos remain post-build validation items.
+- verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — operator reply completed on 2026-04-22 and approved the 11in deep x 70in long x 36in wide launch size plus made-to-order listing-first progression, lead time, draft labor assumptions, media truth, and post-build actuals handling.
 - verification_status: Packet Ready
-- unresolved_fact_gaps: Linked product remains `Candidate`, so listing progression is paused pending product approval / one standard launch size still needs to be locked / size-specific cost sheet inputs / labor-inclusive Strategy 1 pricing still pending / assembled-vs-kit delivery handling / current queue confirmation on lead time / confirmed publishable owned media or a truthful concept/mockup set / one bundled operator approval packet not yet completed.
+- unresolved_fact_gaps: Size-specific cost sheet inputs / labor-inclusive Strategy 1 pricing / assembled-vs-kit delivery handling / selected owned photo assets for the listing / final operator price choice.
 
 ## Core Offer
 
 - listing_title: [[CLAUDE_FINAL_COPY_REQUIRED]]
 - listing_description: [[CLAUDE_FINAL_COPY_REQUIRED]]
-- customer_copy_prep_notes: Non-Claude prep only. Keep this record paused as listing-prep support while the linked product remains `Candidate`. Preserve made-to-order, listing-first truth: bed-frame-only scope, pickup/local-delivery terms, and an estimated 5 to 7 day lead time for the first standard size. Do not hard-code a final size, final price, or post-build actuals until the operator locks one launch size, the live cost sheet is completed, and listing progression is resumed.
+- customer_copy_prep_notes: Non-Claude prep only. Preserve made-to-order, listing-first truth: approved 11in deep x 70in long x 36in wide launch size, bed-frame-only scope, pickup/local-delivery terms, and an approved 5 to 7 day lead time. Do not imply final price, post-build actuals, or fresh finished-build photos are already verified.
 - listing_price: Pending — hold final listing price until one standard launch size is locked and dual-strategy pricing is rerun from a live cost sheet.
-- pricing_strategy_review: Blocked / Needs Approval — do not treat pricing as settled until one launch size is selected and both pricing strategies are rerun from a size-specific cost sheet.
+- pricing_strategy_review: Blocked / Needs Approval — do not treat pricing as settled until both pricing strategies are rerun from a cost sheet for the approved 11in deep x 70in long x 36in wide launch size.
 - short_pitch: A practical cedar raised bed for local gardeners who want a durable ready-to-place setup without the DIY time.
-- key_features: Cedar build / standardized first-wave size still pending / open-bottom garden design / local pickup or delivery / simple backyard-ready format
-- dimensions_specs: Pending — lock one standard launch size before approved-facts review. Current source reference is a customizable raised-bed format shown as about 11in wide x 36in or less x 70in or less; final marketed dimensions must be locked before publish.
+- key_features: Cedar build / approved 11in deep x 70in long x 36in wide first-wave size / open-bottom garden design / local pickup or delivery / simple backyard-ready format
+- dimensions_specs: Approved first-wave launch size is 11in deep x 70in long x 36in wide. Actual measured finished dimensions remain post-build validation.
 - material_details: Assumption — cedar boards with exterior-rated fasteners and open-bottom design; soil and liner not included.
 
 ## Fulfillment Terms
 
-- location_scope: Local pickup preferred. Local delivery available within 25 miles for an added fee.
+- location_scope: Local pickup preferred. Delivery may be available within 25 miles. Ask for an estimate or quote; free delivery may be available in the local area, and a fee may apply outside this area.
 - pickup_delivery_options: Pickup or scheduled delivery. No shipping in this draft.
-- lead_time: Estimate — 5 to 7 days after order for the first standard made-to-order size, pending the launch-size decision, current queue, and transport format.
-- customization_options: Do not open with broad custom sizing. Lock one standard launch size first; additional variants can be reviewed later.
+- lead_time: Approved pre-sale estimate — 5 to 7 days after order for the approved made-to-order size, pending assembled-vs-kit delivery handling.
+- customization_options: Do not open with broad custom sizing. Keep the first-wave listing to the approved standard launch size; additional variants can be reviewed later.
 
 ## Media Plan
 
-- media_truth_status: Third-Party Reference Only
-- media_provenance_note: No owned verified raised-bed photo set is confirmed in the workspace yet. Current known visuals are source/reference materials only and must stay internal until owned media or a truthful concept/mockup set is approved for pre-sale listing use.
-- media_assets: Pending — no publishable listing media is locked yet. Current third-party/source visuals remain internal-only until replaced by confirmed owned media or a truthful concept/mockup set.
-- hero_photo: Pending — eventual owned hero image or truthful concept/mockup showing the chosen standard size in a yard setting.
-- angle_shots: Pending — eventual owned or governed concept views for front, side, and corner angles.
-- detail_shots: Pending — eventual owned or governed concept detail views for board thickness, fasteners, and corner construction.
-- in-use_shot: Pending — eventual owned or governed concept image showing scale in a real yard or garden setting.
+- media_truth_status: Owned Real Photo
+- media_provenance_note: Operator confirmed owned prior-build photos exist for this first-wave product on 2026-04-22; specific listing assets still need to be selected and linked before publish. Current source/reference visuals remain internal-only.
+- media_assets: Pending — select and link the owned prior-build photo set before publish.
+- hero_photo: Pending — select owned hero image showing the approved standard size in a yard setting.
+- angle_shots: Pending — select owned front, side, and corner views where available.
+- detail_shots: Pending — select owned detail views for board thickness, fasteners, and corner construction where available.
+- in-use_shot: Pending — select owned or truthful staged image showing scale in a real yard or garden setting.
 - optional_video: Pending — short owned walkthrough clip only after valid media exists.
 
 ## Buyer Support Copy
 
-- faq_prep: Confirm cedar material / bed-frame-only scope / local delivery within standard radius for a fee / one standard launch size first before broader custom sizing is discussed.
+- faq_prep: Confirm cedar material / bed-frame-only scope / approved 11in deep x 70in long x 36in wide standard size / local delivery within standard radius for a fee / broader custom sizing held for later review.
 - objection_handling_prep: Internal prep only. If buyers compare against lower-cost options, emphasize cedar durability, handmade local build, sturdier construction, and no assembly requirement without making unsupported claims.
 
 ## Performance Log
@@ -62,5 +62,5 @@
 - saves:
 - messages:
 - sales:
-- performance_snapshot: Paused prep only — not published and not currently advancing toward publish.
-- notes: Built for Facebook Marketplace as the primary sales channel. The linked product currently remains `Candidate`, so this listing record is paused and should not advance beyond prep status until product approval, launch-size confirmation, cost-sheet completion, and the rest of the verification/Claude gates are resolved. Actual receipts, labor timing, final measured dimensions, and fresh finished-build photos remain pending validation.
+- performance_snapshot: Draft only — not published yet.
+- notes: Built for Facebook Marketplace as the primary channel. The linked product is approved for first-wave made-to-order listing prep with the 11in deep x 70in long x 36in wide launch size. Publish readiness is still blocked by the size-specific cost sheet, assembled-vs-kit delivery handling, selected owned listing media, approved facts review, Claude handoff, pasted-back Claude output, and human approval for final price and publish timing. Actual receipts, labor timing, final measured dimensions, and fresh finished-build photos remain pending post-build validation.

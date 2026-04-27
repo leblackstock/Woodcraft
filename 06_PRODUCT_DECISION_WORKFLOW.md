@@ -24,7 +24,7 @@ Before an approved product moves forward to listing progression, prepare one bun
 - build model confirmation (`build_model`)
 - standard launch spec confirmation
 - pricing confirmation when relevant
-- dual pricing strategy review when relevant
+- dual pricing strategy review when relevant, including the default Strategy 2 baseline and any >15% Strategy 1 variance warning
 - replacement/override confirmation when relevant
 - estimated lead-time confirmation
 - delivery/pickup terms confirmation
@@ -44,6 +44,8 @@ A product may move toward listing prep before a fresh build exists only when all
 - made-to-order lead time is defined
 - delivery/pickup terms are defined
 - media used for listing is truthful under the media-governance rules in [07_LISTING_AND_CONTENT_WORKFLOW.md](07_LISTING_AND_CONTENT_WORKFLOW.md)
+
+For `build_model: Made to Order`, locked standard-spec dimensions or approved plan/reference dimensions are valid pre-sale truth. Actual measured finished dimensions move to the post-build update loop unless the launch spec itself is still unresolved.
 
 ## Scoring Dimensions (1–5 each)
 
@@ -67,7 +69,7 @@ Record all six component scores plus `score_total` in the product record.
 1. Who is the likely buyer and use case?
 2. What are comparable local prices?
 3. What is estimated unit cost and target price?
-4. Does it pass both pricing strategies?
+4. What do both pricing strategies show, and is Strategy 1 more than 15% different from the default Strategy 2 baseline?
    - current total-cost guardrail pricing
    - materials-at-30%-of-finished-price pricing
 5. Is fulfillment realistic with current capacity, including truthful made-to-order lead time and delivery terms?

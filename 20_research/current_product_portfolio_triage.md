@@ -27,7 +27,7 @@ Purpose: one bundled, decision-ready view of **all current product records in `3
 - The best current anchor product remains **Cedar Planter Box 24x24x18** because it already has a stronger record, a real plan source, and the clearest Marketplace fit.
 - The best imported additions for near-term verification are **Cedar Raised Garden Bed**, **Cedar 3-Picket Planter**, and **Cedar Tall Square Planter 16x16x25**.
 - Operator-reported prior success last year makes **Cedar Tall Rectangular Planter 46x16x32 with Shelf** more important than the first draft suggested, but it still sits just outside the first 4 because current structure/stability and verification work remain open.
-- **No imported guide product should be treated as publish-ready yet.** Guide prices are reference inputs only until receipt-backed costs, labor timing, measured samples, and photo sets exist.
+- **No imported guide product should be treated as publish-ready yet.** Guide prices are reference inputs only until receipt-backed costs, labor timing, locked launch dimensions/specs, and photo sets are in place, with post-build actuals captured later when available.
 - Actionable now: **11 products** (`First-Wave Priority` + `Good Candidate — Needs Fact Locking`)
 - Keep as secondary/reference/hold for now: **12 products**
 
@@ -35,9 +35,9 @@ Purpose: one bundled, decision-ready view of **all current product records in `3
 
 | Priority | Product | Why it made the shortlist | First blocker to clear |
 |---|---|---|---|
-| 1 | Cedar Planter Box 24x24x18 | Strongest current all-around product: approved record, clear buyer story, repeatable build, good Marketplace presentation, real plan source already linked. | Live cost sheet + measured sample + labor/photo verification still missing. |
+| 1 | Cedar Planter Box 24x24x18 | Strongest current all-around product: approved record, clear buyer story, repeatable build, good Marketplace presentation, real plan source already linked. | Live cost sheet + labor/photo verification still missing; locked standard dimensions already exist. |
 | 2 | Cedar Raised Garden Bed | High-clarity, high-demand seasonal utility item with strong existing score and strong Marketplace practicality. | Must lock one standard launch size before cost/labor/photo work. |
-| 3 | Cedar 3-Picket Planter | Simple entry-level planter with known build-input notes, clear use case, and strong repeatability potential. | Needs first live build and labor timing. |
+| 3 | Cedar 3-Picket Planter | Simple entry-level planter with known build-input notes, clear use case, and strong repeatability potential. | Needs labor timing, live cost proof, and photo readiness; current guide dimensions can serve as pre-sale truth if kept as the locked standard size. |
 | 4 | Cedar Tall Square Planter 16x16x25 | Good visual entry/porch product with clearer value perception than micro accessories and manageable build scope. | Needs exact cut list lock and labor timing. |
 
 **First alternate, not in the immediate 4-product wave:** `Cedar Tall Rectangular Planter 46x16x32 with Shelf` — operator-reported prior success last year makes this the strongest promotion candidate if one of the first 4 drops out, but shelf structure/stability and current verification still need to be locked.
@@ -48,9 +48,9 @@ Purpose: one bundled, decision-ready view of **all current product records in `3
 
 | Product | Origin | Why this bucket | Plans | Still weak / blocked |
 |---|---|---|---|---|
-| Cedar Planter Box 24x24x18 | Existing workspace | Best current record; already approved, easy to understand, strong score, repeatable, and easy to stage for Facebook Marketplace. | **Yes** — Ana White plan linked in record | Live cost sheet, measured sample, real labor timing, finished photos, and delivery-fee wording are still missing. |
+| Cedar Planter Box 24x24x18 | Existing workspace | Best current record; already approved, easy to understand, strong score, repeatable, and easy to stage for Facebook Marketplace. | **Yes** — Ana White plan linked in record | Live cost sheet, real labor timing, finished photos, and delivery-fee wording are still missing. |
 | Cedar Raised Garden Bed | Existing record + Who's the Voss overlap | Strong utility product with strong score and broad seasonal buyer fit; likely one of the most practical Marketplace offers once standardized. | **Yes** — truthful workspace plan reference recorded | Launch dimensions are not locked; still lacks receipts, labor timing, and photo set. |
-| Cedar 3-Picket Planter | Who's the Voss import | Simple, understandable planter with known internal build inputs and good chance of repeatable production. | **Yes** — truthful workspace plan reference recorded | Needs first build confirmation, measured sample, labor timing, and photo set. |
+| Cedar 3-Picket Planter | Who's the Voss import | Simple, understandable planter with known internal build inputs and good chance of repeatable production. | **Yes** — truthful workspace plan reference recorded | Needs labor timing, live cost proof, and photo set; current guide dimensions can serve as pre-sale truth if kept as the locked standard size. |
 | Cedar Tall Square Planter 16x16x25 | Who's the Voss import | Clear tall-accent use case, manageable size, and stronger perceived value than very small accessories. | **Yes** — truthful workspace plan reference recorded | Exact cut list, labor timing, and photo proof still missing. |
 
 ### Good Candidate — Needs Fact Locking
@@ -143,7 +143,7 @@ These are real questions, but they should **not** block the first verification w
 Recommended next operational move:
 
 1. **Approve the 4-product first wave and resolve the bundled operator packet above.**
-2. **Verify those 4 products only** with receipt-backed cost sheets, labor timing, measured samples, and photo sets.
+2. **Verify those 4 products only** with receipt-backed cost sheets, labor timing, locked launch specs where still unresolved, and photo sets.
 3. **Build verification packets for those 4 only** before moving any additional imported or furniture products toward listing-prep work.
 4. **Keep all lower-priority products parked** as secondary/reference records until the first-wave facts are fully locked.
 

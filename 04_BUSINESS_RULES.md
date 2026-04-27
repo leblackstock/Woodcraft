@@ -20,8 +20,10 @@ Hard guardrails for decisions, spending, and product selection.
 - Every product must have a simple cost sheet before listing.
 - Include materials, labor time, delivery/shipping impact, and platform fees when relevant.
 - Run both approved pricing strategies whenever proposing a price or reviewing an already-set price.
-- Do not price below target profit floor.
-- If price needed to sell is below profit floor, pause or redesign product.
+- Default the draft pricing baseline to the materials-at-30%-of-finished-price method unless the operator explicitly chooses a different rule.
+- Always show the Strategy 1 calculation alongside Strategy 2 whenever pricing is proposed or reviewed.
+- If Strategy 1 differs from Strategy 2 by more than **15%** in either direction, warn the operator and show both calculations before final price approval.
+- Use gross-margin and profit-floor results as warning signals and decision support unless the operator explicitly chooses a stricter rule for that item.
 - If cost uncertainty is still high, keep the price in draft status and do not publish yet.
 
 ### Pricing Strategy 1 (Current Method) — Total-Cost Guardrail Pricing
@@ -45,16 +47,17 @@ Hard guardrails for decisions, spending, and product selection.
 
 ### Dual-Strategy Pricing Rule
 
-- For every new draft price, calculate both Strategy 1 and Strategy 2.
-- Use the higher resulting price as the default pricing baseline unless an explicit human override is recorded.
+- Use Strategy 2 (`materials_cost_total / 0.30`) as the default pricing baseline unless the operator explicitly states otherwise.
 - For every existing target price or listing price, reverse-check both:
   - Strategy 1 compliance against gross-margin and profit-floor rules
   - Strategy 2 compliance against the 30%-materials benchmark
-- A price should not be treated as good pricing unless both strategies pass or a documented exception is approved.
+- If Strategy 1 differs from Strategy 2 by more than **15%** in either direction, flag the variance and require an explicit operator price choice before treating pricing as final.
+- A price should not be treated as final pricing until both calculations have been shown and the chosen price is explicitly approved.
 
 ### Initial Profit Rule (Starter)
 
 - Minimum target gross margin: **>= 40%** unless explicitly approved.
+- Under the current pricing policy, this remains a warning/reference guardrail unless the operator explicitly chooses to enforce Strategy 1 or another stricter pricing rule for the item.
 
 ### Starter Minimum Profit Floors (Use Until Product-Specific Rules Replace Them)
 
@@ -64,6 +67,8 @@ Hard guardrails for decisions, spending, and product selection.
 - Larger furniture builds: **>= $100 profit per unit**
 
 If a product does not clearly fit a category yet, use the more conservative floor or mark the product **Hold** pending review in [30_products/](30_products/).
+
+These starter profit floors remain important warning signals, but they do not automatically override the default 30%-materials pricing baseline unless the operator says otherwise.
 
 ## Shipping and Delivery Guardrails
 
