@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_tabletop_plant_holder_001
+- catalog_id: f00023
 - product_name: Cedar Tabletop Plant Holder
 - category: Decor
 - date_created: 2026-04-21

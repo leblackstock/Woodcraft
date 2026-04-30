@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_trio_planter_box_set_001
+- catalog_id: f00029
 - product_name: Cedar Trio Planter Box Set
 - category: Planter
 - date_created: 2026-04-21

@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_petite_planter_box_111113_001
+- catalog_id: f00013
 - product_name: Cedar Petite Planter Box 11x11x13
 - category: Planter
 - date_created: 2026-04-21

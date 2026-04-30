@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_table_saw_cart_001
+- catalog_id: f00022
 - product_name: Cedar Table Saw Cart
 - category: Shop Furniture
 - date_created: 2026-04-27

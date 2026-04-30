@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_privacy_planter_001
+- catalog_id: f00018
 - product_name: Cedar Planter Privacy Screen Combo
 - category: Furniture
 - date_created: 2026-04-21

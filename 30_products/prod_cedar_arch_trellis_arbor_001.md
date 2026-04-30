@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_arch_trellis_arbor_001
+- catalog_id: f00002
 - product_name: Cedar Arch Trellis Arbor
 - category: Garden Structure
 - date_created: 2026-04-27

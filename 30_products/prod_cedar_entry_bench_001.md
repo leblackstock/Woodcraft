@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_entry_bench_001
+- catalog_id: f00005
 - product_name: Cedar Garden Entry Bench 48in
 - category: Furniture
 - date_created: 2026-04-21

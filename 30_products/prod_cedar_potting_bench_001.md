@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_potting_bench_001
+- catalog_id: f00017
 - product_name: Cedar Potting Bench with Lower Shelf
 - category: Furniture
 - date_created: 2026-04-21

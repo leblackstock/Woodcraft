@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_long_planter_box_46in_001
+- catalog_id: f00010
 - product_name: Cedar Long Planter Box 46in
 - category: Planter
 - date_created: 2026-04-21

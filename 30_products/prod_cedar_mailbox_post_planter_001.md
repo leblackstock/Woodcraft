@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_mailbox_post_planter_001
+- catalog_id: f00011
 - product_name: Cedar Mailbox Post Planter
 - category: Planter
 - date_created: 2026-04-21

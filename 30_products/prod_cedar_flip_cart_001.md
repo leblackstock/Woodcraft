@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_flip_cart_001
+- catalog_id: f00006
 - product_name: Cedar Flip Cart
 - category: Shop Furniture
 - date_created: 2026-04-27

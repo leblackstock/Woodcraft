@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_post_planter_box_001
+- catalog_id: f00016
 - product_name: Cedar Post Planter Box
 - category: Planter
 - date_created: 2026-04-21

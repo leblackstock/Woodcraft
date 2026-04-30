@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_plant_stand_001
+- catalog_id: f00014
 - product_name: Cedar Plant Stand
 - category: Decor
 - date_created: 2026-04-21

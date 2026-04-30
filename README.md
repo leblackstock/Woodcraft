@@ -1,5 +1,9 @@
 # Woodcraft AI Marketing Workspace
 
+## Local Research UI
+
+- [http://127.0.0.1:8765](http://127.0.0.1:8765)
+
 This repository is a markdown-first operating system for selling handmade cedar decor, planters, raised beds, and outdoor furniture with AI support.
 
 It is designed to reduce decision fatigue, keep actions consistent, and prioritize cash-flow outcomes for a low-budget business.

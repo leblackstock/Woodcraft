@@ -104,6 +104,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | Field | Required | Description |
 |---|---|---|
 | product_id | Yes | Unique ID (e.g., `prod_raised_bed_001`) |
+| catalog_id | Yes | Stable short product number (e.g., `f00001`) assigned sequentially and preserved. |
 | product_name | Yes | Human-readable product name |
 | category | Yes | Decor / Planter / Raised Bed / Furniture |
 | date_created | Yes | Record creation date |
@@ -167,6 +168,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 ### Product Naming + Plans/Reference Tracking Rules
 
 - Imported reference products may use a clean human-readable `product_name` instead of raw source/flyer codes.
+- Preserve `product_id` as the file-safe identifier and use `catalog_id` for short human-facing product numbers such as `f00001`.
 - Preserve original source/flyer naming in `reference_code` (for example, use `Cedar Tall Square Planter 16x16x25` as `product_name` and store `Planter Box C` in `reference_code`).
 - Use `reference_source` to identify the originating source set (for example, `Who’s the Voss 2026 pricing guide`).
 - `plans_available` defaults to `No` for non-imported products and any product without a real source-backed plan/reference.

@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_lego_shelving_001
+- catalog_id: f00009
 - product_name: Cedar Lego Shelving
 - category: Storage
 - date_created: 2026-04-27

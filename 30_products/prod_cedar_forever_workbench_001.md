@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_forever_workbench_001
+- catalog_id: f00007
 - product_name: Cedar Forever Workbench
 - category: Shop Furniture
 - date_created: 2026-04-27

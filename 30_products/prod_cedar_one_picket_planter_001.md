@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_one_picket_planter_001
+- catalog_id: f00012
 - product_name: Cedar One-Picket Planter
 - category: Planter
 - date_created: 2026-04-21

@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_secret_bookcase_door_001
+- catalog_id: f00021
 - product_name: Cedar Secret Bookcase Door
 - category: Furniture
 - date_created: 2026-04-27

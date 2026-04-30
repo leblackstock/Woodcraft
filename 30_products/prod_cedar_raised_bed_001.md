@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_raised_bed_001
+- catalog_id: f00020
 - product_name: Cedar Raised Garden Bed
 - category: Raised Bed
 - date_created: 2026-04-21

@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_adirondack_chair_001
+- catalog_id: f00001
 - product_name: Cedar Adirondack Chair
 - category: Furniture
 - date_created: 2026-04-21

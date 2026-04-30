@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_tall_square_planter_161625_001
+- catalog_id: f00025
 - product_name: Cedar Tall Square Planter 16x16x25
 - category: Planter
 - date_created: 2026-04-21

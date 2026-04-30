@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_window_box_001
+- catalog_id: f00031
 - product_name: Cedar Window Box Planter 36in
 - category: Planter
 - date_created: 2026-04-21

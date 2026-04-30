@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id:
+- catalog_id:
 - product_name:
 - category:
 - date_created:

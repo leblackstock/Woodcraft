@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_bench_planter_001
+- catalog_id: f00004
 - product_name: Cedar Bench Planter
 - category: Planter
 - date_created: 2026-04-21

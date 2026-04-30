@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_full_size_coffin_001
+- catalog_id: f00008
 - product_name: Cedar Full Size Coffin
 - category: Specialty Seasonal
 - date_created: 2026-04-27

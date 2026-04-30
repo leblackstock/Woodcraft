@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_bar_table_desk_build_001
+- catalog_id: f00003
 - product_name: Cedar Bar Table Desk Build
 - category: Furniture
 - date_created: 2026-04-27

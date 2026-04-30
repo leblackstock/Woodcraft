@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_three_picket_planter_001
+- catalog_id: f00027
 - product_name: Cedar 3-Picket Planter
 - category: Planter
 - date_created: 2026-04-21

@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_planter_box_001
+- catalog_id: f00015
 - product_name: Cedar Planter Box 24x24x18
 - category: Planter
 - date_created: 2026-04-21

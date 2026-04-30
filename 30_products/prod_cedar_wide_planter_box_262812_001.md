@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_wide_planter_box_262812_001
+- catalog_id: f00030
 - product_name: Cedar Wide Planter Box 26x28x12
 - category: Planter
 - date_created: 2026-04-21

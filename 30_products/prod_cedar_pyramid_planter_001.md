@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_pyramid_planter_001
+- catalog_id: f00019
 - product_name: Cedar Pyramid Planter
 - category: Planter
 - date_created: 2026-04-21

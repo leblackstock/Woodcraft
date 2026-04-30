@@ -3,6 +3,7 @@
 ## Basic Info
 
 - product_id: prod_cedar_tall_rectangular_planter_461632_001
+- catalog_id: f00024
 - product_name: Cedar Tall Rectangular Planter 46x16x32 with Shelf
 - category: Planter
 - date_created: 2026-04-21
