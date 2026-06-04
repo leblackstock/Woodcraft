@@ -1,4 +1,4 @@
-# 13 Backlog
+﻿# 13 Backlog
 
 Ordered next tasks after initial scaffold. Keep this list short, practical, and priority-driven.
 
@@ -66,4 +66,3 @@ The repo now operates in a mostly governance-aligned state, but some secondary l
 - No forced approval-state changes
 - No speculative pricing approval
 - No folder restructuring unless separately approved
-

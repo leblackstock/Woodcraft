@@ -1,4 +1,4 @@
-# Cedar Window Box Planter 36in
+﻿# Cedar Window Box Planter 36in
 
 ## Basic Info
 

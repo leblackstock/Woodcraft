@@ -31,8 +31,11 @@
 
 ## Asset Plan
 
+- brand_assets_ref: 00_brand/
 - asset_refs:
 - thumbnail_note:
+
+> Brand asset rule: any brand-specific image, graphic, logo, color, template, caption prompt, or generated visual for this post must reference `00_brand/` as the current brand asset source of truth.
 
 ## Publishing + Outcome
 

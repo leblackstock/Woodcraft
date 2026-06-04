@@ -1,4 +1,4 @@
-# Cedar Planter Privacy Screen Combo
+﻿# Cedar Planter Privacy Screen Combo
 
 ## Basic Info
 

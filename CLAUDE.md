@@ -30,6 +30,18 @@ Even if asked to suggest commands or workflows, do not recommend patterns that p
 - Do not present assumed details as confirmed selling points.
 - Keep copy aligned with the repo’s channel strategy and product positioning.
 
+## Brand Asset Source of Truth
+
+- Use `00_brand/` as the current source of truth for Drakkar Designs logos, approved product photos, palette notes, and brand asset provenance.
+- Any brand-specific copy, ad text, graphic text, template language, HTML text, or generated-visual text should reference `00_brand/` for current brand context when relevant.
+
+## Image Prompt Text Rules
+
+- Do not strip text out of image prompts by default.
+- If an image concept calls for readable in-image text, labels, signs, branding, catalog marks, product text, price text, or similar words, include the literal text in the prompt.
+- ChatGPT Image 2 is accepted in this workflow as a strong option for text-bearing images. Do not fall back to generic older guidance that images should avoid written text.
+- Remove or avoid in-image text only when the user asks for a text-free image, the facts are not approved for customer-facing use, or the target image tool explicitly cannot support it.
+
 ## Collaboration Rules
 
 - If upstream prep from another model is incomplete or unsafe, say so clearly.

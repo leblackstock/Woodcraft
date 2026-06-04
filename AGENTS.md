@@ -42,10 +42,22 @@ Agents must actively avoid repeating those patterns.
 - Use explicit placeholders for unknowns rather than guessing.
 - Record meaningful governance or workflow changes in `12_DECISION_LOG.md`.
 
+## Brand Asset Source of Truth
+
+- `00_brand/` is the current source of truth for Drakkar Designs logos, approved product photos, palette notes, and brand asset provenance.
+- Any workflow that creates brand-specific text, graphics, ads, copy, images, HTML, templates, prompt packs, or generated visuals must reference `00_brand/` before using brand assets or styling.
+
 ## Copy and Publishing Rules
 
 - Final customer-facing prose must come from Claude, per repo governance.
 - Other agents may prepare facts, outlines, and validation only.
+
+## Image Prompt Rules
+
+- Do not assume text should be excluded from image prompts.
+- When the requested image needs readable text, labels, signage, branding, catalog marks, price tags, captions, package text, or other literal words inside the image, keep that text in the prompt and make it explicit.
+- ChatGPT Image 2 is considered capable for text-bearing image generation in this workflow. Do not apply older generic advice that image models cannot or should not render words.
+- Only remove text from an image prompt when the user explicitly asks for a text-free image or when the target workflow is documented as not supporting text.
 
 ## Preferred Working Style
 

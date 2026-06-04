@@ -1,10 +1,10 @@
-# Cedar 3-Picket Planter
+﻿# Classic Square Cedar Planter
 
 ## Basic Info
 
 - product_id: prod_cedar_three_picket_planter_001
 - catalog_id: f00027
-- product_name: Cedar 3-Picket Planter
+- product_name: Classic Square Cedar Planter
 - category: Planter
 - date_created: 2026-04-21
 - owner: Lauren
@@ -16,15 +16,19 @@
 
 - reference_source: Who’s the Voss 2026 pricing guide
 - reference_code: Planter Box A
+- catalog_sku: A
+- catalog_display_name: Classic Square Cedar Planter
+- catalog_retail_price: $80
+- fb_marketplace_price: $40
 - source_links: 20_research/whosthevoss_2026_pricing_guide_reference.md | 20_research/whosthevoss_planter_summary.md | https://www.whosthevoss.com/product-page/better-3-picket-planter
 - media_truth_status: Owned Real Photo
-- media_provenance_note: Operator confirmed owned prior-build photos exist for this first-wave product on 2026-04-22; specific listing assets still need to be selected and linked before publish. Source/reference visuals remain internal-only.
+- media_provenance_note: Operator approved the saved catalog image for FBM listing use on 2026-06-04. Catalog SKU image: `00_brand/photos/planter-a.png`.
 - standard_spec_ref: 20_research/whosthevoss_2026_pricing_guide_reference.md — Planter Box A dimensions, pending a dedicated standard spec file.
 - cost_sheet_ref: Pending — first live cost sheet not created yet; guide-only estimate imported.
-- verification_evidence_ref: Pending — live cost sheet, selected owned photo assets, and final operator price choice still need to be bundled. Actual receipts, actual labor, final measured dimensions, and fresh finished photos remain post-build validation items.
+- verification_evidence_ref: 40_listings/list_marketplace_classic_square_planter_001.md — operator approved catalog image use and $40 FBM price on 2026-06-04. Actual receipts, actual labor, final measured dimensions, and fresh finished photos remain post-build validation items.
 - verification_packet_ref: 20_research/first_wave_operator_approval_packet.md — operator reply completed on 2026-04-22 and approved made-to-order listing-first progression, lead time, draft labor assumptions, media truth, and post-build actuals handling.
-- verification_status: Packet Ready
-- unresolved_fact_gaps: Live cost sheet / labor-inclusive Strategy 1 pricing / selected owned photo assets for the listing / final operator price choice.
+- verification_status: Approved
+- unresolved_fact_gaps: Claude final-copy pass pending with the broader listing batch; live cost sheet and labor details remain advisory/post-build validation, not FBM draft blockers.
 
 ## Buyer + Use Case
 
@@ -39,13 +43,13 @@
 - lead_time_estimate: Approved pre-sale estimate — 2 to 4 days after order for the standard 16x16x16 made-to-order version.
 - unit_cost_estimate: Guide-based planning estimate — $10.82 before live cost-sheet work, labor, and delivery effects are finalized.
 - materials_cost_estimate: $10.82 guide-based cost reference pending a live cost sheet.
-- pricing_strategy_1_price_floor: Blocked — labor-inclusive total unit cost is still pending.
+- pricing_strategy_1_price_floor: Note — labor-inclusive total unit cost is still pending; keep Strategy 1 visible as an advisory check when live inputs exist.
 - pricing_strategy_2_price_floor: $36.07 based on $10.82 / 0.30.
 - target_price: Assumption — guide selling price $40.
 - margin_estimate: Guide-only spread suggests about $29.18 gross before labor and delivery (~73.0%); real margin remains pending live labor and delivery inputs.
 - material_cost_percent_of_price: 27.1% at the current $40 target price.
-- recommended_price_floor: At least $36.07 before labor; final floor may be higher once Strategy 1 is completed.
-- pricing_strategy_review: Draft / Needs Approval — the current $40 target clears the materials benchmark on paper, but labor-inclusive Strategy 1 and a live cost sheet are still pending.
+- recommended_price_floor: $36.07 materials benchmark; Strategy 1 can be added as an advisory note when live labor inputs exist.
+- pricing_strategy_review: Operator Approved Catalog Price / Materials Benchmark Pass — the $40 FB Marketplace price is approved and clears the guide-based Strategy 2 materials benchmark. Labor-inclusive Strategy 1 and live cost sheet details remain advisory/post-build validation, not FBM draft blockers.
 
 ## Fulfillment Fit
 
@@ -70,17 +74,17 @@
 ## Decision
 
 - status: Approved
-- decision_reason: Approved for first-wave made-to-order listing prep after operator confirmed listing-first assumptions, lead time, draft labor approach, and owned prior-build photo availability on 2026-04-22. Pricing still needs a live cost sheet before final publish approval.
-- next_action: Create the live cost sheet, select owned listing photos, and run final dual-strategy price approval.
+- decision_reason: Approved for FBM catalog-rollout listing prep after operator approved catalog image use and $40 FBM price on 2026-06-04.
+- next_action: Hold for the later Claude final-copy batch, then operator final go/no-go before publish.
 
 ## Publish Readiness Review
 
-- pricing_validation: Draft only — the current $40 target passes the materials benchmark on guide-only inputs, but final price approval is still blocked until Strategy 1 is completed from live labor and cost inputs.
+- pricing_validation: Operator Approved Catalog Price / Materials Benchmark Pass — the current $40 FBM price passes the materials benchmark on guide-only inputs; labor-inclusive Strategy 1 remains advisory until live inputs exist.
 - build_complexity_review: Low complexity and strong repeatability. Good fit for made-to-order first-wave testing.
 - fulfillment_review: Strong local pickup/delivery fit because the size is compact and the lead time can stay short if the standard version is protected.
 - market_clarity_review: Clear buyer use case if the simple compact size is stated plainly.
-- pending_confirmation: Live cost sheet / selected owned listing photos / human approval for final price and publish.
+- pending_confirmation: Claude final-copy pass with the broader listing batch / final operator publish go-ahead.
 
 ## Notes
 
-- notes: Backfilled on 2026-04-22 to align this first-wave record with the made-to-order, listing-first workflow. A fresh build is not required before internal listing prep, and the current 16x16x16 guide dimensions may serve as truthful pre-sale size wording while they remain the locked standard reference. Operator confirmed owned prior-build photos exist; selected assets still need to be linked before publish. Actual receipts, labor timing, final measured dimensions, and fresh finished-build photos remain pending post-build validation. Source/reference visuals remain internal-only.
+- notes: Backfilled on 2026-04-22 to align this first-wave record with the made-to-order, listing-first workflow. A fresh build is not required before internal listing prep, and the current 16x16x16 guide dimensions may serve as truthful pre-sale size wording while they remain the locked standard reference. Catalog sync on 2026-06-04 maps this source Planter Box A record to the Drakkar catalog-facing name `Classic Square Cedar Planter`; preserve `reference_code: Planter Box A` for source traceability. On 2026-06-04, operator approved the catalog image for FBM use and approved the $40 FBM price. Actual receipts, labor timing, final measured dimensions, and fresh finished photos remain pending post-build validation.

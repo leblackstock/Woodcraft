@@ -1,4 +1,4 @@
-# FB Page Support Post — Raised Bed Spotlight
+﻿# FB Page Support Post — Raised Bed Spotlight
 
 ## Post Identity
 
@@ -29,6 +29,7 @@
 
 ## Asset Plan
 
+- brand_assets_ref: 00_brand/
 - asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after the standard launch size and media plan are locked.
 - thumbnail_note: Pending — choose from governed approved media only after the standard launch size and media plan are locked.
 

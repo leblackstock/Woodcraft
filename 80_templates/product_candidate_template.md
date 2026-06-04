@@ -19,6 +19,7 @@
 - source_links:
 - media_truth_status: Owned Real Photo / Owned AI-Assisted Photo / Concept / Mockup / Third-Party Reference Only
 - media_provenance_note:
+- brand_assets_ref: 00_brand/ when brand-specific media, graphics, templates, or generated visuals are used
 - standard_spec_ref:
 - cost_sheet_ref:
 - verification_evidence_ref:
@@ -40,6 +41,7 @@
 - unit_cost_estimate:
 - materials_cost_estimate:
 - pricing_strategy_1_price_floor:
+- pricing_strategy_1_note:
 - pricing_strategy_2_price_floor:
 - target_price:
 - margin_estimate:
@@ -82,6 +84,8 @@
 - pending_confirmation:
 
 > Listing-first rule: approved products may move toward made-to-order listing prep before a fresh build exists if the standard launch spec, price logic, lead time, delivery terms, and media truth are locked.
+
+> Brand asset rule: brand-specific photos, logos, colors, graphics, HTML/template styling, and generated-visual references should point to `00_brand/` rather than older catalog-export folders.
 
 ## Notes
 

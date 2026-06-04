@@ -42,3 +42,15 @@ Work safely, incrementally, and with bounded output. This repository has already
 - Claude is the only approved writer of final customer-facing prose in this repo.
 - Non-Claude systems may prepare facts, structure, outlines, and validation notes only.
 - If a task reaches final customer copy, stop and hand off to Claude per repo governance.
+
+## Brand Asset Source of Truth
+
+- Use `00_brand/` as the current source of truth for Drakkar Designs logos, approved product photos, palette notes, and brand asset provenance.
+- Any workflow that creates brand-specific text, graphics, ads, copy, images, HTML, templates, prompt packs, or generated visuals must reference `00_brand/`.
+
+## Image Prompt Text Rule
+
+- Do not assume image prompts should avoid text.
+- If the user requests readable in-image words, labels, signage, branding, price text, catalog marks, captions, packaging text, or similar literal text, keep it in the image prompt.
+- ChatGPT Image 2 is treated as capable for text-bearing image generation here; do not remove requested text based on generic older image-model limitations.
+- Avoid or remove in-image text only when the user explicitly asks for no text, the text is not approved for the intended customer-facing use, or the target image tool is documented as unable to render it.

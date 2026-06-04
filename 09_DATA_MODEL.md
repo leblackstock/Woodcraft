@@ -1,4 +1,4 @@
-# 09 Data Model
+﻿# 09 Data Model
 
 Purpose: define consistent record schemas so decisions are traceable and automation-ready.
 
@@ -8,6 +8,7 @@ Purpose: define consistent record schemas so decisions are traceable and automat
 - Listing truth lives in `40_listings/`.
 - Content truth lives in `50_content/`.
 - Ad test truth lives in `70_ads/`.
+- Brand asset truth lives in `00_brand/` for logos, approved photos, palette notes, and brand asset provenance.
 - Decision-level changes must be logged in [12_DECISION_LOG.md](12_DECISION_LOG.md).
 
 ## Copy-State Governance Pattern (Listings + Content)
@@ -55,16 +56,16 @@ These fields add a lightweight audit trail for fact verification before the Clau
 
 ## Dual Pricing Review Pattern
 
-These fields support the required two-strategy pricing review whenever a price is proposed or an existing price is checked.
+These fields support pricing review whenever a price is proposed or an existing price is checked. Strategy 2 is the default baseline. Strategy 1 remains visible, but if labor-inclusive inputs are missing, its pending state is a note rather than a standalone blocker.
 
 | Field | Required | Allowed Values / Format | Description |
 |---|---|---|---|
 | materials_cost_estimate | No | Currency / free text note | Materials-only estimate used for the 30%-of-finished-price benchmark. |
-| pricing_strategy_1_price_floor | No | Currency / free text note | Minimum price from the current total-cost guardrail method. |
+| pricing_strategy_1_price_floor | No | Currency / free text note | Minimum price from the current total-cost guardrail method when live labor-inclusive inputs exist; otherwise a pending/advisory note. |
 | pricing_strategy_2_price_floor | No | Currency / free text note | Minimum/benchmark price when materials are 30% of finished price. |
 | material_cost_percent_of_price | No | Percent / free text note | Reverse-check value for `materials_cost_estimate / target_price`. |
-| recommended_price_floor | No | Currency / free text note | Default pricing baseline after comparing both strategies; under current policy normally Strategy 2 unless otherwise stated, with a warning when Strategy 1 differs by more than 15%. |
-| pricing_strategy_review | No | Free text note | Summary of whether both strategies pass, fail, or remain blocked pending better inputs. |
+| recommended_price_floor | No | Currency / free text note | Default pricing baseline under current policy; normally Strategy 2 unless otherwise stated, with a warning when calculated Strategy 1 differs by more than 15%. |
+| pricing_strategy_review | No | Free text note | Summary of Strategy 2, any available Strategy 1 comparison, missing Strategy 1 notes, and whether the current listing price still needs operator approval. |
 
 ## Build Model + Media Truth Pattern
 
@@ -112,11 +113,12 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | build_model | Yes | See build model + media truth pattern |
 | plans_available | Yes | `Yes` / `No`; default `No` unless a real plan/reference source exists |
 | plans_source_ref | No | Actual build-plan/reference URL or local research doc ref supporting `plans_available: Yes` |
-| reference_source | No | Source set name for imported/reference products (e.g., `Who’s the Voss 2026 pricing guide`) |
+| reference_source | No | Source set name for imported/reference products (e.g., `Who's the Voss 2026 pricing guide`) |
 | reference_code | No | Original source code/name from flyer/reference set (e.g., `Planter Box C`) |
 | source_links | No | Markdown links or labeled external references used for plans, source pages, or verification support |
 | media_truth_status | No | See build model + media truth pattern |
 | media_provenance_note | No | Short note on media origin/truth boundary |
+| brand_assets_ref | No | Brand asset source for logos, approved photos, palette, and styling; default `00_brand/` when brand-specific media or styling is used |
 | standard_spec_ref | No | Linked standard spec file or reference |
 | cost_sheet_ref | No | Linked cost sheet file or reference |
 | verification_evidence_ref | No | Linked raw evidence file/reference |
@@ -131,7 +133,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | lead_time_estimate | No | Estimated fulfillment lead time for the current build model |
 | unit_cost_estimate | Yes | Materials + labor estimate |
 | materials_cost_estimate | No | Materials-only estimate used for the 30% pricing benchmark |
-| pricing_strategy_1_price_floor | No | Current-method minimum price based on total-cost guardrails |
+| pricing_strategy_1_price_floor | No | Current-method minimum price based on total-cost guardrails when labor-inclusive inputs exist; otherwise a visible advisory note |
 | pricing_strategy_2_price_floor | No | Materials-benchmark price based on materials being 30% of finished price |
 | target_price | Yes | Initial list price target |
 | margin_estimate | Yes | Estimated margin at target price |
@@ -170,7 +172,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 - Imported reference products may use a clean human-readable `product_name` instead of raw source/flyer codes.
 - Preserve `product_id` as the file-safe identifier and use `catalog_id` for short human-facing product numbers such as `f00001`.
 - Preserve original source/flyer naming in `reference_code` (for example, use `Cedar Tall Square Planter 16x16x25` as `product_name` and store `Planter Box C` in `reference_code`).
-- Use `reference_source` to identify the originating source set (for example, `Who’s the Voss 2026 pricing guide`).
+- Use `reference_source` to identify the originating source set (for example, `Who's the Voss 2026 pricing guide`).
 - `plans_available` defaults to `No` for non-imported products and any product without a real source-backed plan/reference.
 - Set `plans_available: Yes` only when a real source exists, and store the supporting link/doc in `plans_source_ref`.
 
@@ -210,6 +212,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | customization_options | No | Customization boundaries |
 | media_truth_status | Yes | See build model + media truth pattern |
 | media_provenance_note | No | Short note on media origin/truth boundary |
+| brand_assets_ref | No | Brand asset source for logos, approved photos, palette, and styling; default `00_brand/` when brand-specific media or styling is used |
 | media_assets | Yes | Photos/video references |
 | hero_photo | No | Primary photo plan |
 | angle_shots | No | Additional angle shot plan |
@@ -229,12 +232,13 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 ### Listing Pricing Rule
 
 - `listing_price` should be traceable to the linked cost sheet's dual pricing review.
-- `pricing_strategy_review` should summarize both strategy calculations, whether Strategy 1 differs from Strategy 2 by more than 15%, and whether the current listing price still needs operator approval.
-- If a listing price is already set before a full cost sheet is finalized, reverse-check it against both pricing strategies before calling it acceptable.
+- `pricing_strategy_review` should summarize Strategy 2, any available Strategy 1 calculation, whether Strategy 1 differs from Strategy 2 by more than 15%, and whether the current listing price still needs operator approval.
+- If a listing price is already set before a full cost sheet is finalized, reverse-check it against Strategy 2 and carry missing Strategy 1 as a note before calling it acceptable.
 
 ### Listing Media Rule
 
 - `media_assets` should label each planned asset with its truthful media type when needed.
+- Brand-specific media, graphics, ads, HTML, generated visuals, and templates should reference `brand_assets_ref: 00_brand/`.
 - `Third-Party Reference Only` assets must stay out of listing-media fields even if they remain useful in `source_links`, research notes, or internal planning docs.
 - When a made-to-order listing starts with prior-build or AI-assisted media, update the record with stronger actual-build media after the first real build when available.
 
@@ -260,6 +264,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | cta | Yes | Internal CTA goal or direction; final CTA phrasing belongs in the Claude-written caption |
 | hashtag_notes | No | Hashtag plan |
 | local_context_tags | No | Local tag plan |
+| brand_assets_ref | No | Brand asset source for logos, approved photos, palette, and styling; default `00_brand/` when brand-specific media or styling is used |
 | asset_refs | Yes | Image/video references |
 | thumbnail_note | No | Cover/thumbnail plan |
 | publish_date | No | Actual publish date only; leave blank until published |
@@ -268,6 +273,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 ### Content Media Rule
 
 - Published or schedulable content must follow the same media-truth rules as listings.
+- Brand-specific content media, graphics, captions, generated visuals, and templates should reference `brand_assets_ref: 00_brand/`.
 - Third-party reference media may support planning, but it must not be used as publishable content media.
 
 ## Ad Test Record Schema
@@ -284,6 +290,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | budget_total | Yes | Total planned spend |
 | duration_days | Yes | Planned test length |
 | creative_variant | No | Creative/copy variant being tested |
+| brand_assets_ref | No | Brand asset source for logos, approved photos, palette, and styling; default `00_brand/` when brand-specific ad creative is used |
 | organic_proof_summary | No | Organic signals that justified testing |
 | launch_criteria | Yes | Why this qualified for testing |
 | launch_criteria_met | No | Yes / No check |

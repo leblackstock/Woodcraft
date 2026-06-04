@@ -1,4 +1,4 @@
-# Cedar Adirondack Chair
+﻿# Cedar Adirondack Chair
 
 ## Basic Info
 

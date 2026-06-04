@@ -57,6 +57,290 @@ def strip_md_links(value: str) -> str:
     return clean_text(value)
 
 
+def first_money(value: str | None) -> str:
+    match = re.search(r"\$\d+(?:,\d{3})*(?:\.\d+)?", value or "")
+    return match.group(0) if match else ""
+
+
+def first_percent(value: str | None) -> str:
+    match = re.search(r"\d+(?:\.\d+)?%", value or "")
+    return match.group(0) if match else ""
+
+
+def money(value: float) -> str:
+    return f"${value:.2f}"
+
+
+def money_float(value: str | None) -> float | None:
+    amount = first_money(value)
+    if not amount:
+        return None
+    return float(amount.replace("$", "").replace(",", ""))
+
+
+def spec_quantity(spec: str, pattern: str) -> float:
+    match = re.search(pattern, spec, flags=re.IGNORECASE)
+    if not match:
+        return 0.0
+    if match.lastindex and match.lastindex >= 2 and match.group(2):
+        return float(match.group(2))
+    return float(match.group(1))
+
+
+def derived_materials_cost(fields: dict[str, str]) -> tuple[str, str]:
+    spec = fields.get("material_spec", "")
+    if not spec or spec.lower().startswith("pending"):
+        return "", ""
+
+    pickets = spec_quantity(spec, r"(\d+(?:\.\d+)?)(?:\s*[-–]\s*(\d+(?:\.\d+)?))?\s+cedar pickets?")
+    treated_4x4 = spec_quantity(spec, r"(\d+(?:\.\d+)?)\s+treated\s+4x4x8")
+    treated_2x4 = spec_quantity(spec, r"(\d+(?:\.\d+)?)\s+treated\s+2x4x8")
+    glue_oz = spec_quantity(spec, r"(\d+(?:\.\d+)?)\s+oz\s+glue")
+    nails = spec_quantity(spec, r"(\d+(?:\.\d+)?)(?:\s*[-–]\s*(\d+(?:\.\d+)?))?\s+nails?")
+    screws = spec_quantity(spec, r"(\d+(?:\.\d+)?)\s+screws?")
+
+    total = 0.0
+    parts: list[str] = []
+    if pickets:
+        total += pickets * 3.68
+        parts.append(f"{pickets:g} cedar pickets")
+    if treated_4x4:
+        total += treated_4x4 * 9.98
+        parts.append(f"{treated_4x4:g} treated 4x4x8")
+    if treated_2x4:
+        total += treated_2x4 * 4.28
+        parts.append(f"{treated_2x4:g} treated 2x4x8")
+    if glue_oz:
+        total += glue_oz * (40.00 / 128)
+        parts.append(f"{glue_oz:g} oz glue")
+    if nails:
+        total += nails * (10.00 / 5000)
+        parts.append(f"{nails:g} nails")
+    if screws:
+        total += screws * 0.04
+        parts.append(f"{screws:g} screws")
+
+    if not parts:
+        return "", ""
+    return money(total), "Derived from material_spec using 20_research/material_cost_reference.md: " + ", ".join(parts)
+
+
+def effective_materials_cost(fields: dict[str, str]) -> str:
+    derived_cost = derived_materials_cost(fields)[0]
+    source = first_money(fields.get("materials_cost_estimate"))
+    source_text = fields.get("materials_cost_estimate", "").lower()
+    if derived_cost and "owner-confirmed" not in source_text and "owner confirmed" not in source_text:
+        return derived_cost
+    return source or derived_cost
+
+
+def strategy_1_pending(fields: dict[str, str]) -> bool:
+    text = " ".join(
+        fields.get(key, "")
+        for key in ["pricing_strategy_1_price_floor", "pricing_strategy_review", "pricing_validation"]
+    ).lower()
+    return (
+        ("strategy 1" in text or "labor-inclusive" in text or "labor inclusive" in text)
+        and ("pending" in text or "blocked" in text or "incomplete" in text)
+    )
+
+
+def materials_amount_status(fields: dict[str, str]) -> str:
+    materials = fields.get("materials_cost_estimate")
+    unit_cost = fields.get("unit_cost_estimate")
+    derived_cost = derived_materials_cost(fields)[0]
+    source_text = (materials or "").lower()
+    if derived_cost and "owner-confirmed" not in source_text and "owner confirmed" not in source_text:
+        return "Derived from list"
+    if first_money(materials):
+        return "Amount present"
+    if first_money(unit_cost):
+        return "Unit cost only"
+    if (materials or "").strip():
+        return "No amount"
+    return "Missing"
+
+
+def pricing_status(fields: dict[str, str]) -> str:
+    text = " ".join(
+        fields.get(key, "")
+        for key in ["pricing_strategy_review", "pricing_validation", "target_price"]
+    ).lower()
+    if not first_money(fields.get("target_price")):
+        return "Missing Price"
+    if not effective_materials_cost(fields) and not first_money(fields.get("pricing_strategy_2_price_floor")):
+        return "Missing Materials"
+    if not text:
+        return "Missing"
+    if "owner-confirmed" in text or "owner confirmed" in text or "approved override" in text:
+        return "Owner Confirmed"
+    if "blocked" in text and not strategy_1_pending(fields):
+        return "Blocked"
+    if "below" in text:
+        return "Warning"
+    if "warning" in text or "fail" in text or "below" in text:
+        return "Warning"
+    if "needs approval" in text or "draft" in text:
+        return "Needs Approval"
+    if "pending" in text or "not started" in text:
+        return "Pending"
+    if "assumption" in text or "estimate" in text or "guide" in text or "reference" in text:
+        return "Estimated"
+    if "confirmed" in text or "approved" in text or "pass" in text:
+        return "Confirmed"
+    return "Review"
+
+
+def cost_sheet_status(value: str | None) -> str:
+    text = (value or "").lower()
+    if not text:
+        return "Missing"
+    if "guide-only" in text:
+        return "Guide Only"
+    if text.startswith("pending") or "not started" in text:
+        return "Pending"
+    return "Linked"
+
+
+def costing_method(fields: dict[str, str]) -> str:
+    combined = " ".join(
+        fields.get(key, "")
+        for key in ["cost_sheet_ref", "materials_cost_estimate", "unit_cost_estimate", "pricing_strategy_review"]
+    ).lower()
+    if not combined.strip():
+        return "Unknown"
+    if not effective_materials_cost(fields):
+        if first_money(fields.get("unit_cost_estimate")):
+            return "Unit cost only"
+        return "Missing cost amount"
+    if not first_money(fields.get("materials_cost_estimate")):
+        return "Derived materials list"
+    if "owner-confirmed" in combined or "owner confirmed" in combined or "owner estimate" in combined:
+        return "Owner estimate"
+    if cost_sheet_status(fields.get("cost_sheet_ref")) == "Linked":
+        return "Live cost sheet"
+    if "guide-only" in combined or "guide-based" in combined or "guide cost" in combined or "guide cost estimate" in combined:
+        return "Guide-based estimate"
+    if "blocked" in combined:
+        return "Blocked pending inputs"
+    if "pending" in combined or "not started" in combined:
+        return "Pending cost sheet"
+    if "assumption" in combined or "placeholder" in combined or "estimate" in combined:
+        return "Assumption / placeholder"
+    return "Review source note"
+
+
+def sale_pricing_method(fields: dict[str, str]) -> str:
+    combined = " ".join(
+        fields.get(key, "")
+        for key in ["target_price", "pricing_strategy_review", "pricing_validation"]
+    ).lower()
+    target = (fields.get("target_price") or "").lower()
+    if not combined.strip():
+        return "Unknown"
+    if "owner-confirmed" in combined or "owner confirmed" in combined or "approved override" in combined:
+        return "Owner-confirmed override"
+    if "guide selling price" in target:
+        return "Guide selling price"
+    if "local list price" in target or "local price" in target:
+        return "Local list price assumption"
+    if "blocked" in combined:
+        return "Blocked pending pricing"
+    if "pending" in combined or "not started" in combined:
+        return "Pending price"
+    if "recommended_price_floor" in combined or "recommended floor" in combined:
+        return "Floor-based review"
+    if "assumption" in combined or "estimate" in combined or "guide" in combined or "draft" in combined:
+        return "Assumption / estimate"
+    if first_money(fields.get("target_price")):
+        return "Stated target price"
+    return "Review source note"
+
+
+def pricing_action(fields: dict[str, str]) -> str:
+    if not first_money(fields.get("target_price")):
+        return "Set target price"
+    if not effective_materials_cost(fields):
+        return "Add materials amount"
+    if not first_money(fields.get("pricing_strategy_2_price_floor")) and not effective_materials_cost(fields):
+        return "Run Strategy 2"
+    if "approval" in (fields.get("pricing_strategy_review", "") + fields.get("pricing_validation", "")).lower():
+        return "Owner price approval"
+    if cost_sheet_status(fields.get("cost_sheet_ref")) in {"Missing", "Pending", "Guide Only"}:
+        return "Create live cost sheet when ready"
+    return "Review pricing"
+
+
+def pricing_issue_flags(fields: dict[str, str]) -> str:
+    flags: list[str] = []
+    if not first_money(fields.get("target_price")):
+        flags.append("missing price")
+    if not effective_materials_cost(fields):
+        if first_money(fields.get("unit_cost_estimate")):
+            flags.append("missing materials amount")
+        else:
+            flags.append("missing cost amount")
+    if "warning" in (fields.get("pricing_strategy_review", "") + fields.get("pricing_validation", "")).lower():
+        flags.append("warning")
+    if "below" in (fields.get("pricing_strategy_review", "") + fields.get("pricing_validation", "")).lower():
+        flags.append("below benchmark")
+    if "approval" in (fields.get("pricing_strategy_review", "") + fields.get("pricing_validation", "")).lower():
+        flags.append("needs approval")
+    return "; ".join(flags) if flags else "none"
+
+
+def pricing_note_flags(fields: dict[str, str]) -> str:
+    flags: list[str] = []
+    combined = " ".join(
+        fields.get(key, "")
+        for key in ["cost_sheet_ref", "unit_cost_estimate", "materials_cost_estimate", "pricing_strategy_review"]
+    ).lower()
+    if strategy_1_pending(fields):
+        flags.append("labor-inclusive Strategy 1 pending")
+    derived_cost = derived_materials_cost(fields)[0]
+    source_amount = money_float(fields.get("materials_cost_estimate"))
+    derived_amount = money_float(derived_cost)
+    if derived_cost:
+        flags.append("materials cost derived from list")
+    if source_amount is not None and derived_amount is not None and abs(source_amount - derived_amount) >= 0.01:
+        flags.append("source materials amount differs from list cost")
+    if not effective_materials_cost(fields) and first_money(fields.get("unit_cost_estimate")):
+        flags.append("unit cost amount present only")
+    if cost_sheet_status(fields.get("cost_sheet_ref")) in {"Missing", "Pending", "Guide Only"}:
+        flags.append("live cost sheet pending")
+    if "guide-only" in combined or "guide-based" in combined:
+        flags.append("guide-only estimate")
+    return "; ".join(flags) if flags else "none"
+
+
+def pricing_normalized(fields: dict[str, str]) -> dict[str, str]:
+    derived_cost, derived_basis = derived_materials_cost(fields)
+    materials_cost = effective_materials_cost(fields)
+    strategy_2_floor = first_money(fields.get("pricing_strategy_2_price_floor"))
+    if materials_amount_status(fields) == "Derived from list" and materials_cost:
+        strategy_2_floor = money(float(materials_cost.replace("$", "").replace(",", "")) / 0.30)
+    elif not strategy_2_floor and materials_cost:
+        strategy_2_floor = money(float(materials_cost.replace("$", "").replace(",", "")) / 0.30)
+    return {
+        "materials_cost_value": materials_cost,
+        "materials_amount_status": materials_amount_status(fields),
+        "materials_cost_basis": derived_basis,
+        "unit_cost_value": first_money(fields.get("unit_cost_estimate")),
+        "target_price_value": first_money(fields.get("target_price")),
+        "pricing_strategy_1_floor_value": first_money(fields.get("pricing_strategy_1_price_floor")),
+        "pricing_strategy_2_floor_value": strategy_2_floor,
+        "recommended_price_floor_value": first_money(fields.get("recommended_price_floor")),
+        "material_cost_percent_value": first_percent(fields.get("material_cost_percent_of_price")),
+        "pricing_status": pricing_status(fields),
+        "costing_method": costing_method(fields),
+        "sale_pricing_method": sale_pricing_method(fields),
+        "cost_sheet_status": cost_sheet_status(fields.get("cost_sheet_ref")),
+        "pricing_issue_flags": pricing_issue_flags(fields),
+        "pricing_note_flags": pricing_note_flags(fields),
+        "pricing_next_action": pricing_action(fields),
+    }
+
+
 def split_md_table_row(line: str) -> list[str]:
     row = line.strip()
     if not row.startswith("|"):
@@ -123,6 +407,7 @@ def parse_products() -> list[dict[str, str]]:
     for path in sorted(PRODUCT_DIR.glob("prod_*.md")):
         fields = parse_bullets(path)
         product_id = fields.get("product_id") or path.stem
+        normalized = pricing_normalized(fields)
         products.append(
             {
                 "product_id": product_id,
@@ -153,6 +438,7 @@ def parse_products() -> list[dict[str, str]]:
                 "recommended_price_floor": fields.get("recommended_price_floor", ""),
                 "pricing_strategy_review": fields.get("pricing_strategy_review", ""),
                 "pricing_validation": fields.get("pricing_validation", ""),
+                **normalized,
                 "next_action": fields.get("next_action", ""),
                 "full_text": read_text(path),
             }
@@ -285,6 +571,22 @@ def create_schema(conn: sqlite3.Connection) -> None:
             recommended_price_floor TEXT,
             pricing_strategy_review TEXT,
             pricing_validation TEXT,
+            materials_cost_value TEXT,
+            materials_amount_status TEXT,
+            materials_cost_basis TEXT,
+            unit_cost_value TEXT,
+            target_price_value TEXT,
+            pricing_strategy_1_floor_value TEXT,
+            pricing_strategy_2_floor_value TEXT,
+            recommended_price_floor_value TEXT,
+            material_cost_percent_value TEXT,
+            pricing_status TEXT,
+            costing_method TEXT,
+            sale_pricing_method TEXT,
+            cost_sheet_status TEXT,
+            pricing_issue_flags TEXT,
+            pricing_note_flags TEXT,
+            pricing_next_action TEXT,
             next_action TEXT,
             full_text TEXT
         );
@@ -396,9 +698,13 @@ def insert_data(conn: sqlite3.Connection) -> dict[str, int]:
             build_time_estimate, lead_time_estimate, unit_cost_estimate, materials_cost_estimate,
             pricing_strategy_1_price_floor, pricing_strategy_2_price_floor, target_price,
             margin_estimate, material_cost_percent_of_price, recommended_price_floor,
-            pricing_strategy_review, pricing_validation, next_action, full_text
+            pricing_strategy_review, pricing_validation, materials_cost_value, materials_amount_status,
+            materials_cost_basis, unit_cost_value, target_price_value, pricing_strategy_1_floor_value, pricing_strategy_2_floor_value,
+            recommended_price_floor_value, material_cost_percent_value, pricing_status,
+            costing_method, sale_pricing_method, cost_sheet_status, pricing_issue_flags,
+            pricing_note_flags, pricing_next_action, next_action, full_text
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         [
             (
@@ -430,6 +736,22 @@ def insert_data(conn: sqlite3.Connection) -> dict[str, int]:
                 product["recommended_price_floor"],
                 product["pricing_strategy_review"],
                 product["pricing_validation"],
+                product["materials_cost_value"],
+                product["materials_amount_status"],
+                product["materials_cost_basis"],
+                product["unit_cost_value"],
+                product["target_price_value"],
+                product["pricing_strategy_1_floor_value"],
+                product["pricing_strategy_2_floor_value"],
+                product["recommended_price_floor_value"],
+                product["material_cost_percent_value"],
+                product["pricing_status"],
+                product["costing_method"],
+                product["sale_pricing_method"],
+                product["cost_sheet_status"],
+                product["pricing_issue_flags"],
+                product["pricing_note_flags"],
+                product["pricing_next_action"],
                 product["next_action"],
                 product["full_text"],
             )

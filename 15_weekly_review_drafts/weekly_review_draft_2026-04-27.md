@@ -1,4 +1,4 @@
-# Weekly Review Draft — 2026-04-27
+﻿# Weekly Review Draft — 2026-04-27
 
 Working draft for the upcoming weekly review. Do not archive until the review period is actually complete.
 

@@ -2,6 +2,8 @@
 
 Use this template for active weekly review drafts. Move the completed instance to `90_archive/weekly_reviews/` only after the review period is actually complete.
 
+Brand asset reminder: if the week includes brand-specific copy, graphics, ads, HTML/templates, prompt packs, or generated visuals, confirm current work referenced `00_brand/`.
+
 ## Week Snapshot
 
 - week_of:

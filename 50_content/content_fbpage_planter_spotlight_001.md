@@ -1,4 +1,4 @@
-# FB Page Support Post — Planter Spotlight
+﻿# FB Page Support Post — Planter Spotlight
 
 ## Post Identity
 
@@ -29,6 +29,7 @@
 
 ## Asset Plan
 
+- brand_assets_ref: 00_brand/
 - asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after publishable planter media is locked in the linked Marketplace record.
 - thumbnail_note: Pending — choose from governed approved media only after publishable planter media is locked in the linked Marketplace record.
 

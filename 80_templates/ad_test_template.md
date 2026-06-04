@@ -15,6 +15,9 @@
 - budget_total:
 - duration_days:
 - creative_variant:
+- brand_assets_ref: 00_brand/
+
+> Brand asset rule: any brand-specific ad copy, graphic, image, HTML, template, or generated visual must reference `00_brand/` as the current brand asset source of truth.
 
 ## Eligibility Check
 

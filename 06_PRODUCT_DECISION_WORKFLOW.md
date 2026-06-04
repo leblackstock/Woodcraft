@@ -1,6 +1,8 @@
-# 06 Product Decision Workflow
+﻿# 06 Product Decision Workflow
 
 Purpose: decide what to standardize, list, and build next using lightweight evidence, not guesses.
+
+Brand-specific product/listing prep, media plans, graphic prompts, HTML, templates, and generated visuals must reference [00_brand/](00_brand/) when they use Drakkar-specific assets or styling.
 
 ## Workflow: Intake → Research → Score → Approve → Listing-First Queue
 
@@ -24,7 +26,7 @@ Before an approved product moves forward to listing progression, prepare one bun
 - build model confirmation (`build_model`)
 - standard launch spec confirmation
 - pricing confirmation when relevant
-- dual pricing strategy review when relevant, including the default Strategy 2 baseline and any >15% Strategy 1 variance warning
+- pricing review when relevant, including the default Strategy 2 baseline, any available Strategy 1 comparison, and any pending Strategy 1 note
 - replacement/override confirmation when relevant
 - estimated lead-time confirmation
 - delivery/pickup terms confirmation
@@ -69,9 +71,10 @@ Record all six component scores plus `score_total` in the product record.
 1. Who is the likely buyer and use case?
 2. What are comparable local prices?
 3. What is estimated unit cost and target price?
-4. What do both pricing strategies show, and is Strategy 1 more than 15% different from the default Strategy 2 baseline?
-   - current total-cost guardrail pricing
-   - materials-at-30%-of-finished-price pricing
+4. What does the pricing review show?
+   - materials-at-30%-of-finished-price pricing as the default baseline
+   - current total-cost guardrail pricing when labor-inclusive inputs are available
+   - pending Strategy 1 note when labor-inclusive inputs are not available yet
 5. Is fulfillment realistic with current capacity, including truthful made-to-order lead time and delivery terms?
 6. Can truthful listing media be prepared with current setup using owned real photos, owned AI-assisted images derived from owned photos, or clearly governed concept media?
 7. Is this likely repeatable, not just a one-off novelty?

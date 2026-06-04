@@ -1,4 +1,4 @@
-# QA Remediation Sign-Off — 2026-04-22
+﻿# QA Remediation Sign-Off — 2026-04-22
 
 ## Summary
 The repo-wide QA and remediation sequence is complete.

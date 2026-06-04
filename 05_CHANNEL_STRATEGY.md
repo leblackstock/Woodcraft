@@ -2,6 +2,8 @@
 
 Each channel has one primary job. We avoid spreading effort evenly across everything.
 
+Brand-specific channel assets, graphics, ads, copy, HTML, templates, prompt packs, and generated visuals must reference [00_brand/](00_brand/) for current logos, approved photos, palette notes, and brand asset provenance.
+
 ## Facebook Marketplace (Primary Sales Channel)
 
 **Use for:**

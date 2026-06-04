@@ -1,4 +1,4 @@
-# Cost Sheet — Cedar Petite Planter Box 11x11x13
+﻿# Cost Sheet — Cedar Petite Planter Box 11x11x13
 
 ## Cost Sheet Identity
 
@@ -9,7 +9,7 @@
 - linked_listing_id:
 - standard_spec_ref:
 - cost_basis_date: 2026-04-21
-- pricing_status: Draft — explicitly blocked pending full review.
+- pricing_status: Operator Exception Accepted for FBM Prep — review later.
 
 ## Materials Line Items
 
@@ -54,22 +54,22 @@
 - pricing_strategy_2_note: $11.43 / 0.30 = $38.10
 - material_cost_percent_of_price: 38.1%
 - recommended_price_floor: At least $38.10 before labor; final floor may be higher once Strategy 1 is complete.
-- pricing_strategy_review: Blocked / Pending Full Review — the user-set $30 target price is below the materials-at-30% benchmark, Strategy 1 is still incomplete, and labor is still unpriced.
+- pricing_strategy_review: Operator Approved Pricing Exception / Review Later — the user-set $30 target price is below the materials-at-30% benchmark, Strategy 1 is still incomplete, and labor is still unpriced. Lauren approved passing this SKU for FBM prep on 2026-06-04 with notes to review later.
 
 ## Guardrail Check
 
 | Check | Target | Result | Notes |
 |---|---|---|---|
-| Gross margin floor | >= 40% | Blocked | Materials-only margin passes, but labor-inclusive margin is still unknown. |
-| Profit floor | Per [04_BUSINESS_RULES.md](../04_BUSINESS_RULES.md) | Blocked | Medium planter profit floor cannot be checked without labor-inclusive total cost. |
-| Materials are 30% of finished price | `materials_cost_total / target_price <= 30%` | Fail | $11.43 / $30.00 = 38.1%. |
-| Recommended price floor used | Higher of Strategy 1 and Strategy 2 unless explicitly overridden | Fail | Current draft target price is $30.00 versus a minimum known floor of $38.10 before labor. |
-| Cost uncertainty acceptable for approval | Low enough to price truthfully | Blocked | Labor timing and labor rate still need verification. |
+| Gross margin floor | >= 40% | Operator Exception | Materials-only margin passes, but labor-inclusive margin is still unknown. |
+| Profit floor | Per [04_BUSINESS_RULES.md](../04_BUSINESS_RULES.md) | Operator Exception | Profit floor cannot be checked without labor-inclusive total cost; review later. |
+| Materials are 30% of finished price | `materials_cost_total / target_price <= 30%` | Fail / Accepted for Prep | $11.43 / $30.00 = 38.1%; Lauren approved passing this for FBM prep with review later. |
+| Recommended price floor used | Higher of Strategy 1 and Strategy 2 unless explicitly overridden | Operator Override | Current draft target price is $30.00 versus a minimum known floor of $38.10 before labor. |
+| Cost uncertainty acceptable for approval | Low enough to price truthfully | Accepted for Prep | Labor timing and labor rate still need verification; not a draft-prep blocker under the operator exception. |
 
 ## Notes and Approval
 
 - unresolved_inputs: Standalone dimensions beyond trio-small reference / live build timing / labor rate / labor-inclusive unit cost.
-- operator_notes: User requested a standalone draft price of $30; current material-cost benchmark suggests this is below guardrail before labor is included. Keep this price explicitly blocked pending full review rather than treating it as approved or ready.
-- approval_status: Draft
-- approved_by:
-- approval_date:
+- operator_notes: User requested a standalone draft price of $30. Current material-cost benchmark suggests this is below guardrail before labor is included. On 2026-06-04, Lauren approved passing B for FBM listing prep with notes to review price/cost basis later.
+- approval_status: Operator Exception Accepted for FBM Prep
+- approved_by: Lauren
+- approval_date: 2026-06-04

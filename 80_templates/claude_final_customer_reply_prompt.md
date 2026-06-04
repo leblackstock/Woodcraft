@@ -7,6 +7,7 @@ Use this template when Claude is needed to write a final customer-facing reply o
 - response_scenario:
 - channel:
 - current_asset:
+- brand_assets_ref: 00_brand/
 
 ## Fields Needed
 
@@ -22,6 +23,8 @@ Use this template when Claude is needed to write a final customer-facing reply o
 
 - tone:
 - preapproved_fallback_reply:
+
+Use `00_brand/` as the current brand asset source of truth for brand-specific references, approved photos, colors, logo context, and styling notes when relevant to the reply. Do not approve or rewrite image prompts unless explicitly requested.
 
 ## Hard Rules
 

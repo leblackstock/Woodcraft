@@ -1,6 +1,8 @@
-# 11 Weekly Operations
+﻿# 11 Weekly Operations
 
 Purpose: convert strategy into a repeatable weekly rhythm that survives low-energy weeks.
+
+When weekly listing, content, ad, graphic, image prompt, HTML, or template work creates brand-specific assets or text, reference [00_brand/](00_brand/) for current logos, approved photos, palette notes, and brand asset provenance.
 
 ## Recommended Weekly Cadence
 

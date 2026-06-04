@@ -2,6 +2,8 @@
 
 Purpose: phase automation realistically, without breaking core operations.
 
+Brand source-of-truth note: any automation that creates brand-specific text, graphics, ads, images, HTML, templates, prompt packs, or customer-facing assets must reference [00_brand/](00_brand/) for current logos, approved photos, colors, and styling notes.
+
 ## Phase Now (Stabilize Foundations)
 
 Focus: consistency before tooling.

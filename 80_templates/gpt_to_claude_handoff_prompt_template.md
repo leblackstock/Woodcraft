@@ -18,6 +18,7 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - asset_id:
 - current_workflow_step:
 - requested_output_fields:
+- brand_assets_ref: 00_brand/
 
 ## Approved Facts Only
 
@@ -30,6 +31,8 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - channel_context:
 - tone_or_brand_notes:
 - banned_claims_or_words:
+
+Use `00_brand/` as the current brand asset source of truth for brand-specific references, approved photos, colors, logo context, and styling notes. Do not ask Claude to approve image prompts or graphic assets unless the requested output is final customer-facing prose.
 
 ## Claude Instructions
 

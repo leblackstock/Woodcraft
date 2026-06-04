@@ -20,6 +20,7 @@ Purpose: assemble one truthful, bundled approval packet that does maximum intern
 - asset_summary:
 - current_workflow_state:
 - intended_channel_or_use:
+- brand_assets_ref: 00_brand/ when brand-specific media, graphics, templates, ads, HTML, copy, or generated visuals are involved
 - approved_facts_status:
 - publish_ready: Yes / No
 
@@ -46,7 +47,7 @@ Use only these confidence labels: `Auto-verified`, `Recommended`, `Needs operato
 | Liner |  |  |  |  |
 | Lead time |  |  |  |  |
 | Delivery policy |  |  |  |  |
-| Strategy 1 price floor |  |  |  |  |
+| Strategy 1 price floor or pending note |  |  |  |  |
 | Strategy 2 price floor |  |  |  |  |
 | Target price |  |  |  |  |
 | Material cost percent of price |  |  |  |  |
@@ -59,7 +60,7 @@ Use only these confidence labels: `Auto-verified`, `Recommended`, `Needs operato
 - gross_profit:
 - gross_margin:
 - materials_cost_total:
-- pricing_strategy_1_price_floor:
+- pricing_strategy_1_price_floor_or_note:
 - pricing_strategy_2_price_floor:
 - material_cost_percent_of_price:
 - recommended_price_floor:
@@ -72,7 +73,7 @@ Use only these confidence labels: `Auto-verified`, `Recommended`, `Needs operato
 | Gross margin meets workspace floor | Pass / Fail / Blocked |  |
 | Profit floor meets workspace rule | Pass / Fail / Blocked |  |
 | Materials are 30% of finished price | Pass / Fail / Blocked |  |
-| Strategy 1 variance warning raised when needed | Pass / Fail / Blocked |  |
+| Strategy 1 variance warning raised when needed | Pass / Fail / Note | Use `Note` when labor-inclusive Strategy 1 inputs are pending and Strategy 2 is the active pricing basis. |
 | Lead time and delivery terms are truthful | Pass / Fail / Blocked |  |
 | Required physical facts are supported | Pass / Fail / Blocked |  |
 
@@ -82,6 +83,8 @@ Use only these confidence labels: `Auto-verified`, `Recommended`, `Needs operato
 - recommended_defaults:
 - operator_confirmation_required:
 - blocked_items:
+
+> Brand asset rule: if the packet supports brand-specific copy, ads, graphics, images, HTML, templates, prompt packs, or generated visuals, verify that current asset references point to `00_brand/`.
 
 ## Exceptions Only
 

@@ -2,6 +2,8 @@
 
 Purpose: prevent prompt sprawl and keep reusable prompt sets organized.
 
+Brand source-of-truth note: any prompt that creates or references Drakkar-specific text, graphics, ads, images, HTML, templates, copy, or generated visuals must reference [00_brand/](00_brand/) for current logos, approved photos, colors, and brand asset provenance.
+
 ## Dual-Model Prompt Roles
 
 ### GPT-5.5 Workflow Orchestration Prompts
@@ -44,6 +46,23 @@ These shared prompt templates live in [80_templates/](80_templates/):
 - `80_templates/claude_final_social_caption_prompt.md`
 - `80_templates/claude_final_customer_reply_prompt.md`
 
+Current FBM workflow entry point:
+
+- `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
+
+Workflow-specific listing image prompt templates live in [40_listings/prompts/](40_listings/prompts/):
+
+- `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
+- `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md`
+- `40_listings/prompts/fbm_image_visual_style_reference_2026-06-04.md`
+- `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md`
+- `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md`
+
+Deprecated but retained for traceability:
+
+- `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.0.md`
+
 ## Prompt Categories to Build Next
 
 Each future prompt family must be explicitly scoped to either GPT-5.5 orchestration/prep or Claude final customer-facing prose.
@@ -68,6 +87,8 @@ Each future prompt family must be explicitly scoped to either GPT-5.5 orchestrat
    - Listing shot plan and required angles
    - Social content image concept prompts
    - Ad creative image prompt drafts for later testing
+   - Text-bearing image prompts are allowed when the requested image needs readable words, labels, signage, branding, price text, catalog marks, packaging text, captions, or similar literal text.
+   - Do not remove requested text from image prompts by default. ChatGPT Image 2 is considered capable for text-bearing image generation in this workflow.
 5. **Content Prompts**
    - GPT-5.5 orchestration/prep: short-form concept extraction from listings
    - Claude final customer-facing prose: caption variations by platform
@@ -97,6 +118,8 @@ Each future prompt family must be explicitly scoped to either GPT-5.5 orchestrat
   - listing image planning in `40_listings/prompts/`
   - social image prompts in `50_content/prompts/`
   - ad creative image prompts in `70_ads/prompts/`
+
+- Image prompt packs may include exact in-image text instructions when text is part of the desired visual output. Keep the text literal and approved for the intended use; do not strip it merely because it is text.
 
 Create these folders when prompt packs are actually added.
 

@@ -1,0 +1,930 @@
+/* ============================================
+   DRAKKAR DESIGNS — CATALOG SYSTEM
+   8.5 x 11 portrait print stylesheet
+   ============================================ */
+
+:root {
+  /* Locked palette */
+  --charcoal: #414444;
+  --black: #13181B;
+  --stone: #DEDCD6;
+  --orange: #CF4E17;
+  --orange-vivid: #E04B1A;
+  --silver: #A4A9A5;
+
+  /* Derived neutrals (palette only, opacity layers) */
+  --stone-deep: #c8c6bf;
+  --stone-pale: #ebe9e3;
+  --ink-soft: rgba(19, 24, 27, 0.62);
+  --rule: rgba(19, 24, 27, 0.18);
+  --rule-soft: rgba(19, 24, 27, 0.10);
+
+  /* Type */
+  --serif: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+
+  /* 8.5 x 11 at 96dpi */
+  --pg-w: 816px;
+  --pg-h: 1056px;
+  --pg-pad: 60px; /* 0.625" */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #2a2c2c;
+  font-family: var(--sans);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Review chrome (hidden in print) ---------- */
+.toc {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 50;
+  background: var(--black);
+  color: var(--stone);
+  border: 1px solid var(--charcoal);
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: 200px;
+  border-radius: 2px;
+}
+.toc h4 {
+  margin: 0 0 10px;
+  color: var(--orange);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+}
+.toc ol { margin: 0; padding: 0 0 0 18px; line-height: 1.9; }
+.toc a { color: var(--stone); text-decoration: none; }
+.toc a:hover { color: var(--orange-vivid); }
+
+/* ---------- Page chassis ---------- */
+.deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 16px 80px;
+}
+.page {
+  width: var(--pg-w);
+  height: var(--pg-h);
+  background: var(--stone);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 2px 0 rgba(255,255,255,0.04);
+  page-break-after: always;
+  break-after: page;
+}
+.page.dark { background: var(--black); color: var(--stone); }
+.page.charcoal { background: var(--charcoal); color: var(--stone); }
+
+/* ============================================================
+   COVER THEME SWITCH  —  dark (default)  ↔  light
+   The cover <section> ships as  class="page dark".
+   To go LIGHT, change its class to  class="page cover-light".
+   Everything below flips the light-on-dark TEXT to dark ink
+   while leaving the orange accents and light "cut-corner"
+   FILLS untouched, so the layout reads correctly on paper.
+   ============================================================ */
+.page.cover-light { background: var(--stone-pale); color: var(--charcoal); }
+.page.cover-light [style*="color:var(--stone)"]  { color: #20262a !important; }
+.page.cover-light [style*="color:var(--silver)"] { color: #6f736f !important; }
+.page.cover-light [style*="background:var(--silver)"] { background: #aeb2ad !important; }
+.page-inner {
+  position: absolute;
+  inset: var(--pg-pad);
+}
+
+/* Page furniture */
+.runner {
+  position: absolute;
+  left: var(--pg-pad);
+  right: var(--pg-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.runner.top { top: 28px; }
+.runner.bot { bottom: 28px; }
+.page.dark .runner, .page.charcoal .runner { color: var(--silver); }
+
+.runner .mark {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  font-size: 10px;
+  color: var(--black);
+}
+.page.dark .runner .mark, .page.charcoal .runner .mark { color: var(--stone); }
+
+/* Internal stamp */
+.runner .stamp {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+/* ---------- Type ---------- */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.page.dark .eyebrow, .page.charcoal .eyebrow { color: var(--silver); }
+.eyebrow.accent { color: var(--orange); }
+
+h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+.display {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 88px;
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+}
+.h-xl {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 1.0;
+  letter-spacing: -0.005em;
+}
+.h-lg {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.05;
+}
+.h-md {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.15;
+}
+.h-sm {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.italic-pull {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.3;
+  color: var(--charcoal);
+}
+
+p, li { font-size: 12px; line-height: 1.55; color: var(--charcoal); }
+.lede { font-size: 14px; line-height: 1.6; }
+.micro {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.sku {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--orange);
+  font-weight: 500;
+}
+
+/* ---------- Rules ---------- */
+.rule { height: 1px; background: var(--rule); width: 100%; }
+.rule.orange { background: var(--orange); height: 2px; }
+.rule.silver { background: var(--silver); }
+.rule.thin { height: 0.5px; background: var(--rule); }
+.vrule { width: 1px; background: var(--rule); align-self: stretch; }
+
+/* Tick mark anchor */
+.tick {
+  display: inline-block;
+  width: 10px;
+  height: 2px;
+  background: var(--orange);
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* ---------- Image placeholder ---------- */
+.shot {
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(164,169,165,0.18) 0 1px,
+      transparent 1px 7px
+    ),
+    var(--stone-pale);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
+  overflow: hidden;
+}
+.shot::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px dashed rgba(19,24,27,0.18);
+  pointer-events: none;
+}
+.shot .shot-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  position: relative;
+  background: var(--stone-pale);
+  padding: 3px 8px;
+  border: 1px solid var(--rule);
+}
+.shot .shot-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--orange);
+  position: relative;
+  background: var(--stone-pale);
+  padding: 3px 8px;
+  border: 1px solid var(--rule);
+}
+.shot.tall { aspect-ratio: 4/5; }
+.shot.square { aspect-ratio: 1/1; }
+.shot.wide { aspect-ratio: 5/3; }
+
+/* Best-seller badge — top-left corner of a product photo */
+.shot .best-seller {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone-pale);
+  background: var(--orange);
+  padding: 4px 9px 3px;
+  box-shadow: 0 1px 2px rgba(19,24,27,0.18);
+}
+.shot .best-seller::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--stone-pale);
+  border-radius: 50%;
+  flex: none;
+}
+
+.shot.has-photo {
+  background-color: var(--stone-pale);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: var(--rule);
+}
+.shot.has-photo::before {
+  inset: 10px;
+  border: 1px solid rgba(222,220,214,0.55);
+  mix-blend-mode: overlay;
+}
+.shot.has-photo .shot-label,
+.shot.has-photo .shot-tag {
+  background: var(--stone);
+  border-color: rgba(19,24,27,0.22);
+  box-shadow: 0 1px 0 rgba(19,24,27,0.04);
+}
+.shot.dark { background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(164,169,165,0.10) 0 1px,
+      transparent 1px 7px
+    ),
+    #1d2326;
+  border-color: var(--charcoal);
+}
+.shot.dark::before { border-color: rgba(222,220,214,0.18); }
+.shot.dark .shot-label, .shot.dark .shot-tag {
+  background: #1d2326;
+  color: var(--silver);
+  border-color: var(--charcoal);
+}
+
+/* ---------- Price box (signature element) ---------- */
+.pricebox {
+  position: relative;
+  border: 1.5px solid var(--orange);
+  padding: 14px 9px 18px;
+  background: rgba(207, 78, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pricebox::before, .pricebox::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid var(--orange);
+  background: var(--stone);
+}
+.pricebox::before { top: -6px; left: -6px; border-right: none; border-bottom: none; }
+.pricebox::after { bottom: -6px; right: -6px; border-left: none; border-top: none; }
+.pricebox .pb-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+}
+.pricebox .pb-rule {
+  border-bottom: 1px solid var(--charcoal);
+  height: 28px;
+  display: flex;
+  align-items: flex-end;
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--charcoal);
+  padding-bottom: 2px;
+}
+.pricebox .pb-rule.filled {
+  border-bottom-color: var(--orange);
+  color: var(--black);
+  font-weight: 500;
+}
+.pricebox .pb-note {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- Spec list ---------- */
+.specs { display: grid; grid-template-columns: 1fr; gap: 6px; }
+.spec-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  font-size: 11px;
+  align-items: baseline;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.spec-row .k {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.spec-row .v {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  color: var(--black);
+  font-weight: 500;
+}
+
+/* ---------- Form inputs (partner order sheet) ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.field .lbl {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.field .ln {
+  border-bottom: 1px solid var(--charcoal);
+  height: 22px;
+}
+
+/* Order grid table */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+}
+.order-table th, .order-table td {
+  border-bottom: 1px solid var(--rule);
+  padding: 9px 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+.order-table th {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  border-top: 1.5px solid var(--black);
+  border-bottom: 1.5px solid var(--black);
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+.order-table td.qty,
+.order-table td.price,
+.order-table td.tot {
+  font-family: var(--mono);
+  color: var(--charcoal);
+}
+.order-table tr.spacer td { height: 28px; }
+.order-table .sku-cell {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--orange);
+}
+.order-table .name-cell {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--black);
+}
+
+/* Internal pricing table */
+.int-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+}
+.int-table th, .int-table td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+}
+.int-table th {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--black);
+  color: var(--stone);
+  font-weight: 500;
+}
+.int-table td.num {
+  font-family: var(--mono);
+  text-align: right;
+}
+.int-table .row-sku {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  color: var(--orange);
+}
+.int-table .row-name {
+  font-family: var(--serif);
+  font-size: 13px;
+}
+.int-table tr:nth-child(even) td { background: rgba(19,24,27,0.025); }
+
+/* Stamp */
+.stamp-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.stamp-block.dark { border-color: var(--silver); color: var(--silver); }
+
+/* ---------- Logo (real brand mark) ---------- */
+.logo {
+  display: block;
+  height: auto;
+  user-select: none;
+}
+.logo.xs { width: 64px; }
+.logo.sm { width: 110px; }
+.logo.md { width: 170px; }
+.logo.lg { width: 260px; }
+.logo.xl { width: 360px; }
+.logo.xxl { width: 460px; }
+
+/* Stone hangtag — used on dark pages so the dark logo wordmark stays readable */
+.logo-tag {
+  background: var(--stone);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 32px;
+  border: 1px solid var(--charcoal);
+  position: relative;
+}
+.logo-tag::before, .logo-tag::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--orange);
+  background: var(--stone);
+}
+.logo-tag::before { top: -6px; left: -6px; border-right: none; border-bottom: none; }
+.logo-tag::after { bottom: -6px; right: -6px; border-left: none; border-top: none; }
+.logo-tag.sm { padding: 12px 16px; }
+
+/* ---------- Wordmark ---------- */
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+}
+.wordmark .amp { color: var(--orange); font-style: italic; }
+
+/* Monogram D */
+.monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; height: 56px;
+  border: 1.5px solid var(--orange);
+  border-radius: 50%;
+  font-family: var(--serif);
+  font-size: 30px;
+  color: var(--orange);
+  line-height: 1;
+  padding-bottom: 2px;
+}
+.monogram.lg { width: 96px; height: 96px; font-size: 50px; border-width: 2px; }
+.monogram.dark { border-color: var(--stone); color: var(--stone); }
+
+/* ---------- Utility ---------- */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-row { display: flex; flex-direction: row; align-items: center; }
+.gap-4 { gap: 4px; } .gap-8 { gap: 8px; } .gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; } .gap-20 { gap: 20px; } .gap-24 { gap: 24px; }
+.gap-32 { gap: 32px; } .gap-40 { gap: 40px; }
+.mt-8 { margin-top: 8px; } .mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; } .mt-32 { margin-top: 32px; }
+.mt-40 { margin-top: 40px; } .mt-56 { margin-top: 56px; }
+
+/* ---------- Product page tightening (4 product spreads only) ---------- */
+.page[id^="p-prod-"] .page-inner { gap: 10px !important; }
+
+/* Compact 3-up / 2-up product card grid */
+.prod-grid {
+  display: grid;
+  gap: 22px;
+  width: 100%;
+}
+.prod-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.prod-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+/* Horizontal card layout — full-width stacked rows; image left, content right */
+.prod-grid.horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.prod-grid.horizontal .prod-card {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-areas:
+    "img head"
+    "img name"
+    "img spec"
+    "img desc"
+    "img price";
+  grid-template-rows: auto auto auto 1fr auto;
+  column-gap: 32px;
+  row-gap: 2px;
+  flex: 1 1 0;
+  min-height: 0;
+  padding-top: 3px;
+}
+.prod-grid.horizontal .prod-card:first-child { padding-top: 0; }
+.prod-grid.horizontal .prod-card:nth-child(even) {
+  grid-template-columns: 1fr 240px;
+  grid-template-areas:
+    "head img"
+    "name img"
+    "spec img"
+    "desc img"
+    "price img";
+}
+.prod-grid.horizontal .prod-card .shot.square {
+  grid-area: img;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  min-height: 0;
+}
+.prod-grid.horizontal .prod-card .cat-band { display: none; }
+.prod-grid.horizontal .prod-card .prod-head { grid-area: head; padding-top: 0; }
+.prod-grid.horizontal .prod-card .prod-name {
+  grid-area: name;
+  font-size: 22px;
+  line-height: 1.05;
+}
+.prod-grid.horizontal .prod-card .prod-spec { grid-area: spec; font-size: 10.5px; }
+.prod-grid.horizontal .prod-card .prod-desc {
+  grid-area: desc;
+  font-size: 11.5px;
+  line-height: 1.45;
+  max-width: 62ch;
+  margin-top: 4px;
+  align-self: start;
+}
+.prod-grid.horizontal .prod-card .pricebox {
+  grid-area: price;
+  max-width: 200px;
+  margin-top: auto;
+  padding: 4px 5px 5px;
+}
+.prod-grid.horizontal .prod-card .pricebox .pb-rule { height: 13px; font-size: 11.5px; }
+.prod-grid.horizontal .prod-card .pricebox .pb-label { font-size: 8px; }
+
+/* Vertical card layout — 2 cards side by side; image alternates top / bottom */
+.prod-grid.vertical {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  flex: 1 1 auto;
+  min-height: 0;
+  position: relative;
+}
+/* Vertical reading guide — a thin rule down the middle so the eye */
+/* treats each column as one card, not a row pair. Fades at ends.   */
+.prod-grid.vertical::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rule);
+  transform: translateX(-0.5px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  pointer-events: none;
+}
+.prod-grid.vertical .prod-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "img"
+    "head"
+    "name"
+    "spec"
+    "desc"
+    "price";
+  grid-template-rows: auto auto auto auto 1fr auto;
+  row-gap: 5px;
+  min-height: 0;
+}
+.prod-grid.vertical .prod-card:nth-child(even) {
+  grid-template-areas:
+    "head"
+    "name"
+    "spec"
+    "desc"
+    "price"
+    "img";
+  grid-template-rows: auto auto auto 1fr auto auto;
+}
+.prod-grid.vertical .prod-card .shot.square {
+  grid-area: img;
+  width: 100%;
+  aspect-ratio: 1/1;
+  min-height: 0;
+}
+.prod-grid.vertical .prod-card .cat-band { display: none; }
+.prod-grid.vertical .prod-card .prod-head { grid-area: head; padding-top: 8px; }
+.prod-grid.vertical .prod-card .prod-name {
+  grid-area: name;
+  font-size: 28px;
+  line-height: 1.05;
+}
+.prod-grid.vertical .prod-card .prod-spec { grid-area: spec; font-size: 12px; }
+.prod-grid.vertical .prod-card .prod-desc {
+  grid-area: desc;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 6px;
+  align-self: start;
+}
+.prod-grid.vertical .prod-card .pricebox {
+  grid-area: price;
+  max-width: 200px;
+  margin-top: 6px;
+  padding: 4px 5px 5px;
+}
+.prod-grid.vertical .prod-card .pricebox .pb-rule { height: 13px; font-size: 11.5px; }
+.prod-grid.vertical .prod-card .pricebox .pb-label { font-size: 8px; }
+.prod-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.prod-card .shot.square { aspect-ratio: 4/5; }
+.prod-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid var(--black);
+  padding-top: 6px;
+}
+.prod-card .prod-name {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 0;
+  color: var(--black);
+}
+.prod-card .prod-name.short { font-size: 22px; }
+.prod-spec {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+}
+.prod-desc {
+  font-size: 9.5px;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--charcoal);
+}
+.prod-note {
+  display: inline-block;
+  margin-top: 6px;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.92em;
+  line-height: 1.4;
+}
+.prod-note::before {
+  content: "Note · ";
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 0.85em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-right: 4px;
+}
+.prod-card .pricebox {
+  padding: 2px 4px 3px;
+  margin-top: auto;
+}
+.prod-card .pricebox .pb-rule { height: 11px; font-size: 9.5px; }
+.prod-card .pricebox .pb-label { font-size: 6px; letter-spacing: 0.20em; }
+.prod-card .pricebox .pb-note { font-size: 7px; letter-spacing: 0.14em; }
+
+/* 2-up: vertical layout with a banner image so two rows fit on a page */
+.prod-grid.cols-2 .prod-card {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.prod-grid.cols-2 .prod-card .shot.square { aspect-ratio: 3/1; }
+.prod-grid.cols-2 .prod-card .cat-band { display: none; }
+.prod-grid.cols-2 .prod-card .prod-name { font-size: 22px; line-height: 1.06; }
+.prod-grid.cols-2 .prod-spec { font-size: 10px; }
+.prod-grid.cols-2 .prod-desc { font-size: 10.5px; line-height: 1.4; }
+.prod-grid.cols-2 .prod-card .pricebox { padding: 6px 7px 7px; }
+.prod-grid.cols-2 .prod-card .pricebox .pb-rule { height: 12px; font-size: 10.5px; }
+.prod-grid.cols-2 .prod-card .pricebox .pb-label { font-size: 8.5px; }
+
+/* Category sub-label inside a multi-category page */
+.cat-band {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 -2px 0;
+  grid-column: 1 / -1;
+}
+.cat-band .lbl {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cat-band .line { flex: 1; height: 1px; background: var(--orange); opacity: 0.5; }
+.cat-band .count {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+}
+
+/* Tighten product-page headers so the grid has more room */
+.page[id^="p-prod-"] .h-lg { font-size: 38px; }
+.page[id^="p-prod-"] .page-inner > div:first-child + .rule { margin-bottom: 4px; }
+
+/* Order sheet — tighter rows for 17-product table */
+#p-order .page-inner { gap: 10px !important; }
+#p-order .order-table td { padding: 3.5px 8px; }
+#p-order .order-table th { padding: 6px 8px; }
+#p-order .order-table tr.spacer td { height: 14px; }
+#p-order .order-table .name-cell { font-size: 11px; }
+#p-order .order-table .sku-cell { font-size: 9.5px; }
+#p-order .h-xl { font-size: 40px; }
+#p-order .field .ln { height: 16px; }
+#p-order .field .lbl { font-size: 7.5px; }
+
+/* Internal pricing — tighter rows for 17 SKUs */
+#p-internal-prices #ipt-prices td,
+#p-internal-prices #ipt-prices th { padding: 5px 8px; font-size: 10px; }
+#p-internal-prices #ipt-prices .row-name { font-size: 12px; }
+
+/* Category opener index rows */
+.opener-items {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+}
+.opener-item {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.opener-item:last-child { border-bottom: none; }
+.opener-item .sku { font-size: 11px; }
+.opener-item .oi-name {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  color: var(--black);
+  line-height: 1.2;
+}
+.opener-item .oi-loc {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Legacy product-page tightening (kept harmless) */
+.page[id^="p-prod-"] article { gap: 24px !important; }
+.page[id^="p-prod-"] article > div[style*="flex-direction:column"] { gap: 9px !important; }
+.page[id^="p-prod-"] .h-lg { font-size: 36px; line-height: 1.04; }
+.page[id^="p-prod-"] .spec-row { padding: 3px 0; }
+.page[id^="p-prod-"] .pricebox { padding: 6px 8px 7px; }
+.page[id^="p-prod-"] .pricebox .pb-rule { height: 13px; font-size: 11.5px; }
+.page[id^="p-prod-"] p { font-size: 11.5px; line-height: 1.5; }
+.page[id^="p-prod-"] .pricebox .pb-label,
+.page[id^="p-prod-"] .pricebox .pb-note { font-size: 8.5px; letter-spacing: 0.20em; }
+
+/* ---------- Print ---------- */
+@page { size: 8.5in 11in; margin: 0; }
+@media print {
+  body { background: white; }
+  .toc, .nav-print-hide { display: none !important; }
+  .deck { gap: 0; padding: 0; }
+  .page { box-shadow: none; margin: 0; }
+}

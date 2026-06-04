@@ -45,6 +45,19 @@ This file defines how this workspace is managed so strategy stays consistent ove
 - When uncertain, flag uncertainty and list required inputs.
 - Do not fabricate numbers, market evidence, or outcomes.
 
+## Image Prompt Text Policy
+
+- Do not assume image prompts should avoid text.
+- When an image is supposed to include readable words, labels, signage, branding, price text, catalog marks, packaging text, captions, or other literal text, include that text explicitly in the image prompt.
+- ChatGPT Image 2 is accepted in this workspace as a capable option for text-bearing image generation. Do not remove requested text based on generic older image-model guidance.
+- Remove or avoid in-image text only when the user requests a text-free image, the text is not approved for the intended customer-facing use, or the selected image tool is documented as unable to render it.
+
+## Brand Asset Policy
+
+- `00_brand/` is the source of truth for Drakkar Designs brand assets.
+- Any workflow that creates or references brand-specific text, graphics, images, ads, copy, HTML, templates, prompt packs, or generated visuals must check `00_brand/` before using logo files, product photos, colors, or brand styling.
+- Catalog export folders may be used as provenance, but they are not the active brand asset location.
+
 ## Dual-Model Customer-Copy Rules
 
 - GPT-5.5 is the workflow orchestrator for internal workflow progression.

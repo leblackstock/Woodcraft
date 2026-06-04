@@ -2,6 +2,8 @@
 
 Purpose: keep cost math simple, markdown-native, auditable, and aligned with workspace profit guardrails before pricing is approved.
 
+Brand asset reminder: if this cost sheet supports branded listing, ad, graphic, HTML/template, or generated-visual work, reference `00_brand/` through the linked product/listing/content record rather than duplicating brand assets here.
+
 ## Cost Sheet Identity
 
 - cost_sheet_id:
@@ -51,12 +53,12 @@ Purpose: keep cost math simple, markdown-native, auditable, and aligned with wor
 ## Dual Pricing Strategy Check
 
 - pricing_strategy_1_price_floor:
-- pricing_strategy_1_note: Higher of `total_unit_cost / 0.60` or `total_unit_cost + applicable profit floor`
+- pricing_strategy_1_note: Higher of `total_unit_cost / 0.60` or `total_unit_cost + applicable profit floor` when labor-inclusive inputs exist; otherwise carry as an advisory pending note.
 - pricing_strategy_2_price_floor:
 - pricing_strategy_2_note: `materials_cost_total / 0.30`
 - material_cost_percent_of_price:
-- recommended_price_floor: Default pricing baseline under current policy; normally Strategy 2 unless otherwise stated, with warning if Strategy 1 differs by more than 15%
-- pricing_strategy_review: Pass / Fail / Blocked / Needs Approval
+- recommended_price_floor: Default pricing baseline under current policy; normally Strategy 2 unless otherwise stated, with warning if calculated Strategy 1 differs by more than 15%
+- pricing_strategy_review: Pass / Fail / Needs Approval / Advisory Strategy 1 Pending
 
 ## Guardrail Check
 
@@ -65,7 +67,7 @@ Purpose: keep cost math simple, markdown-native, auditable, and aligned with wor
 | Gross margin floor | >= 40% | Pass / Fail / Blocked |  |
 | Profit floor | Per [04_BUSINESS_RULES.md](../04_BUSINESS_RULES.md) | Pass / Fail / Blocked |  |
 | Materials are 30% of finished price | `materials_cost_total / target_price <= 30%` | Pass / Fail / Blocked |  |
-| Strategy 1 variance warning raised when needed | Warn if Strategy 1 differs from Strategy 2 by > 15% | Pass / Fail / Blocked |  |
+| Strategy 1 variance warning raised when needed | Warn if calculated Strategy 1 differs from Strategy 2 by > 15%; note pending Strategy 1 when labor inputs are not ready | Pass / Fail / Note |  |
 | Cost uncertainty acceptable for approval | Low enough to price truthfully | Pass / Fail / Blocked |  |
 
 ## Notes and Approval

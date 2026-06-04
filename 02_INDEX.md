@@ -1,4 +1,4 @@
-# 02 Index
+﻿# 02 Index
 
 Master map of this workspace. Start with [00_START_HERE.md](00_START_HERE.md).
 
@@ -33,6 +33,7 @@ Master map of this workspace. Start with [00_START_HERE.md](00_START_HERE.md).
 
 ## Working Folders
 
+- [00_brand/](00_brand/) — Drakkar Designs brand asset source of truth: logos, marks, approved catalog photos, and palette notes.
 - [15_weekly_review_drafts/](15_weekly_review_drafts/) — upcoming or in-progress weekly review drafts not yet completed.
 - [20_research/](20_research/) — market research snapshots, competitor notes, pricing observations.
 - [30_products/](30_products/) — product candidates, approved items, standard specs, and cost/build notes.

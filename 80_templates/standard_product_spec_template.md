@@ -2,6 +2,8 @@
 
 Purpose: define the default launch spec for a repeatable product so GPT-5.5 can infer safe defaults, flag deviations, and reduce repeated operator input.
 
+Brand asset reminder: when a spec supports brand-specific listing media, graphics, HTML/templates, or generated visuals, the linked workflow should reference `00_brand/` for current logos, approved photos, palette notes, and brand asset provenance.
+
 ## Spec Identity
 
 - spec_id:

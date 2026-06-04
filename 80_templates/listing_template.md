@@ -24,7 +24,7 @@
 
 > Verification rule: `verification_status` supports approved-facts readiness and one-shot operator review. It does not replace `approved_facts_status`, manual approval, or the Claude gate.
 
-> Pricing rule: every `listing_price` must be checked against both approved pricing strategies in the linked cost sheet or verification packet. If the price was set earlier, reverse-check it before treating it as good pricing.
+> Pricing rule: every `listing_price` must be checked against the Strategy 2 materials benchmark and any available Strategy 1 calculation in the linked cost sheet or verification packet. If labor-inclusive Strategy 1 is not ready, carry it as a visible note rather than a standalone blocker.
 
 > Made-to-order rule: a fresh build is not required before listing if the standard spec, pricing logic, lead time, delivery terms, and media truth are locked.
 
@@ -49,6 +49,7 @@
 
 ## Media Plan
 
+- brand_assets_ref: 00_brand/
 - media_truth_status: Owned Real Photo / Owned AI-Assisted Photo / Concept / Mockup / Third-Party Reference Only
 - media_provenance_note:
 - media_assets:
@@ -61,6 +62,8 @@
 > Media truth rule: owned real photos from prior builds are allowed for listing use. AI-assisted images are allowed only when derived from owned real photos and still used truthfully. Third-party/source/tutorial/plan images must not be used as listing media.
 
 > Media planning rule: if `media_truth_status` is `Third-Party Reference Only`, keep that asset in planning/reference notes only and out of publishable listing media fields.
+
+> Brand asset rule: any brand-specific image, graphic, logo, color, HTML, or template work for this listing must reference `00_brand/` as the current brand asset source of truth.
 
 ## Buyer Support Copy
 

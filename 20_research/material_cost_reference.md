@@ -6,6 +6,7 @@
 |---|---:|---|
 | Dog-eared cedar pickets | $3.68 each | Home Depot |
 | Pressure-treated 2x4x8 | $4.28 each | Home Depot |
+| Pressure-treated 4x4x8 | $9.98 each before tax | User-provided on 2026-04-30 |
 | Glue | $40.00 per gallon | Home Depot |
 | Nail gun nails | $10.00 per 5,000 | Harbor Freight |
 | Exterior 2-inch screws | $0.04 each | Amazon |

@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Drakkar Designs — System &amp; Handoff</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Local helpers for the system doc only */
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--rule);
+  }
+  .swatch .chip { height: 88px; }
+  .swatch .meta {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #fff;
+  }
+  .swatch .meta .nm {
+    font-family: var(--serif);
+    font-size: 15px;
+  }
+  .swatch .meta .hx {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+  }
+  .type-spec {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 18px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .type-spec .lbl {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ds-card {
+    border: 1px solid var(--rule);
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step .n {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .step .body { display: flex; flex-direction: column; gap: 4px; }
+  .step .ttl { font-family: var(--serif); font-size: 14px; font-weight: 500; }
+  .step .desc { font-size: 11px; color: var(--charcoal); }
+  .kbd {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    background: var(--black);
+    color: var(--stone);
+    padding: 1px 6px;
+    letter-spacing: 0.12em;
+  }
+</style>
+</head>
+<body>
+
+<nav class="toc nav-print-hide" aria-label="Handoff sections">
+  <h4>Drakkar / System</h4>
+  <ol>
+    <li><a href="#p-system">Design system</a></li>
+    <li><a href="#p-canva">Canva build</a></li>
+    <li><a href="#p-handoff">Handoff brief</a></li>
+    <li><a href="Drakkar Catalog.html">← back to catalog</a></li>
+  </ol>
+</nav>
+
+<div class="deck">
+
+<!-- ============================================
+     PAGE 12 — DESIGN SYSTEM REFERENCE
+     ============================================ -->
+<section class="page" id="p-system" data-screen-label="12 Design System">
+  <div class="runner top">
+    <span class="mark">DRAKKAR &middot; DESIGNS</span>
+    <span class="stamp">— Internal · 12 / System —</span>
+  </div>
+
+  <div class="page-inner" style="display:flex;flex-direction:column;gap:14px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+      <div>
+        <div class="eyebrow accent">§ 06 — The Look</div>
+        <h2 class="h-lg">Design system.</h2>
+      </div>
+      <div style="text-align:right;max-width:30ch;">
+        <span class="italic-pull" style="font-size:16px;">Locked palette, three typefaces, one signature price box.</span>
+      </div>
+    </div>
+
+    <div class="rule orange"></div>
+
+    <!-- PALETTE -->
+    <div>
+      <span class="eyebrow accent">A · Palette (locked)</span>
+      <div style="display:grid;grid-template-columns: repeat(6, 1fr);gap:8px;margin-top:8px;">
+        <div class="swatch"><div class="chip" style="background:#13181B;height:54px;"></div><div class="meta" style="padding:7px 9px;"><span class="nm" style="font-size:13px;">Near Black</span><span class="hx">#13181B</span></div></div>
+        <div class="swatch"><div class="chip" style="background:#414444;height:54px;"></div><div class="meta" style="padding:7px 9px;"><span class="nm" style="font-size:13px;">Dark Charcoal</span><span class="hx">#414444</span></div></div>
+        <div class="swatch"><div class="chip" style="background:#A4A9A5;height:54px;"></div><div class="meta" style="padding:7px 9px;"><span class="nm" style="font-size:13px;">Silver Grey</span><span class="hx">#A4A9A5</span></div></div>
+        <div class="swatch"><div class="chip" style="background:#DEDCD6;height:54px;"></div><div class="meta" style="padding:7px 9px;"><span class="nm" style="font-size:13px;">Light Stone</span><span class="hx">#DEDCD6</span></div></div>
+        <div class="swatch"><div class="chip" style="background:#CF4E17;height:54px;"></div><div class="meta" style="padding:7px 9px;"><span class="nm" style="font-size:13px;">Burnt Orange</span><span class="hx">#CF4E17</span></div></div>
+        <div class="swatch"><div class="chip" style="background:#E04B1A;height:54px;"></div><div class="meta" style="padding:7px 9px;"><span class="nm" style="font-size:13px;">Vivid Orange</span><span class="hx">#E04B1A</span></div></div>
+      </div>
+      <div class="micro" style="margin-top:6px;">Bg / dark &middot; Heads / rules &middot; Labels / 2° &middot; Page bg &middot; Primary accent &middot; Highlight</div>
+    </div>
+
+    <!-- TYPE + MARKS -->
+    <div style="display:grid;grid-template-columns: 1.2fr 1fr;gap:24px;">
+      <div>
+        <span class="eyebrow accent">B · Typography</span>
+        <div style="margin-top:6px;">
+          <div class="type-spec" style="padding:7px 0;">
+            <span class="lbl">Display</span>
+            <div>
+              <div style="font-family:var(--serif);font-weight:300;font-size:30px;line-height:1;">Cormorant <span style="font-style:italic;color:var(--orange);">Garamond</span></div>
+              <div class="micro" style="margin-top:4px;">Light 300 · italic emphasis · headings &amp; pull quotes</div>
+            </div>
+          </div>
+          <div class="type-spec" style="padding:7px 0;">
+            <span class="lbl">Body / UI</span>
+            <div>
+              <div style="font-family:var(--sans);font-weight:500;font-size:18px;letter-spacing:-0.005em;">Manrope — body &amp; UI</div>
+              <div class="micro" style="margin-top:4px;">400 / 500 / 600 · paragraphs, spec values, buttons</div>
+            </div>
+          </div>
+          <div class="type-spec" style="padding:7px 0;">
+            <span class="lbl">Mono</span>
+            <div>
+              <div style="font-family:var(--mono);font-weight:500;font-size:15px;letter-spacing:0.06em;">JetBrains Mono · A001 · $42.00</div>
+              <div class="micro" style="margin-top:4px;">SKUs, micro-labels in small caps, runners, totals</div>
+            </div>
+          </div>
+          <div class="type-spec" style="padding:7px 0;border-bottom:none;">
+            <span class="lbl">Scale</span>
+            <div class="micro" style="line-height:1.7;">88 / 64 / 44 / 28 / 18 / 14 / 12 / 11 / 9.5pt &middot; mono small caps tracked&nbsp;+180</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-col gap-10" style="gap:10px;">
+        <span class="eyebrow accent">C · Brand marks</span>
+        <div class="ds-card" style="padding:10px 12px;gap:6px;">
+          <div class="micro">Primary &middot; full lockup</div>
+          <div style="display:flex;align-items:center;gap:14px;padding:4px 0;">
+            <img class="logo" src="brand/drakkar-logo.png" alt="Drakkar Designs" style="width:110px;" />
+            <span class="micro" style="line-height:1.5;">Use on stone or white. On dark, place inside a stone hangtag with orange corner tabs.</span>
+          </div>
+        </div>
+        <div class="ds-card" style="padding:10px 12px;gap:6px;">
+          <div class="micro">Secondary &middot; DD knot</div>
+          <div style="display:flex;align-items:center;gap:14px;padding:4px 0;">
+            <img class="logo" src="brand/drakkar-dd-tight.png" alt="Drakkar Designs DD" style="width:70px;height:auto;" />
+            <span class="micro" style="line-height:1.5;">DD monogram &middot; use on dark backgrounds where the wordmark would fade.</span>
+          </div>
+        </div>
+        <div class="ds-card" style="padding:10px 12px;gap:6px;">
+          <div class="micro">Tertiary &middot; D in circle</div>
+          <div class="flex-row gap-12" style="padding:2px 0;">
+            <div class="monogram" style="width:40px;height:40px;font-size:22px;">D</div>
+            <span class="micro" style="line-height:1.5;">Runners, footers, tight UI only</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPONENTS -->
+    <div>
+      <span class="eyebrow accent">D · Components</span>
+      <div style="display:grid;grid-template-columns: 1fr 1fr 1fr;gap:14px;margin-top:8px;">
+
+        <div class="ds-card" style="padding:12px 14px;gap:8px;">
+          <div class="micro">Price box · signature</div>
+          <div class="pricebox" style="padding:10px 12px 12px;">
+            <span class="pb-label" style="font-size:8.5px;">Wholesale · Your Price</span>
+            <div class="pb-rule" style="height:22px;"></div>
+            <span class="pb-note" style="font-size:8px;">Suggested retail · ____</span>
+          </div>
+          <span class="micro">2px orange frame · cut-corner tabs · stone fill 4%</span>
+        </div>
+
+        <div class="ds-card" style="padding:12px 14px;gap:8px;">
+          <div class="micro">SKU + title pair</div>
+          <div class="flex-col gap-4" style="padding:6px 0;">
+            <span class="sku">A</span>
+            <span style="font-family:var(--serif);font-size:20px;line-height:1.1;">Classic Square Cedar Planter</span>
+          </div>
+          <span class="micro">Mono orange 11pt tracked +140 · serif title</span>
+        </div>
+
+        <div class="ds-card" style="padding:12px 14px;gap:8px;">
+          <div class="micro">Stamp / label</div>
+          <div class="flex-col gap-6" style="gap:6px;padding:4px 0;">
+            <span class="stamp-block">Partner copy</span>
+            <span class="stamp-block">Internal use only</span>
+          </div>
+          <span class="micro">Mono 9pt · orange frame · upper</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="runner bot">
+    <span>12 &middot; System</span>
+    <span class="stamp">Confidential</span>
+  </div>
+</section>
+
+
+<!-- ============================================
+     PAGE 13 — CANVA BUILD INSTRUCTIONS
+     ============================================ -->
+<section class="page" id="p-canva" data-screen-label="13 Canva Build">
+  <div class="runner top">
+    <span class="mark">DRAKKAR &middot; DESIGNS</span>
+    <span class="stamp">— Internal · 13 / Canva —</span>
+  </div>
+
+  <div class="page-inner" style="display:flex;flex-direction:column;gap:18px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+      <div>
+        <div class="eyebrow accent">§ 07 — Rebuild in Canva</div>
+        <h2 class="h-xl">Canva<br/>recreate guide.</h2>
+      </div>
+      <div style="text-align:right;max-width:30ch;">
+        <span class="italic-pull" style="font-size:18px;">A 12-step path from this PDF to an editable Canva Brand Kit + template set.</span>
+      </div>
+    </div>
+
+    <div class="rule orange"></div>
+
+    <div style="display:grid;grid-template-columns: 1fr 1fr;gap:32px;">
+
+      <!-- LEFT — Brand kit setup -->
+      <div>
+        <span class="eyebrow accent">A · Brand Kit setup (one-time)</span>
+
+        <div class="step">
+          <span class="n">1</span>
+          <div class="body">
+            <span class="ttl">Create a Brand Kit named <em>Drakkar Designs</em></span>
+            <span class="desc">Canva → Brand → New brand kit. Use this kit for every Drakkar doc.</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">2</span>
+          <div class="body">
+            <span class="ttl">Load the six brand colors</span>
+            <span class="desc">
+              <span class="kbd">#13181B</span> <span class="kbd">#414444</span> <span class="kbd">#A4A9A5</span>
+              <span class="kbd">#DEDCD6</span> <span class="kbd">#CF4E17</span> <span class="kbd">#E04B1A</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">3</span>
+          <div class="body">
+            <span class="ttl">Set the three brand fonts</span>
+            <span class="desc">Heading: Cormorant Garamond (Light&nbsp;300). Body: Manrope (Reg 400 / Semi 600). Label: JetBrains Mono (Reg 400). All three are in Canva's Google Fonts.</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">4</span>
+          <div class="body">
+            <span class="ttl">Upload brand assets</span>
+            <span class="desc">Monogram D (SVG), Drakkar wordmark (SVG), corner registration mark, hatched image-placeholder PNG. Tag each under <em>brand / drakkar</em>.</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">5</span>
+          <div class="body">
+            <span class="ttl">Create a US Letter document, 8.5 × 11 in, portrait</span>
+            <span class="desc">Page setup → margins 0.625 in. Save as a Template after page 1.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — Page templates -->
+      <div>
+        <span class="eyebrow accent">B · Build the page templates</span>
+
+        <div class="step">
+          <span class="n">6</span>
+          <div class="body">
+            <span class="ttl">Master Page — runners &amp; furniture</span>
+            <span class="desc">Top runner: <em>DRAKKAR · DESIGNS</em> in Cormorant (10pt, tracked&nbsp;+420). Bottom runner: page # + section. Both in Charcoal #414444. Copy onto every page.</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">7</span>
+          <div class="body">
+            <span class="ttl">Cover page</span>
+            <span class="desc">Background fill #13181B. Wordmark Cormorant Light 120pt, the period in italic #CF4E17. Add the four corner registration marks (SVG).</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">8</span>
+          <div class="body">
+            <span class="ttl">Product card component (reusable)</span>
+            <span class="desc">Group: image frame (square, 1:1), SKU label (mono orange), serif title, spec list (mono key / sans value), price box. Save as an Element → reuse for all 17 SKUs.</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">9</span>
+          <div class="body">
+            <span class="ttl">Price box element</span>
+            <span class="desc">Rectangle 2px orange stroke, no fill. Add small stone-fill squares at top-left and bottom-right for the cut-corner tabs. Inside: mono label, underline rule, mono note.</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">10</span>
+          <div class="body">
+            <span class="ttl">Order &amp; pricing tables</span>
+            <span class="desc">Use the Table element. Header row 2px black border top/bottom, mono small caps. Body rows 1px #1318181B@18% bottom border. Alternate row 2.5% black for internal pricing.</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">11</span>
+          <div class="body">
+            <span class="ttl">Two file outputs</span>
+            <span class="desc">Duplicate the master into <em>Drakkar — Partner Catalog</em> (pages 1–9) and <em>Drakkar — Internal Sheet</em> (pages 10–11). Lock layers so partner copy can't be edited by a buyer.</span>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="n">12</span>
+          <div class="body">
+            <span class="ttl">Export</span>
+            <span class="desc">Share → Download → PDF Print, Crop marks + bleed off, CMYK if going to print, Flatten PDF on. Save partner + internal as separate PDFs.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="border:1.5px solid var(--orange);padding:12px 16px;background:rgba(207,78,23,0.05);display:flex;justify-content:space-between;align-items:center;">
+      <span class="micro" style="color:var(--orange);font-weight:600;">Watch-outs</span>
+      <span style="font-size:11px;color:var(--charcoal);max-width:60ch;">Cormorant Garamond <em>Light</em> 300 is the right weight — don't let Canva auto-substitute Medium. Burnt orange is <span class="kbd">#CF4E17</span>, never the vivid <span class="kbd">#E04B1A</span> for body text. Keep image frames as the hatched placeholder until real photos land.</span>
+    </div>
+
+  </div>
+
+  <div class="runner bot">
+    <span>13 &middot; Canva</span>
+    <span class="stamp">Confidential</span>
+  </div>
+</section>
+
+
+<!-- ============================================
+     PAGE 14 — HANDOFF BRIEF
+     ============================================ -->
+<section class="page dark" id="p-handoff" data-screen-label="14 Handoff Brief">
+  <div class="runner top">
+    <span class="mark">DRAKKAR &middot; DESIGNS</span>
+    <span class="stamp">— Internal · 14 / Handoff —</span>
+  </div>
+
+  <div class="page-inner" style="display:flex;flex-direction:column;gap:18px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+      <div>
+        <div class="eyebrow" style="color:var(--orange);">§ 08 — One-page brief</div>
+        <h2 class="h-xl" style="color:var(--stone);">Handoff,<br/>in one page.</h2>
+      </div>
+      <div style="text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
+        <img class="logo" src="brand/drakkar-dd-tight.png" alt="Drakkar Designs DD monogram" style="width:60px;height:auto;" />
+        <div>
+          <span class="micro" style="color:var(--silver);">Paste into ChatGPT / Claude</span>
+          <div class="h-sm" style="margin-top:4px;color:var(--orange);font-family:var(--mono);font-weight:500;">DRK · BRIEF · v1</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule orange"></div>
+
+    <div style="display:grid;grid-template-columns: 1fr 1fr;gap:28px;">
+
+      <div class="flex-col gap-12">
+        <div>
+          <span class="eyebrow" style="color:var(--orange);">A · What this is</span>
+          <p style="color:var(--silver);margin:8px 0 0;">A printable wholesale catalog &amp; order packet for Drakkar Designs — a handmade cedar / homestead workshop. Designed as a US Letter portrait PDF, partner-facing pages 1–9 and internal pages 10–11, with a separate system &amp; handoff doc.</p>
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color:var(--orange);">B · Visual direction</span>
+          <p style="color:var(--silver);margin:8px 0 0;">Boutique line-sheet meets rural maker. Stone-grey page, charcoal &amp; near-black for headers and the back-office section, burnt orange as the only accent. Generous whitespace, serif headings, mono micro-labels, hand-drawn rules.</p>
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color:var(--orange);">C · Locked palette</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;">
+            <span class="kbd">#13181B</span><span class="kbd">#414444</span><span class="kbd">#A4A9A5</span>
+            <span class="kbd">#DEDCD6</span><span class="kbd">#CF4E17</span><span class="kbd">#E04B1A</span>
+          </div>
+          <span class="micro" style="color:var(--silver);margin-top:8px;display:block;">Do not substitute or add hues. All on-brand neutrals derive from these via opacity.</span>
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color:var(--orange);">D · Type pairing</span>
+          <p style="color:var(--silver);margin:8px 0 0;">Cormorant Garamond Light 300 (headings + pull quotes, italic for emphasis), Manrope 400/500/600 (body + UI), JetBrains Mono 400/500 (SKUs, micro-labels, totals).</p>
+        </div>
+      </div>
+
+      <div class="flex-col gap-12">
+        <div>
+          <span class="eyebrow" style="color:var(--orange);">E · Packet contents (14 pages)</span>
+          <div style="color:var(--silver);font-size:11px;line-height:1.7;margin-top:8px;">
+            01 Cover &middot; 02 Brand &middot; 03 Catalog opener &middot; 04–07 Products A → Q (17 SKUs, 9 categories) &middot; 08 Variations &middot; 09 Partner order sheet &middot; 10 Internal divider &middot; 11 Retail price sheet &middot; 12 Design system &middot; 13 Canva build guide &middot; 14 This brief.
+          </div>
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color:var(--orange);">F · Two output files</span>
+          <ul style="color:var(--silver);font-size:11px;line-height:1.6;margin:8px 0 0;padding-left:18px;">
+            <li><em>Drakkar — Partner Catalog</em>: pages 01–09. Distribute freely.</li>
+            <li><em>Drakkar — Internal Sheet</em>: pages 10–11 + 12–14. Never send to partners.</li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color:var(--orange);">G · Reusable components</span>
+          <ul style="color:var(--silver);font-size:11px;line-height:1.6;margin:8px 0 0;padding-left:18px;">
+            <li><strong>Product card</strong> — image / SKU / title / specs / price box (mirror left/right for rhythm).</li>
+            <li><strong>Price box</strong> — 2px orange frame, cut-corner tabs, signature blank.</li>
+            <li><strong>Order &amp; price tables</strong> — mono small-cap heads, hairline body rules.</li>
+            <li><strong>Runners</strong> — Cormorant mark top-left, mono section right; mono page # bottom.</li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color:var(--orange);">H · Next steps</span>
+          <ol style="color:var(--silver);font-size:11px;line-height:1.6;margin:8px 0 0;padding-left:18px;">
+            <li>Shoot the 17 SKUs against the photo brief (Design System, §G).</li>
+            <li>Confirm 2026 wholesale margins, MOQ, and lead times — currently TBD on the internal sheet.</li>
+            <li>Rebuild in Canva using §07 guide; export two PDFs.</li>
+            <li>Iterate web &amp; webapp layouts from this same system.</li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:auto;border-top:1px solid var(--charcoal);padding-top:14px;display:flex;justify-content:space-between;align-items:center;">
+      <span class="micro" style="color:var(--silver);">17 SKUs across 9 categories — retail prices confirmed from product sheet v01. Wholesale, MOQ, lead times TBD.</span>
+      <span class="stamp-block dark">End of packet</span>
+    </div>
+
+  </div>
+
+  <div class="runner bot">
+    <span style="color:var(--silver);">14 &middot; Brief</span>
+    <span class="stamp">Confidential</span>
+  </div>
+</section>
+
+
+<div class="nav-print-hide" style="width: var(--pg-w); display:flex; justify-content:space-between; align-items:center; padding: 16px 4px; color: var(--stone);">
+  <a href="Drakkar Catalog.html" style="color: var(--orange); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--orange); padding: 10px 14px;">
+    ← Back to the catalog
+  </a>
+  <span class="micro" style="color: var(--silver);">DRK · BRIEF · v1</span>
+</div>
+
+</div>
+</body>
+</html>

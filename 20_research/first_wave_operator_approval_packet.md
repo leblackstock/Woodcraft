@@ -1,4 +1,4 @@
-# First-Wave Operator Approval Packet
+﻿# First-Wave Operator Approval Packet
 
 Date: 2026-04-21
 

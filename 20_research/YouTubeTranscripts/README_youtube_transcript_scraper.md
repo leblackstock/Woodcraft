@@ -1,4 +1,4 @@
-# YouTube Channel Transcript Scraper — No API Key Needed
+﻿# YouTube Channel Transcript Scraper — No API Key Needed
 
 This project pulls available YouTube transcripts from a specific channel and saves them as searchable `.txt` files.
 

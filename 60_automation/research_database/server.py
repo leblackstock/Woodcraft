@@ -155,8 +155,25 @@ HTML = """<!doctype html>
       color: var(--muted);
       font-size: 13px;
     }
+    .pricing-mode-controls {
+      display: none;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0 12px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #f7f8f5;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .pricing-mode-controls.visible {
+      display: flex;
+    }
     .column-controls:empty { display: none; }
-    .column-controls-title {
+    .column-controls-title,
+    .pricing-mode-title {
       font-weight: 700;
       color: var(--ink);
       margin-right: 2px;
@@ -172,6 +189,13 @@ HTML = """<!doctype html>
       background: #f9faf7;
       color: var(--ink);
       cursor: pointer;
+    }
+    .column-toggle[draggable="true"] {
+      cursor: grab;
+    }
+    .column-toggle.dragging {
+      opacity: 0.55;
+      cursor: grabbing;
     }
     .column-toggle:hover {
       border-color: #8fa99e;
@@ -202,6 +226,21 @@ HTML = """<!doctype html>
     }
     .column-action:hover {
       background: var(--mark);
+      color: var(--accent-dark);
+    }
+    .pricing-mode {
+      min-height: 28px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--accent-dark);
+      border-color: #8fa99e;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pricing-mode.active {
+      background: var(--mark);
+      border-color: var(--accent);
       color: var(--accent-dark);
     }
     .table-wrap {
@@ -363,6 +402,7 @@ HTML = """<!doctype html>
       <button class="back-button" id="backButton" type="button" disabled>Back</button>
       <div class="result-meta" id="meta"></div>
     </div>
+    <div class="pricing-mode-controls" id="pricingModeControls"></div>
     <div class="column-controls" id="columnControls"></div>
     <div class="table-wrap" id="results"></div>
   </main>
@@ -371,15 +411,26 @@ HTML = """<!doctype html>
   </div>
   <script>
     const hiddenColumnsStorageKey = "woodcraftResearchHiddenColumns";
+    const columnOrderStorageKey = "woodcraftResearchColumnOrder";
     const results = document.getElementById("results");
     const backButton = document.getElementById("backButton");
+    const pricingModeControls = document.getElementById("pricingModeControls");
     const floatingScrollbar = document.getElementById("floatingScrollbar");
     const floatingScrollbarInner = document.getElementById("floatingScrollbarInner");
     let syncingScrollbars = false;
+    let draggedColumnKey = "";
 
     function loadHiddenColumns() {
       try {
-        return JSON.parse(sessionStorage.getItem(hiddenColumnsStorageKey) || "{}");
+        return JSON.parse(localStorage.getItem(hiddenColumnsStorageKey) || "{}");
+      } catch {
+        return {};
+      }
+    }
+
+    function loadColumnOrder() {
+      try {
+        return JSON.parse(localStorage.getItem(columnOrderStorageKey) || "{}");
       } catch {
         return {};
       }
@@ -395,7 +446,9 @@ HTML = """<!doctype html>
       sort: {},
       filters: {},
       hiddenColumns: loadHiddenColumns(),
-      history: []
+      columnOrder: loadColumnOrder(),
+      history: [],
+      pricingMode: "overview"
     };
 
     function clone(value) {
@@ -444,7 +497,11 @@ HTML = """<!doctype html>
     }
 
     function saveHiddenColumns() {
-      sessionStorage.setItem(hiddenColumnsStorageKey, JSON.stringify(state.hiddenColumns));
+      localStorage.setItem(hiddenColumnsStorageKey, JSON.stringify(state.hiddenColumns));
+    }
+
+    function saveColumnOrder() {
+      localStorage.setItem(columnOrderStorageKey, JSON.stringify(state.columnOrder));
     }
 
     function escapeHtml(value) {
@@ -472,13 +529,32 @@ HTML = """<!doctype html>
     }
 
     function viewHiddenColumns() {
-      if (!state.hiddenColumns[state.view]) state.hiddenColumns[state.view] = {};
-      return state.hiddenColumns[state.view];
+      const key = viewStorageKey();
+      if (!state.hiddenColumns[key]) state.hiddenColumns[key] = {};
+      return state.hiddenColumns[key];
+    }
+
+    function viewColumnOrder() {
+      const key = viewStorageKey();
+      if (!Array.isArray(state.columnOrder[key])) state.columnOrder[key] = [];
+      return state.columnOrder[key];
+    }
+
+    function viewStorageKey() {
+      return state.view === "pricing" ? `${state.view}:${state.pricingMode}` : state.view;
+    }
+
+    function orderedColumns(columns) {
+      const order = viewColumnOrder();
+      const byKey = new Map(columns.map(col => [col.key, col]));
+      const ordered = order.filter(key => byKey.has(key)).map(key => byKey.get(key));
+      const missing = columns.filter(col => !order.includes(col.key));
+      return [...ordered, ...missing];
     }
 
     function activeColumns(columns) {
       const hidden = viewHiddenColumns();
-      return columns.filter(col => !hidden[col.key]);
+      return orderedColumns(columns).filter(col => !hidden[col.key]);
     }
 
     function updateFloatingScrollbar() {
@@ -599,18 +675,118 @@ HTML = """<!doctype html>
       }
       const hidden = viewHiddenColumns();
       const visibleCount = activeColumns(state.columns).length;
-      const toggles = state.columns.map(col => {
+      const toggles = orderedColumns(state.columns).map(col => {
         const checked = !hidden[col.key];
         const disabled = checked && visibleCount === 1 ? " disabled" : "";
-        return `<label class="column-toggle"><input type="checkbox" data-column-key="${escapeHtml(col.key)}"${checked ? " checked" : ""}${disabled}>${escapeHtml(col.label)}</label>`;
+        return `<label class="column-toggle" draggable="true" data-column-key="${escapeHtml(col.key)}"><input type="checkbox" data-column-key="${escapeHtml(col.key)}"${checked ? " checked" : ""}${disabled}>${escapeHtml(col.label)}</label>`;
       }).join("");
-      controls.innerHTML = `<span class="column-controls-title">Columns</span>${toggles}<button class="column-action" type="button" data-column-action="show-all">Show all</button>`;
+      controls.innerHTML = `<span class="column-controls-title">Columns</span>${toggles}<button class="column-action" type="button" data-column-action="show-all">Show all</button><button class="column-action" type="button" data-column-action="reset-order">Reset order</button>`;
+    }
+
+    function setColumnOrderForView(keys) {
+      const valid = new Set(state.columns.map(col => col.key));
+      state.columnOrder[viewStorageKey()] = keys.filter(key => valid.has(key));
+      saveColumnOrder();
+    }
+
+    function moveColumn(sourceKey, targetKey, placeAfter) {
+      if (!sourceKey || !targetKey || sourceKey === targetKey) return;
+      const keys = orderedColumns(state.columns).map(col => col.key);
+      const sourceIndex = keys.indexOf(sourceKey);
+      const targetIndex = keys.indexOf(targetKey);
+      if (sourceIndex === -1 || targetIndex === -1) return;
+      keys.splice(sourceIndex, 1);
+      const adjustedTargetIndex = keys.indexOf(targetKey);
+      keys.splice(adjustedTargetIndex + (placeAfter ? 1 : 0), 0, sourceKey);
+      setColumnOrderForView(keys);
+      renderCurrentTable();
+    }
+
+    function pricingColumns() {
+      const shared = [
+        { key: "catalog_id", label: "Catalog ID", size: "compact" },
+        { key: "product_name", label: "Product", size: "medium" },
+        { key: "status", label: "Product Status", size: "compact" },
+        { key: "pricing_status", label: "Pricing State", size: "compact" },
+        { key: "costing_method", label: "Costing Method", size: "medium" },
+        { key: "materials_amount_status", label: "Materials State", size: "compact" },
+        { key: "sale_pricing_method", label: "Sale Pricing Method", size: "medium" }
+      ];
+      if (state.pricingMode === "math") {
+        return [
+          ...shared,
+          { key: "materials_cost_value", label: "Materials", size: "compact" },
+          { key: "materials_cost_basis", label: "Materials Basis", size: "wide" },
+          { key: "unit_cost_value", label: "Unit Cost", size: "compact" },
+          { key: "target_price_value", label: "Sale Price", size: "compact" },
+          { key: "pricing_strategy_1_floor_value", label: "Strategy 1", size: "compact" },
+          { key: "pricing_strategy_2_floor_value", label: "Strategy 2", size: "compact" },
+          { key: "recommended_price_floor_value", label: "Recommended", size: "compact" },
+          { key: "material_cost_percent_value", label: "Material %", size: "compact" },
+          { key: "margin_estimate", label: "Profit / Margin Note", size: "wide" }
+        ];
+      }
+      if (state.pricingMode === "readiness") {
+        return [
+          ...shared,
+          { key: "verification_status", label: "Verification", size: "compact" },
+          { key: "cost_sheet_status", label: "Cost Sheet State", size: "compact" },
+          { key: "build_time_estimate", label: "Build Time", size: "compact" },
+          { key: "lead_time_estimate", label: "Lead Time", size: "compact" },
+          { key: "pricing_issue_flags", label: "Issues", size: "wide" },
+          { key: "pricing_note_flags", label: "Pricing Notes", size: "wide" },
+          { key: "pricing_next_action", label: "Next Pricing Action", size: "wide" },
+          { key: "cost_sheet_ref", label: "Cost Sheet Ref", html: true, size: "wide" }
+        ];
+      }
+      if (state.pricingMode === "notes") {
+        return [
+          ...shared,
+          { key: "target_price", label: "Sale Price Note", size: "wide" },
+          { key: "materials_cost_estimate", label: "Materials Note", size: "wide" },
+          { key: "materials_cost_basis", label: "Materials Basis", size: "wide" },
+          { key: "pricing_strategy_review", label: "Pricing Review", size: "xwide" },
+          { key: "pricing_validation", label: "Pricing Validation", size: "xwide" },
+          { key: "product_id", label: "Product ID", size: "medium" }
+        ];
+      }
+      return [
+        ...shared,
+        { key: "materials_cost_value", label: "Materials", size: "compact" },
+        { key: "materials_cost_basis", label: "Materials Basis", size: "wide" },
+        { key: "target_price_value", label: "Sale Price", size: "compact" },
+        { key: "recommended_price_floor_value", label: "Recommended Floor", size: "compact" },
+        { key: "cost_sheet_status", label: "Cost Sheet", size: "compact" },
+        { key: "pricing_issue_flags", label: "Issues", size: "wide" },
+        { key: "pricing_note_flags", label: "Pricing Notes", size: "wide" },
+        { key: "pricing_next_action", label: "Next Pricing Action", size: "wide" }
+      ];
+    }
+
+    function renderPricingModeControls() {
+      if (state.view !== "pricing") {
+        pricingModeControls.classList.remove("visible");
+        pricingModeControls.innerHTML = "";
+        return;
+      }
+      const modes = [
+        ["overview", "Overview"],
+        ["math", "Math"],
+        ["readiness", "Readiness"],
+        ["notes", "Notes"]
+      ];
+      pricingModeControls.classList.add("visible");
+      pricingModeControls.innerHTML = `<span class="pricing-mode-title">Pricing View</span>${modes.map(([mode, label]) => {
+        const active = state.pricingMode === mode ? " active" : "";
+        return `<button class="pricing-mode${active}" type="button" data-pricing-mode="${mode}">${label}</button>`;
+      }).join("")}`;
     }
 
     function renderCurrentTable() {
       const rows = visibleRows(state.rows, state.columns);
       const suffix = rows.length === state.rows.length ? "" : ` (${state.rows.length} before filters)`;
       document.getElementById("meta").textContent = `${rows.length} ${state.metaLabel}${suffix}`;
+      renderPricingModeControls();
       renderColumnControls();
       results.innerHTML = table(state.rows, state.columns);
       updateBackButton();
@@ -693,30 +869,7 @@ HTML = """<!doctype html>
         ], "current products");
       } else if (view === "pricing") {
         data = await getJson("/api/pricing");
-        setTable(data.rows, [
-          { key: "catalog_id", label: "Catalog ID", size: "compact" },
-          { key: "product_name", label: "Product", size: "medium" },
-          { key: "reference_code", label: "Code", size: "compact" },
-          { key: "status", label: "Product Status", size: "compact" },
-          { key: "materials_cost_amount", label: "Materials Cost $", size: "compact" },
-          { key: "materials_cost_info", label: "Materials Cost Info", size: "medium" },
-          { key: "materials_cost_status", label: "Materials Status", size: "compact" },
-          { key: "target_price", label: "Sale Price", size: "compact" },
-          { key: "sale_price_status", label: "Sale Price Status", size: "compact" },
-          { key: "unit_cost_estimate", label: "Unit Cost", size: "compact" },
-          { key: "pricing_strategy_1_price_floor", label: "Strategy 1 Floor", size: "compact" },
-          { key: "pricing_strategy_2_price_floor", label: "Strategy 2 Floor", size: "compact" },
-          { key: "recommended_price_floor", label: "Recommended Floor", size: "compact" },
-          { key: "material_cost_percent_of_price", label: "Material % of Price", size: "compact" },
-          { key: "margin_estimate", label: "Profit / Margin", size: "medium" },
-          { key: "pricing_strategy_review", label: "Pricing Review", size: "wide" },
-          { key: "pricing_validation", label: "Pricing Validation", size: "wide" },
-          { key: "verification_status", label: "Verification", size: "compact" },
-          { key: "build_time_estimate", label: "Build Time", size: "compact" },
-          { key: "lead_time_estimate", label: "Lead Time", size: "compact" },
-          { key: "cost_sheet_ref", label: "Cost Sheet", html: true, size: "medium" },
-          { key: "product_id", label: "Product ID", size: "medium" }
-        ], "pricing rows");
+        setTable(data.rows, pricingColumns(), "pricing rows");
       } else if (view === "crossrefs") {
         data = await getJson("/api/crossrefs");
         setTable(data.rows, [
@@ -836,8 +989,54 @@ HTML = """<!doctype html>
       const button = event.target.closest("[data-column-action]");
       if (!button) return;
       if (button.dataset.columnAction === "show-all") {
-        state.hiddenColumns[state.view] = {};
+        state.hiddenColumns[viewStorageKey()] = {};
         saveHiddenColumns();
+        renderCurrentTable();
+      }
+      if (button.dataset.columnAction === "reset-order") {
+        state.columnOrder[viewStorageKey()] = [];
+        saveColumnOrder();
+        renderCurrentTable();
+      }
+    });
+
+    document.getElementById("columnControls").addEventListener("dragstart", event => {
+      const toggle = event.target.closest(".column-toggle");
+      if (!toggle) return;
+      draggedColumnKey = toggle.dataset.columnKey || "";
+      toggle.classList.add("dragging");
+      event.dataTransfer.effectAllowed = "move";
+      event.dataTransfer.setData("text/plain", draggedColumnKey);
+    });
+
+    document.getElementById("columnControls").addEventListener("dragend", event => {
+      const toggle = event.target.closest(".column-toggle");
+      if (toggle) toggle.classList.remove("dragging");
+      draggedColumnKey = "";
+    });
+
+    document.getElementById("columnControls").addEventListener("dragover", event => {
+      if (!draggedColumnKey) return;
+      if (event.target.closest(".column-toggle")) {
+        event.preventDefault();
+      }
+    });
+
+    document.getElementById("columnControls").addEventListener("drop", event => {
+      const target = event.target.closest(".column-toggle");
+      if (!target || !draggedColumnKey) return;
+      event.preventDefault();
+      const rect = target.getBoundingClientRect();
+      const placeAfter = event.clientX > rect.left + rect.width / 2;
+      moveColumn(draggedColumnKey, target.dataset.columnKey || "", placeAfter);
+    });
+
+    pricingModeControls.addEventListener("click", event => {
+      const button = event.target.closest("[data-pricing-mode]");
+      if (!button || button.dataset.pricingMode === state.pricingMode) return;
+      state.pricingMode = button.dataset.pricingMode;
+      if (state.view === "pricing") {
+        state.columns = pricingColumns();
         renderCurrentTable();
       }
     });
@@ -1087,10 +1286,10 @@ def estimate_status(value: str | None) -> str:
         return ""
     if "owner-confirmed" in text or "confirmed" in text or "approved override" in text:
         return "Confirmed"
-    if "assumption" in text or "estimate" in text or "guide" in text or "draft" in text or "reference" in text:
-        return "Estimated"
     if "pending" in text or "blocked" in text or "not started" in text:
         return "Pending"
+    if "assumption" in text or "estimate" in text or "guide" in text or "draft" in text or "reference" in text:
+        return "Estimated"
     return "Review"
 
 
@@ -1403,7 +1602,23 @@ class ResearchHandler(BaseHTTPRequestHandler):
                                 material_cost_percent_of_price,
                                 recommended_price_floor,
                                 pricing_strategy_review,
-                                pricing_validation
+                                pricing_validation,
+                                materials_cost_value,
+                                materials_amount_status,
+                                materials_cost_basis,
+                                unit_cost_value,
+                                target_price_value,
+                                pricing_strategy_1_floor_value,
+                                pricing_strategy_2_floor_value,
+                                recommended_price_floor_value,
+                                material_cost_percent_value,
+                                pricing_status,
+                                costing_method,
+                                sale_pricing_method,
+                                cost_sheet_status,
+                                pricing_issue_flags,
+                                pricing_note_flags,
+                                pricing_next_action
                             FROM current_products
                             ORDER BY product_name
                             """

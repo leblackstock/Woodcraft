@@ -10,6 +10,11 @@ Primary goal: help Lauren make better decisions faster, with less stress and les
 - GPT-5.5 handles workflow orchestration and upstream prep.
 - Claude writes final customer-facing prose, and customer-facing assets must pass the Claude gate before publish approval.
 
+## Brand Asset Source
+
+- `00_brand/` is the source of truth for Drakkar Designs logos, approved product photos, palette notes, and brand asset provenance.
+- Workflows that create brand-specific text, graphics, ads, images, HTML, templates, prompt packs, or generated visuals must reference `00_brand/`.
+
 ## Read in This Exact Order
 
 1. [01_VISION.md](01_VISION.md)

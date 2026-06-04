@@ -1,4 +1,4 @@
-# Cedar Garden Entry Bench 48in
+﻿# Cedar Garden Entry Bench 48in
 
 ## Basic Info
 

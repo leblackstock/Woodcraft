@@ -1,4 +1,4 @@
-# Cost Sheet — Cedar Planter Box 24x24x18
+﻿# Cost Sheet — Cedar Planter Box 24x24x18
 
 ## Cost Sheet Identity
 

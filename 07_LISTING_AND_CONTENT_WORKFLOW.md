@@ -1,6 +1,8 @@
-# 07 Listing and Content Workflow
+﻿# 07 Listing and Content Workflow
 
 Purpose: turn approved products into truthful made-to-order or in-stock listings and reusable trust content.
+
+Brand source-of-truth note: any listing, content, image prompt, graphic, ad, HTML, or template work that uses Drakkar-specific brand assets or styling must reference [00_brand/](00_brand/) for logos, approved photos, palette, and brand asset provenance.
 
 ## End-to-End Flow
 
@@ -8,10 +10,10 @@ Purpose: turn approved products into truthful made-to-order or in-stock listings
 2. Confirm the approved product record in [30_products/](30_products/) and lock the current standard launch spec when available
 3. Set `build_model` truthfully (`Made to Order`, `In Stock`, or `Sample Built`)
 4. Record plan/source truth plus locked pre-sale dimensions/specs from plan, reference, or standard spec
-5. Draft or update the estimated cost sheet using [80_templates/cost_sheet_template.md](80_templates/cost_sheet_template.md), including both pricing strategies and reverse checks for any already-set price
+5. Draft or update the estimated cost sheet or cost note using [80_templates/cost_sheet_template.md](80_templates/cost_sheet_template.md), including Strategy 2 plus Strategy 1 when labor-inclusive inputs are available
 6. Record estimated labor time, made-to-order lead time, and delivery/pickup terms
 7. Assemble a truthful media plan using governed media types only
-8. GPT-5.5 assembles one verification packet using standard spec defaults, draft assumption-based cost math, dual-strategy pricing checks, confidence labels, media-truth notes, and highlighted exceptions only
+8. GPT-5.5 assembles one verification packet using standard spec defaults, draft assumption-based cost math, pricing checks, confidence labels, media-truth notes, and highlighted exceptions only
 9. Operator approves or edits one bundled approval block, including the pre-sale labor/pricing assumptions used for made-to-order pricing; update verification refs/status without inventing missing facts
 10. Mark `approved_facts_status` only when facts are truly approved and keep `publish_ready: No` until facts are complete
 11. Prepare Marketplace listing structure in [40_listings/](40_listings/) using [80_templates/listing_template.md](80_templates/listing_template.md)
@@ -41,7 +43,7 @@ Purpose: turn approved products into truthful made-to-order or in-stock listings
   - specs/dimensions locked from the standard spec or approved plan/reference
   - pickup/delivery terms
   - lead time
-  - operator-approved price reviewed against both strategies using approved pre-sale assumptions, with Strategy 2 as the default baseline unless otherwise stated and a warning surfaced whenever Strategy 1 differs by more than 15%
+  - operator-approved price reviewed against Strategy 2 and, when live labor-inclusive inputs exist, Strategy 1; if Strategy 1 is pending, the pending state is a visible note rather than a standalone blocker
   - truthful listing media under the media-governance rules below
   - Claude final copy pass completed
   - `publish_ready: Yes`
@@ -59,11 +61,12 @@ Purpose: turn approved products into truthful made-to-order or in-stock listings
   - media provenance note when listing media is not a fresh current-build photo set
   - any actual-build notes already available
 - GPT-5.5 may infer/default-fill from the linked standard spec, business guardrails, and existing approved records only when the inferred value is clearly framed as a default or recommendation.
-- GPT-5.5 must calculate both approved pricing strategies whenever price is proposed or reviewed:
-  - Strategy 1: current total-cost guardrail pricing
+- GPT-5.5 must calculate the available approved pricing strategies whenever price is proposed or reviewed:
   - Strategy 2: materials cost at 30% of finished price
-- GPT-5.5 must also reverse-check any already-set target/list price against both strategies before calling pricing acceptable.
+  - Strategy 1: current total-cost guardrail pricing, when live labor-inclusive inputs are available
+- GPT-5.5 must also reverse-check any already-set target/list price against the available pricing basis before calling pricing acceptable.
 - Strategy 2 is the default pricing baseline unless the operator explicitly states otherwise.
+- If Strategy 1 cannot be calculated yet, GPT-5.5 must carry that as a pricing note. Missing Strategy 1 alone is not a blocker unless the operator chooses to enforce it for that item.
 - If Strategy 1 differs from Strategy 2 by more than **15%** in either direction, GPT-5.5 must warn the operator, show both calculations, and request an explicit price choice before treating pricing as final.
 - GPT-5.5 must label verification confidence per field using:
   - `Auto-verified`

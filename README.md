@@ -1,4 +1,4 @@
-# Woodcraft AI Marketing Workspace
+﻿# Woodcraft AI Marketing Workspace
 
 ## Local Research UI
 
@@ -29,6 +29,7 @@ It is designed to reduce decision fatigue, keep actions consistent, and prioriti
 - [03_GOVERNANCE.md](03_GOVERNANCE.md) — operating rules and decision hygiene
 - [04_BUSINESS_RULES.md](04_BUSINESS_RULES.md) — hard budget/profit/risk guardrails
 - [05_CHANNEL_STRATEGY.md](05_CHANNEL_STRATEGY.md) — what each platform is for
+- [00_brand/](00_brand/) — Drakkar Designs brand asset source of truth
 
 ## Core Workflows
 

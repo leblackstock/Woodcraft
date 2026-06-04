@@ -1,4 +1,4 @@
-# Marketplace Listing Draft — Cedar Planter Box 24x24x18
+﻿# Marketplace Listing Draft — Cedar Planter Box 24x24x18
 
 ## Listing Identity
 
@@ -27,7 +27,7 @@
 - customer_copy_prep_notes: Non-Claude prep only. Keep the listing in made-to-order, listing-first truth: standard 24x24x18 spec, planter-only scope, pickup/local-delivery terms, and an estimated 3 to 5 day lead time. Do not imply that a fresh finished build, final labor actuals, or final measured dimensions are already verified.
 - listing_price: $90
 - pricing_strategy_review: Owner Approved Override / Warning — linked cost sheet shows $100.00 Strategy 2 baseline and $183.33 Strategy 1 comparison; owner confirmed the $90 sale price on 2026-04-27.
-- short_pitch: A simple premium cedar planter that is easy to place, easy to photograph, and easy for local buyers to understand.
+- short_pitch: A simple cedar planter that is easy to place, easy to photograph, and easy for local buyers to understand.
 - key_features: Cedar build / outdoor-friendly design / clean square profile / good for flowers, herbs, or small vegetables / local pickup or delivery
 - dimensions_specs: Standard launch spec is 24in x 24in x 18in based on the linked standard spec, and that locked standard size is the truthful pre-sale dimensions source for this made-to-order listing. Actual measured finished dimensions remain post-build validation.
 - material_details: Owner-confirmed full-cedar material estimate for the standard made-to-order planter; no liner included in base version.
@@ -41,6 +41,7 @@
 
 ## Media Plan
 
+- brand_assets_ref: 00_brand/
 - media_truth_status: Owned Real Photo
 - media_provenance_note: Operator confirmed owned prior-build photos exist for this first-wave product on 2026-04-22; specific listing assets still need to be selected and linked before publish. Current third-party plan/reference visuals remain internal-only.
 - media_assets: Pending — select and link the owned prior-build photo set before publish.

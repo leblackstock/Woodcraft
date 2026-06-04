@@ -52,6 +52,18 @@ These rules exist to prevent the exact failure modes already seen in this repo: 
 - For link extraction, target only the specific domains requested.
 - Prefer saving remote content locally before parsing if parsing complexity is more than trivial.
 
+## Brand Asset Source of Truth
+
+- Use `00_brand/` as the current source of truth for Drakkar Designs logos, approved product photos, palette notes, and brand asset provenance.
+- Any workflow that creates brand-specific text, graphics, ads, copy, images, HTML, templates, prompt packs, or generated visuals must reference `00_brand/`.
+
+## Image Prompt Text Rules
+
+- Do not assume text should be removed from image prompts.
+- When the requested image should contain readable words, labels, signs, branding, price text, catalog marks, packaging text, captions, or other literal text, include that text directly in the prompt.
+- ChatGPT Image 2 is considered suitable for text-bearing image generation in this workflow. Do not apply blanket "image prompts should not include text" advice.
+- Remove in-image text only when the user requests a text-free image, the text is not approved for the intended customer-facing use, or the selected image tool is documented as unable to render it.
+
 ## Completion Rules
 
 - Before finishing, confirm the task matches the original request, not just the last command run.

@@ -1,4 +1,4 @@
-# 04 Business Rules
+﻿# 04 Business Rules
 
 Hard guardrails for decisions, spending, and product selection.
 
@@ -17,27 +17,27 @@ Hard guardrails for decisions, spending, and product selection.
 
 ## Pricing and Profit Guardrails
 
-- Every product must have a simple cost sheet before listing.
-- Include materials, labor time, delivery/shipping impact, and platform fees when relevant.
-- Run both approved pricing strategies whenever proposing a price or reviewing an already-set price.
+- Every product should have a simple cost sheet or explicit cost note before listing.
+- Include materials, labor time, delivery/shipping impact, and platform fees when known; mark missing live inputs as notes instead of treating every unknown as a blocker.
+- Run both approved pricing strategies whenever the inputs exist, and preserve missing Strategy 1 inputs as advisory notes when labor-inclusive costs are not ready yet.
 - Default the draft pricing baseline to the materials-at-30%-of-finished-price method unless the operator explicitly chooses a different rule.
-- Always show the Strategy 1 calculation alongside Strategy 2 whenever pricing is proposed or reviewed.
+- Show the Strategy 1 calculation alongside Strategy 2 when it can be calculated; otherwise show the Strategy 1 pending note.
 - If Strategy 1 differs from Strategy 2 by more than **15%** in either direction, warn the operator and show both calculations before final price approval.
 - Use gross-margin and profit-floor results as warning signals and decision support unless the operator explicitly chooses a stricter rule for that item.
 - If cost uncertainty is still high, keep the price in draft status and do not publish yet.
 
 ### Pricing Strategy 1 (Current Method) — Total-Cost Guardrail Pricing
 
-- Use the current total-cost method as the first required pricing strategy.
+- Use the current total-cost method as an advisory guardrail when labor-inclusive inputs are available.
 - Calculate `total_unit_cost` using materials, labor, delivery/shipping impact, platform fees, and other relevant allowances.
 - Calculate the minimum guardrail-compliant price as the greater of:
   - `total_unit_cost / 0.60` to preserve the **>= 40%** gross-margin floor
   - `total_unit_cost + applicable profit floor`
-- This is the current baseline pricing method already used in the workspace.
+- If live labor-inclusive inputs are missing, record Strategy 1 as a pending note. Missing Strategy 1 alone does not block pricing approval unless the operator explicitly chooses to enforce it for that item.
 
 ### Pricing Strategy 2 — Materials at 30% of Finished Price
 
-- Use a second required pricing strategy based on materials being **30% of the finished price**.
+- Use the default pricing strategy based on materials being **30% of the finished price**.
 - Define `materials_cost_total` as materials subtotal plus hardware and consumables that belong in the physical build.
 - Calculate the materials-based price as:
   - `materials_cost_total / 0.30`
@@ -48,11 +48,12 @@ Hard guardrails for decisions, spending, and product selection.
 ### Dual-Strategy Pricing Rule
 
 - Use Strategy 2 (`materials_cost_total / 0.30`) as the default pricing baseline unless the operator explicitly states otherwise.
-- For every existing target price or listing price, reverse-check both:
-  - Strategy 1 compliance against gross-margin and profit-floor rules
+- For every existing target price or listing price, reverse-check:
   - Strategy 2 compliance against the 30%-materials benchmark
+  - Strategy 1 compliance against gross-margin and profit-floor rules when live labor-inclusive inputs exist
+- If Strategy 1 cannot be calculated yet, keep its status as a note and continue pricing review from the available Strategy 2/materials benchmark.
 - If Strategy 1 differs from Strategy 2 by more than **15%** in either direction, flag the variance and require an explicit operator price choice before treating pricing as final.
-- A price should not be treated as final pricing until both calculations have been shown and the chosen price is explicitly approved.
+- A price should not be treated as final pricing until the available pricing basis has been shown, any missing Strategy 1 note is visible, and the chosen price is explicitly approved.
 
 ### Initial Profit Rule (Starter)
 
@@ -88,41 +89,3 @@ These starter profit floors remain important warning signals, but they do not au
 - Ads allowed only after organic proof (messages, saves, sales, or consistent high-intent engagement).
 - Start with tiny-budget tests and pre-defined stop rules.
 - Escalate spend only if results exceed baseline thresholds.
-
-## Do Not Pursue a Product If
-
-- Build complexity is high and margin is weak.
-- Delivery/logistics make fulfillment unreliable.
-- Price needed for profit is far above local market willingness.
-- Product cannot be photographed/listed well with current capabilities.
-- Repeatability is low and customization burden is excessive.
-
-## Risk Rules
-
-- Avoid promises on lead times without production confidence.
-- Avoid one-off custom commitments that disrupt core workflow.
-- Keep manual approval for final pricing, publishing, and ad launch decisions.
-
-## Assumptions vs Confirmed Facts
-
-### Current Assumptions (Need Validation)
-
-- Facebook Marketplace is strongest near-term channel for local sales.
-- Core cedar product categories used in this workspace (decor, planters, raised beds, and outdoor furniture) are viable primary focus.
-- Low-budget approach requires mostly organic + process improvements first.
-
-### Materials Assumptions (Need Validation)
-
-- Cedar remains primary material due to outdoor durability and positioning value.
-- Material price volatility can materially affect margin and may require monthly price updates.
-- Standard fastener/finish choices should prioritize weather resistance over lowest upfront cost.
-
-### Confirmed Facts (Update Over Time)
-
-- This workspace is markdown-first and process-first before heavy automation.
-- Facebook Marketplace is the primary sales channel in the current operating strategy.
-- Facebook Page and Instagram are support/trust channels, not primary sales channels.
-- Google Ads are restricted to later-phase testing on proven products only.
-- Human approval is required for final pricing, publishing, and ad launch decisions.
-
-These are confirmed workspace operating decisions, not claims of proven market performance.
