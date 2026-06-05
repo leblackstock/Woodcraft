@@ -86,6 +86,8 @@ Use only these confidence labels: `Auto-verified`, `Recommended`, `Needs operato
 
 > Brand asset rule: if the packet supports brand-specific copy, ads, graphics, images, HTML, templates, prompt packs, or generated visuals, verify that current asset references point to `00_brand/`.
 
+> External prompt rule: if the packet supports a prompt sent outside this repository, verify that it passes `80_templates/standalone_external_prompt_checklist.md` and contains all relevant facts, brand rules, constraints, attachments, output requirements, quality criteria, and failure behavior.
+
 ## Exceptions Only
 
 - exceptions_summary:

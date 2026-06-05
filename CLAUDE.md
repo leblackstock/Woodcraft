@@ -7,6 +7,7 @@ Guidance for Claude when working in this repository.
 - You are the approved writer of final customer-facing prose.
 - You may also help with structure, summarization, and transformation when asked.
 - However, all outputs must still respect repo governance and truthfulness rules.
+- Do not require or provide approval for image graphic text when an active review-by-exception image workflow assigns that text to GPT/Codex.
 
 ## Repository Constraints
 
@@ -30,9 +31,12 @@ Even if asked to suggest commands or workflows, do not recommend patterns that p
 - Do not present assumed details as confirmed selling points.
 - Keep copy aligned with the repo’s channel strategy and product positioning.
 
-## Brand Asset Source of Truth
+## Brand Source of Truth
 
-- Use `00_brand/` as the current source of truth for Drakkar Designs logos, approved product photos, palette notes, and brand asset provenance.
+- Use `00_brand/` as the current source of truth for reusable Drakkar Designs identity guidance and approved assets.
+- Follow `00_brand/VOICE.md` for Drakkar-specific prose. Use `00_brand/COLOR_PALETTE.md`, `00_brand/TEXT_STYLE_RULES.md`, and `00_brand/VISUAL_STYLE.md` for visual or graphic context.
+- Use one shared Drakkar voice with the applicable mode from `00_brand/VOICE.md`: Catalog, Brand Post, Marketplace, or Customer Reply. Modes adjust emphasis only and never override the core voice, banned-word rules, truthfulness, or approved facts.
+- Reusable brand-specific guidance belongs in `00_brand/`; operational records stay in their workflow folders and point back to it.
 - Any brand-specific copy, ad text, graphic text, template language, HTML text, or generated-visual text should reference `00_brand/` for current brand context when relevant.
 
 ## Image Prompt Text Rules
@@ -41,6 +45,12 @@ Even if asked to suggest commands or workflows, do not recommend patterns that p
 - If an image concept calls for readable in-image text, labels, signs, branding, catalog marks, product text, price text, or similar words, include the literal text in the prompt.
 - ChatGPT Image 2 is accepted in this workflow as a strong option for text-bearing images. Do not fall back to generic older guidance that images should avoid written text.
 - Remove or avoid in-image text only when the user asks for a text-free image, the facts are not approved for customer-facing use, or the target image tool explicitly cannot support it.
+
+## Standalone External Prompt Rules
+
+- Any prompt created for another AI or tool outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`.
+- Use repository files as preparation context, then inline the relevant facts, brand/voice rules, required wording, constraints, attachments, output format, quality criteria, and missing-information behavior.
+- Do not tell an external target to open local files or rely on prior repository context.
 
 ## Collaboration Rules
 

@@ -19,10 +19,17 @@
 - hook: If you want a garden bed without a full DIY weekend, this is the kind of build to watch.
 - core_message: Keep the raised bed positioned as a straightforward backyard upgrade while the linked Marketplace listing remains paused pending product approval.
 - cta: Hold direct Marketplace CTA until the linked product is approved, listing progression resumes, and approved facts are complete.
+- layout_family: Pending
+- photo_subject: Raised garden bed
+- message_angle: Garden inspiration
+- graphic_treatment: Pending
+- text_intensity: Pending
+- cta_style: No CTA while the linked listing remains paused
 
 ## Copy
 
 - caption: [[CLAUDE_FINAL_COPY_REQUIRED]]
+- exact_in_image_text: Pending — use `NO_TEXT` or final GPT/Codex image graphic text from approved facts
 - customer_copy_prep_notes: Non-Claude prep only. Working caption idea highlights a cedar raised bed for vegetables, herbs, or flowers, keeps the standard launch size pending until approved facts are locked, mentions pickup or scheduled delivery for a fee, and avoids directing buyers to Marketplace until the linked product is approved and listing progression resumes.
 - hashtag_notes: Use a small set such as #raisedgardenbed #cedargarden #backyardgarden #handmade.
 - local_context_tags: Assumption — add local area tags before publishing.
@@ -31,6 +38,11 @@
 
 - brand_assets_ref: 00_brand/
 - asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after the standard launch size and media plan are locked.
+- approved_reference_images: Pending
+- recent_post_history_ref: Pending — review recent Facebook Page content records before image prompt generation
+- rotation_check_status: Not Checked
+- rotation_notes:
+- image_prompt_ref:
 - thumbnail_note: Pending — choose from governed approved media only after the standard launch size and media plan are locked.
 
 ## Publishing + Outcome

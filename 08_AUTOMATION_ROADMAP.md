@@ -2,7 +2,9 @@
 
 Purpose: phase automation realistically, without breaking core operations.
 
-Brand source-of-truth note: any automation that creates brand-specific text, graphics, ads, images, HTML, templates, prompt packs, or customer-facing assets must reference [00_brand/](00_brand/) for current logos, approved photos, colors, and styling notes.
+Brand source-of-truth note: any automation that creates brand-specific text, graphics, ads, images, HTML, templates, prompt packs, or customer-facing assets must reference [00_brand/](00_brand/) for current voice, color palette, visual style, logos, approved photos, and provenance.
+
+Any automation that creates a prompt for an external AI or tool must enforce [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md). Generated prompts must inline all relevant source facts, schemas, brand rules, constraints, required text, reference/attachment instructions, output format, quality criteria, validation rules, and failure behavior instead of depending on repository access.
 
 ## Phase Now (Stabilize Foundations)
 

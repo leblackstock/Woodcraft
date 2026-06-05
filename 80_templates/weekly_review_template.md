@@ -4,6 +4,8 @@ Use this template for active weekly review drafts. Move the completed instance t
 
 Brand asset reminder: if the week includes brand-specific copy, graphics, ads, HTML/templates, prompt packs, or generated visuals, confirm current work referenced `00_brand/`.
 
+External prompt reminder: confirm every prompt sent outside this repository passed `80_templates/standalone_external_prompt_checklist.md` and did not depend on repository access or surrounding notes.
+
 ## Week Snapshot
 
 - week_of:

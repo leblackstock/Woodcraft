@@ -2,7 +2,9 @@
 
 Purpose: convert strategy into a repeatable weekly rhythm that survives low-energy weeks.
 
-When weekly listing, content, ad, graphic, image prompt, HTML, or template work creates brand-specific assets or text, reference [00_brand/](00_brand/) for current logos, approved photos, palette notes, and brand asset provenance.
+When weekly listing, content, ad, graphic, image prompt, HTML, or template work creates brand-specific assets or text, reference [00_brand/](00_brand/) for current voice, color palette, visual style, logos, approved photos, and provenance.
+
+Every external AI/tool prompt created during weekly operations must pass [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md). It must contain its relevant source facts, brand/voice/visual rules, literal required text, constraints, attachment instructions, output format, quality criteria, and blocked behavior without depending on repository access.
 
 ## Recommended Weekly Cadence
 
@@ -35,6 +37,7 @@ When weekly listing, content, ad, graphic, image prompt, HTML, or template work 
 
 - Repurpose listings into Facebook Page + Instagram posts in [50_content/](50_content/)
 - Prepare content facts and channel angle from approved listing records
+- For Facebook Page graphics, use `50_content/facebook_brand_post_rules.md`, review recent creative fields, and generate image graphic text plus the standalone image prompt under review by exception
 - Run the Claude caption gate before any post becomes ready to schedule
 - Queue simple follow-up content only after the content record is `publish_ready: Yes`
 

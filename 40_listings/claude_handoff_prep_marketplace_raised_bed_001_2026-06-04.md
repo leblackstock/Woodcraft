@@ -5,7 +5,8 @@ Listing record: `40_listings/list_marketplace_raised_bed_001.md`
 Product record: `30_products/prod_cedar_raised_bed_001.md`
 Cost sheet: `30_products/cost_cedar_raised_bed_001.md`
 Brand asset SOT: `00_brand/`
-Voice guide: `20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/VOICE.md`
+Voice guide: `00_brand/VOICE.md`
+Voice mode: Marketplace
 
 This file is a prepared packet so the official handoff can be generated quickly later with the broader listing batch.
 
@@ -57,7 +58,8 @@ This file is a prepared packet so the official handoff can be generated quickly 
 
 ## Tone And Guardrails
 
-- tone source: follow `20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/VOICE.md`
+- tone source: follow `00_brand/VOICE.md`
+- voice mode: Marketplace; direct, practical, factual, and easy to scan
 - tone: plainspoken, specific, local, unfussy
 - cta_goal: get the buyer to message with the SKU/name and any size or delivery questions
 - voice rules to preserve:

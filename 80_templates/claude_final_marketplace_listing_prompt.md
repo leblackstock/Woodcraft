@@ -8,7 +8,14 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - asset_type: Marketplace listing
 - current_asset:
 - asset_id:
-- brand_assets_ref: 00_brand/
+- voice_mode: Marketplace
+
+## Internal Preparation Only
+
+- Use `00_brand/VOICE.md` and the applicable listing/product records while preparing this prompt.
+- Replace every placeholder with the relevant content before delivery.
+- Do not send repository paths to Claude.
+- The delivered prompt must pass `80_templates/standalone_external_prompt_checklist.md`.
 
 ## Fields Needed
 
@@ -32,7 +39,16 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - cta_goal:
 - banned_claims_or_words:
 
-Use `00_brand/` as the current brand asset source of truth for brand-specific references, approved photos, colors, logo context, and styling notes when relevant to the prose. Do not approve or rewrite image prompts unless explicitly requested.
+## Voice Rules To Include In The Delivered Prompt
+
+- Use Marketplace Mode: direct, practical, factual, and easy to scan.
+- Lead with the product and buyer-relevant details.
+- Make approved price, size, material, ordering, pickup/delivery, and lead-time details easy to find.
+- Keep the writing plainspoken, specific, local, and unfussy.
+- Use short, confident sentences, no first person, and restraint instead of hype.
+- Use `cedar` instead of `wood` when cedar is true.
+- Avoid artisan, artisanal, curated, thoughtfully, lovingly, carefully crafted, handcrafted, elevate, experience, journey, story, sustainable, eco-friendly, luxury, bespoke, timeless, heirloom, crafted, and partner-confidential terms.
+- Allow `premium` only when it names a material grade, not as a general quality claim.
 
 ## Hard Rules
 
@@ -41,6 +57,8 @@ Use `00_brand/` as the current brand asset source of truth for brand-specific re
 - Treat `current_asset` or `customer_copy_prep_notes` as context only, not as an approved fact source.
 - Do not invent pricing, dimensions, materials, lead times, delivery terms, availability, or product claims.
 - Do not soften missing facts with guesses.
+- Do not ask for repository files or assume access to them.
+- Do not approve or rewrite image prompts, graphic prompts, overlay text, or image graphic text. This template is only for final Marketplace listing title and description prose outside the image graphic workflow.
 
 ## Output-Only Rule
 
@@ -51,3 +69,8 @@ Use `00_brand/` as the current brand asset source of truth for brand-specific re
 - If required information is missing, return only:
   - status: BLOCKED
   - missing_info:
+
+## Standalone Delivery Gate
+
+- Inline all approved facts, voice rules, banned wording, constraints, and output requirements.
+- Remove all repository-path instructions and all unfilled placeholders before sending the prompt to Claude.

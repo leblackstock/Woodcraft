@@ -2,7 +2,9 @@
 
 Purpose: decide what to standardize, list, and build next using lightweight evidence, not guesses.
 
-Brand-specific product/listing prep, media plans, graphic prompts, HTML, templates, and generated visuals must reference [00_brand/](00_brand/) when they use Drakkar-specific assets or styling.
+Brand-specific product/listing prep, media plans, graphic prompts, HTML, templates, and generated visuals must reference [00_brand/](00_brand/) when they use Drakkar-specific assets, voice, colors, or visual styling.
+
+Any research, analysis, media, graphic, or other prompt created for an external AI/tool must pass [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md). Inline the necessary scope, known facts, evidence requirements, brand direction, constraints, required inputs/attachments, output format, quality criteria, and uncertainty behavior before delivery.
 
 ## Workflow: Intake → Research → Score → Approve → Listing-First Queue
 

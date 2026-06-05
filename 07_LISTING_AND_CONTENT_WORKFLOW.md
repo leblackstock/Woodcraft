@@ -2,7 +2,13 @@
 
 Purpose: turn approved products into truthful made-to-order or in-stock listings and reusable trust content.
 
-Brand source-of-truth note: any listing, content, image prompt, graphic, ad, HTML, or template work that uses Drakkar-specific brand assets or styling must reference [00_brand/](00_brand/) for logos, approved photos, palette, and brand asset provenance.
+Brand source-of-truth note: any listing, content, image prompt, graphic, ad, HTML, or template work that uses Drakkar-specific identity or assets must reference [00_brand/](00_brand/), including `VOICE.md`, `COLOR_PALETTE.md`, `TEXT_STYLE_RULES.md`, and `VISUAL_STYLE.md` when relevant. Keep operational records in their workflow folders and point them to the brand source of truth.
+
+Voice routing: use the one shared voice in `00_brand/VOICE.md`; name Marketplace Mode for listing copy, Brand Post Mode for Page/Instagram captions, and Customer Reply Mode for buyer messages. Modes adjust emphasis only and do not override core voice or approved-fact rules.
+
+External prompt routing: every image prompt, graphic prompt, Claude handoff, caption prompt, customer-reply prompt, ad prompt, or other prompt sent outside this repository must pass [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md). Use local source files during preparation, then inline the relevant contents into the delivered prompt.
+
+Image graphic-text routing: GPT/Codex may create image graphic text under an active review-by-exception image workflow using approved facts and the applicable voice mode. Image graphic text does not require Claude approval. Claude remains responsible for final captions, listing prose, promotional prose outside the graphic, and customer replies.
 
 ## End-to-End Flow
 
@@ -25,9 +31,11 @@ Brand source-of-truth note: any listing, content, image prompt, graphic, ad, HTM
 17. After first sale/build, capture actual receipts, labor, finished dimensions, finished photos, and pricing learnings
 18. Decide keep / drop / reprice if the actual build changes the economics or offer truth
 19. Repurpose approved listing facts and truthful media into Page + Instagram content prep
-20. Run another **Claude Final Copy Gate** when final customer-facing captions or replies are needed
-21. Schedule/queue follow-up posts (manual) only after the content asset is `publish_ready: Yes`
-22. Log results and learnings
+20. For Facebook Page image work, select and record the mix-and-match creative fields after reviewing recent Facebook Page content history
+21. Generate any image graphic text and standalone external image prompt under the active review-by-exception image workflow
+22. Run another **Claude Final Copy Gate** when final customer-facing captions or replies are needed
+23. Schedule/queue follow-up posts (manual) only after the content asset is `publish_ready: Yes`
+24. Log results and learnings
 
 ## Marketplace Listing Workflow (Listing-First, Made-to-Order Allowed)
 
@@ -99,6 +107,8 @@ Brand source-of-truth note: any listing, content, image prompt, graphic, ad, HTM
 - No listing or content asset becomes publish-ready until the Claude copy pass is complete.
 - GPT-5.5 may advance the asset through all upstream prep steps.
 - When final customer-facing prose is needed, GPT-5.5 must stop and produce a Claude handoff prompt using approved facts only.
+- Image graphic text assigned to GPT/Codex by an active review-by-exception image workflow does not require a Claude handoff.
+- The delivered Claude handoff must be standalone: inline approved facts, applicable voice mode and rules, banned claims, channel context, output format, and missing-information behavior. Do not instruct Claude to open repository files.
 - Record `claude_handoff_ref` when that valid handoff is prepared.
 - The human pastes Claude output back into the workflow.
 - Record `claude_output_ref` after the paste-back occurs.
@@ -130,6 +140,17 @@ After the first real sale/build for a made-to-order listing:
 - Keep copy short, visual-first, and localized where relevant.
 - GPT-5.5 may prepare channel facts, post structure, CTA goals, and blocked/missing-info notes.
 - Claude must write the final customer-facing caption before the post is considered publish-ready or schedulable.
+
+### Facebook Page Brand-Post Image Workflow
+
+- Use `50_content/facebook_brand_post_rules.md` for Facebook Page visual-purpose, mix-and-match, compatibility, rotation, and image graphic-text rules.
+- Use `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md` to create one standalone ChatGPT Image 2 prompt.
+- Review recent Facebook Page content records and record the six selected creative fields before saving the image prompt.
+- GPT/Codex owns Facebook Page image graphic text under review by exception. Use approved facts and Brand Post Mode; do not request Claude approval for image graphic text.
+- Claude still owns the final Facebook Page caption.
+- Require approved reference-image attachments when exact product or logo fidelity matters.
+- Record the exact image text, reference images, recent-history check, rotation result, and `image_prompt_ref` in the content record.
+- The image prompt may be ready before the Claude caption gate, but the content asset still cannot become publish-ready until the final caption and all other checks are complete.
 
 ## Promotion Workflow (Lightweight)
 

@@ -24,11 +24,15 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 | Need | File |
 | --- | --- |
 | This workflow hub | `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md` |
-| Brand assets for graphics, prompts, and photos | `00_brand/` |
+| Brand assets and identity guidance | `00_brand/` |
+| Brand voice | `00_brand/VOICE.md` |
+| Brand color palette | `00_brand/COLOR_PALETTE.md` |
+| Brand text style | `00_brand/TEXT_STYLE_RULES.md` |
+| Brand visual style | `00_brand/VISUAL_STYLE.md` |
+| Standalone external-prompt checklist | `80_templates/standalone_external_prompt_checklist.md` |
 | Image sequence and per-SKU shot plan | `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md` |
 | Active image prompt generator | `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md` |
 | Wave 1 image prompt pack | `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md` |
-| Visual color/style reference | `40_listings/prompts/fbm_image_visual_style_reference_2026-06-04.md` |
 | Claude copy generator | `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md` |
 | Wave 1 paste-ready Claude prompt | `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` |
 | Wave 1 Claude prep facts | `40_listings/claude_handoff_prep_wave1_fbm_catalog_2026-06-04.md` |
@@ -36,12 +40,14 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 ## Non-Negotiables
 
 - Catalog facts win for this rollout: SKU names, specs, retail prices, FBM prices, and catalog images come from `20_research/catalog_exports/2026-06-03/`.
-- Current brand assets, logos, palette notes, and approved product photos live in `00_brand/`.
+- Current brand assets and reusable identity guidance live in `00_brand/`.
 - `Retail` means the retail catalog price.
 - `FB Marketplace price` means the wholesale price from the partner catalog/order packet.
 - All saved catalog SKU images are approved for FBM use.
 - Final customer-facing listing prose belongs to Claude.
 - GPT/Codex may prepare facts, workflow state, image prompts, and factual in-image text.
+- Marketplace listing prose and factual in-image text use Marketplace Mode from `00_brand/VOICE.md`; the mode never overrides approved-fact or core voice rules.
+- Every image prompt and Claude prompt delivered outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`. Use repository files during preparation, then inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachment instructions, output format, quality criteria, and blocked behavior.
 - Do not mark anything `publish_ready: Yes` until Claude output is pasted back, integrated, and final operator approval is recorded.
 
 ## Image Defaults
@@ -69,10 +75,12 @@ Image prompt rules:
 - Use ChatGPT Image 2 manually.
 - Review mode is by exception; do not ask for approval on every prompt.
 - Text-bearing image prompts are allowed.
+- Every delivered image prompt must be standalone when copied into an image model without repository access. Inline the necessary brand direction, exact palette values for graphics, typography direction, wording mode, literal in-image text, and visible avoid rules.
+- Exact approved-product fidelity still requires attaching the approved catalog image when a prompt depends on it; text-only regeneration may approximate but cannot guarantee an exact match.
 - Filename fields are required for every image prompt.
 - Do not put SKU letters/numbers inside generated images.
 - Do not repeat the same photo with different flowers. Change the buyer question and the composition.
-- Use the catalog color palette; not every image has to be dark.
+- Use `00_brand/COLOR_PALETTE.md`, `00_brand/TEXT_STYLE_RULES.md`, and `00_brand/VISUAL_STYLE.md`; follow the Marketplace text-style guidance for text-bearing graphics, and do not force every image to be dark.
 - Use `Built locally in Georgia`, not repeated exact-city wording.
 - Use `Lead time available by request` in compact image graphics.
 - Use `Pickup or local delivery available` in image graphics.
@@ -138,5 +146,5 @@ Claude/listing prose should avoid:
 ## Next Three Actions
 
 1. Generate Wave 1 images from `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md`.
-2. If Wave 1 images look good, paste `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` into Claude.
+2. If Wave 1 images look good, paste only the standalone fenced `text` prompt from `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` into Claude.
 3. After Claude output is pasted back, update the four Wave 1 listing records and ask for final manual publish approval.

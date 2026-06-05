@@ -20,11 +20,18 @@
 - content_type: Photo post / Reel / Story / Short
 - hook: Internal opening angle only
 - core_message:
-- cta: Internal CTA goal only; final CTA wording belongs in the Claude-written caption
+- cta: Internal caption CTA goal only; final caption CTA wording belongs to Claude
+- layout_family:
+- photo_subject:
+- message_angle:
+- graphic_treatment:
+- text_intensity:
+- cta_style:
 
 ## Copy
 
 - caption: [[CLAUDE_FINAL_COPY_REQUIRED]]
+- exact_in_image_text: `NO_TEXT` or final literal image graphic text
 - customer_copy_prep_notes:
 - hashtag_notes:
 - local_context_tags:
@@ -33,9 +40,18 @@
 
 - brand_assets_ref: 00_brand/
 - asset_refs:
+- approved_reference_images:
+- recent_post_history_ref:
+- rotation_check_status: Not Checked / Checked / Not Enough History / Exception Recorded
+- rotation_notes:
+- image_prompt_ref:
 - thumbnail_note:
 
 > Brand asset rule: any brand-specific image, graphic, logo, color, template, caption prompt, or generated visual for this post must reference `00_brand/` as the current brand asset source of truth.
+
+> External prompt rule: any caption, image, graphic, or transformation prompt sent outside this repository must pass `80_templates/standalone_external_prompt_checklist.md` and inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachments, output requirements, quality criteria, and failure behavior.
+
+> Facebook Page image rule: use `50_content/facebook_brand_post_rules.md` and `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`. GPT/Codex owns image graphic text under review by exception; Claude approval is not required for image graphic text. Claude still owns the final caption.
 
 ## Publishing + Outcome
 

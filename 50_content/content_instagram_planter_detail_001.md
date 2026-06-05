@@ -19,10 +19,17 @@
 - hook: Cedar texture + a clean outdoor look = easy spring content.
 - core_message: Use a detail-focused post to make the planter feel higher quality and locally made.
 - cta: Encourage DM requests for the Marketplace link or delivery details after approved facts are confirmed and Claude-final caption is integrated.
+- layout_family: Pending
+- photo_subject: Cedar grain close-up or product detail
+- message_angle: Construction or craftsmanship detail
+- graphic_treatment: Pending
+- text_intensity: Pending
+- cta_style: Pending
 
 ## Copy
 
 - caption: [[CLAUDE_FINAL_COPY_REQUIRED]]
+- exact_in_image_text: Pending — use `NO_TEXT` or follow a future approved Instagram image graphic-text workflow
 - customer_copy_prep_notes: Non-Claude prep only. Working caption idea focuses on cedar texture/detail, approximate 24x24x18 size, and a DM prompt for the Marketplace link or local delivery details after facts are confirmed.
 - hashtag_notes: Reuse a small set such as #cedarwood #planterbox #handmadeoutdoor #gardendecor.
 - local_context_tags: Assumption — add local area tags before publishing.
@@ -31,6 +38,11 @@
 
 - brand_assets_ref: 00_brand/
 - asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after publishable planter media is locked in the linked Marketplace record.
+- approved_reference_images: Pending
+- recent_post_history_ref: Pending — use platform-relevant recent content history before image prompt generation
+- rotation_check_status: Not Checked
+- rotation_notes:
+- image_prompt_ref:
 - thumbnail_note: Pending — choose from governed approved media only after publishable planter media is locked in the linked Marketplace record.
 
 ## Publishing + Outcome

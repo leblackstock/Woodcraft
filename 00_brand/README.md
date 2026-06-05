@@ -1,44 +1,44 @@
-﻿# Drakkar Designs Brand Assets
+# Drakkar Designs Brand Source of Truth
 
-Status: Source of truth
+Status: Active source of truth
 Created: 2026-06-04
-Original source package: `20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/brand/`
+Original asset source package: `20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/brand/`
 
-Use this folder as the current source of truth for Drakkar Designs brand assets used by listings, image prompts, content, and ads.
+Use this folder as the current source of truth for reusable Drakkar Designs identity guidance and approved brand assets.
 
-## Folder Contents
+## Identity References
+
+- [COLOR_PALETTE.md](COLOR_PALETTE.md) — approved color tokens and usage rules
+- [TEXT_STYLE_RULES.md](TEXT_STYLE_RULES.md) — typography identity, hierarchy, readability, and reusable prompt wording
+- [VISUAL_STYLE.md](VISUAL_STYLE.md) — reusable visual direction for graphics, generated visuals, ads, and image prompts
+- [VOICE.md](VOICE.md) — one shared writing voice, four use-case modes, vocabulary, sentence shape, and copy guardrails
+
+## Approved Assets
 
 - `drakkar-logo.png` — primary full logo
 - `drakkar-dd.png` — DD mark
 - `drakkar-dd-tight.png` — tighter DD mark
 - `photos/` — approved catalog product and support images
+- `references/` — approved visual references; reference-only unless a workflow explicitly approves listing use
+
+## Placement Rules
+
+- Reusable brand identity files belong in `00_brand/`. This includes color palettes, voice guides, visual-style guides, logo guidance, typography guidance, reusable brand marks, and approved brand-reference media.
+- Operational records stay with the workflow they serve. Product records remain in `30_products/`, listing records and prompt packs remain in `40_listings/`, content records remain in `50_content/`, and templates remain in `80_templates/`.
+- Operational files must point to the relevant `00_brand/` identity references instead of duplicating or owning separate brand rules.
+- Historical catalog exports and source packages remain in `20_research/` as provenance. They are not the active brand source of truth.
 
 ## Usage Rules
 
-- Use `00_brand/` for current brand assets.
-- Treat the catalog export brand folder as historical/source provenance, not the active working location.
-- Use product photos in `00_brand/photos/` for FBM image prompts and listing media references.
-- Do not overwrite or regenerate these files without operator approval.
-- If a new brand asset is approved, add it here and record the source/provenance in this README or a dated note.
+- Read the relevant identity reference before creating brand-specific copy, graphics, ads, images, HTML, templates, prompt packs, or generated visuals.
+- Use product photos in `00_brand/photos/` for FBM image prompts and listing-media references.
+- Do not overwrite or regenerate approved assets without operator approval.
+- If a new brand asset or identity rule is approved, add it here and record its source or provenance in this README or a dated note.
 
-## Color Palette
+## Provenance
 
-Use these colors as the Drakkar visual anchor:
-
-| Token | Hex | Use |
-| --- | --- | --- |
-| `black` | `#13181B` | Deep brand background, dark panels, high-contrast graphic cards |
-| `charcoal` | `#414444` | Softer dark background, borders, secondary dark panels |
-| `stone` | `#DEDCD6` | Warm cream/stone text, light backgrounds |
-| `stone-pale` | `#ebe9e3` | Light cream background, softer light cards |
-| `stone-deep` | `#c8c6bf` | Muted stone contrast, subtle dividers |
-| `orange` | `#CF4E17` | Cedar/burnt-orange accent, price emphasis, small rules |
-| `orange-vivid` | `#E04B1A` | Brighter orange accent when extra pop is needed |
-| `silver` | `#A4A9A5` | Muted secondary text/icons on dark backgrounds |
-
-## Visual Direction
-
-- Keep the look cedar-forward, practical, local, and warm.
-- Use dark/charcoal mainly for price cards, brand/order cards, or dramatic hero composites.
-- Use daylight, stone/cream, greenery, and warm cedar when a lighter Marketplace image sells the product better.
-- Avoid bright unrelated colors, glossy luxury styling, generic stock-photo blues, and washed-out beige that loses the Drakkar identity.
+- Logos and approved catalog photos were copied from the saved Drakkar catalog source package.
+- `VOICE.md` was promoted from the saved catalog source package; the active copy is UTF-8-clean.
+- `TEXT_STYLE_RULES.md` was created from operator-approved typography direction and the saved retail catalog's type system.
+- `VISUAL_STYLE.md` was moved from the FBM prompt folder because reusable visual identity belongs with the brand source of truth.
+- `references/handmade-cedar-garden-goods-display.png` was copied from the external catalog-setup workspace as the active visual-style reference; the original remains source provenance.

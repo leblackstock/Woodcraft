@@ -5,8 +5,12 @@ Generator template: `40_listings/prompts/prompt_fbm_claude_listing_copy_generato
 Status: Ready to paste into Claude when Lauren wants the Wave 1 listing copy pass
 Listing copy owner: Claude
 Image text owner: GPT/Codex prep
+Voice source: `00_brand/VOICE.md`
+Voice mode: Marketplace
 
 This prompt requests final Facebook Marketplace listing titles and descriptions only. It does not request image text, captions, social copy, or publish approval.
+
+Copy only the fenced `text` block into Claude. The surrounding repository metadata is internal provenance; the fenced prompt is standalone.
 
 ```text
 You are writing final Facebook Marketplace listing copy for Drakkar Designs.
@@ -14,11 +18,14 @@ You are writing final Facebook Marketplace listing copy for Drakkar Designs.
 Use only the approved facts below. Do not invent dimensions, materials, lead times, discounts, included items, availability, delivery terms, guarantees, or product claims.
 
 Write in the Drakkar voice:
+- use Marketplace Mode: direct, practical, factual, and easy to scan
+- lead with the product and buyer-relevant details
 - plainspoken
 - specific
 - local
 - unfussy
 - no first person
+- use short, confident sentences and restraint instead of hype
 - use "cedar" when cedar is true
 - no wholesale or partner terms
 - no fake luxury language
@@ -56,7 +63,7 @@ If a listing is blocked, return only:
 Global approved facts:
 - Channel: Facebook Marketplace
 - Business: Drakkar Designs
-- Brand asset source of truth: `00_brand/`
+- Brand context: a small local Georgia cedar shop; keep the work and buyer-relevant details ahead of brand storytelling
 - Customer-facing location wording: use locally in Georgia; avoid repeating the exact city unless pickup logistics require it
 - Product line: cedar planters, raised beds, and garden pieces
 - Build model: made to order
@@ -116,4 +123,6 @@ Listing 4:
 - fulfillment: pickup or local delivery by arrangement
 - lead_time: built to order; lead time provided when order is placed
 - important note: this listing is for the featured size; do not imply every custom size is $240
+
+Before returning the copy, silently check that every statement is supported by the supplied facts, every listing includes all three requested fields, prices and sizes match the correct listing, and none of the banned wording appears.
 ```

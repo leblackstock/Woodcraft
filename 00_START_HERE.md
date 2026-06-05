@@ -9,11 +9,19 @@ Primary goal: help Lauren make better decisions faster, with less stress and les
 - This workspace uses a dual-model operating pattern.
 - GPT-5.5 handles workflow orchestration and upstream prep.
 - Claude writes final customer-facing prose, and customer-facing assets must pass the Claude gate before publish approval.
+- Image graphic text may be created by GPT/Codex without Claude approval when an active review-by-exception image workflow assigns that responsibility.
 
 ## Brand Asset Source
 
-- `00_brand/` is the source of truth for Drakkar Designs logos, approved product photos, palette notes, and brand asset provenance.
+- `00_brand/` is the source of truth for Drakkar Designs identity guidance and approved assets, including voice, color palette, visual style, logos, approved product photos, and provenance.
 - Workflows that create brand-specific text, graphics, ads, images, HTML, templates, prompt packs, or generated visuals must reference `00_brand/`.
+- Reusable brand-specific guidance belongs in `00_brand/`; operational records stay in their workflow folders and point back to it.
+
+## External Prompt Rule
+
+- Any prompt intended for an AI or tool outside this repository must be standalone and pass `80_templates/standalone_external_prompt_checklist.md`.
+- Use repository files during preparation, then inline the relevant facts, brand guidance, constraints, required text, reference instructions, output format, and quality criteria into the delivered prompt.
+- Never expect an external target to open repository paths or know prior repo context.
 
 ## Read in This Exact Order
 

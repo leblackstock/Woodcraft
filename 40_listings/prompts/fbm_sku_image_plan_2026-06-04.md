@@ -3,12 +3,16 @@
 Date created: 2026-06-04
 Status: Working source plan
 Use with: `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
-Visual style reference: `40_listings/prompts/fbm_image_visual_style_reference_2026-06-04.md`
+Visual style reference: `00_brand/VISUAL_STYLE.md`
+Color palette reference: `00_brand/COLOR_PALETTE.md`
+Text style reference: `00_brand/TEXT_STYLE_RULES.md`
 Brand asset SOT: `00_brand/`
 Current image creation path: manual generation in ChatGPT Image 2
 Approval mode: review by exception
 
 This plan turns the catalog SKU list into a Facebook Marketplace image plan. It is a planning source for prompt packs, not final listing copy.
+
+Image/graphic text boundary: graphic cards and overlay-led images may include literal in-image text from approved facts without Claude approval. Claude owns final Marketplace titles and descriptions outside the image graphic workflow. Any no-text photo slot is role-specific, not a global limit on image, graphic, or overlay text.
 
 ## Use This File For
 
@@ -44,6 +48,8 @@ Each SKU pack should answer four shopper questions:
 10. Final ordering graphic
 
 Use the 10-image extension only for real SKU complexity, such as included pots, mailbox clarification, custom sizes, cut/preferred height, finish options, featured size/other sizes by quote, or another necessary clarity note.
+
+The standard order is a default planning structure, not a hard cap on graphic or overlay text. If Lauren asks for additional image text, or a SKU needs another approved-fact graphic for clarity, keep the text and document the reason in the prompt pack.
 
 ## Shared Graphic Text
 

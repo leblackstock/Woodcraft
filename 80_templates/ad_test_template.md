@@ -19,6 +19,8 @@
 
 > Brand asset rule: any brand-specific ad copy, graphic, image, HTML, template, or generated visual must reference `00_brand/` as the current brand asset source of truth.
 
+> External prompt rule: any ad-copy, graphic, image, research, or analysis prompt sent outside this repository must pass `80_templates/standalone_external_prompt_checklist.md` and inline all relevant facts, brand rules, constraints, attachments, output requirements, quality criteria, and failure behavior.
+
 ## Eligibility Check
 
 - organic_proof_summary:

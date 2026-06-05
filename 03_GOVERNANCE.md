@@ -52,16 +52,29 @@ This file defines how this workspace is managed so strategy stays consistent ove
 - ChatGPT Image 2 is accepted in this workspace as a capable option for text-bearing image generation. Do not remove requested text based on generic older image-model guidance.
 - Remove or avoid in-image text only when the user requests a text-free image, the text is not approved for the intended customer-facing use, or the selected image tool is documented as unable to render it.
 
-## Brand Asset Policy
+## Standalone External Prompt Policy
 
-- `00_brand/` is the source of truth for Drakkar Designs brand assets.
-- Any workflow that creates or references brand-specific text, graphics, images, ads, copy, HTML, templates, prompt packs, or generated visuals must check `00_brand/` before using logo files, product photos, colors, or brand styling.
-- Catalog export folders may be used as provenance, but they are not the active brand asset location.
+- Any prompt intended to be copied, pasted, uploaded, or sent to an AI or tool outside this repository must be standalone.
+- Use repository source-of-truth files while preparing the prompt, then inline all relevant facts, brand guidance, voice rules, palette values, typography direction, visual direction, constraints, required text, reference instructions, output format, quality criteria, and missing-information behavior into the delivered prompt.
+- Do not require the target system to open repository paths, remember prior chat context, inspect another prompt, infer undocumented shorthand, or read required context that exists only in surrounding notes.
+- Include only relevant rules; standalone prompts should be complete and high-signal, not indiscriminate dumps of repository files.
+- If exact results require attachments or reference images, state that requirement explicitly. Do not imply text-only prompting can guarantee fidelity that depends on an attachment.
+- Every workflow or automation that creates external prompts must apply [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md) before delivery.
+
+## Brand Source Of Truth Policy
+
+- `00_brand/` is the source of truth for reusable Drakkar Designs identity guidance and approved brand assets.
+- Reusable color palettes, voice guides, visual-style guides, logo guidance, typography guidance, reusable brand marks, and approved brand-reference media belong in `00_brand/`.
+- `00_brand/VOICE.md` owns one shared customer-facing voice with Catalog, Brand Post, Marketplace, and Customer Reply modes. Do not create competing channel voice guides; modes adjust emphasis only and never override core voice or approved-fact rules.
+- Any workflow that creates or references brand-specific text, graphics, images, ads, copy, HTML, templates, prompt packs, or generated visuals must check the relevant files in `00_brand/` before proceeding.
+- Operational records stay in their role-based folders: products in `30_products/`, listings and listing prompt packs in `40_listings/`, content in `50_content/`, and templates in `80_templates/`. These files point to `00_brand/` instead of owning competing brand rules.
+- Catalog export folders may be used as provenance, but they are not the active brand source of truth.
 
 ## Dual-Model Customer-Copy Rules
 
 - GPT-5.5 is the workflow orchestrator for internal workflow progression.
 - Claude is the only approved writer of final customer-facing prose.
+- Image graphic text is a governed exception when an active review-by-exception image workflow assigns it to GPT/Codex. It does not require Claude approval, but it must use approved facts and the applicable voice mode.
 - Non-Claude models may prepare:
   - facts
   - structured fields
@@ -71,6 +84,7 @@ This file defines how this workspace is managed so strategy stays consistent ove
   - validation notes
   - workflow state
 - Non-Claude models may **not** write final publishable customer-facing copy.
+- Non-Claude models may create image graphic text only when an active image workflow explicitly grants that responsibility.
 
 ### Customer-Facing Prose Includes
 
@@ -78,10 +92,12 @@ This file defines how this workspace is managed so strategy stays consistent ove
 - listing descriptions
 - Facebook Page captions
 - Instagram captions
-- CTA lines
+- CTA lines outside governed image graphic text
 - promo blurbs
 - ad copy
 - customer-facing reply templates
+
+Image graphic text governed by an active review-by-exception image workflow is excluded from this prose list.
 
 ### Required Workflow Behavior
 

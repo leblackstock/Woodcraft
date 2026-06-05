@@ -599,6 +599,12 @@ Once transcripts are saved, you can use them to create:
 - A spreadsheet of project ideas
 - AI summaries grouped by topic
 
+External AI prompt rule:
+
+- Any prompt sent to ChatGPT or another external AI must pass `80_templates/standalone_external_prompt_checklist.md`.
+- Include or attach the relevant transcript text and source metadata; do not expect the external AI to open local transcript paths.
+- State the research question, scope, evidence standard, required output structure, and how to handle uncertainty or conflicting claims.
+
 Example workflow:
 
 ```text
@@ -606,9 +612,11 @@ Saved transcript files
     ↓
 Search by keyword
     ↓
-Copy relevant transcripts into ChatGPT
+Select relevant transcript excerpts and source metadata
     ↓
-Ask for summaries, product ideas, pricing notes, or build takeaways
+Prepare a standalone prompt and include or attach the selected transcript material
+    ↓
+Ask for a defined summary, product-idea analysis, pricing-note extraction, or build-takeaway report
 ```
 
 ---

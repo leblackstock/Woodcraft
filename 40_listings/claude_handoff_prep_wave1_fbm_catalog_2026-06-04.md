@@ -4,7 +4,8 @@ Status: Prep complete; paste-ready Claude prompt exists at `40_listings/prompts/
 Batch tracker: `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
 Catalog artifacts: `20_research/catalog_exports/2026-06-03/`
 Brand asset SOT: `00_brand/`
-Voice guide: `20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/VOICE.md`
+Voice guide: `00_brand/VOICE.md`
+Voice mode: Marketplace
 
 This file gathers approved facts for the Wave 1 Facebook Marketplace listings. Do not mark any listing `publish_ready: Yes` until Claude output is pasted back, integrated, and the operator gives final publish approval.
 
@@ -23,7 +24,8 @@ This file gathers approved facts for the Wave 1 Facebook Marketplace listings. D
 
 ## Tone And Guardrails
 
-- tone source: follow `20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/VOICE.md`
+- tone source: follow `00_brand/VOICE.md`
+- voice mode: Marketplace; direct, practical, factual, and easy to scan
 - tone: plainspoken, specific, local, unfussy
 - cta_goal: get the buyer to message with the SKU/name and any size, finish, or delivery questions
 - voice rules to preserve:
@@ -98,5 +100,5 @@ This file gathers approved facts for the Wave 1 Facebook Marketplace listings. D
 
 ## Remaining Before Official Claude Pass
 
-- Paste `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` into Claude when ready.
+- Paste only the standalone fenced `text` prompt from `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` into Claude when ready. Do not paste the surrounding internal repository notes.
 - Paste Claude output back into the listing records, then record `claude_output_ref` and final operator publish approval before marking anything publish-ready.

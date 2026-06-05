@@ -87,6 +87,8 @@
 
 > Brand asset rule: brand-specific photos, logos, colors, graphics, HTML/template styling, and generated-visual references should point to `00_brand/` rather than older catalog-export folders.
 
+> External prompt rule: any research, analysis, media, graphic, or transformation prompt sent outside this repository must pass `80_templates/standalone_external_prompt_checklist.md` and inline all relevant scope, facts, brand rules, constraints, attachments, output requirements, evidence standards, quality criteria, and uncertainty behavior.
+
 ## Notes
 
 - notes:

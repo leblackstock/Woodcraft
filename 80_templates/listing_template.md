@@ -65,6 +65,8 @@
 
 > Brand asset rule: any brand-specific image, graphic, logo, color, HTML, or template work for this listing must reference `00_brand/` as the current brand asset source of truth.
 
+> External prompt rule: any listing-copy, image, graphic, research, or transformation prompt sent outside this repository must pass `80_templates/standalone_external_prompt_checklist.md` and inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachments, output requirements, quality criteria, and failure behavior.
+
 ## Buyer Support Copy
 
 - faq_prep:

@@ -18,7 +18,19 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - asset_id:
 - current_workflow_step:
 - requested_output_fields:
-- brand_assets_ref: 00_brand/
+- voice_mode: Catalog / Brand Post / Marketplace / Customer Reply
+- inline_voice_rules:
+- inline_brand_rules:
+- inline_constraints:
+- required_output_format:
+- required_attachments_or_source_text:
+
+## Internal Preparation Only
+
+- Use `00_brand/` and the applicable operational records while preparing the handoff.
+- Do not include repository paths as instructions to Claude.
+- Replace every placeholder and inline all relevant source contents before delivery.
+- The delivered Claude prompt must pass `80_templates/standalone_external_prompt_checklist.md`.
 
 ## Approved Facts Only
 
@@ -32,7 +44,17 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - tone_or_brand_notes:
 - banned_claims_or_words:
 
-Use `00_brand/` as the current brand asset source of truth for brand-specific references, approved photos, colors, logo context, and styling notes. Do not ask Claude to approve image prompts or graphic assets unless the requested output is final customer-facing prose.
+## Shared Drakkar Voice Rules To Inline
+
+- Name and describe the applicable voice mode for each requested output.
+- Keep the writing plainspoken, specific, local, and unfussy.
+- Use approved facts and truthful claims only.
+- Use no first person.
+- Prefer short, confident sentences and restraint instead of hype.
+- Use `cedar` instead of `wood` when cedar is true.
+- Avoid artisan, artisanal, curated, thoughtfully, lovingly, carefully crafted, handcrafted, elevate, experience, journey, story, sustainable, eco-friendly, luxury, bespoke, timeless, heirloom, crafted, and partner-confidential terms.
+- Allow `premium` only when it names a material grade, not as a general quality claim.
+- Modes adjust emphasis only and never override core voice, banned-word, truthfulness, or approved-fact rules.
 
 ## Claude Instructions
 
@@ -40,6 +62,16 @@ Use `00_brand/` as the current brand asset source of truth for brand-specific re
 - Use approved facts only.
 - Do not invent facts, claims, pricing, timing, or commitments.
 - Treat any prep wording as non-binding context, not as a fact source.
+- Follow the inlined voice, brand, constraint, and output-format rules in this prompt.
+- If required information is missing, return `status: BLOCKED` and list only the missing information.
+- Do not ask for repository files or assume access to them.
+
+## Standalone Delivery Gate
+
+- Confirm the delivered prompt contains the actual approved facts, applicable voice-mode rules, banned wording, constraints, output format, attachments/source text, quality criteria, and blocked behavior.
+- Remove all repository-path instructions and all unfilled placeholders before sending the prompt to Claude.
+- Do not ask Claude to approve image prompts, graphic prompts, graphic assets, overlay text, or image graphic text.
+- If wording from an image/graphic is later reused as a standalone listing, post/caption, advertisement, catalog, or customer-reply prose block, create a separate Claude handoff for that prose block only.
 
 ## After Claude Returns
 

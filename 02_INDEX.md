@@ -24,6 +24,7 @@ Master map of this workspace. Start with [00_START_HERE.md](00_START_HERE.md).
 
 - [09_DATA_MODEL.md](09_DATA_MODEL.md) — record schemas, verification refs/statuses, and source-of-truth notes.
 - [10_PROMPTS_INDEX.md](10_PROMPTS_INDEX.md) — prompt families, naming, and versioning plan.
+- [50_content/facebook_brand_post_rules.md](50_content/facebook_brand_post_rules.md) — Facebook Page brand-post visual, variation, rotation, and image graphic-text rules.
 - [12_DECISION_LOG.md](12_DECISION_LOG.md) — key decisions and rationale.
 - [13_BACKLOG.md](13_BACKLOG.md) — prioritized next actions.
 
@@ -33,7 +34,7 @@ Master map of this workspace. Start with [00_START_HERE.md](00_START_HERE.md).
 
 ## Working Folders
 
-- [00_brand/](00_brand/) — Drakkar Designs brand asset source of truth: logos, marks, approved catalog photos, and palette notes.
+- [00_brand/](00_brand/) — Drakkar Designs brand source of truth: voice, color palette, visual style, logos, marks, approved catalog photos, references, and provenance.
 - [15_weekly_review_drafts/](15_weekly_review_drafts/) — upcoming or in-progress weekly review drafts not yet completed.
 - [20_research/](20_research/) — market research snapshots, competitor notes, pricing observations.
 - [30_products/](30_products/) — product candidates, approved items, standard specs, and cost/build notes.

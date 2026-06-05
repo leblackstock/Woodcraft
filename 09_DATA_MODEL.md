@@ -8,7 +8,7 @@ Purpose: define consistent record schemas so decisions are traceable and automat
 - Listing truth lives in `40_listings/`.
 - Content truth lives in `50_content/`.
 - Ad test truth lives in `70_ads/`.
-- Brand asset truth lives in `00_brand/` for logos, approved photos, palette notes, and brand asset provenance.
+- Brand truth lives in `00_brand/` for reusable identity guidance, logos, approved photos, and provenance.
 - Decision-level changes must be logged in [12_DECISION_LOG.md](12_DECISION_LOG.md).
 
 ## Copy-State Governance Pattern (Listings + Content)
@@ -259,13 +259,25 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | claude_output_ref | No | See copy-state governance pattern |
 | hook | Yes | Internal opening angle; not final customer-facing copy |
 | core_message | Yes | Internal post message or purpose |
+| layout_family | No | Selected visual layout family used for creative rotation tracking |
+| photo_subject | No | Selected product, process, material, or scene subject |
+| message_angle | No | Selected approved message angle for the visual concept |
+| graphic_treatment | No | Selected panel, overlay, label, divider, or other visual treatment |
+| text_intensity | No | `NO_TEXT`, logo/name only, minimal, moderate, editorial, poster-style, or a short free-text equivalent |
+| cta_style | No | CTA intent/treatment for the visual; not the final literal caption CTA |
 | caption | Yes | Final customer-facing caption or `[[CLAUDE_FINAL_COPY_REQUIRED]]` |
+| exact_in_image_text | No | `NO_TEXT` or the final literal image graphic text generated under the active image workflow |
 | customer_copy_prep_notes | No | Internal prep copy, bullets, or non-Claude caption draft |
-| cta | Yes | Internal CTA goal or direction; final CTA phrasing belongs in the Claude-written caption |
+| cta | Yes | Internal caption CTA goal or direction; final caption CTA phrasing belongs to Claude |
 | hashtag_notes | No | Hashtag plan |
 | local_context_tags | No | Local tag plan |
 | brand_assets_ref | No | Brand asset source for logos, approved photos, palette, and styling; default `00_brand/` when brand-specific media or styling is used |
 | asset_refs | Yes | Image/video references |
+| approved_reference_images | No | Governed product, logo, or visual-reference attachments approved for the generated asset |
+| recent_post_history_ref | No | Recent platform-relevant content records reviewed for creative repetition |
+| rotation_check_status | No | `Not Checked` / `Checked` / `Not Enough History` / `Exception Recorded` |
+| rotation_notes | No | Short note on selection rationale, underused options, or justified repetition |
+| image_prompt_ref | No | Saved or delivered standalone image-prompt reference |
 | thumbnail_note | No | Cover/thumbnail plan |
 | publish_date | No | Actual publish date only; leave blank until published |
 | outcome_notes | No | Engagement and learnings |
@@ -275,6 +287,17 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 - Published or schedulable content must follow the same media-truth rules as listings.
 - Brand-specific content media, graphics, captions, generated visuals, and templates should reference `brand_assets_ref: 00_brand/`.
 - Third-party reference media may support planning, but it must not be used as publishable content media.
+
+### Content Image And Rotation Rules
+
+- Facebook Page brand-post visuals use `50_content/facebook_brand_post_rules.md` and the linked internal prompt generator.
+- GPT/Codex may create image graphic text under an active review-by-exception image workflow. Image graphic text does not require Claude approval, but it must use approved facts and the applicable voice mode.
+- Claude remains responsible for the final caption and other final prose outside the image graphic.
+- Record `exact_in_image_text` as literal final image wording or `NO_TEXT`.
+- Before generating a Facebook Page brand-post image prompt, review recent records with selected creative fields and record `recent_post_history_ref`, `rotation_check_status`, and any exception in `rotation_notes`.
+- Do not claim repetition was checked when recent history is unavailable.
+- Require approved reference-image attachments when exact product or logo fidelity matters.
+- A ready image prompt does not by itself make the content record publish-ready; the caption gate and all other required checks still apply.
 
 ## Ad Test Record Schema
 

@@ -42,15 +42,25 @@ Agents must actively avoid repeating those patterns.
 - Use explicit placeholders for unknowns rather than guessing.
 - Record meaningful governance or workflow changes in `12_DECISION_LOG.md`.
 
-## Brand Asset Source of Truth
+## Brand Source of Truth
 
-- `00_brand/` is the current source of truth for Drakkar Designs logos, approved product photos, palette notes, and brand asset provenance.
-- Any workflow that creates brand-specific text, graphics, ads, copy, images, HTML, templates, prompt packs, or generated visuals must reference `00_brand/` before using brand assets or styling.
+- `00_brand/` is the current source of truth for reusable Drakkar Designs identity guidance and approved assets, including `VOICE.md`, `COLOR_PALETTE.md`, `TEXT_STYLE_RULES.md`, `VISUAL_STYLE.md`, logos, approved product photos, and provenance.
+- Use the one shared voice in `00_brand/VOICE.md` and name its applicable Catalog, Brand Post, Marketplace, or Customer Reply mode. Do not create competing channel voice guides or let a mode override core voice and approved-fact rules.
+- Reusable brand-specific guidance belongs in `00_brand/`. Operational records stay in their workflow folders and point to the relevant brand files.
+- Any workflow that creates brand-specific text, graphics, ads, copy, images, HTML, templates, prompt packs, or generated visuals must reference `00_brand/` before using brand identity or assets.
 
 ## Copy and Publishing Rules
 
 - Final customer-facing prose must come from Claude, per repo governance.
 - Other agents may prepare facts, outlines, and validation only.
+- Image graphic text is the exception when an active review-by-exception image workflow assigns it to GPT/Codex. It does not require Claude approval, but it must use approved facts and the applicable voice mode.
+
+## Standalone External Prompt Rules
+
+- Every prompt intended to be copied, pasted, uploaded, or sent to an AI/tool outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`.
+- Use repository files while preparing the prompt, then inline all relevant context, facts, brand guidance, voice rules, palette values, typography/visual direction, literal required text, constraints, reference instructions, output format, quality criteria, and failure behavior into the delivered prompt.
+- Do not expect an external target to open repository paths, know prior chat context, read another prompt, or infer undocumented shorthand.
+- If exact fidelity requires an attachment or reference image, state that requirement explicitly.
 
 ## Image Prompt Rules
 

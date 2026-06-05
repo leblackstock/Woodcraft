@@ -23,9 +23,11 @@ This list was made with the following workflow:
    - `Related only` means the video is useful context but should not be treated as the same product without more checking.
 5. Leave `Product letter / code` blank when the current product record has no saved `reference_code`.
 
-Repeat instruction:
+Internal repeat instruction for a repository-capable agent:
 
 > Compare `20_research/YouTubeTranscripts/analysis/whosthevoss_video_concept_product_index_YYYY-MM-DD.md` against `30_products/`. Extract `product_id`, `product_name`, and `reference_code`, then match by exact source title/URL first, product-page slug second, pricing-guide code third, and transcript confirmation for ambiguous cases. Save the result as a cross-reference under `20_research/YouTubeTranscripts/analysis/`.
+
+This instruction depends on repository access and is not a standalone external prompt. Before sending an equivalent task to an external AI, pass `80_templates/standalone_external_prompt_checklist.md` and include or attach the relevant video index, product records, transcript excerpts, matching rules, confidence-label definitions, output schema, evidence requirements, and uncertainty behavior.
 
 ## Confirmed or High-Confidence Matches
 

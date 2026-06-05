@@ -7,7 +7,9 @@ Related catalog artifacts: `20_research/catalog_exports/2026-06-03/`
 Workflow tracker: `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
 Brand asset source of truth: `00_brand/`
 
-This document captures the working plan for a broader Facebook Marketplace catalog rollout. It is not final customer-facing copy. Any listing title, description, graphic text, or buyer-facing CTA must still pass the Claude final-copy gate before publish approval.
+This document captures the original working plan for a broader Facebook Marketplace catalog rollout. It is not final customer-facing copy. Final listing titles, descriptions, captions, promotional blurbs, calls to action, and reply copy must still pass the Claude final-copy gate before publish approval. Factual in-image text follows the active review-by-exception image-prompt workflow.
+
+Current execution note: this is the original research plan. The workflow tracker at `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`, the active prompt generators, `00_brand/`, and `80_templates/standalone_external_prompt_checklist.md` supersede this note wherever current rules differ. Use repository paths only for internal preparation; every prompt delivered outside the repository must inline its relevant facts, brand direction, literal text, constraints, output requirements, quality criteria, and failure behavior.
 
 Source-of-truth rule: for this Facebook Marketplace catalog rollout, the saved catalog artifacts are the source of truth for catalog-facing SKU names, specs, retail prices, and FB Marketplace prices. Older repo product specs should be reconciled to the catalog before listing files are created.
 
@@ -149,19 +151,19 @@ Variation image:
 Simple price graphic:
 
 - show retail price and FB Marketplace wholesale price only after pricing approval
-- suggested visual style: charcoal background, cream text, cedar accent
-- final graphic text requires Claude gate if customer-facing
+- follow the Marketplace guidance in `00_brand/COLOR_PALETTE.md`, `00_brand/TEXT_STYLE_RULES.md`, and `00_brand/VISUAL_STYLE.md`
+- follow the active tracker and image-prompt generator for factual graphic-text and approval rules
 
 Built-to-order graphic:
 
-- built to order in Lovejoy, GA
+- built locally in Georgia
 - custom sizing available
-- final graphic text requires Claude gate if customer-facing
+- follow the active tracker and image-prompt generator for factual graphic-text and approval rules
 
 Catalog/order graphic:
 
 - message-to-order instruction
-- final graphic text requires Claude gate if customer-facing
+- follow the active tracker and image-prompt generator for factual graphic-text and approval rules
 
 ## Retail vs FB Marketplace Wholesale Pricing Draft
 

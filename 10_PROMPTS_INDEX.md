@@ -2,7 +2,17 @@
 
 Purpose: prevent prompt sprawl and keep reusable prompt sets organized.
 
-Brand source-of-truth note: any prompt that creates or references Drakkar-specific text, graphics, ads, images, HTML, templates, copy, or generated visuals must reference [00_brand/](00_brand/) for current logos, approved photos, colors, and brand asset provenance.
+Brand source-of-truth note: any prompt that creates or references Drakkar-specific text, graphics, ads, images, HTML, templates, copy, or generated visuals must reference [00_brand/](00_brand/) for current assets and identity guidance. Use `00_brand/VOICE.md`, `00_brand/COLOR_PALETTE.md`, `00_brand/TEXT_STYLE_RULES.md`, and `00_brand/VISUAL_STYLE.md` instead of owning separate brand rules in a prompt folder.
+
+## Standalone External Prompt Standard
+
+Any prompt meant to leave this repository must pass [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md).
+
+- Repository files are preparation sources, not instructions the external target can follow.
+- Inline the relevant source facts, task context, brand rules, voice mode, palette, typography, visual direction, literal required text, constraints, reference requirements, output format, quality criteria, and missing-information behavior.
+- Remove local-path dependencies from the delivered prompt unless the referenced file contents are actually attached.
+- Make each delivered prompt independently usable. Do not require another prompt in the pack or surrounding notes.
+- Apply this standard to image prompts, graphic prompts, Claude handoffs, writing prompts, research prompts, analysis prompts, automation prompts, and transformation prompts.
 
 ## Dual-Model Prompt Roles
 
@@ -16,6 +26,7 @@ Use GPT prompts for:
 - missing-info detection
 - structured prep for assets
 - Claude handoff generation
+- image graphic text when an active review-by-exception image workflow assigns it to GPT/Codex
 
 ### Claude Final Customer-Copy Prompts
 
@@ -24,14 +35,18 @@ Use Claude prompts for:
 - final customer-facing listing prose
 - final Facebook Page captions
 - final Instagram captions
-- final CTA lines and promo blurbs
+- final caption, listing, ad, and reply CTA lines and promo blurbs outside governed image graphic text
 - final customer-facing reply templates
 
 Claude prompts are for final publishable customer-facing prose only.
 
+Image graphic text assigned to GPT/Codex by an active review-by-exception image workflow does not require Claude approval.
+
 ### GPT-to-Claude Handoff Prompts
 
 - GPT-5.5 must generate Claude handoff prompts from approved facts only.
+- Each handoff must name the applicable mode from the one shared `00_brand/VOICE.md`: Catalog, Brand Post, Marketplace, or Customer Reply.
+- Voice modes adjust emphasis only and never override core voice, banned-word, truthfulness, or approved-fact rules.
 - If facts are incomplete, stop upstream and resolve missing info before creating the handoff.
 - Record the resulting handoff in `claude_handoff_ref` only after `approved_facts_status: Approved`.
 - The human pastes Claude output back into the workflow for integration.
@@ -41,6 +56,7 @@ Claude prompts are for final publishable customer-facing prose only.
 
 These shared prompt templates live in [80_templates/](80_templates/):
 
+- `80_templates/standalone_external_prompt_checklist.md`
 - `80_templates/gpt_to_claude_handoff_prompt_template.md`
 - `80_templates/claude_final_marketplace_listing_prompt.md`
 - `80_templates/claude_final_social_caption_prompt.md`
@@ -50,14 +66,26 @@ Current FBM workflow entry point:
 
 - `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
 
+Brand identity references used by prompts:
+
+- `00_brand/VOICE.md`
+- `00_brand/COLOR_PALETTE.md`
+- `00_brand/TEXT_STYLE_RULES.md`
+- `00_brand/VISUAL_STYLE.md`
+
 Workflow-specific listing image prompt templates live in [40_listings/prompts/](40_listings/prompts/):
 
 - `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
 - `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md`
-- `40_listings/prompts/fbm_image_visual_style_reference_2026-06-04.md`
 - `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md`
 - `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md`
 - `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md`
+
+Current Facebook Page brand-post image workflow:
+
+- `50_content/facebook_brand_post_rules.md`
+- `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
+- `80_templates/social_post_template.md`
 
 Deprecated but retained for traceability:
 
@@ -89,10 +117,13 @@ Each future prompt family must be explicitly scoped to either GPT-5.5 orchestrat
    - Ad creative image prompt drafts for later testing
    - Text-bearing image prompts are allowed when the requested image needs readable words, labels, signage, branding, price text, catalog marks, packaging text, captions, or similar literal text.
    - Do not remove requested text from image prompts by default. ChatGPT Image 2 is considered capable for text-bearing image generation in this workflow.
+   - Delivered image prompts must be standalone when copied into a target image model without repository access. Inline the required visual direction, palette values, typography direction, wording mode, literal image text, and visible avoid rules rather than relying on local reference paths.
+   - When exact product fidelity depends on an approved source image, require that image to be attached; text-only prompting may approximate but cannot guarantee an exact match.
 5. **Content Prompts**
    - GPT-5.5 orchestration/prep: short-form concept extraction from listings
+   - GPT-5.5 orchestration/prep: Facebook Page brand-post image concepts, rotation checks, image graphic text, and standalone image prompts
    - Claude final customer-facing prose: caption variations by platform
-   - Claude final customer-facing prose: CTA variants
+   - Claude final customer-facing prose: caption CTA variants
    - Claude final customer-facing prose: reply-template prompts
 6. **Ad Test Prompts**
    - Owner: GPT-5.5 orchestration/prep
