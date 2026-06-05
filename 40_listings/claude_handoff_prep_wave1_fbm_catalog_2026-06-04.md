@@ -17,8 +17,8 @@ This file gathers approved facts for the Wave 1 Facebook Marketplace listings. D
 - Build model: Made to Order
 - Delivery wording approved: pickup or local delivery by arrangement
 - Lead-time wording approved where noted: built to order; lead time provided when order is placed
-- `Retail` means the retail catalog price.
-- `FB Marketplace price` means the wholesale price from the partner catalog/order packet.
+- Retail catalog prices are internal context only; do not include retail comparisons unless Lauren explicitly asks for them.
+- Listing prices are the plain customer-facing prices from the partner catalog/order packet; write them as prices without `Marketplace` labels.
 - Custom sizes are by quote where applicable.
 - Do not invent availability, lead times, delivery promises, finishes, included plants, soil, liners, or discounts.
 
@@ -29,13 +29,15 @@ This file gathers approved facts for the Wave 1 Facebook Marketplace listings. D
 - tone: plainspoken, specific, local, unfussy
 - cta_goal: get the buyer to message with the SKU/name and any size, finish, or delivery questions
 - voice rules to preserve:
-  - small local Georgia cedar shop
+  - small local Georgia woodshop
   - no first person
   - use "cedar" when cedar is true
   - simple, practical, specific wording
   - short sentences
+  - no em dashes or en dashes in final output; regular hyphens are okay when needed
+  - no AI-isms or common AI tells
   - no wholesale/partner terms in customer-facing copy
-- banned_claims_or_words: artisan, artisanal, curated, luxury, sustainable, eco-friendly, bespoke, heirloom, handcrafted, Net 30, MOQ, partner terms
+- banned_claims_or_words: artisan, artisanal, curated, luxury, sustainable, eco-friendly, bespoke, heirloom, handcrafted, Net 30, MOQ, partner terms, em dashes, en dashes, AI-isms, common AI tells
 
 ## Listing: A
 

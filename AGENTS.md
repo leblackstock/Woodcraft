@@ -58,9 +58,10 @@ Agents must actively avoid repeating those patterns.
 ## Standalone External Prompt Rules
 
 - Every prompt intended to be copied, pasted, uploaded, or sent to an AI/tool outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`.
-- Use repository files while preparing the prompt, then inline all relevant context, facts, brand guidance, voice rules, palette values, typography/visual direction, literal required text, constraints, reference instructions, output format, quality criteria, and failure behavior into the delivered prompt.
+- Use repository files while preparing the prompt, then inline all relevant context, facts, brand guidance, voice rules, palette values, typography/visual direction, literal required text, constraints, reference instructions, output format, quality criteria, and failure behavior into the delivered prompt. For image and graphic prompts, choose the background color or photo/overlay background treatment first, then list the remaining approved palette colors without assigning them to text, dividers/rules, accents, panels, or inset fields.
 - Do not expect an external target to open repository paths, know prior chat context, read another prompt, or infer undocumented shorthand.
 - If exact fidelity requires an attachment or reference image, state that requirement explicitly.
+- If an image prompt requires an attached image, the first line of the copied prompt must be `Please see attached "[plain-language item being attached]"` so the operator knows what to attach before generation.
 
 ## Image Prompt Rules
 

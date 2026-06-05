@@ -55,10 +55,12 @@ This file defines how this workspace is managed so strategy stays consistent ove
 ## Standalone External Prompt Policy
 
 - Any prompt intended to be copied, pasted, uploaded, or sent to an AI or tool outside this repository must be standalone.
-- Use repository source-of-truth files while preparing the prompt, then inline all relevant facts, brand guidance, voice rules, palette values, typography direction, visual direction, constraints, required text, reference instructions, output format, quality criteria, and missing-information behavior into the delivered prompt.
+- Use repository source-of-truth files while preparing the prompt, then inline all relevant facts, brand guidance, voice rules, palette values, typography direction, visual direction, constraints, required text, reference instructions, output format, quality criteria, and missing-information behavior into the delivered prompt. For image and graphic prompts, choose the background color or photo/overlay background treatment first, then list the remaining approved palette colors without assigning them to text, dividers/rules, accents, panels, or inset fields.
 - Do not require the target system to open repository paths, remember prior chat context, inspect another prompt, infer undocumented shorthand, or read required context that exists only in surrounding notes.
 - Include only relevant rules; standalone prompts should be complete and high-signal, not indiscriminate dumps of repository files.
 - If exact results require attachments or reference images, state that requirement explicitly. Do not imply text-only prompting can guarantee fidelity that depends on an attachment.
+- If an image prompt requires an attached image, the copied prompt must begin with `Please see attached "[plain-language item being attached]"` before any other prompt instruction.
+- Claude final-copy prompts must inline the negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells.
 - Every workflow or automation that creates external prompts must apply [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md) before delivery.
 
 ## Brand Source Of Truth Policy
@@ -90,7 +92,7 @@ This file defines how this workspace is managed so strategy stays consistent ove
 
 - listing titles
 - listing descriptions
-- Facebook Page captions
+- Facebook Page post copy
 - Instagram captions
 - CTA lines outside governed image graphic text
 - promo blurbs

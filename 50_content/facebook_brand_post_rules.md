@@ -15,9 +15,10 @@ Use this file for Facebook Page brand-post visuals. It is not a separate brand g
 - Visual direction: `00_brand/VISUAL_STYLE.md`
 - Content record template: `80_templates/social_post_template.md`
 - Internal image-prompt generator: `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
+- Claude social post-copy prompt template: `80_templates/claude_final_social_post_copy_prompt.md`
 - Standalone external-prompt gate: `80_templates/standalone_external_prompt_checklist.md`
 
-Use repository paths only for internal preparation. Every prompt delivered to an external image model must inline its relevant brand direction, exact colors, typography direction, literal in-image text, constraints, attachments, output requirements, quality criteria, and failure behavior.
+Use repository paths only for internal preparation. Every prompt delivered to an external image model must inline its relevant brand direction, exact colors, typography direction, literal in-image text, constraints, attachments, output requirements, quality criteria, and failure behavior. Exact colors must include one chosen background color or photo/overlay background treatment first. After that, list the remaining approved palette colors only; do not assign them to text, dividers/rules, accents, panels, or inset fields.
 
 ## Ownership Boundary
 
@@ -34,7 +35,7 @@ This file does not own:
 - reusable voice, palette, typography, visual-style, logo, or asset rules
 - Facebook Marketplace listing or image-pack rules
 - Marketplace pricing-card strategy
-- final Facebook Page captions
+- final Facebook Page post copy
 - product, price, availability, fulfillment, or customization truth
 
 ## Copy Ownership
@@ -43,8 +44,9 @@ This file does not own:
 - Image graphic text does not require Claude approval.
 - Record the final literal image wording in `exact_in_image_text`.
 - Use approved facts only and follow Brand Post Mode from `00_brand/VOICE.md`.
-- Claude remains responsible for final Facebook Page captions and other final customer-facing prose outside the image graphic.
+- Claude remains responsible for final Facebook Page post copy and other final customer-facing prose outside the image graphic.
 - Do not ask Claude to approve image prompts or image graphic text.
+- When a Facebook Page post is requested, GPT/Codex may prepare the standalone Claude post-copy handoff prompt from approved facts, but must not write the final post copy.
 
 Allowed image graphic text may include:
 
@@ -63,6 +65,20 @@ Do not generate:
 - long paragraphs
 - Marketplace-style price cards unless the operator specifically requests a price-focused Facebook Page post
 - website URLs unless specifically requested and approved
+
+## Chat Delivery Rule
+
+When the operator requests a Facebook Page post, deliver the working assets in chat as separate blocks:
+
+- filename in its own filename-only code block
+- image prompt in its own copy-ready prompt code block
+- Claude post-copy handoff prompt in its own copy-ready text or prompt code block
+
+Do not combine the filename, image prompt, and Claude prompt in one code block. Do not embed the filename inside the image prompt. The Claude prompt must be a standalone final Facebook Page post-copy handoff only: inline approved facts, Brand Post Mode voice rules, banned claims or words, output format, and missing-information behavior. It must not ask Claude to approve image prompts, image graphic text, or generated visuals.
+
+The Claude prompt must also carry the Brand Post Mode emotional job explicitly: ask Claude to make the post feel like something specific while staying truthful. Use approved maker, shop, cedar, place, process, product-use, or image-context details to create connection. Avoid bland fact summaries, compliance-checklist captions, generic inspirational language, AI-isms, and common AI tells. The prompt must prohibit em dashes and en dashes in Claude's final output; regular hyphens are okay when needed.
+
+For Facebook Page post copy, the Claude prompt must request a complete organic post body rather than a tiny caption or product-spec paragraph. It should support a hook, short brand/product/shop/material context, useful body copy, an approved CTA or soft close, optional signature/location line, and hashtags when useful. When location wording is useful, use `locally in Georgia` or `Built locally in Georgia`; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it. If the operator provides an example of good post copy, preserve that example's social-post energy and structure while using only approved facts for the current post.
 
 ## Required Inputs
 
@@ -184,6 +200,30 @@ Example combinations:
 - Product close-up + cedar grain detail + craftsmanship detail + minimal caption label
 - Community/thank-you + warm shop or product photo + local-support message + no CTA
 
+## Post-Copy Variance Mapping
+
+When a full Facebook Page post package is requested, derive the Claude post-copy lane from the selected image mix-and-match fields. Do not ask Claude for multiple options by default; use the selected lane to request one strongest final Facebook Page post body.
+
+Use the fields this way:
+
+- `message_angle` chooses the primary post-copy shape.
+- `photo_subject` supplies the concrete scene, material, product, or process detail.
+- `layout_family` influences post length and structure.
+- `graphic_treatment` influences how much the post should feel like a shop note, garden note, catalog note, or brand proof.
+- `text_intensity` controls how much the post should echo or support the image text.
+- `cta_style` controls the close: no CTA, soft engagement, order inquiry, local-support close, follow/new-builds close, or custom inquiry when approved.
+
+Default post-copy lanes:
+
+- **Product spotlight:** use for single products, product pairs, product families, product variety, or clean catalog-style product graphics. Shape: hook, product/use context, useful fact, approved CTA or soft close.
+- **Garden/use-scene post:** use for garden inspiration, porch or patio inspiration, seasonal planting, raised beds, porch/patio scenes, and garden scenes. Shape: scene-first hook, feeling/use context, practical product detail, soft close.
+- **Local shop proof:** use for handmade-shop proof, local Georgia shop, local badge/label, minimal logo-forward, or community/trust graphics. Shape: place/shop hook, short shop context, product or proof detail, local-support close.
+- **Material/process note:** use for cedar material detail, raw cedar boards, product in progress, workshop/process narrative, one-bench maker process, or raw cedar to finished-piece transformation. Shape: material/process hook, shop or bench detail, product relevance, soft close.
+- **Craft/detail post:** use for construction, craftsmanship detail, product close-up, cedar grain close-up, rim, corner, shelf, post, or detail imagery. Shape: detail-first hook, why the detail matters visually or practically, restrained close.
+- **Community/support post:** use for small-business thank-you, community/thank-you, local-support message, follow/new-builds message, or non-sales trust posts. Shape: warm community hook, short gratitude or activity note, soft local-support or follow close.
+
+Use the selected lane as guidance, not a rigid template. If fields conflict, prioritize `message_angle`, then `photo_subject`, then `cta_style`. Record any exception in `rotation_notes` or the Claude handoff notes when the post-copy lane intentionally diverges from the image concept.
+
 ## Rotation Rules
 
 Review the most recent seven Facebook Page content records that already have selected creative fields. Include prompt-ready drafts, scheduled posts, and published posts so unpublished work does not accidentally duplicate the next concept.
@@ -200,6 +240,8 @@ Review the most recent seven Facebook Page content records that already have sel
 
 - Do not pair a busy product-family showcase with a long text block.
 - Do not place small low-contrast text over a full-photo background.
+- Do not deliver a graphic prompt that lists palette colors without choosing the actual background color or background treatment.
+- Do not tell the image model which palette color to use where except for the chosen background.
 - Do not pair a light catalog card with heavy grunge typography.
 - Do not place delicate typography on a cluttered workshop background without a clean text field.
 - Do not let dramatic poster typography make the product unclear.
@@ -219,6 +261,7 @@ Review the most recent seven Facebook Page content records that already have sel
 - Use approved or governed owned media for publishable content.
 - Require an approved source image attachment when exact product fidelity matters.
 - Require an approved logo attachment when exact logo fidelity matters.
+- If a delivered image prompt requires an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
 - Do not ask an image model to invent or redraw an exact product or logo from text alone.
 - Keep third-party reference media internal and out of publishable content.
 
@@ -239,4 +282,4 @@ Before saving a generated image prompt, update the content record with:
 - `rotation_notes`
 - `image_prompt_ref`
 
-The image prompt may be prepared before the Claude caption gate is complete. The overall content asset still cannot become publish-ready until its final caption and all other required checks are complete.
+The image prompt may be prepared before the Claude post-copy gate is complete. The overall content asset still cannot become publish-ready until its final Facebook Page post copy and all other required checks are complete.

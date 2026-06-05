@@ -70,8 +70,9 @@ These rules exist to prevent the exact failure modes already seen in this repo: 
 ## Standalone External Prompt Rules
 
 - Every prompt intended for an AI/tool outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`.
-- Use local files during preparation, then inline the relevant context, facts, brand rules, required text, constraints, attachment instructions, output format, quality criteria, and failure behavior.
+- Use local files during preparation, then inline the relevant context, facts, brand rules, required text, constraints, attachment instructions, output format, quality criteria, and failure behavior. For image and graphic prompts, choose the background color or photo/overlay background treatment first, then list the remaining approved palette colors without assigning them to text, dividers/rules, accents, panels, or inset fields.
 - Do not make an external prompt depend on repository paths, prior chat context, surrounding notes, another prompt, or undocumented shorthand.
+- If an image prompt requires an attached image, the first line of the copied prompt must be `Please see attached "[plain-language item being attached]"`.
 
 ## Completion Rules
 

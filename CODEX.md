@@ -31,5 +31,6 @@ Guidance for Codex when working in this repository.
 ## Standalone External Prompt Rule
 
 - Any prompt Codex creates for use outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`.
-- Local files are preparation sources only. Inline the relevant facts, instructions, brand rules, required text, constraints, inputs/attachments, output format, quality criteria, and failure behavior before delivering the prompt.
+- Local files are preparation sources only. Inline the relevant facts, instructions, brand rules, required text, constraints, inputs/attachments, output format, quality criteria, and failure behavior before delivering the prompt. For image and graphic prompts, choose the background color or photo/overlay background treatment first, then list the remaining approved palette colors without assigning them to text, dividers/rules, accents, panels, or inset fields.
 - Never make an external prompt depend on repository paths, prior chat context, surrounding notes, another prompt, or undocumented shorthand.
+- When a copied image prompt requires an attached image, make the first line `Please see attached "[plain-language item being attached]"` so the attachment requirement is visible before the user pastes the prompt into ChatGPT Image 2 or another image tool.

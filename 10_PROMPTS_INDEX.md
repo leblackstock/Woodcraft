@@ -12,6 +12,8 @@ Any prompt meant to leave this repository must pass [80_templates/standalone_ext
 - Inline the relevant source facts, task context, brand rules, voice mode, palette, typography, visual direction, literal required text, constraints, reference requirements, output format, quality criteria, and missing-information behavior.
 - Remove local-path dependencies from the delivered prompt unless the referenced file contents are actually attached.
 - Make each delivered prompt independently usable. Do not require another prompt in the pack or surrounding notes.
+- For image prompts that require an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
+- For Claude final-copy prompts, inline the negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells.
 - Apply this standard to image prompts, graphic prompts, Claude handoffs, writing prompts, research prompts, analysis prompts, automation prompts, and transformation prompts.
 
 ## Dual-Model Prompt Roles
@@ -33,9 +35,9 @@ Use GPT prompts for:
 Use Claude prompts for:
 
 - final customer-facing listing prose
-- final Facebook Page captions
+- final Facebook Page post copy
 - final Instagram captions
-- final caption, listing, ad, and reply CTA lines and promo blurbs outside governed image graphic text
+- final post copy, caption, listing, ad, and reply CTA lines and promo blurbs outside governed image graphic text
 - final customer-facing reply templates
 
 Claude prompts are for final publishable customer-facing prose only.
@@ -47,6 +49,7 @@ Image graphic text assigned to GPT/Codex by an active review-by-exception image 
 - GPT-5.5 must generate Claude handoff prompts from approved facts only.
 - Each handoff must name the applicable mode from the one shared `00_brand/VOICE.md`: Catalog, Brand Post, Marketplace, or Customer Reply.
 - Voice modes adjust emphasis only and never override core voice, banned-word, truthfulness, or approved-fact rules.
+- Each Claude handoff must include the no-em-dash/no-en-dash rule and the no-AI-isms rule.
 - If facts are incomplete, stop upstream and resolve missing info before creating the handoff.
 - Record the resulting handoff in `claude_handoff_ref` only after `approved_facts_status: Approved`.
 - The human pastes Claude output back into the workflow for integration.
@@ -59,7 +62,7 @@ These shared prompt templates live in [80_templates/](80_templates/):
 - `80_templates/standalone_external_prompt_checklist.md`
 - `80_templates/gpt_to_claude_handoff_prompt_template.md`
 - `80_templates/claude_final_marketplace_listing_prompt.md`
-- `80_templates/claude_final_social_caption_prompt.md`
+- `80_templates/claude_final_social_post_copy_prompt.md`
 - `80_templates/claude_final_customer_reply_prompt.md`
 
 Current FBM workflow entry point:
@@ -117,13 +120,16 @@ Each future prompt family must be explicitly scoped to either GPT-5.5 orchestrat
    - Ad creative image prompt drafts for later testing
    - Text-bearing image prompts are allowed when the requested image needs readable words, labels, signage, branding, price text, catalog marks, packaging text, captions, or similar literal text.
    - Do not remove requested text from image prompts by default. ChatGPT Image 2 is considered capable for text-bearing image generation in this workflow.
-   - Delivered image prompts must be standalone when copied into a target image model without repository access. Inline the required visual direction, palette values, typography direction, wording mode, literal image text, and visible avoid rules rather than relying on local reference paths.
-   - When exact product fidelity depends on an approved source image, require that image to be attached; text-only prompting may approximate but cannot guarantee an exact match.
+   - Delivered image prompts must be standalone when copied into a target image model without repository access. Inline the required visual direction, palette values, typography direction, and literal image text rather than relying on local reference paths.
+   - Copied image prompts should use direct positive instructions and exact rendered text, not internal repo labels, pricing-policy explanations, or long negative style-category lists.
+   - For Facebook Marketplace listing images, exact product fidelity is always required: require the approved catalog image or reference image attachment and stop instead of delivering a text-only approximation when the attachment is missing.
+   - When an attachment is required, the copied prompt starts with `Please see attached "[plain-language item being attached]"`.
+   - FBM price-card graphics use one plain selling-price line from the approved FBM price; copied prompts should specify the exact rendered text instead of explaining internal price-label exceptions.
 5. **Content Prompts**
    - GPT-5.5 orchestration/prep: short-form concept extraction from listings
    - GPT-5.5 orchestration/prep: Facebook Page brand-post image concepts, rotation checks, image graphic text, and standalone image prompts
-   - Claude final customer-facing prose: caption variations by platform
-   - Claude final customer-facing prose: caption CTA variants
+   - Claude final customer-facing prose: one best Facebook Page post-copy or Instagram caption output by default
+   - Claude final customer-facing prose: social post-copy or caption CTA variants only when explicitly requested
    - Claude final customer-facing prose: reply-template prompts
 6. **Ad Test Prompts**
    - Owner: GPT-5.5 orchestration/prep

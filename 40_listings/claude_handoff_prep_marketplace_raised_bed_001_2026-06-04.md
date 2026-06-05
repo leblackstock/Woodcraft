@@ -53,8 +53,8 @@ This file is a prepared packet so the official handoff can be generated quickly 
 - Mention custom sizes by quote without listing all sizes.
 - Do not imply soil, plants, liner, delivery, or same-day availability are included.
 - Do not imply final build photos, final measured dimensions, or actual receipts are already verified.
-- If using a retail comparison, `Retail` must mean $480.
-- The FB Marketplace listing price is $240.
+- Do not include a retail comparison unless Lauren explicitly asks for it.
+- The listing price is $240; write it as a plain price without a `Marketplace` label if used.
 
 ## Tone And Guardrails
 
@@ -63,13 +63,15 @@ This file is a prepared packet so the official handoff can be generated quickly 
 - tone: plainspoken, specific, local, unfussy
 - cta_goal: get the buyer to message with the SKU/name and any size or delivery questions
 - voice rules to preserve:
-  - small local Georgia cedar shop
+  - small local Georgia woodshop
   - no first person
   - use "cedar" when cedar is true
   - simple, practical, specific wording
   - short sentences
+  - no em dashes or en dashes in final output; regular hyphens are okay when needed
+  - no AI-isms or common AI tells
   - no wholesale/partner terms in customer-facing copy
-- banned_claims_or_words: artisan, artisanal, curated, luxury, sustainable, eco-friendly, bespoke, heirloom, handcrafted, Net 30, MOQ, partner terms
+- banned_claims_or_words: artisan, artisanal, curated, luxury, sustainable, eco-friendly, bespoke, heirloom, handcrafted, Net 30, MOQ, partner terms, em dashes, en dashes, AI-isms, common AI tells
 
 ## Remaining Items Before Official Claude Handoff
 

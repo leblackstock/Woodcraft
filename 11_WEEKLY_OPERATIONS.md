@@ -38,7 +38,7 @@ Every external AI/tool prompt created during weekly operations must pass [80_tem
 - Repurpose listings into Facebook Page + Instagram posts in [50_content/](50_content/)
 - Prepare content facts and channel angle from approved listing records
 - For Facebook Page graphics, use `50_content/facebook_brand_post_rules.md`, review recent creative fields, and generate image graphic text plus the standalone image prompt under review by exception
-- Run the Claude caption gate before any post becomes ready to schedule
+- Run the Claude social-copy gate before any post becomes ready to schedule
 - Queue simple follow-up content only after the content record is `publish_ready: Yes`
 
 ## Friday — Review + Improvement Day
@@ -54,7 +54,7 @@ Every external AI/tool prompt created during weekly operations must pass [80_tem
 If capacity is low, execute only:
 
 1. Complete verification packet + approved facts + Claude handoff for **one** Marketplace listing and publish only if the listing reaches `publish_ready: Yes`
-2. Prepare **one** repurposed trust/support post and schedule/post it only if the Claude caption gate is complete
+2. Prepare **one** repurposed trust/support post and schedule/post it only if the Claude social-copy gate is complete
 3. Perform **one** 20-minute weekly review and backlog reset
 
 If the listing is `Made to Order`, the minimum-viable version may be a truthful listing-first packet rather than a fresh build.

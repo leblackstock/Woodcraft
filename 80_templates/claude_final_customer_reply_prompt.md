@@ -38,6 +38,8 @@ Use this template when Claude is needed to write a final customer-facing reply o
 - State what is known, ask clearly for what is needed, and avoid overexplaining.
 - Keep the writing plainspoken, specific, local, and unfussy.
 - Use short, confident sentences and no first person.
+- Use no em dashes or en dashes in final output. Regular hyphens are okay when needed.
+- Avoid AI-isms and common AI tells. If a phrase, transition, structure, or cadence is commonly recognized as AI-written, do not use it.
 - Do not invent availability, timing, prices, policies, or commitments to sound helpful.
 - Avoid hype, fake luxury language, and partner-confidential terms.
 
@@ -47,6 +49,7 @@ Use this template when Claude is needed to write a final customer-facing reply o
 - Use approved facts only.
 - Do not invent pricing, availability, timelines, policies, or commitments.
 - Use fallback language only if it is preapproved, fact-safe, and does not imply missing facts.
+- Do not use em dashes, en dashes, AI-isms, or common AI tells.
 - Do not add explanations outside the reply itself.
 - Do not ask for repository files or assume access to them.
 - Do not approve or rewrite image prompts, graphic prompts, overlay text, or image graphic text. This template is only for the final customer-reply text block outside the image graphic workflow.

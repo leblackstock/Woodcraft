@@ -11,7 +11,7 @@ This guide may also be referenced by reusable prompts, image prompts, prompt pac
 
 ## The One-Line Version
 
-A small cedar shop in Lovejoy, Georgia. Plainspoken, specific, southern, unfussy. The work speaks; the copy gets out of the way.
+A small local Georgia woodshop. Plainspoken, specific, southern, unfussy. The work speaks; the copy gets out of the way.
 
 ---
 
@@ -25,6 +25,8 @@ Every mode must preserve:
 - approved facts and truthful claims
 - no first person
 - the shared vocabulary and banned-word rules
+- no em dashes or en dashes in Claude final copy; regular hyphens are fine when grammatically needed
+- no AI-isms or common AI tells
 - short, confident sentence shape
 - restraint instead of hype
 
@@ -75,7 +77,7 @@ Use for buyer messages, inquiry replies, quote follow-ups, pickup/delivery coord
 
 ## Claude Approval Boundary
 
-Claude approval is required for final publishable customer-facing prose blocks, including Marketplace listing titles and descriptions, Facebook or Instagram brand-post captions, advertisement headlines and body copy, catalog prose and product blurbs, customer reply templates, and similar standalone text meant to be published as copy.
+Claude approval is required for final publishable customer-facing prose blocks, including Marketplace listing titles and descriptions, Facebook Page post copy, Instagram captions, advertisement headlines and body copy, catalog prose and product blurbs, customer reply templates, and similar standalone text meant to be published as copy.
 
 Claude approval is not required for prompt-writing or prep artifacts themselves. GPT/Codex may prepare prompts, prompt packs, image prompts, internal notes, outline language, structured fact packages, and Claude handoff prompts without Claude approval. Those artifacts may include proposed image words, labels, price text, catalog marks, and other literal in-image text. The Claude gate applies only when the output is the actual publishable text block for a listing, post or caption, advertisement, catalog, or customer reply.
 
@@ -153,6 +155,8 @@ Aim around 6th–8th grade. The clientele isn't reading for vocabulary. If a wor
 ## Sentence Shape
 
 - **Short sentences. Real punctuation.** Periods over commas. Periods over em dashes too — a dash almost always wants to be a period or a colon instead. The dash is reserved for short pull lines and section openers, not product blurbs or body copy.
+- **Claude final copy uses no em dashes or en dashes.** Regular hyphens are okay for normal compound words and practical phrasing.
+- **No AI tells.** If a phrase, transition, structure, or cadence is commonly recognized as AI-written, do not use it. Avoid generic setup lines, "more than just," "not only... but," "whether you're," "in a world," "designed to elevate," and other polished-but-empty filler.
 - **Lists of three** are the workhorse rhythm — "Cut, fit, and finished." "Tall, classic, and small." "Cedar. Stainless. Tung oil."
 - **Sensory or specific first, abstract second** — if you can lead with a number, a plant, a place, or a verb, do.
 
@@ -223,7 +227,7 @@ If a sentence feels like it's straining to sound fancy, it isn't. Cut it back an
 - **He sometimes leaves pieces rustic instead of fully sanded.** Don't promise "sanded smooth" as a universal. Say "the work meets his keen eye" — covers both.
 - **The wood ships in through Home Depot.** Don't claim local milling, forest sourcing, mileage, or any specific origin chain. "Western red cedar" is the truthful spec.
 - **Terms are not strong yet.** Don't lock in Net 30 / MOQ / deposit numbers in customer-facing copy. Use phrases like "partner terms set on first conversation."
-- **Location wording is workflow-specific.** Keep the voice local, but use the current workflow-approved location wording. For current FBM work, prefer "locally in Georgia"; use the exact city only when logistics require it.
+- **Location wording is workflow-specific.** Keep the voice local, but use the current workflow-approved location wording. For current FBM and Facebook Page work, prefer "locally in Georgia" or "Built locally in Georgia"; use the exact city only when logistics require it or the operator explicitly asks for it.
 - **SKU facts do not live here.** Included items, exclusions, sizes, customization availability, and other product-specific facts must come from current product, listing, or workflow records.
 
 ---

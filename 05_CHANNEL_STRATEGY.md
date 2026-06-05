@@ -38,7 +38,7 @@ Drakkar Designs uses one shared voice from `00_brand/VOICE.md`. Channel modes ad
 
 **Operational image system:**
 - Use `50_content/facebook_brand_post_rules.md` and its linked prompt generator for varied, tracked Facebook Page brand-post graphics.
-- GPT/Codex may create image graphic text under review by exception; Claude remains responsible for final Facebook Page captions.
+- GPT/Codex may create image graphic text under review by exception; Claude remains responsible for final Facebook Page post copy.
 
 **Do not use for:**
 - replacing Marketplace listing discipline

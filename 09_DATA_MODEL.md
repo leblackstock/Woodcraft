@@ -264,11 +264,12 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | message_angle | No | Selected approved message angle for the visual concept |
 | graphic_treatment | No | Selected panel, overlay, label, divider, or other visual treatment |
 | text_intensity | No | `NO_TEXT`, logo/name only, minimal, moderate, editorial, poster-style, or a short free-text equivalent |
-| cta_style | No | CTA intent/treatment for the visual; not the final literal caption CTA |
-| caption | Yes | Final customer-facing caption or `[[CLAUDE_FINAL_COPY_REQUIRED]]` |
+| cta_style | No | CTA intent/treatment for the visual; not the final literal Facebook Page post-copy or Instagram caption CTA |
+| post_copy | Conditional | Required for Facebook Page. Final customer-facing post body or `[[CLAUDE_FINAL_COPY_REQUIRED]]` |
+| caption | Conditional | Required for Instagram. Final customer-facing caption or `[[CLAUDE_FINAL_COPY_REQUIRED]]` |
 | exact_in_image_text | No | `NO_TEXT` or the final literal image graphic text generated under the active image workflow |
-| customer_copy_prep_notes | No | Internal prep copy, bullets, or non-Claude caption draft |
-| cta | Yes | Internal caption CTA goal or direction; final caption CTA phrasing belongs to Claude |
+| customer_copy_prep_notes | No | Internal prep copy, bullets, or non-Claude post-copy/caption draft |
+| cta | Yes | Internal post-copy/caption CTA goal or direction; final Facebook Page post copy and Instagram caption CTA phrasing belongs to Claude |
 | hashtag_notes | No | Hashtag plan |
 | local_context_tags | No | Local tag plan |
 | brand_assets_ref | No | Brand asset source for logos, approved photos, palette, and styling; default `00_brand/` when brand-specific media or styling is used |
@@ -285,19 +286,19 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 ### Content Media Rule
 
 - Published or schedulable content must follow the same media-truth rules as listings.
-- Brand-specific content media, graphics, captions, generated visuals, and templates should reference `brand_assets_ref: 00_brand/`.
+- Brand-specific content media, graphics, Facebook Page post copy, Instagram captions, generated visuals, and templates should reference `brand_assets_ref: 00_brand/`.
 - Third-party reference media may support planning, but it must not be used as publishable content media.
 
 ### Content Image And Rotation Rules
 
 - Facebook Page brand-post visuals use `50_content/facebook_brand_post_rules.md` and the linked internal prompt generator.
 - GPT/Codex may create image graphic text under an active review-by-exception image workflow. Image graphic text does not require Claude approval, but it must use approved facts and the applicable voice mode.
-- Claude remains responsible for the final caption and other final prose outside the image graphic.
+- Claude remains responsible for final Facebook Page post copy, Instagram captions, and other final prose outside the image graphic.
 - Record `exact_in_image_text` as literal final image wording or `NO_TEXT`.
 - Before generating a Facebook Page brand-post image prompt, review recent records with selected creative fields and record `recent_post_history_ref`, `rotation_check_status`, and any exception in `rotation_notes`.
 - Do not claim repetition was checked when recent history is unavailable.
 - Require approved reference-image attachments when exact product or logo fidelity matters.
-- A ready image prompt does not by itself make the content record publish-ready; the caption gate and all other required checks still apply.
+- A ready image prompt does not by itself make the content record publish-ready; the Claude final-copy gate and all other required checks still apply.
 
 ## Ad Test Record Schema
 

@@ -1,12 +1,12 @@
 # Facebook Page Brand Post Image Prompt Generator v1.0
 
-Purpose: create one standalone, copy-ready ChatGPT Image 2 prompt for a Facebook Page brand-post graphic while recording a varied, auditable creative selection in the linked content record.
+Purpose: create one standalone, copy-ready ChatGPT Image 2 prompt for a Facebook Page brand-post graphic while recording a varied, auditable creative selection in the linked content record. When a full Facebook Page post package is requested, also prepare a separate standalone Claude Facebook Page post-copy handoff prompt.
 
 Owner: GPT/Codex orchestration and image-prompt preparation
-Delivery scope: internal repository generator; deliver only the standalone image prompt it produces
+Delivery scope: internal repository generator; deliver the standalone image prompt it produces, and include a separate standalone Claude Facebook Page post-copy handoff prompt when the operator requests the post package
 Approval mode: Review by exception
 Image graphic-text owner: GPT/Codex
-Caption owner: Claude
+Facebook Page post-copy owner: Claude
 Current image creation path: manual generation in ChatGPT Image 2
 Default output: square `1:1` Facebook Page graphic
 
@@ -22,6 +22,7 @@ Use these internal sources in this order:
 6. `00_brand/VISUAL_STYLE.md`
 7. Approved assets and governed media in `00_brand/` or linked operational records
 8. Recent Facebook Page content records with selected creative fields
+9. `80_templates/claude_final_social_post_copy_prompt.md` when a Claude Facebook Page post-copy handoff prompt is needed
 
 Repository files are preparation sources only. Do not tell the external image model to open or follow a repository path.
 
@@ -43,7 +44,8 @@ Repository files are preparation sources only. Do not tell the external image mo
 - Keep image text short, readable, truthful, and specific.
 - Record the final literal wording in `exact_in_image_text`.
 - Do not request Claude approval for image graphic text or the image prompt.
-- Do not generate the final Facebook Page caption. Claude owns the caption.
+- Do not generate the final Facebook Page post copy. Claude owns the post copy.
+- When a full Facebook Page post package is requested, create a standalone Claude post-copy handoff prompt from approved facts; do not write the final post copy yourself.
 - `NO_TEXT` is an explicit creative choice for images that should have no readable words, not a default restriction and not a requirement caused by Claude ownership.
 
 ## Blocked Conditions
@@ -77,6 +79,7 @@ Recent-post history gaps do not block prompt generation. Set `rotation_check_sta
 8. Create one standalone external image prompt.
 9. Run the standalone-prompt and final self-checks.
 10. Update the linked content record with the selected fields, literal image text, history check, attachment refs, and `image_prompt_ref`.
+11. If the operator requested a full Facebook Page post package, derive the post-copy lane from the selected mix-and-match fields, then create a standalone Claude final-post-copy handoff prompt using approved facts only.
 
 ## Image Graphic-Text Rules
 
@@ -100,9 +103,12 @@ The copied prompt must inline:
 - approved product, material, process, local, or seasonal facts needed for the image
 - relevant Drakkar visual direction from the active brand sources
 - exact relevant palette hex values when the design uses brand graphics or text
+- one explicit background choice, including the exact background color or photo/overlay background treatment
+- remaining approved palette colors listed without assigning them to text, dividers/rules, accents, panels, or inset fields
 - relevant Facebook Brand Post typography direction when text appears
 - the literal `exact_in_image_text`, or an explicit instruction to use no readable text
 - required reference-image and attachment instructions
+- a first prompt line of `Please see attached "[plain-language item being attached]"` when an attached image is required
 - square `1:1` output unless another format was requested
 - visible avoid rules
 - quality criteria
@@ -115,6 +121,8 @@ Do not copy local paths into the external prompt. Refer to required attachments 
 Use this structure while generating the external prompt. Replace every bracketed instruction with actual standalone content and remove all brackets before delivery.
 
 ```text
+[If an attached image is required, start with: Please see attached "[plain-language item being attached]". Omit this line only when no image attachment is required.]
+
 Create a square 1:1 Facebook Page brand graphic for Drakkar Designs.
 
 Objective and audience:
@@ -130,7 +138,7 @@ Brand visual direction:
 [Inline the relevant current visual direction from the brand source of truth.]
 
 Palette:
-[Inline the relevant exact palette hex values when the design uses brand graphics or text.]
+[Choose and state the exact background first. Then list the remaining approved palette colors without assigning them to text, dividers/rules, accents, panels, or inset fields. Do not tell the image model which color to use where except for the background.]
 
 Typography:
 [When text appears, inline the relevant Facebook Brand Post typography direction.]
@@ -152,6 +160,7 @@ Avoid:
 
 - If exact product fidelity matters, require the approved product image to be attached.
 - If exact logo fidelity matters, require the approved logo to be attached.
+- If any image attachment is required, the copied prompt must begin with `Please see attached "[plain-language item being attached]"`.
 - State what each attachment controls.
 - Do not imply that text-only prompting can guarantee an exact product or logo match.
 - Keep local asset paths in the surrounding internal audit fields, not inside the copied prompt.
@@ -179,6 +188,51 @@ Use:
 `{content_id}_fbpage_{layout_or_role_slug}_v01.png`
 
 Use lowercase filenames, underscores between words, and a short layout or role slug.
+
+## Chat Delivery Rule
+
+When the operator requests a Facebook Page post, deliver these assets in chat as three separate copy-ready blocks:
+
+Filename:
+
+```text
+{content_id}_fbpage_{layout_or_role_slug}_v01.png
+```
+
+Image prompt:
+
+```text
+[One standalone external image prompt with no repository-path dependency]
+```
+
+Claude prompt:
+
+```text
+[One standalone Claude final-post-copy handoff prompt with approved facts, Brand Post Mode rules, a specific feeling target, scene/connection direction, output format, and missing-information behavior inlined]
+```
+
+Do not combine these into one block. Do not put the filename inside the image prompt. The Claude prompt is for final Facebook Page post copy only and must not ask Claude to approve image prompts, image graphic text, or generated visuals.
+
+## Claude Post-Copy Handoff Prompt Requirements
+
+When generating the Claude prompt for a Facebook Page post package:
+
+- Keep the prompt clean and usable, not a long compliance dump.
+- Derive the post-copy lane from the selected image mix-and-match fields in `50_content/facebook_brand_post_rules.md`.
+- Treat `message_angle` as the primary post-copy shape, `photo_subject` as the concrete scene/detail source, `layout_family` as length/structure guidance, `text_intensity` as image-text echo guidance, and `cta_style` as the close/CTA control.
+- Ask Claude to make the post feel like something specific while staying grounded in approved facts.
+- Include a `feeling_target`, such as backyard readiness, porch warmth, cedar-and-soil garden energy, one-bench shop proof, local usefulness, or relief from a full DIY weekend.
+- Include a `specific_scene_or_connection`, such as cedar grain, soil, herbs, flowers, porch, patio, garden bed, shop, bench, cut, fit, or one pair of hands, only when supported by approved facts or the image context.
+- Include the image context and literal image graphic text so Claude can support the graphic without rewriting or approving it.
+- Default to requesting one strongest final Facebook Page post-copy output.
+- Do not request multiple post-copy options unless the operator explicitly asks for options or variants.
+- If options are explicitly requested, ask for meaningfully different emotional angles, sentence rhythm, and scene details.
+- Ask for a complete organic Facebook Page post body, not a tiny caption or product-spec paragraph.
+- Include post-shape guidance: opening hook, short brand/product/shop/material context, useful body copy, approved CTA or soft close, optional signature/location line, and hashtags when useful.
+- For Facebook Page post copy, use `locally in Georgia` or `Built locally in Georgia` when location wording is useful; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it.
+- If the operator supplied an example of good Facebook post copy, tell Claude to match its social-post energy and structure while using only current approved facts.
+- Require no first person, no hard-sell CTA unless approved, no invented facts, no em dashes or en dashes, no AI-isms or common AI tells, and no generic inspirational language.
+- Keep the Claude prompt standalone with no repository-path dependency.
 
 ## Required Delivery Format
 
@@ -212,7 +266,15 @@ Prompt:
 [One standalone external image prompt with no repository-path dependency]
 ```
 
-The filename and selection audit stay outside the copied image prompt.
+For a full Facebook Page post package, also return:
+
+Claude prompt:
+
+```text
+[One standalone Claude final-post-copy handoff prompt with no repository-path dependency, including a specific feeling target and scene/connection direction]
+```
+
+The filename, selection audit, and Claude prompt stay outside the copied image prompt.
 
 ## Final Checks
 
@@ -226,7 +288,10 @@ Before saving or delivering the prompt, confirm:
 - the prompt contains the literal image text or explicitly requests no readable text
 - the prompt contains no local-path instruction
 - relevant palette, typography, and visual direction are inlined
+- the prompt explicitly chooses the background color or photo/overlay background treatment
+- the prompt lists remaining approved palette colors without assigning them to text, dividers/rules, accents, panels, or inset fields
 - required attachments are explicit
+- any required image attachment is named in a first-line `Please see attached "[plain-language item being attached]"` prompt reminder
 - exact fidelity is not promised without a required reference attachment
 - visible avoid rules are concise and controllable
 - failure behavior prohibits invented substitutes

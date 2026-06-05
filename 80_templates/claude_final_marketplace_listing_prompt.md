@@ -47,6 +47,9 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - Keep the writing plainspoken, specific, local, and unfussy.
 - Use short, confident sentences, no first person, and restraint instead of hype.
 - Use `cedar` instead of `wood` when cedar is true.
+- If shop context is needed, describe Drakkar Designs as a small local Georgia woodshop.
+- Use no em dashes or en dashes in final output. Regular hyphens are okay when needed.
+- Avoid AI-isms and common AI tells. If a phrase, transition, structure, or cadence is commonly recognized as AI-written, do not use it.
 - Avoid artisan, artisanal, curated, thoughtfully, lovingly, carefully crafted, handcrafted, elevate, experience, journey, story, sustainable, eco-friendly, luxury, bespoke, timeless, heirloom, crafted, and partner-confidential terms.
 - Allow `premium` only when it names a material grade, not as a general quality claim.
 
@@ -57,6 +60,7 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - Treat `current_asset` or `customer_copy_prep_notes` as context only, not as an approved fact source.
 - Do not invent pricing, dimensions, materials, lead times, delivery terms, availability, or product claims.
 - Do not soften missing facts with guesses.
+- Do not use em dashes, en dashes, AI-isms, or common AI tells.
 - Do not ask for repository files or assume access to them.
 - Do not approve or rewrite image prompts, graphic prompts, overlay text, or image graphic text. This template is only for final Marketplace listing title and description prose outside the image graphic workflow.
 

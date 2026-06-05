@@ -52,6 +52,8 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - Use no first person.
 - Prefer short, confident sentences and restraint instead of hype.
 - Use `cedar` instead of `wood` when cedar is true.
+- Use no em dashes or en dashes in final output. Regular hyphens are okay when needed.
+- Avoid AI-isms and common AI tells. If a phrase, transition, structure, or cadence is commonly recognized as AI-written, do not use it.
 - Avoid artisan, artisanal, curated, thoughtfully, lovingly, carefully crafted, handcrafted, elevate, experience, journey, story, sustainable, eco-friendly, luxury, bespoke, timeless, heirloom, crafted, and partner-confidential terms.
 - Allow `premium` only when it names a material grade, not as a general quality claim.
 - Modes adjust emphasis only and never override core voice, banned-word, truthfulness, or approved-fact rules.
@@ -63,12 +65,13 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - Do not invent facts, claims, pricing, timing, or commitments.
 - Treat any prep wording as non-binding context, not as a fact source.
 - Follow the inlined voice, brand, constraint, and output-format rules in this prompt.
+- Do not use em dashes, en dashes, AI-isms, or common AI tells in the final copy.
 - If required information is missing, return `status: BLOCKED` and list only the missing information.
 - Do not ask for repository files or assume access to them.
 
 ## Standalone Delivery Gate
 
-- Confirm the delivered prompt contains the actual approved facts, applicable voice-mode rules, banned wording, constraints, output format, attachments/source text, quality criteria, and blocked behavior.
+- Confirm the delivered prompt contains the actual approved facts, applicable voice-mode rules, banned wording, no-em-dash/no-en-dash rule, no-AI-isms rule, constraints, output format, attachments/source text, quality criteria, and blocked behavior.
 - Remove all repository-path instructions and all unfilled placeholders before sending the prompt to Claude.
 - Do not ask Claude to approve image prompts, graphic prompts, graphic assets, overlay text, or image graphic text.
 - If wording from an image/graphic is later reused as a standalone listing, post/caption, advertisement, catalog, or customer-reply prose block, create a separate Claude handoff for that prose block only.

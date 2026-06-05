@@ -8,7 +8,7 @@ Ordered next tasks after initial scaffold. Keep this list short, practical, and 
 2. Finish locked standard dimensions or launch-size decisions, photo sets, and delivery-fee wording for the first approved listings; capture measured finished dimensions later as post-build validation when the launch spec is already locked.
 3. Move `list_marketplace_planter_box_001.md` and `list_marketplace_raised_bed_001.md` from prep-only status to valid verification-packet / Claude-handoff readiness using approved facts only.
 4. Run the Claude final-copy step for the first Marketplace listing that clears fact approval, paste the output back, and then publish only after human approval.
-5. After listing facts and timing are final, run Claude final-caption passes for the first Facebook Page and Instagram support posts.
+5. After listing facts and timing are final, run the Claude final post-copy pass for the first Facebook Page support post and the Claude final caption pass for the first Instagram support post.
 6. Review `20_research/current_product_portfolio_triage.md` and resolve the bundled operator approval packet for the active first-wave products: Cedar Planter Box 24x24x18, Cedar Raised Garden Bed, Cedar 3-Picket Planter, and Cedar Tall Square Planter 16x16x25.
 7. Build draft assumption-based cost sheets, labor assumptions, and verification packets for those first-wave products only before advancing secondary products; capture receipt-backed actuals later through the post-build validation loop.
 8. Capture required photo sets for the approved first-wave products once the bundled packet is resolved: hero, angle, detail, and in-use shots with clear scale references.

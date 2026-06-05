@@ -49,8 +49,9 @@ Even if asked to suggest commands or workflows, do not recommend patterns that p
 ## Standalone External Prompt Rules
 
 - Any prompt created for another AI or tool outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`.
-- Use repository files as preparation context, then inline the relevant facts, brand/voice rules, required wording, constraints, attachments, output format, quality criteria, and missing-information behavior.
+- Use repository files as preparation context, then inline the relevant facts, brand/voice rules, required wording, constraints, attachments, output format, quality criteria, and missing-information behavior. For image and graphic prompts, choose the background color or photo/overlay background treatment first, then list the remaining approved palette colors without assigning them to text, dividers/rules, accents, panels, or inset fields.
 - Do not tell an external target to open local files or rely on prior repository context.
+- If an image prompt requires an attached image, the copied prompt must begin with `Please see attached "[plain-language item being attached]"` before the rest of the prompt text.
 
 ## Collaboration Rules
 

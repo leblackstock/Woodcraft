@@ -26,10 +26,9 @@ Create a Claude prompt, not final listing copy.
 
 The generated Claude prompt is intended for use outside this repository. It must pass `80_templates/standalone_external_prompt_checklist.md` and work without repository access. Use local files only while preparing it, then inline the relevant facts, Marketplace voice rules, banned wording, constraints, output format, quality criteria, and blocked behavior. Do not tell Claude to open or follow a repository path.
 
-The Claude prompt should request:
+The Claude prompt should request one strong Marketplace listing title and one strong Marketplace listing description.
 
-- `listing_title`
-- `listing_description`
+Default stance: give Claude a creative brief, not a compliance worksheet. Inline the approved facts, buyer context, and tone, then let Claude decide the best natural title/body structure inside the factual boundaries.
 
 Optional only if needed:
 
@@ -63,6 +62,9 @@ Brand-specific copy, graphic text, ad text, and template language should referen
 - unfussy
 - no first person
 - use `cedar` when cedar is true
+- no em dashes or en dashes in final output; regular hyphens are okay when needed
+- no AI-isms or common AI tells
+- describe Drakkar Designs as a small local Georgia woodshop when shop context is needed
 - no wholesale/partner terms in customer-facing copy
 - no fake luxury language
 
@@ -88,57 +90,51 @@ Avoid:
 ```text
 You are writing final Facebook Marketplace listing copy for Drakkar Designs.
 
-Use only the approved facts below. Do not invent dimensions, materials, lead times, discounts, included items, availability, delivery terms, or product claims.
+Write the strongest natural Facebook Marketplace listing you can from the brief below. Do not treat this as a form-fill task. Choose the title and description structure that will work best for a local Marketplace buyer.
 
-Write in the Drakkar voice:
-- use Marketplace Mode: direct, practical, factual, and easy to scan
-- lead with the product and buyer-relevant details
-- plainspoken
-- specific
-- local
-- unfussy
-- no first person
-- use short, confident sentences and restraint instead of hype
-- use "cedar" instead of "wood" when cedar is true
-- no wholesale/partner terms
+Listing type:
+[single-product listing, bundle listing, master catalog listing, etc.]
 
-Return only:
-1. listing_title
-2. listing_description
-
-Listing facts:
+Approved facts:
 [facts]
 
-Pricing:
-[retail and FBM price rules]
+Buyer context:
+[plain-language use cases and shopper questions supported by the product facts]
 
-Fulfillment:
-[pickup/delivery/lead time]
+Tone:
+Practical, local, clear, warm, and unfussy. It should sound like a real person selling a useful cedar garden item, not a catalog sheet, not ad copy, and not luxury branding.
 
-Do not say:
-[banned claims and SKU-specific restrictions]
+Rules:
+- Use only the approved facts.
+- Do not invent dimensions, materials, lead times, discounts, included items, availability, delivery price, guarantees, or product claims.
+- Do not mention retail price or discounts unless Lauren explicitly asks for retail-comparison wording.
+- Write the listing price as the plain customer-facing price, without Marketplace labels.
+- Do not force every fact into the title.
+- Do not use the phrase "unless otherwise noted" in customer copy.
+- Use no em dashes or en dashes; regular hyphens are okay when needed.
+- Avoid AI-isms and common AI tells.
+- Avoid hype words such as artisan, artisanal, bespoke, heirloom, luxury, curated, sustainable, eco-friendly, and handcrafted.
+- Avoid wholesale or partner terms.
 
-Before returning the copy, silently check that every statement is supported by the supplied facts and that all requested fields are present.
+Before answering, silently draft a few possible versions and choose the strongest one.
 
 If required information is missing, return only:
 - status: BLOCKED
 - missing_info
+
+Give one listing title and one listing description. No notes, no options.
 ```
 
 ## Batch Prompt Rule
 
-For batches, ask Claude to return one clearly separated block per listing. Each block must include only:
-
-- listing_id
-- listing_title
-- listing_description
+For batches, ask Claude to create one listing per fact set and make each listing easy for the operator to match back to the product. Do not force `listing_id`, `listing_title`, or `listing_description` labels unless the user explicitly needs machine-readable pasteback.
 
 Do not ask Claude to write or approve image graphic text, image prompts, captions, or social copy in the same listing-copy pass.
 
 ## Final Check Before Saving A Claude Prompt
 
 - Every price matches catalog truth.
-- Retail/FBM labels are defined.
+- Listing price guidance uses plain customer-facing prices; retail comparison is not included unless Lauren explicitly asks for it.
 - Product names match catalog truth.
 - Dimensions/specs match catalog truth.
 - Media facts are not used as unsupported selling claims.
@@ -147,4 +143,4 @@ Do not ask Claude to write or approve image graphic text, image prompts, caption
 - Prompt does not ask Claude to approve image prompts, graphic prompts, overlay text, or image graphic text.
 - Prompt passes `80_templates/standalone_external_prompt_checklist.md`.
 - Prompt contains no instruction to open or follow repository paths.
-- Relevant voice rules, banned wording, quality criteria, output format, and blocked behavior are inlined.
+- Relevant facts, buyer context, voice direction, safety rails, no-em-dash/no-en-dash rule, no-AI-isms rule, quality criteria, and blocked behavior are inlined without turning the prompt into a rigid checklist.

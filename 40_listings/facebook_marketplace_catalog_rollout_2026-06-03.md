@@ -43,11 +43,12 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 - Current brand assets and reusable identity guidance live in `00_brand/`.
 - `Retail` means the retail catalog price.
 - `FB Marketplace price` means the wholesale price from the partner catalog/order packet.
+- Retail catalog prices and FB Marketplace price labels are internal pricing context only. Customer-facing FBM image graphics and Claude listing prose use the plain listing price unless Lauren explicitly asks for retail-comparison wording.
 - All saved catalog SKU images are approved for FBM use.
 - Final customer-facing listing prose belongs to Claude.
 - GPT/Codex may prepare facts, workflow state, image prompts, and factual in-image text.
 - Marketplace listing prose and factual in-image text use Marketplace Mode from `00_brand/VOICE.md`; the mode never overrides approved-fact or core voice rules.
-- Every image prompt and Claude prompt delivered outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`. Use repository files during preparation, then inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachment instructions, output format, quality criteria, and blocked behavior.
+- Every image prompt and Claude prompt delivered outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`. Use repository files during preparation, then inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachment instructions, output format, quality criteria, and blocked behavior. Claude final-copy prompts must also inline the negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells.
 - Do not mark anything `publish_ready: Yes` until Claude output is pasted back, integrated, and final operator approval is recorded.
 
 ## Image Defaults
@@ -75,12 +76,16 @@ Image prompt rules:
 - Use ChatGPT Image 2 manually.
 - Review mode is by exception; do not ask for approval on every prompt.
 - Text-bearing image prompts are allowed.
-- Every delivered image prompt must be standalone when copied into an image model without repository access. Inline the necessary brand direction, exact palette values for graphics, typography direction, wording mode, literal in-image text, and visible avoid rules.
-- Exact approved-product fidelity still requires attaching the approved catalog image when a prompt depends on it; text-only regeneration may approximate but cannot guarantee an exact match.
+- Every delivered image prompt must be standalone when copied into an image model without repository access. Inline the necessary brand direction, exact palette values for graphics, typography direction, and literal in-image text.
+- Copied image prompts should use direct positive instructions and exact text lines. Do not add internal repo labels, pricing-policy explanations, or long negative style-category lists the target model would not otherwise know.
+- For FBM SKU or catalog listing prompt packs with approved catalog image(s), treat the approved catalog image(s) as required attachments for every delivered prompt in that listing's image set, including text graphics. The copied prompt's first line must be `Please see attached "[plain-language item being attached]"`.
+- Exact product fidelity is always required for Facebook Marketplace listing images. Do not deliver or generate an FBM listing image prompt from text only; if the approved catalog image or required reference image is missing, stop and ask for the attachment.
+- If a delivered image prompt requires an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
 - Filename fields are required for every image prompt.
 - Do not put SKU letters/numbers inside generated images.
 - Do not repeat the same photo with different flowers. Change the buyer question and the composition.
 - Use `00_brand/COLOR_PALETTE.md`, `00_brand/TEXT_STYLE_RULES.md`, and `00_brand/VISUAL_STYLE.md`; follow the Marketplace text-style guidance for text-bearing graphics, and do not force every image to be dark.
+- FBM price-card graphics use one plain selling-price line from the approved FBM price, plus the product or category name when useful. Copied prompts should specify the exact rendered text instead of explaining internal price-label exceptions.
 - Use `Built locally in Georgia`, not repeated exact-city wording.
 - Use `Lead time available by request` in compact image graphics.
 - Use `Pickup or local delivery available` in image graphics.
@@ -88,11 +93,15 @@ Image prompt rules:
 
 ## Listing Copy Defaults
 
+Claude/listing prose prompts should be creative briefs, not compliance worksheets. Give Claude the listing type, approved specs, buyer context, and Drakkar Marketplace tone, then ask for the strongest natural Marketplace listing within the facts.
+
 Claude/listing prose should use:
 
 - `pickup or local delivery by arrangement`
 - `built to order; lead time provided when order is placed`
 - custom sizes/finishes by quote only when supported by the SKU facts
+- the plain customer-facing price, without `Retail`, `Marketplace`, or discount labels unless Lauren explicitly asks for that framing
+- `small local Georgia woodshop` when shop context is needed
 
 Claude/listing prose should avoid:
 
@@ -100,6 +109,8 @@ Claude/listing prose should avoid:
 - unsupported availability or inventory claims
 - unsupported discount framing
 - exact city repetition unless pickup logistics require it
+- rigid field-output scaffolding such as `listing_id`, `listing_title`, and `listing_description` unless the user explicitly needs machine-readable pasteback
+- older shop wording that narrows the business to cedar only
 
 ## Known SKU Exceptions
 
@@ -125,7 +136,7 @@ Claude/listing prose should avoid:
 
 | SKU | Product | Product Record | Retail | FBM Price | Image | Wave | Status | Next Action |
 | --- | --- | --- | ---: | ---: | --- | ---: | --- | --- |
-| A | Classic Square Cedar Planter | `30_products/prod_cedar_three_picket_planter_001.md` | $80 | $40 | `00_brand/photos/planter-a.png` | 1 | Image prompt ready; Claude prompt ready | Generate/review images, then run Claude batch. |
+| A | Classic Square Cedar Planter | `30_products/prod_cedar_three_picket_planter_001.md` | $80 | $40 | `00_brand/photos/planter-a.png` | 1 | Published 2026-06-05; Claude-approved prose integrated | Monitor performance; continue Wave 1 with ABC/K. |
 | ABC | Cedar Planter Trio Set | `30_products/prod_cedar_trio_planter_box_set_001.md` | $220 | $110 | `00_brand/photos/planter-abc.png` | 1 | Image prompt ready; Claude prompt ready | Generate/review images, then run Claude batch. |
 | B | Small Square Cedar Planter | `30_products/prod_cedar_petite_planter_box_111113_001.md` | $60 | $30 | `00_brand/photos/planter-b.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack; revisit price later. |
 | C | Tall Square Cedar Planter | `30_products/prod_cedar_tall_square_planter_161625_001.md` | $120 | $60 | `00_brand/photos/planter-c.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack; revisit price later. |
