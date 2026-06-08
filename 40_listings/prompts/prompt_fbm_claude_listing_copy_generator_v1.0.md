@@ -24,11 +24,11 @@ Do not use older product names, older prices, older sizes, older website values,
 
 Create a Claude prompt, not final listing copy.
 
-The generated Claude prompt is intended for use outside this repository. It must pass `80_templates/standalone_external_prompt_checklist.md` and work without repository access. Use local files only while preparing it, then inline the relevant facts, Marketplace voice rules, banned wording, constraints, output format, quality criteria, and blocked behavior. Do not tell Claude to open or follow a repository path.
+The generated Claude prompt is intended for use outside this repository. It must pass `80_templates/standalone_external_prompt_checklist.md` and work without repository access. Use local files only while preparing it, then inline the relevant facts, Marketplace voice rules, banned wording, constraints, copy-shape guidance, and quality criteria. Do not tell Claude to open or follow a repository path. Resolve missing facts upstream before creating the Claude prompt; do not ask Claude to return blocked or missing-information fields.
 
 The Claude prompt should request one strong Marketplace listing title and one strong Marketplace listing description.
 
-Default stance: give Claude a creative brief, not a compliance worksheet. Inline the approved facts, buyer context, and tone, then let Claude decide the best natural title/body structure inside the factual boundaries.
+Default stance: give Claude a creative brief, not a compliance worksheet. Inline the approved facts, buyer context, and tone, then let Claude decide the best natural title/body structure inside the factual boundaries. Tell Claude to silently write several internal versions, analyze them, and then produce a stronger final version as the visible output.
 
 Optional only if needed:
 
@@ -40,7 +40,7 @@ Optional only if needed:
 - Claude writes final customer-facing listing prose.
 - GPT/Codex prepares facts and the prompt only.
 - Use approved facts only.
-- If a required fact is missing, mark the Claude prompt `BLOCKED` and list missing facts.
+- If a required fact is missing, do not create a Claude prompt. Mark the internal generator result `BLOCKED` and list the missing facts outside the Claude prompt.
 - Do not ask Claude to invent facts, discounts, lead times, delivery promises, materials, finishes, or included items.
 - Keep `publish_ready: No` until Claude output is pasted back, integrated, and final operator publish approval is recorded.
 
@@ -116,11 +116,7 @@ Rules:
 - Avoid hype words such as artisan, artisanal, bespoke, heirloom, luxury, curated, sustainable, eco-friendly, and handcrafted.
 - Avoid wholesale or partner terms.
 
-Before answering, silently draft a few possible versions and choose the strongest one.
-
-If required information is missing, return only:
-- status: BLOCKED
-- missing_info
+Before answering, silently write several internal versions, analyze them for truthfulness, buyer clarity, voice fit, specificity, natural rhythm, and banned wording, then write a stronger final version as the visible output.
 
 Give one listing title and one listing description. No notes, no options.
 ```
@@ -140,7 +136,8 @@ Do not ask Claude to write or approve image graphic text, image prompts, caption
 - Media facts are not used as unsupported selling claims.
 - SKU-specific restrictions are included.
 - Prompt asks Claude for listing prose only.
+- Prompt tells Claude to silently write several internal versions, analyze them, and then produce a stronger final version as the visible output.
 - Prompt does not ask Claude to approve image prompts, graphic prompts, overlay text, or image graphic text.
 - Prompt passes `80_templates/standalone_external_prompt_checklist.md`.
 - Prompt contains no instruction to open or follow repository paths.
-- Relevant facts, buyer context, voice direction, safety rails, no-em-dash/no-en-dash rule, no-AI-isms rule, quality criteria, and blocked behavior are inlined without turning the prompt into a rigid checklist.
+- Relevant facts, buyer context, voice direction, safety rails, no-em-dash/no-en-dash rule, no-AI-isms rule, and quality criteria are inlined without turning the prompt into a rigid checklist.

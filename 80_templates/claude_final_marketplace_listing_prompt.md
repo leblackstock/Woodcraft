@@ -60,21 +60,12 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - Treat `current_asset` or `customer_copy_prep_notes` as context only, not as an approved fact source.
 - Do not invent pricing, dimensions, materials, lead times, delivery terms, availability, or product claims.
 - Do not soften missing facts with guesses.
+- Before producing the visible answer, silently write several internal versions, analyze them for truthfulness, buyer clarity, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 - Do not use em dashes, en dashes, AI-isms, or common AI tells.
 - Do not ask for repository files or assume access to them.
 - Do not approve or rewrite image prompts, graphic prompts, overlay text, or image graphic text. This template is only for final Marketplace listing title and description prose outside the image graphic workflow.
 
-## Output-Only Rule
-
-- If information is sufficient, return only the requested fields with no explanation.
-
-## Missing-Info Behavior
-
-- If required information is missing, return only:
-  - status: BLOCKED
-  - missing_info:
-
 ## Standalone Delivery Gate
 
-- Inline all approved facts, voice rules, banned wording, constraints, and output requirements.
+- Inline all approved facts, voice rules, banned wording, constraints, and copy-shape guidance.
 - Remove all repository-path instructions and all unfilled placeholders before sending the prompt to Claude.

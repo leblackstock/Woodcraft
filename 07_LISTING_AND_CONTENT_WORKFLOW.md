@@ -6,7 +6,7 @@ Brand source-of-truth note: any listing, content, image prompt, graphic, ad, HTM
 
 Voice routing: use the one shared voice in `00_brand/VOICE.md`; name Marketplace Mode for listing copy, Brand Post Mode for Facebook Page post copy and Instagram captions, and Customer Reply Mode for buyer messages. Modes adjust emphasis only and do not override core voice or approved-fact rules.
 
-External prompt routing: every image prompt, graphic prompt, Claude handoff, caption prompt, customer-reply prompt, ad prompt, or other prompt sent outside this repository must pass [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md). Use local source files during preparation, then inline the relevant contents into the delivered prompt. If an image prompt requires an attached image, the copied prompt must begin with `Please see attached "[plain-language item being attached]"`. Claude final-copy prompts must also carry the negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells.
+External prompt routing: every image prompt, graphic prompt, Claude handoff, caption prompt, customer-reply prompt, ad prompt, or other prompt sent outside this repository must pass [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md). Use local source files during preparation, then inline the relevant contents into the delivered prompt. If an image prompt requires an attached image, the copied prompt must begin with `Please see attached "[plain-language item being attached]"`. Claude final-copy prompts must also carry the negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells. Claude final-copy prompts must instruct Claude to silently write several internal versions, analyze them, and then produce a stronger final version as the visible output.
 
 Image graphic-text routing: GPT/Codex may create image graphic text under an active review-by-exception image workflow using approved facts and the applicable voice mode. Image graphic text does not require Claude approval. Claude remains responsible for final Facebook Page post copy, Instagram captions, listing prose, promotional prose outside the graphic, and customer replies.
 
@@ -30,7 +30,7 @@ Image graphic-text routing: GPT/Codex may create image graphic text under an act
 16. Publish Marketplace listing (manual)
 17. After first sale/build, capture actual receipts, labor, finished dimensions, finished photos, and pricing learnings
 18. Decide keep / drop / reprice if the actual build changes the economics or offer truth
-19. Repurpose approved listing facts and truthful media into Page + Instagram content prep
+19. Repurpose approved listing facts and truthful media into Page + Instagram content prep only for products that resolve to an active SKU in `30_products/sku_activation_index.md`
 20. For Facebook Page image work, select and record the mix-and-match creative fields after reviewing recent Facebook Page content history
 21. Generate any image graphic text and standalone external image prompt under the active review-by-exception image workflow
 22. Run another **Claude Final Copy Gate** when final customer-facing post copy, captions, or replies are needed
@@ -108,8 +108,9 @@ Image graphic-text routing: GPT/Codex may create image graphic text under an act
 - GPT-5.5 may advance the asset through all upstream prep steps.
 - When final customer-facing prose is needed, GPT-5.5 must stop and produce a Claude handoff prompt using approved facts only.
 - Image graphic text assigned to GPT/Codex by an active review-by-exception image workflow does not require a Claude handoff.
-- The delivered Claude handoff must be standalone: inline approved facts, applicable voice mode and rules, banned claims, channel context, output format, and missing-information behavior. Do not instruct Claude to open repository files.
+- The delivered Claude handoff must be standalone: inline approved facts, applicable voice mode and rules, banned claims, channel context, and copy-shape guidance. Do not instruct Claude to open repository files, and do not ask Claude to return blocked or missing-information fields.
 - The delivered Claude handoff must prohibit em dashes, en dashes, AI-isms, and common AI tells in Claude's final output.
+- The delivered Claude handoff must instruct Claude to silently write several internal versions, analyze them for truthfulness, voice fit, specificity, and natural rhythm, then produce a stronger final version as the visible output.
 - Record `claude_handoff_ref` when that valid handoff is prepared.
 - The human pastes Claude output back into the workflow.
 - Record `claude_output_ref` after the paste-back occurs.
@@ -146,6 +147,8 @@ After the first real sale/build for a made-to-order listing:
 
 - Use `50_content/facebook_brand_post_rules.md` for Facebook Page visual-purpose, mix-and-match, compatibility, rotation, and image graphic-text rules.
 - Use `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md` to create one standalone ChatGPT Image 2 prompt.
+- Before creating any product-specific Facebook Page or Instagram post, verify the linked product resolves to an `Active` SKU in `30_products/sku_activation_index.md`.
+- Do not create new social posts or post image prompts for inactive/no-SKU products, even if the product is still a listing candidate.
 - Review recent Facebook Page content records and record the six selected creative fields before saving the image prompt.
 - GPT/Codex owns Facebook Page image graphic text under review by exception. Use approved facts and Brand Post Mode; do not request Claude approval for image graphic text.
 - Claude still owns the final Facebook Page post copy.

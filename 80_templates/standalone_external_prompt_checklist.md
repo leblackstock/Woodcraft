@@ -39,7 +39,7 @@ Include everything relevant to the task:
 - for image prompts requiring attachments, a first prompt line that says `Please see attached "[plain-language item being attached]"`
 - output format, structure, dimensions, file type, or aspect ratio
 - quality criteria and final self-checks
-- missing-information or blocked behavior
+- failure behavior when the target can safely act on it
 
 Only include the instructions relevant to that prompt. Standalone does not mean dumping entire repository files into every prompt.
 
@@ -78,11 +78,12 @@ For Drakkar-specific external prompts:
 
 ### Writing And Claude Handoff Prompts
 
-- Inline approved facts, requested fields, applicable voice mode, core voice rules, banned words/claims, channel context, and output format.
+- Inline approved facts, requested fields, applicable voice mode, core voice rules, banned words/claims, channel context, and copy-shape guidance.
 - For Claude final-copy prompts, include negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells.
+- For Claude final-copy prompts, instruct Claude to silently write several internal versions, analyze them, and then produce a stronger final version as the visible output.
 - Do not tell the external writer to open `00_brand/VOICE.md`, a listing record, a prep packet, or another local file.
 - Treat local paths as internal provenance only; remove them from the delivered prompt unless the actual file contents are attached.
-- Define missing-information behavior and prohibit invented facts.
+- Resolve missing facts upstream before Claude handoff; prohibit invented facts instead of asking Claude to return blocked or missing-information fields.
 
 ### Research And Analysis Prompts
 
@@ -109,7 +110,7 @@ Before delivering or saving an external prompt, verify:
 - Image and graphic prompts explicitly choose the background color or photo/overlay background treatment.
 - Remaining palette colors are listed without role assignments.
 - Any image prompt that requires an attached image begins with `Please see attached "[plain-language item being attached]"`.
-- Output format and quality criteria are explicit.
-- Missing-information behavior is explicit.
+- Output format and quality criteria are explicit when relevant to the prompt type.
+- Failure behavior is explicit for image, research, automation, or transformation prompts when relevant.
 - The prompt asks for no unsupported or invented claims.
-- Claude final-copy prompts include the no-em-dash/no-en-dash rule and the no-AI-isms rule.
+- Claude final-copy prompts include the no-em-dash/no-en-dash rule, the no-AI-isms rule, and the internal draft/analyze/improve instruction.

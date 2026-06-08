@@ -48,7 +48,7 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 - Final customer-facing listing prose belongs to Claude.
 - GPT/Codex may prepare facts, workflow state, image prompts, and factual in-image text.
 - Marketplace listing prose and factual in-image text use Marketplace Mode from `00_brand/VOICE.md`; the mode never overrides approved-fact or core voice rules.
-- Every image prompt and Claude prompt delivered outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`. Use repository files during preparation, then inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachment instructions, output format, quality criteria, and blocked behavior. Claude final-copy prompts must also inline the negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells.
+- Every image prompt and Claude prompt delivered outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`. Use repository files during preparation, then inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachment instructions, copy-shape or output requirements, and quality criteria. Claude final-copy prompts must also inline the negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells. Claude final-copy prompts must instruct Claude to silently write several internal versions, analyze them, and then produce a stronger final version as the visible output. Resolve missing facts upstream before creating a Claude final-copy prompt.
 - Do not mark anything `publish_ready: Yes` until Claude output is pasted back, integrated, and final operator approval is recorded.
 
 ## Image Defaults
@@ -93,7 +93,7 @@ Image prompt rules:
 
 ## Listing Copy Defaults
 
-Claude/listing prose prompts should be creative briefs, not compliance worksheets. Give Claude the listing type, approved specs, buyer context, and Drakkar Marketplace tone, then ask for the strongest natural Marketplace listing within the facts.
+Claude/listing prose prompts should be creative briefs, not compliance worksheets. Give Claude the listing type, approved specs, buyer context, and Drakkar Marketplace tone, then ask for the strongest natural Marketplace listing within the facts. Include the internal draft pass: Claude should silently write several internal versions, analyze them, and then produce a stronger final version as the visible output.
 
 Claude/listing prose should use:
 

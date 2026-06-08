@@ -87,23 +87,14 @@ When a Facebook Page image has selected mix-and-match fields, include the derive
 - Do not invent product details, timing, availability, customer outcomes, or local claims.
 - Keep the copy aligned to the requested channel and word limit.
 - Default to one strongest final post-copy or caption output, not multiple options.
+- Before producing the visible answer, silently write several internal versions, analyze them for truthfulness, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 - Do not use em dashes, en dashes, AI-isms, or common AI tells.
 - If the operator explicitly requests variants, make each delivered variant meaningfully different in emotional angle, sentence rhythm, and scene detail.
 - Do not ask for repository files or assume access to them.
 - Do not approve or rewrite image prompts, graphic prompts, overlay text, or image graphic text.
 - GPT/Codex owns image graphic text under active review-by-exception workflows. This template is only for the final Facebook Page post copy or Instagram caption text block outside the image.
 
-## Output-Only Rule
-
-- If information is sufficient, return only the requested fields with no explanation.
-
-## Missing-Info Behavior
-
-- If required information is missing, return only:
-  - status: BLOCKED
-  - missing_info:
-
 ## Standalone Delivery Gate
 
-- Inline all approved facts, voice rules, banned wording, constraints, and output requirements.
+- Inline all approved facts, voice rules, banned wording, constraints, and copy-shape guidance.
 - Remove all repository-path instructions and all unfilled placeholders before sending the prompt to Claude.

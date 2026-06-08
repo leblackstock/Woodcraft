@@ -9,7 +9,7 @@ Brand source-of-truth note: any prompt that creates or references Drakkar-specif
 Any prompt meant to leave this repository must pass [80_templates/standalone_external_prompt_checklist.md](80_templates/standalone_external_prompt_checklist.md).
 
 - Repository files are preparation sources, not instructions the external target can follow.
-- Inline the relevant source facts, task context, brand rules, voice mode, palette, typography, visual direction, literal required text, constraints, reference requirements, output format, quality criteria, and missing-information behavior.
+- Inline the relevant source facts, task context, brand rules, voice mode, palette, typography, visual direction, literal required text, constraints, reference requirements, copy-shape or output requirements, and quality criteria.
 - Remove local-path dependencies from the delivered prompt unless the referenced file contents are actually attached.
 - Make each delivered prompt independently usable. Do not require another prompt in the pack or surrounding notes.
 - For image prompts that require an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
@@ -50,6 +50,7 @@ Image graphic text assigned to GPT/Codex by an active review-by-exception image 
 - Each handoff must name the applicable mode from the one shared `00_brand/VOICE.md`: Catalog, Brand Post, Marketplace, or Customer Reply.
 - Voice modes adjust emphasis only and never override core voice, banned-word, truthfulness, or approved-fact rules.
 - Each Claude handoff must include the no-em-dash/no-en-dash rule and the no-AI-isms rule.
+- Each Claude handoff must tell Claude to silently write several internal versions, analyze them, and then produce a stronger final version as the visible output.
 - If facts are incomplete, stop upstream and resolve missing info before creating the handoff.
 - Record the resulting handoff in `claude_handoff_ref` only after `approved_facts_status: Approved`.
 - The human pastes Claude output back into the workflow for integration.
@@ -86,9 +87,20 @@ Workflow-specific listing image prompt templates live in [40_listings/prompts/](
 
 Current Facebook Page brand-post image workflow:
 
+- `30_products/sku_activation_index.md`
 - `50_content/facebook_brand_post_rules.md`
 - `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
 - `80_templates/social_post_template.md`
+
+Fast path for short "fb brand post prompt" requests:
+
+- Treat as a Facebook Page brand-post prompt request unless the operator explicitly says Marketplace, ad, Instagram, or another channel.
+- Start from the active/open content or prompt file when the target is clear.
+- Read `30_products/sku_activation_index.md`, `50_content/facebook_brand_post_rules.md`, the active generator, and the target `50_content/content_fbpage_*.md` record before broader discovery.
+- Create or deliver product-specific post prompts only for SKUs marked `Active` in the SKU activation index.
+- If the content record already has an `image_prompt_ref`, open and deliver from that saved prompt instead of rebuilding the concept only when the linked SKU is still active.
+- For Facebook Page post asks, deliver the filename block, standalone image prompt block, and Claude Facebook Page post-copy handoff block by default.
+- Deliver only the filename block plus standalone image prompt block when the operator explicitly asks for an image prompt only.
 
 Deprecated but retained for traceability:
 
@@ -127,7 +139,7 @@ Each future prompt family must be explicitly scoped to either GPT-5.5 orchestrat
    - FBM price-card graphics use one plain selling-price line from the approved FBM price; copied prompts should specify the exact rendered text instead of explaining internal price-label exceptions.
 5. **Content Prompts**
    - GPT-5.5 orchestration/prep: short-form concept extraction from listings
-   - GPT-5.5 orchestration/prep: Facebook Page brand-post image concepts, rotation checks, image graphic text, and standalone image prompts
+   - GPT-5.5 orchestration/prep: Facebook Page brand-post image concepts, rotation checks, image graphic text, and standalone image prompts for active SKUs only
    - Claude final customer-facing prose: one best Facebook Page post-copy or Instagram caption output by default
    - Claude final customer-facing prose: social post-copy or caption CTA variants only when explicitly requested
    - Claude final customer-facing prose: reply-template prompts

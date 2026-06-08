@@ -2,7 +2,7 @@
 
 Target record: `50_content/content_fbpage_raised_bed_spotlight_001.md`
 Generator: `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
-Use status: Conditional. Attach the approved catalog image for Cedar Raised Garden Bed before using this prompt in ChatGPT Image 2.
+Use status: Published. Used for the Drakkar Designs Facebook Page post on 2026-06-08; operator screenshot showed the post live as "Just now." The approved catalog image attachment requirement was satisfied before publication.
 
 Selection audit:
 

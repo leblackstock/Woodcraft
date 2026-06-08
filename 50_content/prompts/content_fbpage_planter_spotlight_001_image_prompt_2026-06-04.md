@@ -2,7 +2,7 @@
 
 Target record: `50_content/content_fbpage_planter_spotlight_001.md`
 Generator: `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
-Use status: Conditional. Attach the selected approved owned cedar planter reference image before using this prompt in ChatGPT Image 2.
+Use status: Retired. Do not use for generation. The linked product is not an active SKU and has no clean ref file in `30_products/sku_activation_index.md`; product-specific posts are allowed only for active SKUs.
 
 Selection audit:
 
@@ -14,10 +14,11 @@ Selection audit:
 - text_intensity: Moderate: headline plus one support line
 - cta_style: No CTA
 - exact_in_image_text: CEDAR PLANTER BOX / Built locally in Georgia
-- recent_post_history_ref: Reviewed 50_content/content_fbpage_raised_bed_spotlight_001.md and 50_content/content_fbpage_planter_spotlight_001.md on 2026-06-04; no prior Facebook Page records with completed selected creative fields were found.
-- rotation_check_status: Not Enough History
-- rotation_notes: No completed Facebook Page selected-field history is available yet. The selection uses the mix-and-match fields directly and avoids a direct sales CTA while approved facts, final post copy, and linked Marketplace readiness remain incomplete.
-- approved_reference_images: Required before use — selected approved owned cedar planter reference image; exact asset still pending in the linked Marketplace media plan.
+- sku_activation_status: Not Active - linked product has no active SKU or clean ref file
+- recent_post_history_ref: Reviewed 50_content/content_fbpage_raised_bed_spotlight_001.md and 50_content/content_fbpage_planter_spotlight_001.md on 2026-06-08; one prior published Facebook Page record with completed selected creative fields was available.
+- rotation_check_status: Checked — Limited History
+- rotation_notes: Compared against the published raised-bed concept. This selection changes all six tracked fields: layout_family, photo_subject, message_angle, graphic_treatment, text_intensity, and cta_style. The selection avoids a direct sales CTA while approved facts, final post copy, and linked Marketplace readiness remain incomplete.
+- approved_reference_images: Blocked — no active SKU/clean ref file is recorded for the linked product.
 ```
 
 Filename:

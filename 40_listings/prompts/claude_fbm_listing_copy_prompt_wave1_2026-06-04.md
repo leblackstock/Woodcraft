@@ -104,5 +104,5 @@ Listing 4:
 - lead_time: built to order; lead time provided when order is placed
 - important note: this listing is for the featured size; do not imply every custom size is $240
 
-Before answering, silently draft a few possible versions for each listing and choose the strongest one. Silently check that every statement is supported by the supplied facts, prices and sizes match the correct listing, no em dashes or en dashes appear, no AI-isms or common AI tells appear, and none of the blocked wording appears.
+Before answering, silently write several internal versions for each listing, analyze them for truthfulness, buyer clarity, voice fit, specificity, natural rhythm, correct prices and sizes, banned wording, dash tells, and AI-isms, then write a stronger final version as the visible output.
 ```

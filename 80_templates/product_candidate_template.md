@@ -4,6 +4,10 @@
 
 - product_id:
 - catalog_id:
+- catalog_sku:
+- sku_activation_status: Active / Not Active
+- clean_ref_files:
+- sku_activation_ref: 30_products/sku_activation_index.md
 - product_name:
 - category:
 - date_created:

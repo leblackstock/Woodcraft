@@ -106,6 +106,10 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 |---|---|---|
 | product_id | Yes | Unique ID (e.g., `prod_raised_bed_001`) |
 | catalog_id | Yes | Stable short product number (e.g., `f00001`) assigned sequentially and preserved. |
+| catalog_sku | No | Catalog SKU/code when present. Required for active-SKU post creation. |
+| sku_activation_status | No | `Active` / `Not Active`; social post creation is allowed only for active SKUs with clean ref files. |
+| clean_ref_files | No | Exact clean reference image filenames supporting active SKU status. |
+| sku_activation_ref | No | Link to `30_products/sku_activation_index.md` when SKU/post eligibility matters. |
 | product_name | Yes | Human-readable product name |
 | category | Yes | Decor / Planter / Raised Bed / Furniture |
 | date_created | Yes | Record creation date |
@@ -249,6 +253,8 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | content_id | Yes | Unique ID |
 | linked_product_id | No | Optional product reference |
 | linked_listing_id | No | Optional listing reference |
+| sku_activation_status | No | `Active` / `Not Active` / `Blocked`; new social posts and image prompts are allowed only for active SKUs. |
+| sku_activation_ref | No | Link to `30_products/sku_activation_index.md` when the content references a product/SKU. |
 | platform | Yes | FB Page / Instagram / TikTok / Shorts |
 | content_type | Yes | Photo post / Reel / Story / Short |
 | publish_status | Yes | Draft / Ready to Schedule / Scheduled / Published / Archived (`Ready to Schedule`, `Scheduled`, and `Published` require `publish_ready: Yes`) |
@@ -292,6 +298,8 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 ### Content Image And Rotation Rules
 
 - Facebook Page brand-post visuals use `50_content/facebook_brand_post_rules.md` and the linked internal prompt generator.
+- Before creating a product-specific social post or image prompt, confirm the linked product resolves to an `Active` SKU in `30_products/sku_activation_index.md`.
+- Do not create new Facebook Page, Instagram, ad, or other social posts for inactive/no-SKU products, even if the product remains a listing candidate.
 - GPT/Codex may create image graphic text under an active review-by-exception image workflow. Image graphic text does not require Claude approval, but it must use approved facts and the applicable voice mode.
 - Claude remains responsible for final Facebook Page post copy, Instagram captions, and other final prose outside the image graphic.
 - Record `exact_in_image_text` as literal final image wording or `NO_TEXT`.

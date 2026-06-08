@@ -22,7 +22,7 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - inline_voice_rules:
 - inline_brand_rules:
 - inline_constraints:
-- required_output_format:
+- copy_shape_guidance:
 - required_attachments_or_source_text:
 
 ## Internal Preparation Only
@@ -64,14 +64,14 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - Use approved facts only.
 - Do not invent facts, claims, pricing, timing, or commitments.
 - Treat any prep wording as non-binding context, not as a fact source.
-- Follow the inlined voice, brand, constraint, and output-format rules in this prompt.
+- Follow the inlined voice, brand, constraint, and copy-shape rules in this prompt.
+- Before producing the visible answer, silently write several internal versions, analyze them for truthfulness, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 - Do not use em dashes, en dashes, AI-isms, or common AI tells in the final copy.
-- If required information is missing, return `status: BLOCKED` and list only the missing information.
 - Do not ask for repository files or assume access to them.
 
 ## Standalone Delivery Gate
 
-- Confirm the delivered prompt contains the actual approved facts, applicable voice-mode rules, banned wording, no-em-dash/no-en-dash rule, no-AI-isms rule, constraints, output format, attachments/source text, quality criteria, and blocked behavior.
+- Confirm the delivered prompt contains the actual approved facts, applicable voice-mode rules, banned wording, no-em-dash/no-en-dash rule, no-AI-isms rule, internal draft/analyze/improve instruction, constraints, copy-shape guidance, attachments/source text, and quality criteria.
 - Remove all repository-path instructions and all unfilled placeholders before sending the prompt to Claude.
 - Do not ask Claude to approve image prompts, graphic prompts, graphic assets, overlay text, or image graphic text.
 - If wording from an image/graphic is later reused as a standalone listing, post/caption, advertisement, catalog, or customer-reply prose block, create a separate Claude handoff for that prose block only.

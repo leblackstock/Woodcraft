@@ -49,23 +49,13 @@ Use this template when Claude is needed to write a final customer-facing reply o
 - Use approved facts only.
 - Do not invent pricing, availability, timelines, policies, or commitments.
 - Use fallback language only if it is preapproved, fact-safe, and does not imply missing facts.
+- Before producing the visible answer, silently write several internal versions, analyze them for truthfulness, helpfulness, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 - Do not use em dashes, en dashes, AI-isms, or common AI tells.
 - Do not add explanations outside the reply itself.
 - Do not ask for repository files or assume access to them.
 - Do not approve or rewrite image prompts, graphic prompts, overlay text, or image graphic text. This template is only for the final customer-reply text block outside the image graphic workflow.
 
-## Output-Only Rule
-
-- If information is sufficient, return only the final reply.
-
-## Missing-Info Behavior
-
-- Use fallback only when the preapproved safe language can acknowledge the gap without inventing or implying missing facts.
-- If required facts are needed for a normal final reply, return only:
-  - status: BLOCKED
-  - missing_info:
-
 ## Standalone Delivery Gate
 
-- Inline all approved facts, voice rules, constraints, fallback language, and output requirements.
+- Inline all approved facts, voice rules, constraints, fallback language, and copy-shape guidance.
 - Remove all repository-path instructions and all unfilled placeholders before sending the prompt to Claude.

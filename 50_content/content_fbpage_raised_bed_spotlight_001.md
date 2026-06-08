@@ -5,11 +5,13 @@
 - content_id: content_fbpage_raised_bed_spotlight_001
 - linked_product_id: prod_cedar_raised_bed_001
 - linked_listing_id: list_marketplace_raised_bed_001
+- sku_activation_status: Active - SKU K has clean ref files recorded
+- sku_activation_ref: 30_products/sku_activation_index.md
 - platform: FB Page
-- publish_status: Draft
-- publish_ready: No
+- publish_status: Published
+- publish_ready: Yes
 - approved_facts_status: Approved
-- customer_copy_status: Prep Only
+- customer_copy_status: Posted From Operator Screenshot
 - claude_handoff_ref:
 - claude_output_ref:
 
@@ -17,8 +19,8 @@
 
 - content_type: Photo post
 - hook: If you want a garden bed without a full DIY weekend, this is the kind of build to watch.
-- core_message: Position the approved cedar raised garden bed as a straightforward backyard garden upgrade while the linked Marketplace listing remains draft-only pending Claude final copy, pasted-back output, and final operator publish go-ahead.
-- cta: Hold direct Marketplace CTA until Claude final copy is integrated and the linked listing is publish-ready.
+- core_message: Published as a straightforward backyard garden support post for the approved cedar raised garden bed using the featured size, open-bottom, made-to-order, and by-quote size facts.
+- cta: Published with a soft message CTA in the post copy; no price or Marketplace link was used in the Facebook Page post.
 - layout_family: Light catalog card
 - photo_subject: Raised garden bed
 - message_angle: Garden inspiration
@@ -28,11 +30,25 @@
 
 ## Copy
 
-- post_copy: [[CLAUDE_FINAL_COPY_REQUIRED]]
+- post_copy: |
+    A garden spot doesn't have to be a whole weekend project.
+
+    Start with cedar.
+
+    This raised bed sits open-bottom against the soil, so roots run straight down into the ground, no liner standing between your plants and the earth.
+
+    This featured size is 72 x 36 x 18 in, made to order, with other sizes available by quote.
+
+    Find a sunny spot, fill it, and the planting can start whenever you're ready.
+
+    Got a spot picked out? Send a message with the size you need.
+
+    Drakkar Designs - a small cedar shop local in Georgia.
+    #CedarRaisedBed #RaisedGardenBed #BackyardGarden #LovejoyGA #GeorgiaGardens
 - exact_in_image_text: CEDAR RAISED GARDEN BED
-- customer_copy_prep_notes: Non-Claude prep only. Working post-copy idea highlights the approved cedar raised garden bed as a straightforward backyard option for vegetables, herbs, or flowers. Featured size is 72 x 36 x 18 in. Direct Marketplace CTA stays held until Claude final copy and publish go-ahead are complete.
-- hashtag_notes: Use a small set such as #raisedgardenbed #cedargarden #backyardgarden #handmade.
-- local_context_tags: Assumption — add local area tags before publishing.
+- customer_copy_prep_notes: Final visible post copy captured from operator screenshot on 2026-06-08. Live Facebook URL not captured in the repository record.
+- hashtag_notes: Posted hashtags: #CedarRaisedBed #RaisedGardenBed #BackyardGarden #LovejoyGA #GeorgiaGardens.
+- local_context_tags: Posted with #LovejoyGA and #GeorgiaGardens.
 
 ## Asset Plan
 
@@ -43,9 +59,9 @@
 - rotation_check_status: Checked — Limited History
 - rotation_notes: Compared against the prior planter concept. This selection changes `layout_family`, `photo_subject`, `message_angle`, `graphic_treatment`, and `text_intensity`; `cta_style` stays No CTA because direct buying CTA remains gated by Claude final copy and publish readiness.
 - image_prompt_ref: `50_content/prompts/content_fbpage_raised_bed_spotlight_001_image_prompt_2026-06-04.md`
-- thumbnail_note: Pending — choose from the approved catalog image or reviewed generated graphic after operator image review.
+- thumbnail_note: Published screenshot shows the generated Drakkar Designs graphic with the exact image text `CEDAR RAISED GARDEN BED` and the raised bed image.
 
 ## Publishing + Outcome
 
-- publish_date:
-- outcome_notes: Prep-only support post. Publish date intentionally blank until Claude post-copy output is pasted back, linked Marketplace final copy is complete, and final operator publish go-ahead is given.
+- publish_date: 2026-06-08
+- outcome_notes: Published on the Drakkar Designs Facebook Page. Operator screenshot provided in chat on 2026-06-08 showed the post live as "Just now"; live post URL not captured. The published post uses the generated Facebook Page brand graphic, no price, no Marketplace link, and a soft message CTA.

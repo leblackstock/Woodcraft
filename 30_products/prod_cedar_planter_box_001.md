@@ -4,6 +4,10 @@
 
 - product_id: prod_cedar_planter_box_001
 - catalog_id: f00015
+- catalog_sku: None
+- sku_activation_status: Not Active
+- clean_ref_files: None
+- sku_activation_ref: 30_products/sku_activation_index.md
 - product_name: Cedar Planter Box 24x24x18
 - category: Planter
 - date_created: 2026-04-21
@@ -71,7 +75,7 @@
 
 - status: Approved
 - decision_reason: Still a strong near-term candidate because it is easy to understand, easy to photograph, repeatable to build, and appears to clear starter profit rules on paper. Re-review suggests it is slightly more build-involved than a basic box because of the hidden frame, mitered corners, and top trim, but not enough to change approval status.
-- next_action: Continue listing-first prep with the owner-confirmed $90 sale price, selected owned listing photos, final delivery wording, and Claude handoff.
+- next_action: Continue listing-first prep only if needed, but do not create new Facebook Page or Instagram posts until this product resolves to an active SKU with a clean ref file.
 
 ## Publish Readiness Review
 

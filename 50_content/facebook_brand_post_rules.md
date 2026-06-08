@@ -17,8 +17,27 @@ Use this file for Facebook Page brand-post visuals. It is not a separate brand g
 - Internal image-prompt generator: `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
 - Claude social post-copy prompt template: `80_templates/claude_final_social_post_copy_prompt.md`
 - Standalone external-prompt gate: `80_templates/standalone_external_prompt_checklist.md`
+- SKU activation gate: `30_products/sku_activation_index.md`
 
 Use repository paths only for internal preparation. Every prompt delivered to an external image model must inline its relevant brand direction, exact colors, typography direction, literal in-image text, constraints, attachments, output requirements, quality criteria, and failure behavior. Exact colors must include one chosen background color or photo/overlay background treatment first. After that, list the remaining approved palette colors only; do not assign them to text, dividers/rules, accents, panels, or inset fields.
+
+## Fast Path For Short Operator Requests
+
+When the operator asks for a "fb brand post prompt," "Facebook brand post prompt," or similar short request, treat it as a Facebook Page brand-post workflow request unless they explicitly say Marketplace, ad, Instagram, or another channel.
+
+Use this fast path before broader discovery:
+
+1. Start with the active/open content or prompt file when the operator context clearly points to one.
+2. Read this file and `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`.
+3. Read the target content record under `50_content/`.
+4. Check `30_products/sku_activation_index.md`. Product-specific Facebook Page posts may be created only for SKUs marked `Active` there.
+5. If the linked product is inactive, has no catalog SKU, or has no clean ref file, do not create or deliver a new post prompt. Return `BLOCKED` or archive/mark the draft as inactive.
+6. If the content record already has `approved_facts_status: Approved`, creative-selection fields, `exact_in_image_text`, `approved_reference_images`, `image_prompt_ref`, and active SKU status, open the saved image prompt and deliver from that rather than rebuilding the concept.
+7. If the saved image prompt is missing or the operator asks for a new variation, read only the linked product/listing records and `00_brand/` source files needed to fill missing approved facts, visual direction, palette, typography, or attachment instructions.
+8. Check recent rotation with targeted searches across `50_content/content_fbpage_*.md`; do not run broad repo discovery unless the target content record is unknown.
+9. Ask one short clarifying question only when there are multiple plausible target content records and the operator context does not identify which one to use.
+
+Default delivery for a Facebook Page post request is the filename block, standalone image prompt block, and Claude post-copy handoff block. Deliver only the filename and standalone image prompt when the operator explicitly asks for an image prompt only.
 
 ## Ownership Boundary
 
@@ -74,28 +93,32 @@ When the operator requests a Facebook Page post, deliver the working assets in c
 - image prompt in its own copy-ready prompt code block
 - Claude post-copy handoff prompt in its own copy-ready text or prompt code block
 
-Do not combine the filename, image prompt, and Claude prompt in one code block. Do not embed the filename inside the image prompt. The Claude prompt must be a standalone final Facebook Page post-copy handoff only: inline approved facts, Brand Post Mode voice rules, banned claims or words, output format, and missing-information behavior. It must not ask Claude to approve image prompts, image graphic text, or generated visuals.
+Do not combine the filename, image prompt, and Claude prompt in one code block. Do not embed the filename inside the image prompt. The Claude prompt must be a standalone final Facebook Page post-copy handoff only: inline approved facts, Brand Post Mode voice rules, banned claims or words, and post-shape guidance. It must not ask Claude to approve image prompts, image graphic text, generated visuals, or missing-information handling.
 
 The Claude prompt must also carry the Brand Post Mode emotional job explicitly: ask Claude to make the post feel like something specific while staying truthful. Use approved maker, shop, cedar, place, process, product-use, or image-context details to create connection. Avoid bland fact summaries, compliance-checklist captions, generic inspirational language, AI-isms, and common AI tells. The prompt must prohibit em dashes and en dashes in Claude's final output; regular hyphens are okay when needed.
 
 For Facebook Page post copy, the Claude prompt must request a complete organic post body rather than a tiny caption or product-spec paragraph. It should support a hook, short brand/product/shop/material context, useful body copy, an approved CTA or soft close, optional signature/location line, and hashtags when useful. When location wording is useful, use `locally in Georgia` or `Built locally in Georgia`; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it. If the operator provides an example of good post copy, preserve that example's social-post energy and structure while using only approved facts for the current post.
+
+Every Claude post-copy handoff prompt must include an internal draft pass: tell Claude to silently write several internal versions, analyze them for truthfulness, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 
 ## Required Inputs
 
 Before creating a Facebook brand-post image prompt, gather:
 
 - `content_id`
+- active SKU status from `30_products/sku_activation_index.md`
 - post objective
 - audience or context
 - approved facts
 - linked product or listing records when relevant
 - governed media or approved reference images
+- exact clean ref file(s) for the active SKU when product fidelity matters
 - any required product, logo, or layout attachments
 - recent Facebook Page post history with recorded creative-selection fields
 - image graphic-text direction, any required literal wording, or a clear decision to use `NO_TEXT`
 - requested output format; default is square `1:1`
 
-If approved facts are insufficient for the requested message, return `BLOCKED` and list the missing facts. Do not solve missing truth with vague promotional language.
+If the linked product is not an active SKU, return `BLOCKED` and list the SKU activation reason. If approved facts are insufficient for the requested message, return `BLOCKED` and list the missing facts. Do not solve missing truth with vague promotional language.
 
 ## Mix-And-Match System
 
@@ -259,6 +282,8 @@ Review the most recent seven Facebook Page content records that already have sel
 
 - Follow the repository media-truth rules.
 - Use approved or governed owned media for publishable content.
+- Product-specific Facebook Page posts require an active SKU with a clean ref file in `30_products/sku_activation_index.md`.
+- Do not create new Facebook Page post prompts for inactive/no-SKU products.
 - Require an approved source image attachment when exact product fidelity matters.
 - Require an approved logo attachment when exact logo fidelity matters.
 - If a delivered image prompt requires an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
@@ -277,6 +302,8 @@ Before saving a generated image prompt, update the content record with:
 - `cta_style`
 - `exact_in_image_text`
 - `approved_reference_images`
+- `sku_activation_status`
+- `sku_activation_ref`
 - `recent_post_history_ref`
 - `rotation_check_status`
 - `rotation_notes`

@@ -5,8 +5,10 @@
 - content_id: content_fbpage_planter_spotlight_001
 - linked_product_id: prod_cedar_planter_box_001
 - linked_listing_id: list_marketplace_planter_box_001
+- sku_activation_status: Not Active - linked product has no active SKU or clean ref file
+- sku_activation_ref: 30_products/sku_activation_index.md
 - platform: FB Page
-- publish_status: Draft
+- publish_status: Archived
 - publish_ready: No
 - approved_facts_status: Working
 - customer_copy_status: Prep Only
@@ -17,8 +19,8 @@
 
 - content_type: Photo post
 - hook: A simple cedar planter is one of the easiest ways to upgrade a porch or patio.
-- core_message: Highlight the cedar planter box as a practical local handmade option and reinforce truthful made-to-order availability tied to the linked Marketplace draft.
-- cta: Send buying intent to Marketplace after approved facts are confirmed and Claude-final post copy is integrated.
+- core_message: Archived because the linked product is not an active SKU and has no clean ref file in the SKU activation index.
+- cta: No CTA. Do not create or publish this post while the linked product remains inactive for social post creation.
 - layout_family: Full-photo overlay
 - photo_subject: Porch or patio scene
 - message_angle: Porch or patio inspiration
@@ -37,15 +39,15 @@
 ## Asset Plan
 
 - brand_assets_ref: 00_brand/
-- asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after publishable planter media is locked in the linked Marketplace record.
-- approved_reference_images: Required before use — selected approved owned cedar planter reference image; exact asset still pending in the linked Marketplace media plan.
-- recent_post_history_ref: Reviewed `50_content/content_fbpage_raised_bed_spotlight_001.md` and this record on 2026-06-04; no prior Facebook Page records with completed selected creative fields were found.
-- rotation_check_status: Not Enough History
-- rotation_notes: No completed Facebook Page selected-field history is available yet. The selection uses the mix-and-match fields directly and avoids a direct sales CTA while approved facts, final post copy, and linked Marketplace readiness remain incomplete.
-- image_prompt_ref: `50_content/prompts/content_fbpage_planter_spotlight_001_image_prompt_2026-06-04.md`
-- thumbnail_note: Pending — choose from governed approved media only after publishable planter media is locked in the linked Marketplace record.
+- asset_refs: Blocked — linked product is not active for social post creation.
+- approved_reference_images: Blocked — no active SKU/clean ref file is recorded for the linked product.
+- recent_post_history_ref: Reviewed `50_content/content_fbpage_raised_bed_spotlight_001.md` and this record on 2026-06-08; one prior published Facebook Page record with completed selected creative fields was available.
+- rotation_check_status: Checked — Limited History
+- rotation_notes: Compared against the published raised-bed concept. This selection changes all six tracked fields: `layout_family`, `photo_subject`, `message_angle`, `graphic_treatment`, `text_intensity`, and `cta_style`. The selection avoids a direct sales CTA while approved facts, final post copy, and linked Marketplace readiness remain incomplete.
+- image_prompt_ref: Retired prompt retained for traceability: `50_content/prompts/content_fbpage_planter_spotlight_001_image_prompt_2026-06-04.md`
+- thumbnail_note: Archived — do not generate or choose a thumbnail while the linked product remains inactive.
 
 ## Publishing + Outcome
 
 - publish_date:
-- outcome_notes: Prep-only support post. Publish date intentionally blank until approved facts are complete, Claude post-copy output is pasted back, and the linked Marketplace record is publish-ready.
+- outcome_notes: Archived on 2026-06-08 after SKU activation rule was added. Linked product `prod_cedar_planter_box_001` has no active SKU or clean ref file, so no Facebook Page post should be created from this record unless the SKU activation index is updated.

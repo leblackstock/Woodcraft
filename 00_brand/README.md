@@ -20,6 +20,7 @@ Use this folder as the current source of truth for reusable Drakkar Designs iden
 - `drakkar-dd-tight.png` — tighter DD mark
 - `photos/` — approved catalog product and support images
 - `references/` — approved visual references; reference-only unless a workflow explicitly approves listing use
+- `references/PRODUCT_REF_IMAGES_MANIFEST.md` — record of the external created product reference image folder at `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images`
 
 ## Placement Rules
 
@@ -42,3 +43,4 @@ Use this folder as the current source of truth for reusable Drakkar Designs iden
 - `TEXT_STYLE_RULES.md` was created from operator-approved typography direction and the saved retail catalog's type system.
 - `VISUAL_STYLE.md` was moved from the FBM prompt folder because reusable visual identity belongs with the brand source of truth.
 - `references/handmade-cedar-garden-goods-display.png` was copied from the external catalog-setup workspace as the active visual-style reference; the original remains source provenance.
+- `references/PRODUCT_REF_IMAGES_MANIFEST.md` records the external folder of created product reference images and logo/title examples; those files remain external until copied into `00_brand/` or selected by an operational record.

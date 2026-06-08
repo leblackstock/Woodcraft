@@ -5,6 +5,8 @@
 - content_id: content_instagram_raised_bed_process_001
 - linked_product_id: prod_cedar_raised_bed_001
 - linked_listing_id: list_marketplace_raised_bed_001
+- sku_activation_status: Active - SKU K has clean ref files recorded
+- sku_activation_ref: 30_products/sku_activation_index.md
 - platform: Instagram
 - publish_status: Draft
 - publish_ready: No

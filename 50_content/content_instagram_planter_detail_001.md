@@ -5,8 +5,10 @@
 - content_id: content_instagram_planter_detail_001
 - linked_product_id: prod_cedar_planter_box_001
 - linked_listing_id: list_marketplace_planter_box_001
+- sku_activation_status: Not Active - linked product has no active SKU or clean ref file
+- sku_activation_ref: 30_products/sku_activation_index.md
 - platform: Instagram
-- publish_status: Draft
+- publish_status: Archived
 - publish_ready: No
 - approved_facts_status: Working
 - customer_copy_status: Prep Only
@@ -17,8 +19,8 @@
 
 - content_type: Photo post
 - hook: Cedar texture + a clean outdoor look = easy spring content.
-- core_message: Use a detail-focused post to make the planter feel higher quality and locally made.
-- cta: Encourage DM requests for the Marketplace link or delivery details after approved facts are confirmed and Claude-final caption is integrated.
+- core_message: Archived because the linked product is not an active SKU and has no clean ref file in the SKU activation index.
+- cta: No CTA. Do not create or publish this post while the linked product remains inactive for social post creation.
 - layout_family: Pending
 - photo_subject: Cedar grain close-up or product detail
 - message_angle: Construction or craftsmanship detail
@@ -37,15 +39,15 @@
 ## Asset Plan
 
 - brand_assets_ref: 00_brand/
-- asset_refs: Pending — use only governed owned media or a truthful approved concept/mockup set after publishable planter media is locked in the linked Marketplace record.
-- approved_reference_images: Pending
+- asset_refs: Blocked — linked product is not active for social post creation.
+- approved_reference_images: Blocked — no active SKU/clean ref file is recorded for the linked product.
 - recent_post_history_ref: Pending — use platform-relevant recent content history before image prompt generation
 - rotation_check_status: Not Checked
 - rotation_notes:
 - image_prompt_ref:
-- thumbnail_note: Pending — choose from governed approved media only after publishable planter media is locked in the linked Marketplace record.
+- thumbnail_note: Archived — do not generate or choose a thumbnail while the linked product remains inactive.
 
 ## Publishing + Outcome
 
 - publish_date:
-- outcome_notes: Prep-only support post. Publish date intentionally blank until approved facts are complete, Claude caption output is pasted back, and the linked Marketplace record is publish-ready.
+- outcome_notes: Archived on 2026-06-08 after SKU activation rule was added. Linked product `prod_cedar_planter_box_001` has no active SKU or clean ref file, so no Instagram post should be created from this record unless the SKU activation index is updated.
