@@ -114,14 +114,16 @@ Image graphic text and literal words embedded in image prompts are governed by t
 
 These belong in the vocabulary:
 
-- **cedar** (always — never "wood" when "cedar" is true)
+- **cedar** (default customer-facing material word — never "wood" when "cedar" is true)
 - **bench, shop, joinery, finish, cut, fit, sand, mark**
 - **porch, patio, doorstep, stoop, rail, walkway, driveway**
 - **boxwood, hydrangea, magnolia, herbs, basil, thyme, lavender, succulents** — specific plants are more vivid than "flowers"
 - **handmade, built, sized, fits**
-- **western red cedar** (the wood spec — say it in full when relevant)
+- **western red cedar** (the full wood spec — use sparingly and only when the full spec matters)
 - **rot-resistant, aromatic, slow to weather** (cedar's actual virtues)
 - **made to order, by quote, by request, on first conversation**
+
+Customer-facing cedar wording rule: use `cedar` by default. Do not automatically expand `cedar` into `western red cedar`. The full phrase is allowed in internal fact fields, spec tables, verification packets, or when Lauren explicitly asks for the full material spec, but it loses impact when repeated as routine copy. Leave `western red cedar` out of Facebook Marketplace listing titles/descriptions and catalog-style product blurbs unless the operator specifically requests the full spec for that asset.
 
 ## Words To Avoid
 
@@ -207,6 +209,8 @@ Vertical cards (2 per page): allow 2–3 sentences with a small finishing line.
 
 Never repeat words across the three jobs. Never explain a piece by listing every possible plant or every possible use; pick one or two that feel true to the shape.
 
+For product blurbs, say `cedar` rather than `western red cedar` unless Lauren explicitly asks for the full material spec in that blurb.
+
 ---
 
 ## What "Fancy" Means Here
@@ -225,7 +229,7 @@ If a sentence feels like it's straining to sound fancy, it isn't. Cut it back an
 ## Edge Cases
 
 - **He sometimes leaves pieces rustic instead of fully sanded.** Don't promise "sanded smooth" as a universal. Say "the work meets his keen eye" — covers both.
-- **The wood ships in through Home Depot.** Don't claim local milling, forest sourcing, mileage, or any specific origin chain. "Western red cedar" is the truthful spec.
+- **The wood ships in through Home Depot.** Don't claim local milling, forest sourcing, mileage, or any specific origin chain. `Western red cedar` remains the truthful full spec for internal material records and spec contexts, but customer-facing Marketplace listings and product blurbs should usually say `cedar`.
 - **Terms are not strong yet.** Don't lock in Net 30 / MOQ / deposit numbers in customer-facing copy. Use phrases like "partner terms set on first conversation."
 - **Location wording is workflow-specific.** Keep the voice local, but use the current workflow-approved location wording. For current FBM and Facebook Page work, prefer "locally in Georgia" or "Built locally in Georgia"; use the exact city only when logistics require it or the operator explicitly asks for it.
 - **SKU facts do not live here.** Included items, exclusions, sizes, customization availability, and other product-specific facts must come from current product, listing, or workflow records.

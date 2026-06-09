@@ -1,6 +1,6 @@
 ﻿# Facebook Marketplace Catalog Rollout Workflow
 
-Date updated: 2026-06-04
+Date updated: 2026-06-09
 Status: Active workflow hub
 Channel: Facebook Marketplace
 Catalog source of truth: `20_research/catalog_exports/2026-06-03/`
@@ -31,9 +31,10 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 | Brand visual style | `00_brand/VISUAL_STYLE.md` |
 | Standalone external-prompt checklist | `80_templates/standalone_external_prompt_checklist.md` |
 | Image sequence and per-SKU shot plan | `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md` |
-| Active image prompt generator | `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md` |
+| Active image prompt generator | `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md` |
 | Wave 1 image prompt pack | `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md` |
-| Claude copy generator | `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md` |
+| Claude copy generator | `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v2.0.md` |
+| K focused sellability-first Claude prompt | `40_listings/prompts/claude_fbm_listing_copy_prompt_k_raised_bed_2026-06-09.md` |
 | Wave 1 paste-ready Claude prompt | `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` |
 | Wave 1 Claude prep facts | `40_listings/claude_handoff_prep_wave1_fbm_catalog_2026-06-04.md` |
 
@@ -47,7 +48,8 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 - All saved catalog SKU images are approved for FBM use.
 - Final customer-facing listing prose belongs to Claude.
 - GPT/Codex may prepare facts, workflow state, image prompts, and factual in-image text.
-- Marketplace listing prose and factual in-image text use Marketplace Mode from `00_brand/VOICE.md`; the mode never overrides approved-fact or core voice rules.
+- Marketplace listing prose and factual in-image text use Marketplace Mode from `00_brand/VOICE.md` as a light guardrail. For FBM, optimize first for buyer response, skim clarity, price/size/use-case confidence, trust, and easy next action while keeping approved facts and banned-word rules intact.
+- Visible FBM listing copy and factual image text should use `cedar`, not `Western red cedar`, unless Lauren explicitly requests the full material spec for that asset. Keep the full species wording in internal material/spec fields where useful for fact accuracy.
 - Every image prompt and Claude prompt delivered outside this repository must pass `80_templates/standalone_external_prompt_checklist.md`. Use repository files during preparation, then inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachment instructions, copy-shape or output requirements, and quality criteria. Claude final-copy prompts must also inline the negative style rules: no em dashes or en dashes in final output, regular hyphens are okay when needed, and no AI-isms or common AI tells. Claude final-copy prompts must instruct Claude to silently write several internal versions, analyze them, and then produce a stronger final version as the visible output. Resolve missing facts upstream before creating a Claude final-copy prompt.
 - Do not mark anything `publish_ready: Yes` until Claude output is pasted back, integrated, and final operator approval is recorded.
 
@@ -75,6 +77,7 @@ Image prompt rules:
 
 - Use ChatGPT Image 2 manually.
 - Review mode is by exception; do not ask for approval on every prompt.
+- Use the sellability-first v2.0 generator for new packs. Brand style, palette, and voice should support the listing, not outrank a stronger Marketplace thumbnail, clearer price/size proof, or easier buyer action.
 - Text-bearing image prompts are allowed.
 - Every delivered image prompt must be standalone when copied into an image model without repository access. Inline the necessary brand direction, exact palette values for graphics, typography direction, and literal in-image text.
 - Copied image prompts should use direct positive instructions and exact text lines. Do not add internal repo labels, pricing-policy explanations, or long negative style-category lists the target model would not otherwise know.
@@ -85,7 +88,7 @@ Image prompt rules:
 - Do not put SKU letters/numbers inside generated images.
 - Do not repeat the same photo with different flowers. Change the buyer question and the composition.
 - Use `00_brand/COLOR_PALETTE.md`, `00_brand/TEXT_STYLE_RULES.md`, and `00_brand/VISUAL_STYLE.md`; follow the Marketplace text-style guidance for text-bearing graphics, and do not force every image to be dark.
-- FBM price-card graphics use one plain selling-price line from the approved FBM price, plus the product or category name when useful. Copied prompts should specify the exact rendered text instead of explaining internal price-label exceptions.
+- FBM price-card graphics use one plain selling-price line from the approved FBM price, plus the product or category name when useful. If the price applies only to a featured configuration, such as K's $240 raised-bed price, label it plainly as a featured-size/configuration price in the exact rendered text. Copied prompts should specify the exact rendered text instead of explaining internal price-label exceptions.
 - Use `Built locally in Georgia`, not repeated exact-city wording.
 - Use `Lead time available by request` in compact image graphics.
 - Use `Pickup or local delivery available` in image graphics.
@@ -93,7 +96,7 @@ Image prompt rules:
 
 ## Listing Copy Defaults
 
-Claude/listing prose prompts should be creative briefs, not compliance worksheets. Give Claude the listing type, approved specs, buyer context, and Drakkar Marketplace tone, then ask for the strongest natural Marketplace listing within the facts. Include the internal draft pass: Claude should silently write several internal versions, analyze them, and then produce a stronger final version as the visible output.
+Claude/listing prose prompts should be sellability-first creative briefs, not compliance worksheets. Give Claude the listing type, approved specs, buyer context, likely buyer objections, sales priorities, and only the voice guardrails needed for fact safety. Ask for the strongest Marketplace listing within the facts, optimized for click-through, search usefulness, skim clarity, trust, and an easy next action. Include the internal draft pass: Claude should silently write several sales-angle versions, score them, combine the best parts, and then produce a stronger final version as the visible output.
 
 Claude/listing prose should use:
 
@@ -119,7 +122,8 @@ Claude/listing prose should avoid:
 - C: $60 FBM price was allowed to pass with review-later notes.
 - E: decorative planter only; do not imply it is for sitting.
 - J: clean image should show the included structure; do not imply a mailbox is included unless later approved.
-- K: use the featured 72 x 36 x 18 in size; other sizes are by quote and do not need to be enumerated now.
+- K: the Cedar Raised Garden Bed is fully customizable by quote. Use the featured 72 x 36 x 18 in configuration for the current listing, and treat its $240 price and specs as featured-configuration facts only.
+- K image surface rule: any K image prompt or product-inset prompt must show the raised bed over soil, grass, garden bed ground, or yard/garden surface only. Do not place it on porch boards, decks, patios, concrete, pavers, indoor floors, showroom floors, or other hard-surface staging.
 - Q: do not add a default flowers-not-included image disclaimer; the clean/empty image defines what is included.
 - TT: includes three standard 4-inch clay pots.
 
@@ -127,26 +131,27 @@ Claude/listing prose should avoid:
 
 | Wave | Listings | Current Action |
 | ---: | --- | --- |
-| 1 | Master catalog; A; ABC; K | Generate/review Wave 1 images, then run Claude copy pass. |
+| 1 | Master catalog; A; ABC; K | A, ABC, and K are posted/completed; decide whether to finish the Master catalog listing or move into Wave 2. |
+| 1.5 | F | Prepare Planter F with 2 trellis add-ons after trellis specs, pricing, and reference/media info are ready. |
 | 2 | B; C; G; H | Create Wave 2 image prompt pack after Wave 1 flow feels good. |
-| 3 | F; N; P; M | Validate pricing/cost notes, then create prompt pack. |
+| 3 | N; P; M | Validate pricing/cost notes, then create prompt pack. |
 | 4 | D; J; E; TT; Q; PS | Validate pricing/cost notes, then create prompt pack. |
 
 ## SKU Rollout Map
 
 | SKU | Product | Product Record | Retail | FBM Price | Image | Wave | Status | Next Action |
 | --- | --- | --- | ---: | ---: | --- | ---: | --- | --- |
-| A | Classic Square Cedar Planter | `30_products/prod_cedar_three_picket_planter_001.md` | $80 | $40 | `00_brand/photos/planter-a.png` | 1 | Published 2026-06-05; Claude-approved prose integrated | Monitor performance; continue Wave 1 with ABC/K. |
-| ABC | Cedar Planter Trio Set | `30_products/prod_cedar_trio_planter_box_set_001.md` | $220 | $110 | `00_brand/photos/planter-abc.png` | 1 | Image prompt ready; Claude prompt ready | Generate/review images, then run Claude batch. |
+| A | Classic Square Cedar Planter | `30_products/prod_cedar_three_picket_planter_001.md` | $80 | $40 | `00_brand/photos/planter-a.png` | 1 | Published 2026-06-05; Claude-approved prose integrated | Monitor performance and capture metrics. |
+| ABC | Cedar Planter Trio Set | `30_products/prod_cedar_trio_planter_box_set_001.md` | $220 | $110 | `00_brand/photos/planter-abc.png` | 1 | Done 2026-06-08; FBM listing completed | Monitor performance and capture metrics. |
 | B | Small Square Cedar Planter | `30_products/prod_cedar_petite_planter_box_111113_001.md` | $60 | $30 | `00_brand/photos/planter-b.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack; revisit price later. |
 | C | Tall Square Cedar Planter | `30_products/prod_cedar_tall_square_planter_161625_001.md` | $120 | $60 | `00_brand/photos/planter-c.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack; revisit price later. |
 | D | Cedar Post Planter Box | `30_products/prod_cedar_post_planter_box_001.md` | $220 | $110 | `00_brand/photos/planter-d.png` | 4 | Product mapped; media approved | Validate cost/pricing. |
 | E | Mini Adirondack Cedar Planter | `30_products/prod_cedar_bench_planter_001.md` | $120 | $60 | `00_brand/photos/planter-e.png` | 4 | Product synced; media approved | Validate cost/pricing. |
-| F | Tiered Cedar Pyramid Planter | `30_products/prod_cedar_pyramid_planter_001.md` | $320 | $160 | `00_brand/photos/planter-f.png` | 3 | Product mapped; media approved | Validate cost/pricing. |
+| F | Tiered Cedar Pyramid Planter | `30_products/prod_cedar_pyramid_planter_001.md` | $320 | $160 | `00_brand/photos/planter-f.png` | 1.5 | Product mapped; media approved; planned with 2 trellis add-ons pending | Get trellis specs, pricing, and reference/media info ready, then create the Wave 1.5 prompt pack. |
 | G | Long Rectangle Cedar Planter | `30_products/prod_cedar_long_planter_box_46in_001.md` | $260 | $130 | `00_brand/photos/planter-g.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack. |
 | H | Tall Cedar Planter w/ Shelf | `30_products/prod_cedar_tall_rectangular_planter_461632_001.md` | $320 | $160 | `00_brand/photos/planter-h.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack. |
 | J | Mailbox Post Cedar Planter | `30_products/prod_cedar_mailbox_post_planter_001.md` | $240 | $120 | `00_brand/photos/planter-j.png` | 4 | Product mapped; media approved | Validate cost/pricing. |
-| K | Cedar Raised Garden Bed | `30_products/prod_cedar_raised_bed_001.md` | $480 | $240 | `00_brand/photos/planter-k.png` | 1 | Image prompt ready; Claude prompt ready | Generate/review images, then run Claude batch. |
+| K | Cedar Raised Garden Bed | `30_products/prod_cedar_raised_bed_001.md` | $480 | $240 featured configuration | `00_brand/photos/planter-k.png` | 1 | Published 2026-06-09; FBM listing completed | Monitor performance and capture metrics. |
 | M | Small Tapered Cedar Planter | `30_products/prod_cedar_tapered_planter_box_001.md` | $100 | $50 | `00_brand/photos/planter-m.png` | 3 | Product mapped; media approved | Validate cost/pricing. |
 | N | Three-Tier Cedar Planter | `30_products/prod_cedar_three_tier_planter_001.md` | $240 | $120 | `00_brand/photos/planter-n.png` | 3 | Product mapped; media approved | Validate cost/pricing. |
 | P | Tall Patio Planter Box | `30_products/prod_cedar_wide_planter_box_262812_001.md` | $320 | $160 | `00_brand/photos/planter-p.png` | 3 | Product synced; media approved | Validate cost/pricing. |
@@ -156,6 +161,6 @@ Claude/listing prose should avoid:
 
 ## Next Three Actions
 
-1. Generate Wave 1 images from `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md`.
-2. If Wave 1 images look good, paste only the standalone fenced `text` prompt from `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` into Claude.
-3. After Claude output is pasted back, update the four Wave 1 listing records and ask for final manual publish approval.
+1. Decide whether to finish the Master catalog listing from Wave 1 or move directly into Wave 2.
+2. Monitor posted Wave 1 SKU metrics for A, ABC, and K: views, saves, messages, and sales.
+3. If moving forward, create the Wave 2 image prompt pack for B, C, G, and H.

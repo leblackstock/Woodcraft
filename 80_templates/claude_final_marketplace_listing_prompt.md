@@ -2,6 +2,8 @@
 
 Use this template when Claude is needed to write final customer-facing Facebook Marketplace listing prose.
 
+Optimization target: sell the listing. Marketplace voice is a guardrail for factual, plain, non-AI copy; it is not the main scoring target.
+
 ## Asset Context
 
 - channel: Facebook Marketplace
@@ -39,14 +41,17 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - cta_goal:
 - banned_claims_or_words:
 
-## Voice Rules To Include In The Delivered Prompt
+## Sellability And Voice Rules To Include In The Delivered Prompt
 
+- Optimize for buyer response, search usefulness, skim clarity, trust, and an easy next action.
+- Brand voice is a light guardrail. Do not make the listing quieter, prettier, more poetic, or more brand-like if that weakens sellability.
 - Use Marketplace Mode: direct, practical, factual, and easy to scan.
 - Lead with the product and buyer-relevant details.
 - Make approved price, size, material, ordering, pickup/delivery, and lead-time details easy to find.
 - Keep the writing plainspoken, specific, local, and unfussy.
 - Use short, confident sentences, no first person, and restraint instead of hype.
 - Use `cedar` instead of `wood` when cedar is true.
+- Use `cedar` as the customer-facing material word. Do not write `western red cedar` in Marketplace titles or descriptions unless Lauren explicitly requests the full material spec for that listing.
 - If shop context is needed, describe Drakkar Designs as a small local Georgia woodshop.
 - Use no em dashes or en dashes in final output. Regular hyphens are okay when needed.
 - Avoid AI-isms and common AI tells. If a phrase, transition, structure, or cadence is commonly recognized as AI-written, do not use it.
@@ -60,7 +65,7 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - Treat `current_asset` or `customer_copy_prep_notes` as context only, not as an approved fact source.
 - Do not invent pricing, dimensions, materials, lead times, delivery terms, availability, or product claims.
 - Do not soften missing facts with guesses.
-- Before producing the visible answer, silently write several internal versions, analyze them for truthfulness, buyer clarity, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
+- Before producing the visible answer, silently write several internal versions with different sales angles. Analyze them for buyer response, search usefulness, skim clarity, trust, objection handling, factual safety, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 - Do not use em dashes, en dashes, AI-isms, or common AI tells.
 - Do not ask for repository files or assume access to them.
 - Do not approve or rewrite image prompts, graphic prompts, overlay text, or image graphic text. This template is only for final Marketplace listing title and description prose outside the image graphic workflow.

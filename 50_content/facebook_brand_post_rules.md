@@ -32,8 +32,8 @@ Use this fast path before broader discovery:
 3. Read the target content record under `50_content/`.
 4. Check `30_products/sku_activation_index.md`. Product-specific Facebook Page posts may be created only for SKUs marked `Active` there.
 5. If the linked product is inactive, has no catalog SKU, or has no clean ref file, do not create or deliver a new post prompt. Return `BLOCKED` or archive/mark the draft as inactive.
-6. If the content record already has `approved_facts_status: Approved`, creative-selection fields, `exact_in_image_text`, `approved_reference_images`, `image_prompt_ref`, and active SKU status, open the saved image prompt and deliver from that rather than rebuilding the concept.
-7. If the saved image prompt is missing or the operator asks for a new variation, read only the linked product/listing records and `00_brand/` source files needed to fill missing approved facts, visual direction, palette, typography, or attachment instructions.
+6. If the content record already has `approved_facts_status: Approved`, creative-selection fields, `exact_in_image_text`, `approved_reference_images`, `image_prompt_ref`, and active SKU status, open the saved image prompt and deliver from that rather than rebuilding the concept only when it still matches current SKU-specific visual rules.
+7. If the saved image prompt is missing, the operator asks for a new variation, or the saved prompt conflicts with a newer SKU-specific visual rule, read only the linked product/listing records and `00_brand/` source files needed to fill missing approved facts, visual direction, palette, typography, or attachment instructions.
 8. Check recent rotation with targeted searches across `50_content/content_fbpage_*.md`; do not run broad repo discovery unless the target content record is unknown.
 9. Ask one short clarifying question only when there are multiple plausible target content records and the operator context does not identify which one to use.
 
@@ -48,6 +48,7 @@ This file owns:
 - compatibility and do-not-pair rules
 - rotation checks using saved content records
 - Facebook brand-post image graphic-text workflow
+- SKU-specific Facebook Page visual compatibility rules
 
 This file does not own:
 
@@ -56,6 +57,11 @@ This file does not own:
 - Marketplace pricing-card strategy
 - final Facebook Page post copy
 - product, price, availability, fulfillment, or customization truth
+
+## SKU-Specific Visual Rules
+
+- SKU K / Cedar Raised Garden Bed is an open-bottom raised bed. Any Facebook Page image prompt for K must show the raised bed over soil, grass, garden bed ground, or yard/garden surface. Do not place K on porch boards, decks, patios, concrete, pavers, indoor floors, showroom floors, or other hard-surface staging.
+- For SKU K, use garden inspiration, backyard garden, side-yard growing, soil/grass, or garden-ground framing. Do not pair K with porch or patio scene/inspiration even though those options are valid for other planter SKUs.
 
 ## Copy Ownership
 

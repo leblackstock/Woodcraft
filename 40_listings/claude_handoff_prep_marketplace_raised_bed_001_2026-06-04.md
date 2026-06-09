@@ -1,6 +1,6 @@
 ﻿# Claude Handoff Prep — Marketplace Raised Bed
 
-Status: Prep only; official Claude final-copy pass will happen with the broader listing batch
+Status: Prep complete; focused v2.0 sellability-first Claude prompt exists at `40_listings/prompts/claude_fbm_listing_copy_prompt_k_raised_bed_2026-06-09.md`
 Listing record: `40_listings/list_marketplace_raised_bed_001.md`
 Product record: `30_products/prod_cedar_raised_bed_001.md`
 Cost sheet: `30_products/cost_cedar_raised_bed_001.md`
@@ -8,7 +8,7 @@ Brand asset SOT: `00_brand/`
 Voice guide: `00_brand/VOICE.md`
 Voice mode: Marketplace
 
-This file is a prepared packet so the official handoff can be generated quickly later with the broader listing batch.
+This file is a prepared packet supporting the focused SKU K sellability-first Claude handoff.
 
 ## Asset Context
 
@@ -31,13 +31,13 @@ This file is a prepared packet so the official handoff can be generated quickly 
 - customer_facing_location: locally in Georgia; exact pickup locality only if logistics require it
 - material: Western red cedar, unless otherwise noted
 - featured_size: 72 x 36 x 18 in
-- other_sizes: By quote; do not enumerate sizes
+- customization_scope: Fully customizable by quote; do not imply custom configurations share the featured size, price, or specs
 - retail_price_label: $480
-- fb_marketplace_price: $240 for the featured size
+- fb_marketplace_price: $240 for the featured 72 x 36 x 18 in configuration only
 - price_basis: FB Marketplace price is the wholesale price from the partner catalog/order packet
-- customization_notes: Custom sizes by quote
+- customization_notes: Fully customizable by quote; current size, price, and specs are for the featured configuration only
 - image_status: Operator approved the catalog image for FBM listing use on 2026-06-04: `00_brand/photos/planter-k.png`
-- cost_status: Draft featured-size cost sheet exists; assumption-based materials total is $58.60 and Strategy 2 benchmark is $195.33. Cost sheet is advisory and does not block FBM draft prep.
+- cost_status: Draft featured-size cost sheet exists for the 72 x 36 x 18 in configuration only; assumption-based materials total is $58.60 and Strategy 2 benchmark is $195.33. Cost sheet is advisory and does not block FBM draft prep. Custom configurations require separate quote inputs.
 
 ## Fulfillment Prep
 
@@ -50,11 +50,12 @@ This file is a prepared packet so the official handoff can be generated quickly 
 
 - Keep the copy practical and local.
 - Mention the featured size plainly.
-- Mention custom sizes by quote without listing all sizes.
+- Make clear that K is fully customizable by quote.
+- Make clear that the $240 price, current size, and current specs apply to the featured configuration only.
 - Do not imply soil, plants, liner, delivery, or same-day availability are included.
 - Do not imply final build photos, final measured dimensions, or actual receipts are already verified.
 - Do not include a retail comparison unless Lauren explicitly asks for it.
-- The listing price is $240; write it as a plain price without a `Marketplace` label if used.
+- The listing price is $240 for the featured 72 x 36 x 18 in configuration only; write it as a plain price without a `Marketplace` label if used.
 
 ## Tone And Guardrails
 
@@ -75,6 +76,6 @@ This file is a prepared packet so the official handoff can be generated quickly 
 
 ## Remaining Items Before Official Claude Handoff
 
-- Official Claude final-copy pass with the broader listing batch
+- Paste the focused SKU K Claude prompt into Claude
 - Pasted-back Claude output integrated into the listing record
 - Final operator publish go-ahead

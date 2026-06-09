@@ -2,7 +2,7 @@
 
 Date created: 2026-06-04
 Generator template: `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md`
-Status: Ready to paste into Claude when Lauren wants the Wave 1 listing copy pass
+Status: Older Wave 1 batch prompt. For SKU K, use the focused v2.0 sellability-first prompt at `40_listings/prompts/claude_fbm_listing_copy_prompt_k_raised_bed_2026-06-09.md`.
 Listing copy owner: Claude
 Image text owner: GPT/Codex prep
 Voice source: `00_brand/VOICE.md`
@@ -25,11 +25,13 @@ Tone:
 - sounds like a real person selling useful cedar garden pieces, not a catalog sheet, not ad copy, and not luxury branding
 - short, confident sentences are good, but do not make the copy choppy
 - use "cedar" when cedar is true
+- use "cedar" as the visible material word; do not write "Western red cedar" or "western red cedar" in titles/descriptions unless Lauren explicitly asks for the full spec
 
 Rules:
 - Do not mention retail price or discounts unless the listing facts explicitly say to do that.
 - Write prices as plain customer-facing prices, without Marketplace labels.
 - Do not force every fact into the title.
+- Use "cedar" as the visible material word. Do not write "Western red cedar" or "western red cedar" in the title or description unless Lauren explicitly asks for the full spec.
 - Do not use the phrase "unless otherwise noted" in customer copy.
 - Use no em dashes or en dashes; regular hyphens are okay when needed.
 - Avoid AI-isms and common AI tells.
@@ -95,14 +97,14 @@ Listing 4:
 - listing_id: list_marketplace_raised_bed_001
 - product_name: Cedar Raised Garden Bed
 - sku: K
-- price: $240
+- price: $240 for the featured 72 x 36 x 18 in configuration only
 - featured_size: 72 x 36 x 18 in
-- custom_sizes: by quote; do not enumerate other sizes
+- customization_scope: fully customizable by quote; current size, price, and specs apply to the featured configuration only
 - material: Western red cedar
 - buyer_context: backyard, side-yard, or garden-edge raised bed for herbs, vegetables, or simple planting
 - fulfillment: pickup or local delivery by arrangement
 - lead_time: built to order; lead time provided when order is placed
-- important note: this listing is for the featured size; do not imply every custom size is $240
+- important note: make clear that this listing's $240 price, size, and specs are for the featured configuration only; do not imply custom configurations share that price or spec
 
 Before answering, silently write several internal versions for each listing, analyze them for truthfulness, buyer clarity, voice fit, specificity, natural rhythm, correct prices and sizes, banned wording, dash tells, and AI-isms, then write a stronger final version as the visible output.
 ```

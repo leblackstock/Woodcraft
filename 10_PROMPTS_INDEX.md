@@ -79,10 +79,10 @@ Brand identity references used by prompts:
 
 Workflow-specific listing image prompt templates live in [40_listings/prompts/](40_listings/prompts/):
 
-- `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
+- `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md`
 - `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md`
 - `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md`
-- `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md`
+- `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v2.0.md`
 - `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md`
 
 Current Facebook Page brand-post image workflow:
@@ -105,6 +105,15 @@ Fast path for short "fb brand post prompt" requests:
 Deprecated but retained for traceability:
 
 - `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.0.md`
+- `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
+- `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md`
+
+Current FBM listing prompt strategy:
+
+- Use the v2.0 FBM generators for new Marketplace listing-copy handoffs and listing image prompt packs.
+- Optimize FBM listing copy and images for sellability first: click, skim clarity, price/size/use-case confidence, buyer trust, and easy next action.
+- Treat Drakkar Marketplace voice as a light guardrail for truthfulness and tone safety, not the main scoring target.
+- Keep approved-fact, Claude final-copy, standalone prompt, attachment, pricing, and image-fidelity rules intact.
 
 ## Prompt Categories to Build Next
 

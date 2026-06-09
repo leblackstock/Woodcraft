@@ -1,5 +1,7 @@
 # FBM Claude Listing Copy Generator Prompt v1.0
 
+Status: Superseded by `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v2.0.md` for new sellability-first FBM listing-copy handoffs. Retain for traceability only.
+
 Purpose: generate paste-ready Claude prompts for final Facebook Marketplace listing title and description copy using approved catalog facts only.
 
 Owner: GPT/Codex orchestration
@@ -44,6 +46,10 @@ Optional only if needed:
 - Do not ask Claude to invent facts, discounts, lead times, delivery promises, materials, finishes, or included items.
 - Keep `publish_ready: No` until Claude output is pasted back, integrated, and final operator publish approval is recorded.
 
+## SKU-Specific Prompt Rules
+
+- For K / Cedar Raised Garden Bed, state that the raised bed is fully customizable by quote, and make clear that the current size, price, and specs apply only to the featured 72 x 36 x 18 in configuration. Do not let Claude imply custom configurations share the featured price or specs.
+
 ## Image Text Boundary
 
 Do not send image prompts, graphic prompts, overlay text, or image graphic text to Claude for approval.
@@ -62,6 +68,7 @@ Brand-specific copy, graphic text, ad text, and template language should referen
 - unfussy
 - no first person
 - use `cedar` when cedar is true
+- use `cedar` as visible customer-facing material wording; do not write `Western red cedar` or `western red cedar` in FBM titles/descriptions unless Lauren explicitly asks for the full spec
 - no em dashes or en dashes in final output; regular hyphens are okay when needed
 - no AI-isms or common AI tells
 - describe Drakkar Designs as a small local Georgia woodshop when shop context is needed
@@ -110,6 +117,7 @@ Rules:
 - Do not mention retail price or discounts unless Lauren explicitly asks for retail-comparison wording.
 - Write the listing price as the plain customer-facing price, without Marketplace labels.
 - Do not force every fact into the title.
+- Use `cedar` as the visible material word. Do not write `Western red cedar` or `western red cedar` in the title or description unless Lauren explicitly asks for the full spec.
 - Do not use the phrase "unless otherwise noted" in customer copy.
 - Use no em dashes or en dashes; regular hyphens are okay when needed.
 - Avoid AI-isms and common AI tells.
@@ -135,6 +143,7 @@ Do not ask Claude to write or approve image graphic text, image prompts, caption
 - Dimensions/specs match catalog truth.
 - Media facts are not used as unsupported selling claims.
 - SKU-specific restrictions are included.
+- K prompts, when present, state the fully customizable quote path and featured-configuration-only price/spec boundary.
 - Prompt asks Claude for listing prose only.
 - Prompt tells Claude to silently write several internal versions, analyze them, and then produce a stronger final version as the visible output.
 - Prompt does not ask Claude to approve image prompts, graphic prompts, overlay text, or image graphic text.

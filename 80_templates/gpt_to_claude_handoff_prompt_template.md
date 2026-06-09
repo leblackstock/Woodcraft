@@ -52,6 +52,7 @@ Do not use this template to ask Claude to polish unsupported draft copy.
 - Use no first person.
 - Prefer short, confident sentences and restraint instead of hype.
 - Use `cedar` instead of `wood` when cedar is true.
+- Do not automatically expand `cedar` to `western red cedar`. Use the full spec sparingly, and leave it out of Marketplace listings and product blurbs unless Lauren explicitly requests it.
 - Use no em dashes or en dashes in final output. Regular hyphens are okay when needed.
 - Avoid AI-isms and common AI tells. If a phrase, transition, structure, or cadence is commonly recognized as AI-written, do not use it.
 - Avoid artisan, artisanal, curated, thoughtfully, lovingly, carefully crafted, handcrafted, elevate, experience, journey, story, sustainable, eco-friendly, luxury, bespoke, timeless, heirloom, crafted, and partner-confidential terms.

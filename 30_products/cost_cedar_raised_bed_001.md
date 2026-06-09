@@ -7,7 +7,7 @@
 - prepared_by: GPT-5.5
 - linked_product_id: prod_cedar_raised_bed_001
 - linked_listing_id: list_marketplace_raised_bed_001
-- standard_spec_ref: 20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/Drakkar Retail Catalog.html — K featured 72 x 36 x 18 in; other sizes by quote
+- standard_spec_ref: 20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/Drakkar Retail Catalog.html — K featured 72 x 36 x 18 in only; K is fully customizable by quote
 - cost_basis_date: 2026-06-04
 - pricing_status: Advisory Draft — assumption-based featured-size cost note; not an FBM draft blocker
 
@@ -45,7 +45,7 @@
 ## Unit Economics
 
 - total_unit_cost: Pending — labor-inclusive unit cost not yet verified.
-- target_price: $240.00 — FB Marketplace wholesale price from the partner catalog/order packet for the featured size.
+- target_price: $240.00 — FB Marketplace wholesale price from the partner catalog/order packet for the featured 72 x 36 x 18 in configuration only.
 - gross_profit: Materials-only spread is $181.40 before labor and delivery.
 - gross_margin: Materials-only margin is 75.6% before labor and delivery.
 
@@ -57,7 +57,7 @@
 - pricing_strategy_2_note: $58.60 / 0.30 = $195.33.
 - material_cost_percent_of_price: 24.4% at the $240.00 FB Marketplace price.
 - recommended_price_floor: $195.33 materials benchmark; selected catalog FBM price is $240.00.
-- pricing_strategy_review: Advisory / Materials Benchmark Pass — the catalog FBM price clears Strategy 2 on assumption-based featured-size inputs. Operator approved the catalog FBM price for listing prep; build-method and labor details remain advisory/post-build validation, not FBM draft blockers.
+- pricing_strategy_review: Advisory / Materials Benchmark Pass — the catalog FBM price clears Strategy 2 on assumption-based featured-size inputs only. Operator approved the featured-size catalog FBM price for listing prep; build-method and labor details remain advisory/post-build validation, not FBM draft blockers. Custom K configurations require separate quote inputs.
 
 ## Guardrail Check
 
@@ -71,8 +71,8 @@
 
 ## Notes and Approval
 
-- unresolved_inputs: Verify final cut list for 72 x 36 x 18 in featured bed / first-build labor time.
-- operator_notes: Other K sizes are by quote and do not need to be enumerated for this listing workflow. Operator approved catalog image use and delivery wording on 2026-06-04.
+- unresolved_inputs: Verify final cut list for 72 x 36 x 18 in featured bed / first-build labor time; collect separate cost inputs for custom K configurations as quoted.
+- operator_notes: K is fully customizable by quote. This cost sheet, size, price, and specs apply to the featured 72 x 36 x 18 in configuration only. Operator approved catalog image use and delivery wording on 2026-06-04.
 - approval_status: Advisory Draft Accepted for FBM Prep
 - approved_by: Lauren
 - approval_date: 2026-06-04

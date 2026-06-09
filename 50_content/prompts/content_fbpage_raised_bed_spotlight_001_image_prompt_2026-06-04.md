@@ -2,7 +2,7 @@
 
 Target record: `50_content/content_fbpage_raised_bed_spotlight_001.md`
 Generator: `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
-Use status: Published. Used for the Drakkar Designs Facebook Page post on 2026-06-08; operator screenshot showed the post live as "Just now." The approved catalog image attachment requirement was satisfied before publication.
+Use status: Published. Used for the Drakkar Designs Facebook Page post on 2026-06-08; operator screenshot showed the post live as "Just now." The approved catalog image attachment requirement was satisfied before publication. Post-publication rule update on 2026-06-09: future reuse must keep SKU K over soil, grass, garden bed ground, or yard/garden surface.
 
 Selection audit:
 
@@ -37,7 +37,7 @@ Objective and audience:
 Create a trust-building Facebook Page brand graphic for local homeowners and backyard gardeners considering a cedar raised garden bed. Present the raised bed as a simple garden upgrade for vegetables, herbs, or flowers. Do not generate the accompanying Facebook Page post copy or Marketplace listing copy.
 
 Subject and composition:
-Use a light catalog-card layout with the cedar raised garden bed as the clear main subject. The product is the featured 72 x 36 x 18 in cedar raised garden bed. Show it from a front three-quarter view with the long rectangular shape, open top, raised rim, side boards, corner posts, warm cedar color, and garden-ready scale clearly visible. Use a soft warm stone or cream field with a clean garden-photo area, thin catalog divider lines, and restrained spacing. Dark soil or simple garden context may appear for staging, but do not imply soil, plants, liner, or accessories are included with purchase. Keep the product dominant and keep the graphic calm, practical, and not salesy.
+Use a light catalog-card layout with the cedar raised garden bed as the clear main subject. The product is the featured 72 x 36 x 18 in cedar raised garden bed. Show it from a front three-quarter view with the long rectangular shape, open top, raised rim, side boards, corner posts, warm cedar color, and garden-ready scale clearly visible. The raised bed must sit over soil, grass, garden bed ground, or a yard/garden surface inside the clean garden-photo area. Use a soft warm stone or cream catalog-card field around the garden-photo area, thin catalog divider lines, and restrained spacing. Do not place the raised bed on porch boards, deck, patio, concrete, pavers, indoor floor, showroom surface, or any other hard-surface staging. Dark soil or simple garden context may appear for staging, but do not imply soil, plants, liner, or accessories are included with purchase. Keep the product dominant and keep the graphic calm, practical, and not salesy.
 
 Reference attachments:
 Attach the approved catalog image for Cedar Raised Garden Bed before generating. Use that attachment to control the product shape, proportions, open-top bed format, rim, side boards, corner posts, cedar color, and overall scale. If no approved product reference image is attached, stop and ask for it rather than inventing a substitute product. Do not invent or redraw a logo.
@@ -59,11 +59,11 @@ Render exactly these words and no other readable words:
 CEDAR RAISED GARDEN BED
 
 Output and quality:
-Square 1:1 Facebook Page graphic. Product must remain clear and dominant. Text must be high contrast, well-spaced, and readable on mobile. Keep the visual warm, practical, handmade, and catalog-inspired. Do not include a Marketplace price card, price, discount language, website URL, accompanying post copy, or sales CTA.
+Square 1:1 Facebook Page graphic. Product must remain clear and dominant and must sit over soil, grass, garden bed ground, or a yard/garden surface. Text must be high contrast, well-spaced, and readable on mobile. Keep the visual warm, practical, handmade, and catalog-inspired. Do not include a Marketplace price card, price, discount language, website URL, accompanying post copy, or sales CTA.
 
 Failure behavior:
 If the product reference image is missing, unclear, or cannot be followed, stop and ask for the approved product reference image. Do not invent price, availability, lead time, delivery promises, custom options, alternate sizes, alternate materials, finishes, liners, soil included, plants included, or other unsupported claims.
 
 Avoid:
-Wrong product shape, wrong dimensions, distorted scale, extra products, cluttered garden styling, unreadable or extra text, weak text contrast, generic corporate flyer design, cheap sale-card look, cartoon Viking motifs, horned helmets, shields, fantasy runes, clipart, invented logos, glossy plastic or metal appearance, painted wood, luxury showroom setting, and bright unrelated colors.
+Wrong product shape, wrong dimensions, distorted scale, extra products, porch boards, deck, patio, concrete, pavers, indoor floor, showroom surface, cluttered garden styling, unreadable or extra text, weak text contrast, generic corporate flyer design, cheap sale-card look, cartoon Viking motifs, horned helmets, shields, fantasy runes, clipart, invented logos, glossy plastic or metal appearance, painted wood, luxury showroom setting, and bright unrelated colors.
 ```

@@ -51,8 +51,8 @@ Fast route:
 3. Check `30_products/sku_activation_index.md`. Product-specific posts may be created only for SKUs marked `Active`.
 4. If the linked product is inactive, has no catalog SKU, or has no clean ref file, do not create or deliver a new post prompt. Return `BLOCKED` with the SKU activation reason.
 5. If the target content record already points to a saved `image_prompt_ref`, open that prompt first.
-6. Reuse the saved selection audit, filename, attachment reminder, and standalone prompt when the facts, objective, and active SKU status still match.
-7. Rebuild only when the operator requests a new variation, the saved prompt is missing, the facts changed, the attachment requirement changed, SKU activation changed, or the prompt fails the standalone checklist.
+6. Reuse the saved selection audit, filename, attachment reminder, and standalone prompt when the facts, objective, active SKU status, and SKU-specific visual rules still match.
+7. Rebuild only when the operator requests a new variation, the saved prompt is missing, the facts changed, the attachment requirement changed, SKU activation changed, a SKU-specific visual rule changed, or the prompt fails the standalone checklist.
 8. For rotation, use targeted `50_content/content_fbpage_*.md` searches for the six creative fields instead of broad file discovery.
 9. Read `00_brand/` files only when rebuilding the prompt or when a missing detail must be refreshed.
 
@@ -137,6 +137,11 @@ The copied prompt must inline:
 - failure behavior that prohibits invented substitutes when a required attachment, fact, logo, product detail, or literal text cannot be used
 
 Do not copy local paths into the external prompt. Refer to required attachments by their supplied role, such as `the attached approved product reference image` or `the attached approved Drakkar Designs logo`.
+
+## SKU-Specific Visual Rules
+
+- For SKU K / Cedar Raised Garden Bed, the raised bed is open-bottom and must be shown over soil, grass, garden bed ground, or yard/garden surface. Do not place K on porch boards, decks, patios, concrete, pavers, indoor floors, showroom floors, or other hard-surface staging.
+- For SKU K, choose garden/backyard/side-yard/soil/grass framing instead of porch or patio framing, even when generic Facebook Page creative pools include porch or patio options.
 
 ### Internal Prompt Construction Shape
 

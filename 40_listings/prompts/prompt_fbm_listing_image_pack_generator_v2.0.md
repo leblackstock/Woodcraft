@@ -1,8 +1,6 @@
-﻿# FBM Listing Image Pack Generator Prompt v1.1
+# FBM Listing Image Pack Generator Prompt v2.0
 
-Status: Superseded by `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md` for new sellability-first FBM image prompt packs. Retain for traceability only.
-
-Purpose: generate an 8-image prompt pack, or a 10-image pack when justified, for each Facebook Marketplace SKU listing using approved catalog facts, approved catalog images, and review-by-exception image text.
+Purpose: generate an 8-image prompt pack, or a 10-image pack when justified, for each Facebook Marketplace SKU listing using approved catalog facts, approved catalog images, and review-by-exception image text, optimized for the most sellable Marketplace image set.
 
 Owner: GPT/Codex orchestration and image-prep
 Delivery scope: internal repository generator; do not paste this generator outside the repository as a substitute for the standalone image prompts it produces
@@ -11,21 +9,26 @@ Image text owner: GPT/Codex may generate factual in-image text as needed
 Listing prose owner: Claude remains responsible for final Marketplace title, description, captions, CTAs, promo blurbs, and reply copy outside governed image graphic text
 Current image creation path: Lauren generates images manually with ChatGPT Image 2 from these prompt packs.
 Automation status: do not build Canva, Figma, HTML, or scripted graphic templates right now. Keep automation/template notes only as future-reference ideas.
-Voice mode for factual in-image text: Marketplace
+
+## Strategy Change From v1.1
+
+This generator is sellability-first.
+
+Do not make brand mood, perfect palette obedience, or voice-guide fit the main target. Use brand guidance as a tool for trust and consistency, then prioritize the image set most likely to make a local Marketplace buyer stop, understand the offer, trust the product, and message to order.
+
+If a more sellable image needs a brighter background, more useful staging, a tighter crop, stronger price clarity, clearer dimensions, or a more practical composition than the default brand mood would suggest, choose the more sellable image while keeping approved facts, exact product fidelity, readable text, and palette/background rules intact.
 
 ## Source Priority
 
 Use sources in this order:
 
 1. Saved Drakkar catalog artifacts in `20_research/catalog_exports/2026-06-03/`
-2. Brand assets and identity guidance in `00_brand/`
-3. Workflow rules in `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
+2. Active FBM workflow hub at `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
+3. Brand assets and approved product photos in `00_brand/`
 4. The per-SKU image plan at `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md`
-5. The visual style reference at `00_brand/VISUAL_STYLE.md`
-6. The Marketplace typography guidance at `00_brand/TEXT_STYLE_RULES.md`
-7. Product records in `30_products/`
-8. Listing records in `40_listings/`
-9. The voice guide at `00_brand/VOICE.md`
+5. Product records in `30_products/`
+6. Listing records in `40_listings/`
+7. Visual, color, text-style, and voice guidance in `00_brand/`
 
 Do not use older product names, older prices, older sizes, or website values when they conflict with the saved catalog artifacts.
 
@@ -50,7 +53,6 @@ Do not use older product names, older prices, older sizes, or website values whe
 
 - Product line: handmade cedar garden goods.
 - Brand SOT: use `00_brand/` for current assets and identity guidance, including `VOICE.md`, `COLOR_PALETTE.md`, `TEXT_STYLE_RULES.md`, and `VISUAL_STYLE.md`.
-- Factual in-image wording uses Marketplace Mode from `00_brand/VOICE.md`; keep it direct, practical, factual, and easy to scan.
 - Customer-facing location wording: use `locally in Georgia`; use exact pickup locality only when necessary for logistics.
 - Build model: built to order unless a record says otherwise.
 - Lead time: use `Lead time provided when ordering` for listing facts unless a record says otherwise. For compact image graphics, use `Lead time available by request`.
@@ -63,6 +65,18 @@ Do not use older product names, older prices, older sizes, or website values whe
 - Do not strip requested text from image prompts by default.
 - Do not route image prompts, graphic prompts, overlay text, or literal in-image text to Claude for approval. Claude is only for standalone final copy blocks outside the image graphic workflow.
 
+## Sellability Priorities
+
+Optimize every pack for Marketplace buyer behavior:
+
+1. Click: Image 1 must be the strongest first thumbnail for a mobile Marketplace feed.
+2. Clarity: the buyer should quickly understand product type, size, material, price, and what is included.
+3. Trust: include a clean product anchor, practical scale, realistic cedar, and detail proof.
+4. Desire: show at least one finished use case that makes the item feel useful now, not merely documented.
+5. Action: make price and ordering graphics simple enough to act on without reading a long description.
+
+Brand style should support those goals, not outrank them.
+
 ## Review-By-Exception Rule
 
 Do not ask Lauren to approve each generated image prompt or each generated graphic text line.
@@ -71,11 +85,12 @@ Generate the full pack from approved facts. Lauren will request changes if somet
 
 ## Image Text Rules
 
-Allowed to generate directly:
+Allowed to generate directly when supported by approved facts:
 
 - plain selling-price text from approved FBM prices
 - set or bundle savings text when the separate-item total, set price, and savings amount are approved facts or explicitly requested by Lauren
 - product names from catalog truth
+- direct buyer-benefit labels that follow from approved facts, such as herb planter, patio planter, raised garden bed, tabletop herb planter, or planter trio set
 - simple factual labels
 - `Built locally in Georgia`
 - `Custom sizing available` only when true for the SKU or category
@@ -85,38 +100,53 @@ Allowed to generate directly:
 - numeric dimensions from approved product or catalog facts
 - factual inclusion/exclusion notes only when necessary to prevent a misleading image
 
-## Text Overlay Default Count And Slots
+Do not generate unsupported slogans, urgency, scarcity, emotional claims, discounts, durability claims, guarantees, or promotional hooks that go beyond approved facts.
 
-Use a default number of text-overlay or graphic images so the listing still feels like a real Marketplace product listing, not an ad flyer. These counts are defaults, not hard caps and not text-removal rules. If Lauren requests more image text, or if approved SKU facts need another graphic/overlay for clarity, keep the text and document the reason.
+If the same wording is intended to become a standalone listing, post/caption, advertisement, catalog, or customer-reply prose block outside the image, route that separate prose block through Claude.
+
+## Text Overlay Defaults And Sellability Overrides
+
+Use enough text-bearing graphics to make the listing easy to buy from, but not so much that it feels like an ad flyer.
 
 - 8-image listing default: use 3 text-overlay images.
 - 10-image listing default: use 4 text-overlay images.
-- Image 1 should usually have no text overlay unless Lauren explicitly asks for a hero graphic or overlay-led first image.
-- For 8-image listings, the 3 text-overlay images are:
-  - Image 3: price card
-  - Image 7: dimensions/details graphic with numeric dimensions
-  - Image 8: final ordering graphic
-- For 10-image listings, the 4 text-overlay images are:
-  - Image 3: price card
-  - Image 8: dimensions/details graphic with numeric dimensions
-  - Image 9: important details graphic
-  - Image 10: final ordering graphic
-- Important details graphics may include facts such as pots included, mailbox not included when necessary, custom sizes available, cut/preferred height, finish options, or other SKU-specific facts.
+- Image 1 is usually a no-text best-thumbnail image. Add a small factual overlay only when it clearly improves the click or offer clarity and does not crowd the product.
 - Image 2 should stay the clean/empty product image by default because it is the inclusion anchor and trust builder.
-- Put the price card at Image 3 by default. Use Image 2 for price only as an intentional exception, not the standard sequence.
-- Product photos, clean product images, size/context photos, use-case photos, detail shots, and variation photos should usually have no text overlay unless the image's purpose is explicitly a graphic or Lauren requests overlay text for that slot.
-- Product photos carry trust first; graphics support price, size/details, local terms, and ordering.
+- Product photos, clean product images, size/context photos, use-case photos, detail shots, and variation photos should usually have no text overlay unless the image's purpose is explicitly a graphic or overlay-led image.
+- Product photos carry trust and desire first; graphics support price, size/details, local terms, and ordering.
+- Put the price card at Image 3 by default unless a different sequence is plainly more sellable. Document the reason for any sequence change.
 - Do not include deposit terms unless Lauren explicitly approves them later.
 
-Do not generate as image graphic text unless the active image workflow, approved facts, and Lauren's request or the image plan explicitly support it. This is a fact-safety rule for unsupported claims, not a Claude or per-line approval requirement. If the same wording is intended to become a standalone listing, post/caption, advertisement, catalog, or customer-reply prose block outside the image, route that separate prose block through Claude:
+Default 8-image sequence:
 
-- promotional hooks
-- emotional sales claims
-- slogans
-- discount or savings framing beyond approved price facts or explicit operator direction
-- CTA lines that go beyond simple factual ordering instructions
-- platform captions
-- listing titles or descriptions
+1. Best Thumbnail: the image most likely to stop a Marketplace buyer while still showing the exact product.
+2. Clean Product: show the empty product clearly and define what is included.
+3. Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. If the price applies only to a featured configuration, label the price line plainly.
+4. Size/Context Photo: answer `how big is it?` with practical scale.
+5. Use-Case Photo: show one specific application, planting idea, or placement use.
+6. Detail/Trust Photo: show cedar grain, shape, rim, post, shelf, tier, corner, or other visible construction detail.
+7. Dimensions/Details Graphic: use exact numeric dimensions/specs and local/order facts.
+8. Final Ordering Graphic: simple order instruction and pickup/delivery availability.
+
+Default 10-image extension:
+
+7. Support/Variation Photo: no-text practical variation or alternate use.
+8. Dimensions/Details Graphic: exact numeric dimensions/specs.
+9. Important Details Graphic: supported inclusion, customization, size, or quote facts.
+10. Final Ordering Graphic: simple order instruction and pickup/delivery availability.
+
+If only 6 images are needed, keep Images 1, 2, 3, 6, 7, plus the stronger of Image 4 or Image 5. Do not use the 10-image extension for a reduced pack.
+
+## Best Thumbnail Rules
+
+Image 1 should be judged by whether a buyer would stop scrolling.
+
+- Make the product large and readable in a square mobile crop.
+- Use the approved attachment to keep the product's exact shape, count, dimensions, board proportions, rim, legs/posts/shelf/tier details, cedar tone, and included pieces.
+- Use a desirable but believable porch, patio, garden, doorstep, entryway, or workshop-adjacent setting.
+- Prefer useful staging over generic prettiness: herbs, flowers, vegetables, gloves, watering cans, porch rails, patio stone, garden paths, or entry details when they support the product.
+- Keep the scene honest and local, not luxury real estate, fantasy, glossy studio, or generic stock.
+- If text is used on Image 1, keep it minimal, factual, and mobile-readable.
 
 ## Truth Guardrails
 
@@ -150,29 +180,13 @@ Use positive, direct instructions first: exact product, exact attachment, exact 
 - wrong background style
 - unrealistic materials or finishes
 
-Do not put abstract governance notes, pricing-policy explanations, approval rules, source-of-truth warnings, listing-copy ownership, or repo-only labels in copied prompt text. If the prompt already says `Render exactly these lines and no other words`, do not add a separate list of labels or phrases to avoid.
+Do not put abstract governance notes, pricing-policy explanations, approval rules, source-of-truth warnings, listing-copy ownership, or repo-only labels in copied prompt text.
 
 ## Filename Rules
 
 Every generated image prompt should include a suggested output filename.
 
 Place the filename outside the prompt text. When delivering prompts in chat, use two separate codeboxes: first a filename-only codebox, then a prompt-only codebox. Never embed the filename inside the prompt codebox.
-
-Chat delivery format:
-
-Filename:
-
-```text
-example_filename_fbm_01_lifestyle_hero_v01.png
-```
-
-Prompt:
-
-```text
-Please see attached "the approved catalog image for [plain-language product or listing name]".
-
-Create...
-```
 
 SKU listings use this filename pattern:
 
@@ -186,12 +200,12 @@ Use lowercase filenames, underscores between words, two-digit image numbers, and
 
 Standard role slugs:
 
-- `lifestyle_hero`
+- `best_thumbnail`
 - `clean_product`
 - `size_context`
 - `use_case`
-- `detail`
-- `price_graphic`
+- `detail_trust`
+- `price_value`
 - `dimensions_details`
 - `final_ordering`
 - `support_variation`
@@ -214,45 +228,44 @@ Every delivered `Prompt:` must also pass `80_templates/standalone_external_promp
 - Do this even when the prompt is mainly a text graphic. The attachment gives the image model the correct product and prevents detached, generic graphics.
 - Exact product fidelity is always required for Facebook Marketplace listing images. Do not deliver or generate an FBM listing image prompt from text only.
 - If the approved catalog image or required reference image is missing, stop and ask for the attachment instead of producing a text-only approximation.
-- If a delivered `Prompt:` requires an attached image, make the first line of that prompt `Please see attached "[plain-language item being attached]"`.
-- Clean-product image slots may use the approved catalog image directly as the listing asset. If any Marketplace listing image is generated or regenerated, its copied prompt still starts with the required `Please see attached ...` line.
 
 Required standalone brand direction for photo prompts:
 
-> Drakkar Designs brand direction: cedar-forward, practical, local, warm, and unfussy; realistic warm cedar grain and an honest handmade feel; natural daylight with soft shadows; porch, patio, garden, doorstep, or workshop-adjacent context; warm stone/cream surfaces, natural garden greens, muted silver/gray concrete or hardware, and small cedar/burnt-orange accents only when they fit the scene; clean useful composition that keeps the product proportions realistic and readable in a mobile Marketplace feed.
+> Drakkar Designs direction for FBM listing photos: sell the product clearly first. Show realistic warm cedar grain, honest handmade character, and exact product proportions from the attached reference. Use practical local porch, patio, garden, doorstep, entryway, or workshop-adjacent settings with natural daylight and soft shadows. Choose a specific physical background or surface before describing the rest of the scene. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the product large, trustworthy, and easy to understand in a square mobile Marketplace crop.
 
 Required standalone palette wording for graphic prompts:
 
-> Choose the background first, then list the remaining approved palette colors without assigning them to specific elements. For dark Marketplace graphics, default background is deep charcoal `#13181B` unless the prompt explicitly chooses a light card. For light-card graphics, default background is soft cream `#ebe9e3`. Remaining approved palette colors to list without role assignments: warm stone/cream `#DEDCD6`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Do not tell the image model which remaining color to use for text, dividers/rules, badges, accents, panels, or inset fields.
+> Choose the background first, then list the remaining approved palette colors without assigning them to specific elements. Use whichever background makes this specific graphic most readable and sellable. For dark Marketplace graphics, default background is deep charcoal `#13181B`. For light-card graphics, default background is soft cream `#ebe9e3`. Remaining approved palette colors to list without role assignments: warm stone/cream `#DEDCD6`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Do not tell the image model which remaining color to use for text, dividers/rules, accents, panels, badges, or inset fields.
 
 Required standalone wording direction for factual FBM graphic text:
 
-> Keep the graphic direct, practical, factual, easy to scan, restrained, and free of hype or first-person language.
+> Keep the graphic direct, practical, factual, easy to scan, buyer-focused, and free of unsupported hype or first-person language.
 
 ## Prompt Specificity Requirements
 
-Write the copied image prompts more explicitly than a normal creative brief. Each prompt should tell ChatGPT Image 2 exactly what the image is for, what buyer question it answers, what should stay realistic, what colors to use, and where artistic variation is welcome.
+Write the copied image prompts explicitly. Each prompt should tell ChatGPT Image 2 exactly what the image is for, what buyer question it answers, what should stay realistic, what makes it sell, what colors or physical background to use, and where artistic variation is welcome.
 
 For every FBM prompt:
 
 - State that the image is for a Facebook Marketplace listing and should read quickly in a mobile Marketplace feed.
-- Name the image role and buyer job, such as first thumbnail, inclusion anchor, price clarity, size check, specific use case, detail proof, dimensions/details, or final ordering instruction.
+- Name the image role and buyer job, such as best thumbnail, inclusion anchor, price clarity, size check, specific use case, detail proof, dimensions/details, or final ordering instruction.
+- Explain what makes this slot sell: click appeal, confidence, price clarity, size proof, use-case desire, trust, or action.
 - Explicitly name the background color or physical background/surface. Graphic prompts must choose a background color first. Photo prompts must state the actual environment background, such as porch boards, patio stone, garden path, soft cream product field, or workshop-adjacent surface.
 - Require realistic product proportions. Use the approved attachment to control the product's exact shape, count, dimensions, board proportions, rim, legs/posts/shelf/tier details, cedar tone, and included pieces.
 - Say not to stretch, shrink, rotate, add, remove, or redesign the product beyond what the approved attachment supports.
-- Describe the intended tone: practical, local, warm, cedar-forward, trustworthy, handmade, and unfussy.
-- Allow artistic expression in staging, lighting, background texture, divider placement, typography rhythm, and small catalog-style ornaments, as long as the product facts, exact text, proportions, and brand palette remain correct.
+- Allow artistic expression in staging, lighting, background texture, divider placement, typography rhythm, and small catalog-style ornaments, as long as the product facts, exact text, proportions, readability, and brand palette remain correct.
 
 For photo, hero, lifestyle, use-case, size/context, clean-product, variation, and detail prompts:
 
-- Include a camera angle and distance. Examples: front three-quarter view at about chest height, slightly higher three-quarter view into an open planter, low front corner detail close-up, overhead-ish practical garden view, or wider patio comparison view.
+- Include a camera angle and distance.
 - Include framing guidance for a square crop: leave breathing room, keep the product large enough to read at phone size, and avoid cropping off important edges.
-- Include lighting and color direction for materials and setting: natural daylight, soft shadows, warm realistic cedar, practical porch/patio/garden surfaces, natural greenery, and believable concrete, stone, or metal when useful. For brand palette colors, choose only the background and list the remaining palette colors without assigning them to scene elements.
+- Include lighting and color direction for materials and setting: natural daylight, soft shadows, warm realistic cedar, practical porch/patio/garden surfaces, natural greenery, and believable concrete, stone, or metal when useful.
+- Choose only the background or physical setting first, then list remaining palette colors without assigning them to scene elements.
 - Do not make lifestyle or hero images look like luxury real estate ads, fantasy scenes, glossy studio renders, or generic stock photos.
 
 For text-bearing graphic prompts:
 
-- Generate the exact in-image text from approved facts using Marketplace Mode: direct, practical, factual, easy to scan, no first person, no hype.
+- Generate the exact in-image text from approved facts using Marketplace Mode only as a guardrail: direct, practical, factual, easy to scan, no first person, no unsupported hype.
 - Use `cedar` as the visible material word in image text. Do not write `Western red cedar` or `western red cedar` unless Lauren explicitly requests the full spec.
 - Include the literal words in the prompt and require no extra readable words.
 - Specify the chosen background color first, then list the remaining approved palette colors without assigning them to text, dividers/rules, badges, accents, panels, or inset fields.
@@ -265,12 +278,12 @@ Avoid near-duplicate image prompts within the same SKU pack.
 
 - Do not create a new image slot by repeating the same setting, camera angle, product pose, and composition with different flowers or plants.
 - Each no-text photo slot must change the buyer question and at least two visible composition variables: setting, camera distance, camera angle, product state, scale reference, use case, background, or detail focus.
-- Image 1, Lifestyle Hero: sell the product in an appealing finished-use setting. It may use porch, patio, garden, entryway, plants, and lifestyle props to create desire.
+- Image 1, Best Thumbnail: sell the product at first glance. It may be a lifestyle hero, clean product hero, or use-case hero, whichever is most likely to stop a Marketplace buyer while preserving exact product fidelity.
 - Image 2, Clean Product: show the empty product clearly and define what is included.
-- Image 3, Price Card: show the product name and one plain selling-price line from the approved FBM price. When the approved price applies only to a featured configuration, as with K, label the line plainly, such as `Featured size $240`, so the graphic does not imply every custom build shares that price. For approved sets or bundles, savings wording may be added when the separate-item total, set price, and savings amount are approved facts or Lauren explicitly requests it. Keep it factual, such as `3 separately $130`, `Set price $110`, and `Save $20 as a set`, rather than vague sale hype. The copied prompt should specify only the exact rendered text, not internal labels or price-policy explanations.
-- Image 4, Size/Context Photo: answer `how big is it?` quickly. Use practical scale references, a simpler background, and a comparison-photo feel. Do not repeat the lifestyle hero scene.
-- Image 5, Use Case Photo: show one specific application, planting idea, or placement use. It should not be another broad lifestyle hero. Change the setting, camera distance, or use type enough that it feels distinct from Image 1.
-- Image 6, Detail Photo: show material, shape, corners, rim, shelf, post, tier, or other visible construction details.
+- Image 3, Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. When the approved price applies only to a featured configuration, as with K, label the line plainly, such as `Featured size $240`, so the graphic does not imply every custom build shares that price. For approved sets or bundles, savings wording may be added when the separate-item total, set price, and savings amount are approved facts or Lauren explicitly requests it. Keep it factual, such as `3 separately $130`, `Set price $110`, and `Save $20 as a set`, rather than vague sale hype.
+- Image 4, Size/Context Photo: answer `how big is it?` quickly. Use practical scale references and a simpler background. Do not repeat the first thumbnail scene.
+- Image 5, Use-Case Photo: show one specific application, planting idea, or placement use. It should not be another broad lifestyle hero.
+- Image 6, Detail/Trust Photo: show material, shape, corners, rim, shelf, post, tier, or other visible construction details.
 - Image 7, Dimensions/Details Graphic: use exact numeric dimensions/specs and built-to-order/local facts. For bundles or sets, include the numeric dimensions for each included size.
 - Image 8, Final Ordering Graphic: simple final order instruction and pickup/delivery availability.
 - For 10-image packs, Image 7 becomes a no-text support/variation photo, Image 8 becomes the dimensions/details graphic with numeric dimensions, Image 9 becomes the important-details graphic, and Image 10 becomes the final ordering graphic.
@@ -279,14 +292,12 @@ For Image 4, prefer everyday scale references such as watering cans, gloves, nur
 
 For Image 5, prefer a tighter practical use scene, an overhead/three-quarter planted example, or a specific application such as herbs, seasonal flowers, patio growing, entryway pair, mailbox display, tabletop herbs, or raised-bed vegetables. Avoid repeating the same porch/door hero composition from Image 1.
 
-If the price card is intentionally assigned to Image 2, move the clean/empty product image to Image 3 and keep it no-text. This should be an exception.
-
 ## Output Structure
 
 For each SKU, output this structure:
 
 ```text
-## SKU [SKU] — [Product Name]
+## SKU [SKU] - [Product Name]
 
 Facts:
 - Retail:
@@ -295,105 +306,114 @@ Facts:
 - Approved catalog image:
 - Special truth notes:
 
-Image 1 — Lifestyle Hero
+Image 1 - Best Thumbnail
 - Filename:
 - Purpose:
+- Sellability reason:
 - Prompt:
 - Negative/avoid:
 
-Image 2 — Clean Product
+Image 2 - Clean Product
 - Filename:
 - Purpose:
 - Use:
 - Optional exact-fidelity prompt if regeneration is needed:
 - Negative/avoid:
 
-Image 3 — Price Card
+Image 3 - Price/Value Card
 - Filename:
 - Purpose:
+- Sellability reason:
 - Prompt:
 - Exact in-image text:
 - Negative/avoid:
 
-Image 4 — Size/Context Photo
+Image 4 - Size/Context Photo
 - Filename:
 - Purpose:
+- Sellability reason:
 - Prompt:
 - Negative/avoid:
 
-Image 5 — Use Case Photo
+Image 5 - Use-Case Photo
 - Filename:
 - Purpose:
+- Sellability reason:
 - Prompt:
 - Negative/avoid:
 
-Image 6 — Detail Photo
+Image 6 - Detail/Trust Photo
 - Filename:
 - Purpose:
+- Sellability reason:
 - Prompt:
 - Negative/avoid:
 
-Image 7 — Dimensions/Details Graphic
+Image 7 - Dimensions/Details Graphic
 - Filename:
 - Purpose:
+- Sellability reason:
 - Prompt:
 - Exact in-image text:
 - Negative/avoid:
 
-Image 8 — Final Ordering Graphic
+Image 8 - Final Ordering Graphic
 - Filename:
 - Purpose:
+- Sellability reason:
 - Prompt:
 - Exact in-image text:
 - Negative/avoid:
 
 10-image extension:
 
-Image 7 — Support/Variation Photo
+Image 7 - Support/Variation Photo
 - Filename:
 - Purpose:
+- Sellability reason:
 - Prompt:
 - Negative/avoid:
 
-Image 8 — Dimensions/Details Graphic
+Image 8 - Dimensions/Details Graphic
 - Filename:
 - Purpose:
-- Prompt:
-- Exact in-image text:
-- Negative/avoid:
-
-Image 9 — Important Details Graphic
-- Filename:
-- Purpose:
+- Sellability reason:
 - Prompt:
 - Exact in-image text:
 - Negative/avoid:
 
-Image 10 — Final Ordering Graphic
+Image 9 - Important Details Graphic
 - Filename:
 - Purpose:
+- Sellability reason:
+- Prompt:
+- Exact in-image text:
+- Negative/avoid:
+
+Image 10 - Final Ordering Graphic
+- Filename:
+- Purpose:
+- Sellability reason:
 - Prompt:
 - Exact in-image text:
 - Negative/avoid:
 ```
 
-If only 6 images are needed, keep Images 1, 2, 3, 6, 7, plus the stronger of Image 4 or Image 5. Do not use the 10-image extension for a reduced pack.
-
 ## Shared Visual Direction
 
 Photo prompts:
 
-- begin from the image role and buyer question, such as first thumbnail, actual included item, scale check, use case, or construction/detail proof
-- realistic local porch, garden, patio, doorstep, or workshop-adjacent environment
-- useful lifestyle props are allowed when requested by the image plan
+- start from the image role, buyer question, and sellability reason
+- realistic local porch, garden, patio, doorstep, entryway, or workshop-adjacent environment
+- useful lifestyle props are encouraged when they make the product easier to imagine buying or using
 - natural daylight with soft shadows, not harsh studio glare
 - warm realistic cedar color with visible grain; keep cedar orange-brown, not painted orange, yellow pine, plastic, or glossy furniture finish
-- catalog palette influence: choose the background explicitly, then list the remaining approved palette colors without assigning them to specific elements
+- choose the background or physical setting explicitly, then list the remaining approved palette colors without assigning them to specific elements
 - product shape clearly readable, with realistic proportions, count, size, board scale, rims, posts, legs, shelves, tiers, or open-top structure controlled by the approved attachment
 - square composition with enough breathing room for Marketplace cropping; product large enough to read in a mobile feed
-- camera angle named in the prompt, such as front three-quarter, slightly higher three-quarter, wider practical comparison view, overhead-ish garden view, or close corner detail
-- clean composition that still allows a little natural handmade imperfection, staging warmth, and artistic daylight variation
-- no heavy overlay text on lifestyle, product, context, detail, or variation photos unless that slot is intentionally planned as a graphic or overlay-led image
+- camera angle named in the prompt
+- clean composition that still allows natural handmade imperfection, staging warmth, and artistic daylight variation
+- no heavy overlay text on product/context/detail photos unless that slot is intentionally planned as a graphic or overlay-led image
 - do not force every photo to be dark; use daylight, stone/cream, greenery, and warm cedar when that sells the product better
 - avoid exaggerated luxury staging
 - avoid unrealistic scale
@@ -402,39 +422,35 @@ Photo prompts:
 Graphic prompts:
 
 - square Marketplace-ready composition
-- use the approved Drakkar palette, Marketplace typography guidance, and visual direction from `00_brand/COLOR_PALETTE.md`, `00_brand/TEXT_STYLE_RULES.md`, and `00_brand/VISUAL_STYLE.md`
 - choose the exact background color in the copied prompt, then list the remaining approved palette colors without assigning them to graphic elements
-- black/charcoal, stone/cream, muted silver, and cedar/burnt-orange accents
-- use clean, practical, sales-focused lettering that still matches the Drakkar Designs premium rustic catalog style
+- choose dark or light backgrounds based on readability and sellability for the specific card
+- use clean, practical, sales-focused lettering that still feels like Drakkar
 - make the product name largest when present; keep price/details medium and notes smaller
-- use cream/stone and charcoal text with cedar-orange highlights, simple divider lines, and restrained rustic styling
-- keep all lettering mobile-readable, clear, trustworthy, and easy to act on
-- reserve distressed or weathered texture for short product names or major headings only; never distress small text
-- use less ornament than a brand post; keep any divider, badge, or heritage-inspired mark subtle and functional
+- keep price, dimensions, and `Message to order` highly readable at phone size
+- use less ornament than a brand post; any divider, badge, or heritage-inspired mark must support readability
 - use varied hierarchy rather than flat, uniform typography
-- simple Drakkar catalog feel
 - exact text as supplied
 - no extra words
-- allow artistic expression in the balance of type sizes, divider placement, subtle texture, small heritage/catalog ornaments, and product-photo inset treatment while preserving exact text, exact facts, realistic product proportions, and the chosen background
+- allow artistic expression in the balance of type sizes, divider placement, subtle texture, small heritage/catalog ornaments, and product-photo inset treatment while preserving exact text, exact facts, realistic product proportions, readability, and the chosen background
 - negative/avoid lines for graphic prompts should be short and visual, such as `no extra words` or `text must be readable`
 - inline the exact Drakkar palette hex values, Marketplace wording direction, and literal in-image text so the prompt remains usable without repository files
 
 Required reusable direction for every text-bearing FBM graphic prompt:
 
-> “Typography direction: use clean, practical, sales-focused lettering that still matches the Drakkar Designs premium rustic catalog style. Make the product name largest when present, price/details medium, and notes smaller. Use simple divider lines, restrained rustic styling, generous spacing, and mobile-friendly readability. Keep small text clean and undistressed. Allow tasteful artistic variation in type scale, spacing, divider placement, and subtle catalog ornaments while keeping the exact words readable, factual, and easy to act on. The prompt must choose only the background color; list all other palette colors without assigning them to text, dividers, accents, panels, or inset fields.”
+> Typography direction: use clean, practical, sales-focused lettering that is easy to read in a Facebook Marketplace feed. Make the product name largest when present, price/details medium, and notes smaller. Use simple divider lines, restrained rustic styling, generous spacing, and mobile-friendly readability. Keep small text clean and undistressed. Allow tasteful artistic variation in type scale, spacing, divider placement, and subtle catalog ornaments while keeping the exact words readable, factual, and easy to act on. The prompt must choose only the background color; list all other palette colors without assigning them to text, dividers, accents, panels, or inset fields.
 
 Apply the required direction inside each generated graphic prompt, then add role-specific hierarchy:
 
-- Price card: product name largest; prices medium; savings callout medium-large when approved; short price labels or featured-size notes smaller; use cedar orange to emphasize price, savings, or one short label.
+- Price/value card: product name largest; price medium-large; factual savings callout medium-large only when approved; short size or featured-use note smaller.
 - Dimensions/details graphic: product name largest when present; dimensions or primary fact medium; local, lead-time, quote, and supporting facts smaller.
 - Important-details graphic: short heading or product name largest; essential inclusion/exclusion or customization facts medium; supporting notes smaller.
-- Final-ordering graphic: product name largest; `Message to order` medium and clearly separated; pickup/delivery line smaller.
+- Final-ordering graphic: product name largest; `Message to order` medium-large and clearly separated; pickup/delivery line smaller.
 - Master/category graphic without a product name: make the primary fact or action largest, then supporting facts progressively smaller.
 
 ## Default Graphic Style
 
-- Background: dark charcoal / near black by default for price and order cards; light stone/cream is also allowed when it improves readability or keeps the image from feeling too dark
-- Other palette colors: list the approved palette colors without assigning them to text, dividers, accents, panels, or inset fields
+- Background: choose dark charcoal, light cream, or another approved background treatment based on which is most readable and sellable for that card
+- Other palette colors: list the approved palette colors without assigning them to text, dividers, accents, panels, badges, or inset fields
 - Optional small DD mark only if available/approved
 - Layout: simple, legible, not crowded, with clear scale contrast and enough breathing room
 - Aspect ratio: square 1:1 unless the output target says otherwise
@@ -457,18 +473,17 @@ Do not create those templates during the current workflow. For now, write concis
 - Suggested filename is present for each image prompt.
 - Filenames are outside the prompt text, placed in their own filename-only codebox, and never embedded inside the prompt codebox.
 - Every copied prompt is standalone and does not require access to repository files or unnamed reference guidance.
-- Every copied prompt says what the image is for and what buyer question the image answers.
+- Every copied prompt says what the image is for, what buyer question it answers, and why the slot helps sell the listing.
 - Every generated product photo prompt names a camera angle, framing/crop intent, lighting/tone, and practical color environment.
 - Every generated product prompt explicitly requires realistic proportions controlled by the approved attachment.
 - Any K / Cedar Raised Garden Bed product photo or product-inset prompt places the bed over soil, grass, garden bed ground, or yard/garden surface and explicitly avoids porch/deck/patio/concrete/hard-surface staging.
-- Every photo prompt contains the standalone Drakkar visual direction.
-- Every graphic prompt contains the chosen background color, remaining approved palette hex values without role assignments, the Marketplace wording direction, typography direction, and literal in-image text.
-- Text-overlay default is followed or any override is documented: 8-image packs usually use 3 text-overlay images; 10-image packs usually use 4.
+- Every photo prompt contains the standalone FBM visual direction.
+- Every graphic prompt contains the chosen background color, remaining approved palette hex values without role assignments, Marketplace wording direction, typography direction, and literal in-image text.
+- Text-overlay default is followed or any sellability override is documented.
 - In-image text is literal and factual.
-- Every text-bearing graphic prompt includes the required Marketplace typography direction and role-specific hierarchy.
 - Product names are largest when present; price/details are medium; notes are smaller.
 - Small text is clean and undistressed, with mobile-readable contrast and spacing.
-- Graphic negative/avoid lines stay short and visual; do not add style-category lists the image model cannot reliably interpret.
+- Graphic negative/avoid lines stay short and visual.
 - In-image text does not include SKU numbers or SKU letters.
 - No Claude-owned listing prose is presented as final.
 - Media truth is clear.

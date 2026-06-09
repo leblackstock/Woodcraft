@@ -2,7 +2,7 @@
 
 Date created: 2026-06-04
 Status: Working source plan
-Use with: `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
+Use with: `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md`
 Visual style reference: `00_brand/VISUAL_STYLE.md`
 Color palette reference: `00_brand/COLOR_PALETTE.md`
 Text style reference: `00_brand/TEXT_STYLE_RULES.md`
@@ -31,12 +31,12 @@ Each SKU pack should answer four shopper questions:
 
 ## Universal Image Order
 
-1. Lifestyle hero
+1. Best thumbnail
 2. Clean/empty product image
 3. Price card
 4. Size/context image
 5. Use-case image
-6. Detail/craftsmanship image
+6. Detail/trust image
 7. Dimensions/details graphic
 8. Final ordering graphic
 
@@ -47,7 +47,7 @@ Each SKU pack should answer four shopper questions:
 9. Important details graphic
 10. Final ordering graphic
 
-Use the 10-image extension only for real SKU complexity, such as included pots, mailbox clarification, custom sizes, cut/preferred height, finish options, featured size/other sizes by quote, or another necessary clarity note.
+Use the 10-image extension only for real SKU complexity, such as included pots, mailbox clarification, custom sizes, cut/preferred height, finish options, featured configuration/custom quote path, or another necessary clarity note.
 
 The standard order is a default planning structure, not a hard cap on graphic or overlay text. If Lauren asks for additional image text, or a SKU needs another approved-fact graphic for clarity, keep the text and document the reason in the prompt pack.
 
@@ -62,7 +62,7 @@ Use these as reusable factual text blocks when they fit:
 - `Message to order`
 - `Message with the product name`
 
-Price graphics should use the product/category name plus one plain selling-price line from the approved FBM price. Do not put `Retail`, `Marketplace`, sale labels, discount labels, or retail-comparison wording inside FBM price-card graphics unless Lauren explicitly asks for that exception.
+Price graphics should use the product/category name plus one plain selling-price line from the approved FBM price. If the approved price applies only to a featured configuration, label that line plainly, such as `Featured size $240`, so custom builds do not inherit the featured price. Do not put `Retail`, `Marketplace`, sale labels, discount labels, or retail-comparison wording inside FBM price-card graphics unless Lauren explicitly asks for that exception.
 
 ## SKU A — Classic Square Cedar Planter
 
@@ -133,7 +133,7 @@ Image plan:
 4. Size/context: Tall 16 x 16 x 25, Classic 16 x 16 x 16, Small 11 x 11 x 13.
 5. Use case: mixed plants in the three sizes.
 6. Detail: rims/corners across all three planters.
-7. Dimensions/details graphic: set of 3 / built locally in Georgia / lead time available by request.
+7. Dimensions/details graphic: Tall 16 x 16 x 25 in / Classic 16 x 16 x 16 in / Small 11 x 11 x 13 in / built locally in Georgia / lead time available by request.
 8. Final ordering graphic: Cedar Planter Trio Set / message to order / pickup or local delivery available.
 
 ## SKU D — Cedar Post Planter Box
@@ -178,6 +178,8 @@ Image plan:
 - FBM: $160
 - Size: 31 x 31 x 36 in
 - Sales angle: compact footprint with tiered growing space
+- Wave: 1.5
+- Planned add-on note: Wave 1.5 listing is expected to include 2 trellises, but trellis specs, pricing, and reference/media info are pending. Do not generate final image prompts showing trellises until that info is ready.
 
 Image plan:
 
@@ -247,19 +249,20 @@ Image plan:
 ## SKU K — Cedar Raised Garden Bed
 
 - Retail: $480
-- FBM: $240
+- FBM: $240 featured configuration only
 - Featured size: 72 x 36 x 18 in
-- Sales angle: serious raised garden bed with custom-size path
+- Sales angle: fully customizable raised garden bed with a clearly priced featured configuration
+- Surface rule: always show K over soil, grass, garden bed ground, or yard/garden surface in product photos and product insets; never porch, deck, patio, concrete, pavers, indoor floor, or showroom surface.
 
 Image plan:
 
-1. Hero: raised bed in yard with vegetables, herbs, or flowers.
-2. Clean: empty bed on grass or simple ground; this defines what is included.
-3. Price graphic: $240.
-4. Size/context: 6 ft x 3 ft x 18 in shown in a yard or garden path.
-5. Use case: vegetables, herbs, or flowers.
-6. Detail: cedar boards and corner/post construction.
-7. Dimensions/details graphic: featured size 72 x 36 x 18 in / other sizes by quote / lead time available by request.
+1. Hero: raised bed over soil/grass in a yard or garden with vegetables, herbs, or flowers.
+2. Clean: empty bed over grass, bare soil, or garden ground; this defines what is included.
+3. Price graphic: featured size $240.
+4. Size/context: 6 ft x 3 ft x 18 in shown over soil/grass beside a yard or garden path.
+5. Use case: vegetables, herbs, or flowers in a soil/grass garden setting.
+6. Detail: cedar boards and corner/post construction with soil/grass/garden ground visible.
+7. Dimensions/details graphic: featured size 72 x 36 x 18 in / fully customizable by quote / lead time available by request.
 8. Final ordering graphic: Cedar Raised Garden Bed / message to order / pickup or local delivery available.
 
 ## SKU M — Small Tapered Cedar Planter

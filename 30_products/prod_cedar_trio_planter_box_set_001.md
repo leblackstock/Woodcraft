@@ -23,12 +23,12 @@
 - source_links: 20_research/whosthevoss_2026_pricing_guide_reference.md
 - media_truth_status: Owned Real Photo
 - media_provenance_note: Operator approved the saved catalog image for FBM listing use on 2026-06-04. Catalog SKU image: `00_brand/photos/planter-abc.png`.
-- standard_spec_ref:
+- standard_spec_ref: 20_research/catalog_exports/2026-06-03/source/Drakkar Designs Catalog 6-3-2026/Drakkar Retail Catalog.html — ABC derives its set dimensions from the A, B, and C planters: Tall 16 x 16 x 25 in; Classic 16 x 16 x 16 in; Small 11 x 11 x 13 in.
 - cost_sheet_ref: Pending — guide-only estimate imported.
 - verification_evidence_ref: 40_listings/list_marketplace_cedar_planter_trio_set_001.md — operator approved catalog image use, $110 FBM bundle price, and lead-time wording on 2026-06-04. Actual receipts, actual labor, final measured dimensions, and fresh finished photos remain post-build validation items.
 - verification_packet_ref: 40_listings/claude_handoff_prep_wave1_fbm_catalog_2026-06-04.md — prep packet for later Claude batch.
 - verification_status: Approved
-- unresolved_fact_gaps: Claude final-copy pass pending with the broader listing batch; live cost sheet and labor details remain advisory/post-build validation, not FBM draft blockers.
+- unresolved_fact_gaps: None for the completed FBM listing. Live cost sheet and labor details remain advisory/post-build validation, not FBM listing blockers.
 
 ## Buyer + Use Case
 
@@ -56,9 +56,9 @@
 
 ## Decision
 
-- status: Candidate
-- decision_reason: Strong catalog bundle candidate with an owner-approved bundle discount. The $110 FB Marketplace price is $20 below the realistic separate FBM total of $130.
-- next_action: Select owned listing photos, confirm lead time, and create a live cost note or cost sheet before listing approval.
+- status: Listed on FBM
+- decision_reason: FBM listing completed on 2026-06-08 with an owner-approved bundle discount. The $110 FB Marketplace price is $20 below the realistic separate FBM total of $130.
+- next_action: Monitor FBM performance and capture metrics; keep live cost note, labor timing, and post-build validation as follow-up evidence.
 
 ## Publish Readiness Review
 
@@ -66,8 +66,8 @@
 - build_complexity_review: Batch-friendly if A, B, and C dimensions stay locked.
 - fulfillment_review: Pickup/delivery fit is good, but trio packaging/loading needs photo and handling notes.
 - market_clarity_review: Strong buyer clarity because it is a matched set with visible retail savings.
-- pending_confirmation: Claude final-copy pass with the broader listing batch / final operator publish go-ahead.
+- pending_confirmation: Post-publish performance metrics / live cost note / actual build validation as available.
 
 ## Notes
 
-- notes: Catalog sync on 2026-06-04 maps this source Planter Box ABC record to the Drakkar catalog-facing name `Cedar Planter Trio Set`. Preserve `reference_code: Planter Box ABC` for source traceability. Retail label must use $220. FB Marketplace listing price is the catalog SOT price of $110, reflecting a $20 bundle discount from the realistic separate FBM total of $130. On 2026-06-04, operator approved the catalog image for FBM use, approved the $110 bundle price, and approved lead-time wording as built to order with lead time confirmed when ordering.
+- notes: Catalog sync on 2026-06-04 maps this source Planter Box ABC record to the Drakkar catalog-facing name `Cedar Planter Trio Set`. Preserve `reference_code: Planter Box ABC` for source traceability. Retail label must use $220. FB Marketplace listing price is the catalog SOT price of $110, reflecting a $20 bundle discount from the realistic separate FBM total of $130. On 2026-06-04, operator approved the catalog image for FBM use, approved the $110 bundle price, and approved lead-time wording as built to order with lead time confirmed when ordering. FBM listing marked done on 2026-06-08.

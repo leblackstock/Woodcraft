@@ -1,6 +1,6 @@
 ﻿# Claude Handoff Prep — Wave 1 FBM Catalog Listings
 
-Status: Prep complete; paste-ready Claude prompt exists at `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md`
+Status: Prep complete; focused K v2.0 Claude prompt exists at `40_listings/prompts/claude_fbm_listing_copy_prompt_k_raised_bed_2026-06-09.md`; older Wave 1 batch prompt remains at `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md`
 Batch tracker: `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
 Catalog artifacts: `20_research/catalog_exports/2026-06-03/`
 Brand asset SOT: `00_brand/`
@@ -19,7 +19,7 @@ This file gathers approved facts for the Wave 1 Facebook Marketplace listings. D
 - Lead-time wording approved where noted: built to order; lead time provided when order is placed
 - Retail catalog prices are internal context only; do not include retail comparisons unless Lauren explicitly asks for them.
 - Listing prices are the plain customer-facing prices from the partner catalog/order packet; write them as prices without `Marketplace` labels.
-- Custom sizes are by quote where applicable.
+- Custom sizes/specs are by quote where applicable. For K specifically, the raised bed is fully customizable by quote, and the current size, price, and specs are for the featured configuration only.
 - Do not invent availability, lead times, delivery promises, finishes, included plants, soil, liners, or discounts.
 
 ## Tone And Guardrails
@@ -74,17 +74,18 @@ This file gathers approved facts for the Wave 1 Facebook Marketplace listings. D
 
 - listing_record: `40_listings/list_marketplace_raised_bed_001.md`
 - product_record: `30_products/prod_cedar_raised_bed_001.md`
+- focused_claude_prompt_ref: `40_listings/prompts/claude_fbm_listing_copy_prompt_k_raised_bed_2026-06-09.md`
 - product_name: Cedar Raised Garden Bed
 - sku: K
 - retail_price: $480
-- fb_marketplace_price: $240
+- fb_marketplace_price: $240 for the featured 72 x 36 x 18 in configuration only
 - featured_size: 72 x 36 x 18 in
-- custom_sizes: by quote; do not enumerate other sizes
+- customization_scope: fully customizable by quote; current size, price, and specs apply to the featured configuration only
 - material: Western red cedar unless otherwise noted
 - fulfillment: pickup or local delivery by arrangement
 - lead_time: built to order; lead time provided when order is placed
 - media: operator-approved catalog image `00_brand/photos/planter-k.png`
-- pricing_status: operator approved $240 FBM catalog price on 2026-06-04; advisory cost sheet clears Strategy 2 on assumption-based inputs
+- pricing_status: operator approved $240 FBM catalog price for the featured configuration on 2026-06-04; advisory cost sheet clears Strategy 2 on assumption-based featured-size inputs; custom configurations require separate quotes
 
 ## Listing: Master Catalog
 
@@ -102,5 +103,5 @@ This file gathers approved facts for the Wave 1 Facebook Marketplace listings. D
 
 ## Remaining Before Official Claude Pass
 
-- Paste only the standalone fenced `text` prompt from `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` into Claude when ready. Do not paste the surrounding internal repository notes.
+- For K, paste only the standalone fenced `text` prompt from `40_listings/prompts/claude_fbm_listing_copy_prompt_k_raised_bed_2026-06-09.md` into Claude when ready. For any remaining broad Wave 1 batch work, paste only the standalone fenced `text` prompt from `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md`. Do not paste surrounding internal repository notes.
 - Paste Claude output back into the listing records, then record `claude_output_ref` and final operator publish approval before marking anything publish-ready.
