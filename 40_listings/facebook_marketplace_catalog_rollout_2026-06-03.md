@@ -1,6 +1,6 @@
 ﻿# Facebook Marketplace Catalog Rollout Workflow
 
-Date updated: 2026-06-09
+Date updated: 2026-06-11
 Status: Active workflow hub
 Channel: Facebook Marketplace
 Catalog source of truth: `20_research/catalog_exports/2026-06-03/`
@@ -33,6 +33,7 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 | Image sequence and per-SKU shot plan | `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md` |
 | Active image prompt generator | `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md` |
 | Wave 1 image prompt pack | `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md` |
+| Wave 1.5 image prompt pack | `40_listings/prompts/fbm_image_prompt_pack_wave1_5_2026-06-10.md` |
 | Claude copy generator | `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v2.0.md` |
 | K focused sellability-first Claude prompt | `40_listings/prompts/claude_fbm_listing_copy_prompt_k_raised_bed_2026-06-09.md` |
 | Wave 1 paste-ready Claude prompt | `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md` |
@@ -121,6 +122,7 @@ Claude/listing prose should avoid:
 - B: $30 FBM price was allowed to pass with review-later notes.
 - C: $60 FBM price was allowed to pass with review-later notes.
 - E: decorative planter only; do not imply it is for sitting.
+- F image surface rule: any F / Tiered Cedar Pyramid Planter image prompt or product-inset prompt must show the planter over soil, grass, garden bed ground, or yard/garden surface only. Do not place it on porch boards, decks, patios, concrete, pavers, indoor floors, showroom floors, or other hard-surface staging. Each tier is an open cedar frame/ring with no solid tray bottom. The dirt between tiers should look like dark, packed planting soil formed into compact sloped terraced banks between the cedar tier rings, visible in the open spaces between levels and continuing from one planting tier into the next as dark triangular soil banks behind the cedar boards and around the center supports. The soil should look settled and packed in place, not spilling, pouring, cascading, or falling loose.
 - J: clean image should show the included structure; do not imply a mailbox is included unless later approved.
 - K: the Cedar Raised Garden Bed is fully customizable by quote. Use the featured 72 x 36 x 18 in configuration for the current listing, and treat its $240 price and specs as featured-configuration facts only.
 - K image surface rule: any K image prompt or product-inset prompt must show the raised bed over soil, grass, garden bed ground, or yard/garden surface only. Do not place it on porch boards, decks, patios, concrete, pavers, indoor floors, showroom floors, or other hard-surface staging.
@@ -132,10 +134,21 @@ Claude/listing prose should avoid:
 | Wave | Listings | Current Action |
 | ---: | --- | --- |
 | 1 | Master catalog; A; ABC; K | A, ABC, and K are posted/completed; decide whether to finish the Master catalog listing or move into Wave 2. |
-| 1.5 | F | Prepare Planter F with 2 trellis add-ons after trellis specs, pricing, and reference/media info are ready. |
+| 1.5 | F plus trellis add-ons | F / Tiered Cedar Pyramid Planter posted 2026-06-10; F-T1 / Cedar Five-Finger Trellis posted 2026-06-11; continue remaining F-T2 trellis work as needed from `40_listings/prompts/fbm_image_prompt_pack_wave1_5_2026-06-10.md`. |
 | 2 | B; C; G; H | Create Wave 2 image prompt pack after Wave 1 flow feels good. |
 | 3 | N; P; M | Validate pricing/cost notes, then create prompt pack. |
 | 4 | D; J; E; TT; Q; PS | Validate pricing/cost notes, then create prompt pack. |
+
+## Wave 1.5 Trellis Readiness Note
+
+The following two trellises have been added as product candidates for Wave 1.5 Planter F add-on prep:
+
+| Add-on code | Product | Product record | Draft spec | Draft cost note | Source note | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| F-T1 | Cedar Five-Finger Trellis | `30_products/prod_cedar_five_finger_trellis_001.md` | `30_products/spec_cedar_five_finger_trellis_standard.md` | `30_products/cost_cedar_five_finger_trellis_001.md` | `20_research/trellis_wave_1_5_source_notes_2026-06-09.md` | Published 2026-06-11; FBM listing completed; $40 price approved; offered standalone and as add-on to any planter; standalone clean ref `T1_cedar_five_finger_trellis_ref_clean-01.png` approved; dimensions 70 in H x 32 in W x 2.25 in thick; final live title/description and final posted media set not duplicated in repo |
+| F-T2 | Cedar Decorative Obelisk Trellis | `30_products/prod_cedar_decorative_obelisk_trellis_001.md` | `30_products/spec_cedar_decorative_obelisk_trellis_standard.md` | `30_products/cost_cedar_decorative_obelisk_trellis_001.md` | `20_research/trellis_wave_1_5_source_notes_2026-06-09.md` | Candidate; $120 price approved; standalone only; standalone clean ref `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` approved; paid plan purchased and located; use plan-backed dimensions/material facts, but do not reproduce the full paid cut list in customer-facing prompts |
+
+Wave 1.5 prompt-pack production can proceed for remaining trellis work. F-T1 is posted as of 2026-06-11. Lead time will be given when order is made. Do not imply physical attachment for T1 unless separately approved; safe staging is alone or behind/beside Planter C. T2 should be shown alone. The T2 paid plan has been purchased and located, so plan-backed dimensions/material facts may be used, but do not reproduce the full paid cut list in customer-facing prompts.
 
 ## SKU Rollout Map
 
@@ -147,7 +160,8 @@ Claude/listing prose should avoid:
 | C | Tall Square Cedar Planter | `30_products/prod_cedar_tall_square_planter_161625_001.md` | $120 | $60 | `00_brand/photos/planter-c.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack; revisit price later. |
 | D | Cedar Post Planter Box | `30_products/prod_cedar_post_planter_box_001.md` | $220 | $110 | `00_brand/photos/planter-d.png` | 4 | Product mapped; media approved | Validate cost/pricing. |
 | E | Mini Adirondack Cedar Planter | `30_products/prod_cedar_bench_planter_001.md` | $120 | $60 | `00_brand/photos/planter-e.png` | 4 | Product synced; media approved | Validate cost/pricing. |
-| F | Tiered Cedar Pyramid Planter | `30_products/prod_cedar_pyramid_planter_001.md` | $320 | $160 | `00_brand/photos/planter-f.png` | 1.5 | Product mapped; media approved; planned with 2 trellis add-ons pending | Get trellis specs, pricing, and reference/media info ready, then create the Wave 1.5 prompt pack. |
+| F | Tiered Cedar Pyramid Planter | `30_products/prod_cedar_pyramid_planter_001.md` | $320 | $160 | `00_brand/photos/planter-f.png` | 1.5 | Published 2026-06-10; FBM listing completed | Monitor performance and capture metrics; continue trellis follow-up if needed. |
+| F-T1 | Cedar Five-Finger Trellis | `30_products/prod_cedar_five_finger_trellis_001.md` | n/a | $40 | `T1_cedar_five_finger_trellis_ref_clean-01.png` | 1.5 | Published 2026-06-11; FBM listing completed | Monitor performance and capture metrics. |
 | G | Long Rectangle Cedar Planter | `30_products/prod_cedar_long_planter_box_46in_001.md` | $260 | $130 | `00_brand/photos/planter-g.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack. |
 | H | Tall Cedar Planter w/ Shelf | `30_products/prod_cedar_tall_rectangular_planter_461632_001.md` | $320 | $160 | `00_brand/photos/planter-h.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack. |
 | J | Mailbox Post Cedar Planter | `30_products/prod_cedar_mailbox_post_planter_001.md` | $240 | $120 | `00_brand/photos/planter-j.png` | 4 | Product mapped; media approved | Validate cost/pricing. |
@@ -161,6 +175,6 @@ Claude/listing prose should avoid:
 
 ## Next Three Actions
 
-1. Decide whether to finish the Master catalog listing from Wave 1 or move directly into Wave 2.
-2. Monitor posted Wave 1 SKU metrics for A, ABC, and K: views, saves, messages, and sales.
-3. If moving forward, create the Wave 2 image prompt pack for B, C, G, and H.
+1. Continue remaining Wave 1.5 trellis work for F-T2 from `40_listings/prompts/fbm_image_prompt_pack_wave1_5_2026-06-10.md`; F and F-T1 are posted.
+2. Decide whether to finish the Master catalog listing from Wave 1 or move directly into Wave 2.
+3. Monitor posted SKU metrics for A, ABC, K, F, and F-T1: views, saves, messages, and sales.

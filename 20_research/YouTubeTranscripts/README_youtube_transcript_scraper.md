@@ -18,6 +18,16 @@ No YouTube API key is required.
 
 ---
 
+## Transcript Storage Policy
+
+- `D:\YouTubeTranscripts` is the canonical archive for original transcript downloads and caption-source files.
+- This Woodcraft folder contains synchronized research copies of those transcripts.
+- Keep each creator in a separate transcript folder and keep creator-specific analysis in that folder's `analysis` subfolder.
+- Derived cut lists, build instructions, comparisons, and product research belong in Woodcraft, while untouched transcript and caption-source originals remain archived on `D:`.
+- When a transcript is captured in Woodcraft first, copy the untouched source files to `D:\YouTubeTranscripts\<Creator>_transcripts`, then retain the Woodcraft files as the research copy.
+
+---
+
 ## What This Is For
 
 Use this when you want to gather searchable information from a YouTube channel, such as:

@@ -26,7 +26,13 @@
 ## Buyer + Use Case
 
 - target_buyer: Buyers wanting a statement cedar planter with strong visual shape.
-- primary_use_case: Decorative focal-point planter for front porch or patio presentation.
+- primary_use_case: Decorative focal-point planter for garden, yard, soil, or grass presentation.
+- media_surface_rule: Open-bottom product; all product images and product insets must show it over soil, grass, garden bed ground, or yard/garden surface. Do not show it on porch boards, decks, patios, concrete, pavers, indoor floors, showroom floors, or other hard-surface staging.
+- tier_structure_rule: Each tier is an open cedar frame/ring with no solid tray bottom. In staged images, the dirt between tiers should look like dark, packed planting soil formed into compact sloped terraced banks between the cedar tier rings. It should be visible in the open spaces between levels and look like it continues from one planting tier into the next, forming dark triangular soil banks behind the cedar boards and around the center supports. The soil should look settled and packed in place, not spilling, pouring, cascading, or falling loose.
+
+## Product Description Notes
+
+- visual_soil_description: Dark, packed planting soil forms compact sloped terraced banks between the open cedar tier rings. The soil is visible in the open spaces between levels and appears to continue from one planting tier into the next, forming dark triangular soil banks behind the cedar boards and around the center supports. It looks settled and packed in place, not spilling, pouring, cascading, or falling loose.
 
 ## Build + Cost Snapshot
 
@@ -43,3 +49,6 @@
 ## Decision
 
 - status: Candidate
+- fbm_publish_status: Posted 2026-06-10
+- marketplace_listing_ref: 40_listings/list_marketplace_tiered_cedar_pyramid_planter_001.md
+- publish_note: FBM listing marked posted by operator on 2026-06-10. Product verification, measured sample, receipts, labor timing, and dedicated cost sheet remain post-build validation/advisory items.

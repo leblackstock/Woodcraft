@@ -2,7 +2,7 @@
 
 date_created: 2026-04-30
 scope: Current product records in `30_products/`
-assignment_rule: Catalog IDs were assigned in alphabetical filename order across `prod_*.md` records.
+assignment_rule: Existing catalog IDs are stable. Initial IDs were assigned in alphabetical filename order across `prod_*.md` records; new products are appended with the next available ID unless a future migration is explicitly approved.
 
 | Catalog ID | Product ID | Product Name | Product File |
 |---|---|---|---|
@@ -37,3 +37,5 @@ assignment_rule: Catalog IDs were assigned in alphabetical filename order across
 | `f00029` | `prod_cedar_trio_planter_box_set_001` | Cedar Planter Trio Set | [prod_cedar_trio_planter_box_set_001.md](./prod_cedar_trio_planter_box_set_001.md) |
 | `f00030` | `prod_cedar_wide_planter_box_262812_001` | Tall Patio Planter Box | [prod_cedar_wide_planter_box_262812_001.md](./prod_cedar_wide_planter_box_262812_001.md) |
 | `f00031` | `prod_cedar_window_box_001` | Cedar Window Box Planter 36in | [prod_cedar_window_box_001.md](./prod_cedar_window_box_001.md) |
+| `f00032` | `prod_cedar_five_finger_trellis_001` | Cedar Five-Finger Trellis | [prod_cedar_five_finger_trellis_001.md](./prod_cedar_five_finger_trellis_001.md) |
+| `f00033` | `prod_cedar_decorative_obelisk_trellis_001` | Cedar Decorative Obelisk Trellis | [prod_cedar_decorative_obelisk_trellis_001.md](./prod_cedar_decorative_obelisk_trellis_001.md) |

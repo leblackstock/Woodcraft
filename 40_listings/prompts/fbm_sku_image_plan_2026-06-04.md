@@ -179,18 +179,21 @@ Image plan:
 - Size: 31 x 31 x 36 in
 - Sales angle: compact footprint with tiered growing space
 - Wave: 1.5
-- Planned add-on note: Wave 1.5 listing is expected to include 2 trellises, but trellis specs, pricing, and reference/media info are pending. Do not generate final image prompts showing trellises until that info is ready.
+- FBM publish status: Posted 2026-06-10; listing record `40_listings/list_marketplace_tiered_cedar_pyramid_planter_001.md`; live final title/description and final posted media set were not duplicated in this repository.
+- Planned add-on note: Wave 1.5 prompt-pack direction is approved for both trellises. F-T1 is $40, may be sold standalone or as an add-on to any planter, and was posted to FBM on 2026-06-11; standalone clean ref `T1_cedar_five_finger_trellis_ref_clean-01.png` is approved; dimensions are 70 in H x 32 in W x 2.25 in thick. Keep the T1/Planter C pairing truthful with no physical attachment implied unless separately approved. F-T2 is $120 and standalone only; standalone clean ref `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` is approved; paid plan is purchased and located; consumer-facing dimensions use 70 in H with 26 in x 27 in footprint/top-view dimensions and 1/2 in material thickness. Lead time will be given when order is made. Do not reproduce the full paid cut list in customer-facing prompts.
+- Surface rule: open-bottom planter; always show over soil, grass, garden bed ground, or yard/garden surface. Never show on porch boards, decks, patios, concrete, pavers, indoor floors, showroom floors, or other hard-surface staging.
+- Tier rule: each tier is an open cedar frame/ring with no solid tray bottom. The dirt between tiers should look like dark, packed planting soil formed into compact sloped terraced banks between the cedar tier rings, visible in the open spaces between levels and continuing from one planting tier into the next as dark triangular soil banks behind the cedar boards and around the center supports. The soil should look settled and packed in place, not spilling, pouring, cascading, or falling loose.
 
 Image plan:
 
-1. Hero: pyramid planter with herbs, strawberries, or flowers.
-2. Clean: empty angled view showing all tiers.
+1. Hero: pyramid planter over soil, grass, or garden bed ground with herbs, strawberries, or flowers; dark, packed planting soil forms compact sloped terraced banks between the cedar tier rings.
+2. Clean construction view: no plants or accessories, but dark, packed planting soil forms compact sloped terraced banks between the cedar tier rings over soil, grass, or garden bed ground.
 3. Price graphic: $160.
-4. Size/context: 31 x 31 x 36 in near a patio or garden edge.
-5. Use case: strawberries, herbs, or annual flowers.
-6. Detail: stacked cedar corners and tier structure.
-7. Dimensions/details graphic: 31 x 31 x 36 in / built locally in Georgia / lead time available by request.
-8. Final ordering graphic: Tiered Cedar Pyramid Planter / message to order / pickup or local delivery available.
+4. Size/context: 31 x 31 x 36 in near a garden bed, yard edge, soil, or grass.
+5. Use case: strawberries, herbs, or annual flowers in a soil/grass/garden setting with dark triangular soil banks visible behind the cedar boards and around the center supports.
+6. Detail: stacked cedar corners, open cedar tier/rings, and dark, packed planting soil formed into compact sloped terraced banks between the cedar tier rings.
+7. Dimensions/details graphic: 31 x 31 x 36 in / built locally in Georgia / lead time available by request; any product inset must sit over soil, grass, or garden bed ground and show dark, packed planting soil as compact sloped terraced banks between the cedar tier rings.
+8. Final ordering graphic: Tiered Cedar Pyramid Planter / message to order / pickup or local delivery available; any product inset must sit over soil, grass, or garden bed ground and show dark, packed planting soil as compact sloped terraced banks between the cedar tier rings.
 
 ## SKU G — Long Rectangle Cedar Planter
 

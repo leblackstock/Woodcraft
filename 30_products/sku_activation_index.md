@@ -1,7 +1,7 @@
 # SKU Activation Index
 
 Status: Active workflow gate
-Last checked: 2026-06-08
+Last checked: 2026-06-10
 Clean reference source: `00_brand/references/PRODUCT_REF_IMAGES_MANIFEST.md`
 External clean reference folder: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images`
 
@@ -26,6 +26,8 @@ Purpose: define which SKUs are active for Facebook Page, Instagram, and other so
 | D | `30_products/prod_cedar_post_planter_box_001.md` | Cedar Post Planter Box | `D_cedar_post_planter_box_ref_clean-01.png`; `D_cedar_post_planter_box_ref_clean-02.png` |
 | E | `30_products/prod_cedar_bench_planter_001.md` | Mini Adirondack Cedar Planter | `E_mini_adirondack_cedar_planter_ref_clean-01.png`; `E_mini_adirondack_cedar_planter_ref_clean-02.png` |
 | F | `30_products/prod_cedar_pyramid_planter_001.md` | Cedar Pyramid Planter | `F_tiered_cedar_pyramid_planter_ref_clean-01.png`; `F_tiered_cedar_pyramid_planter_ref_clean-02.png` |
+| F-T1 | `30_products/prod_cedar_five_finger_trellis_001.md` | Cedar Five-Finger Trellis | `T1_cedar_five_finger_trellis_ref_clean-01.png` |
+| F-T2 | `30_products/prod_cedar_decorative_obelisk_trellis_001.md` | Cedar Decorative Obelisk Trellis | `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` |
 | G | `30_products/prod_cedar_long_planter_box_46in_001.md` | Long Rectangle Cedar Planter | `G_long_rectangle_cedar_planter_ref_clean-01.png`; `G_long_rectangle_cedar_planter_ref_clean-02.png` |
 | H | `30_products/prod_cedar_tall_rectangular_planter_461632_001.md` | Tall Cedar Planter w/ Shelf | `H_tall_cedar_planter_with_shelf_ref_clean-01.png`; `H_tall_cedar_planter_with_shelf_ref_clean-02.png` |
 | J | `30_products/prod_cedar_mailbox_post_planter_001.md` | Cedar Mailbox Post Planter | `J_mailbox_post_cedar_planter_ref_clean-01.png`; `J_mailbox_post_cedar_planter_ref_clean-02.png` |
