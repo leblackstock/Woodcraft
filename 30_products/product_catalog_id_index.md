@@ -39,3 +39,4 @@ assignment_rule: Existing catalog IDs are stable. Initial IDs were assigned in a
 | `f00031` | `prod_cedar_window_box_001` | Cedar Window Box Planter 36in | [prod_cedar_window_box_001.md](./prod_cedar_window_box_001.md) |
 | `f00032` | `prod_cedar_five_finger_trellis_001` | Cedar Five-Finger Trellis | [prod_cedar_five_finger_trellis_001.md](./prod_cedar_five_finger_trellis_001.md) |
 | `f00033` | `prod_cedar_decorative_obelisk_trellis_001` | Cedar Decorative Obelisk Trellis | [prod_cedar_decorative_obelisk_trellis_001.md](./prod_cedar_decorative_obelisk_trellis_001.md) |
+| `f00034` | `prod_usa_wavy_wooden_american_flag_usa1` | Wavy Wooden American Flag - Natural Stripe | [prod_usa_wavy_wooden_american_flag_usa1.md](./prod_usa_wavy_wooden_american_flag_usa1.md) |

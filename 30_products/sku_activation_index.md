@@ -1,7 +1,7 @@
 # SKU Activation Index
 
 Status: Active workflow gate
-Last checked: 2026-06-10
+Last checked: 2026-06-14
 Clean reference source: `00_brand/references/PRODUCT_REF_IMAGES_MANIFEST.md`
 External clean reference folder: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images`
 
@@ -43,5 +43,6 @@ Purpose: define which SKUs are active for Facebook Page, Instagram, and other so
 
 | Product / SKU | Reason | Handling |
 |---|---|---|
+| `30_products/prod_usa_wavy_wooden_american_flag_usa1.md` / `USA1` | No owned clean reference image is recorded yet; product is a candidate/pilot stock item only. | Treat as `Not Active` for Facebook Page, Instagram, ad, or other social post creation until a clean ref exists and this index is updated. FBM listing prep still requires cost, price, media, and Claude-copy approval. |
 | `30_products/prod_cedar_planter_box_001.md` / `f00015` | No catalog SKU is assigned and no matching clean ref file was found in the external Product Ref Images folder. | Do not create new Facebook Page or Instagram posts. Existing draft social records are archived or marked blocked. |
 | Any future product or SKU not listed as `Active` above | No clean ref file is recorded in this index. | Treat as `Not Active` until a clean ref file exists and this index is updated. |

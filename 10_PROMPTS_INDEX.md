@@ -83,8 +83,10 @@ Workflow-specific listing image prompt templates live in [40_listings/prompts/](
 - `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md`
 - `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md`
 - `40_listings/prompts/fbm_image_prompt_pack_wave1_5_2026-06-10.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_wavy_flag_2026-06-14.md`
 - `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v2.0.md`
 - `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_wavy_flag_2026-06-14.md`
 
 Current Facebook Page brand-post image workflow:
 
