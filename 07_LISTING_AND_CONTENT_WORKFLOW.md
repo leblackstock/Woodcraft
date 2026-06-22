@@ -14,7 +14,7 @@ Image graphic-text routing: GPT/Codex may create image graphic text under an act
 
 1. Product approved in [06_PRODUCT_DECISION_WORKFLOW.md](06_PRODUCT_DECISION_WORKFLOW.md)
 2. Confirm the approved product record in [30_products/](30_products/) and lock the current standard launch spec when available
-3. Set `build_model` truthfully (`Made to Order`, `In Stock`, or `Sample Built`)
+3. Set `build_model` truthfully (`Made to Order`, `In Stock`, `Sample Built`, or `Pilot Build`)
 4. Record plan/source truth plus locked pre-sale dimensions/specs from plan, reference, or standard spec
 5. Draft or update the estimated cost sheet or cost note using [80_templates/cost_sheet_template.md](80_templates/cost_sheet_template.md), including Strategy 2 plus Strategy 1 when labor-inclusive inputs are available
 6. Record estimated labor time, made-to-order lead time, and delivery/pickup terms
@@ -30,7 +30,7 @@ Image graphic-text routing: GPT/Codex may create image graphic text under an act
 16. Publish Marketplace listing (manual)
 17. After first sale/build, capture actual receipts, labor, finished dimensions, finished photos, and pricing learnings
 18. Decide keep / drop / reprice if the actual build changes the economics or offer truth
-19. Repurpose approved listing facts and truthful media into Page + Instagram content prep only for products that resolve to an active SKU in `30_products/sku_activation_index.md`
+19. Repurpose approved listing facts and truthful media into Page + Instagram content prep only for products that resolve to an active SKU in `30_products/sku_activation_index.md`, or for a selected variant scope when every included variant is Active.
 20. For Facebook Page image work, select and record the mix-and-match creative fields after reviewing recent Facebook Page content history
 21. Generate any image graphic text and standalone external image prompt under the active review-by-exception image workflow
 22. Run another **Claude Final Copy Gate** when final customer-facing post copy, captions, or replies are needed
@@ -45,6 +45,7 @@ Image graphic-text routing: GPT/Codex may create image graphic text under an act
 - Fresh build completion is not a universal pre-list requirement. `build_model: Made to Order` may be listed before a new build exists if the pre-sale facts are locked and truthful.
 - For `build_model: Made to Order`, locked standard-spec dimensions or approved plan/reference dimensions are valid pre-sale size truth.
 - For `build_model: Made to Order`, a draft estimated cost sheet and draft labor assumption may be approved as the pre-sale pricing basis before the first real build exists.
+- `build_model: Pilot Build` is not in-stock inventory. It may progress only with truthful pre-sale facts and applicable verification, and it must not make a current-inventory claim.
 - **Required before publish:**
   - approved verification packet or equivalent approved fact review
   - `build_model` recorded truthfully
@@ -57,6 +58,20 @@ Image graphic-text routing: GPT/Codex may create image graphic text under an act
   - `publish_ready: Yes`
 - Actual measured finished dimensions are post-build validation for made-to-order items and are not a universal pre-publish blocker unless the launch spec is still unresolved.
 - Actual receipts and actual labor time are also post-build validation inputs for made-to-order items; they improve later repricing decisions but are not universal pre-publish blockers when the pre-sale assumptions have been explicitly approved.
+
+## Variant-Scope Marketplace Listings
+
+Use a variant-scope listing when one Marketplace offer intentionally includes a selected set of standard variants from one configurable product family, without creating a bundle or a new product catalog ID.
+
+- Give the record an internal `listing_ref` and `listing_handle`. These are plain, stable operator references and are never customer-facing title copy.
+- Set `product_family_id` to the family record and list the included options in `variant_scope`. The scope is the offer boundary: do not show, price, or imply variants that are outside it.
+- Each included variant keeps its own facts, price, cost, and individual clean reference. A grouped `scope_reference_asset` may show the full scope together, but it never substitutes for the individual references or SKU activation records.
+- Use a new listing record and handle when the included variant collection changes materially. A prompt/media refresh for the same scope updates the existing record instead.
+- A scope with multiple prices must use a clear approved option-and-price chart in its listing images and final Claude copy. It is not a bundle, so do not use set price, savings, or bundle wording unless a separate bundle product has been approved.
+- Before publishing, every variant shown in the live listing must have cleared its applicable fact, pricing, media, and Claude-copy gates.
+- At actual publication, set `publish_status: Published`, record `publish_date`, copy the exact scope into `published_variant_scope`, add the live URL when available, and begin tracking views, saves, messages, and sales in that same listing record.
+
+The detailed operating method and prompt routing live in `40_listings/variant_scope_marketplace_listing_workflow.md`.
 
 ## Minimal-Input Verification Workflow (Approved Products + Listings)
 
@@ -118,6 +133,7 @@ Image graphic-text routing: GPT/Codex may create image graphic text under an act
 - If Claude copy is still pending, keep the asset in structured-prep form, move draft phrasing to `customer_copy_prep_notes`, or mark the field with `[[CLAUDE_FINAL_COPY_REQUIRED]]`.
 - If the Claude gate is incomplete or `publish_ready: No`, keep `publish_status` in a non-publish state only.
 - Prep-only assets may not use `Ready for Manual Publish`, `Ready to Schedule`, `Scheduled`, or `Published`, and `publish_date` stays blank until an actual publish event occurs.
+- An existing published asset may use `Historical Operator Evidence` only under the audit-only exception in `03_GOVERNANCE.md`; it cannot be refreshed, republished, or treated as a new-work shortcut.
 
 ## Post-Sale / Post-Build Validation Loop
 
@@ -148,6 +164,7 @@ After the first real sale/build for a made-to-order listing:
 - Use `50_content/facebook_brand_post_rules.md` for Facebook Page visual-purpose, mix-and-match, compatibility, rotation, and image graphic-text rules.
 - Use `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md` to create one standalone ChatGPT Image 2 prompt.
 - Before creating any product-specific Facebook Page or Instagram post, verify the linked product resolves to an `Active` SKU in `30_products/sku_activation_index.md`.
+- For a product-family showcase with a selected `variant_scope`, verify every included variant is Active. A grouped scope reference supports the composition but does not replace the individual activation requirement.
 - Do not create new social posts or post image prompts for inactive/no-SKU products, even if the product is still a listing candidate.
 - Review recent Facebook Page content records and record the six selected creative fields before saving the image prompt.
 - GPT/Codex owns Facebook Page image graphic text under review by exception. Use approved facts and Brand Post Mode; do not request Claude approval for image graphic text.

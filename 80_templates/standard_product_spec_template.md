@@ -8,6 +8,10 @@ Brand asset reminder: when a spec supports brand-specific listing media, graphic
 
 - spec_id:
 - linked_product_id:
+- record_type: Standalone Product / Configurable Product Family / Variant
+- linked_family_product_id: Required for Variant; otherwise leave blank.
+- linked_variant_id: Required for Variant; otherwise leave blank.
+- variant_code: Required for Variant; otherwise leave blank.
 - product_name:
 - status: Draft / Active / Retired
 - owner:
@@ -16,6 +20,9 @@ Brand asset reminder: when a spec supports brand-specific listing media, graphic
 ## Standard Launch Definition
 
 - target_dimensions: Stated standard launch dimensions used as the truthful pre-sale size source for made-to-order listings when this spec is locked. Capture actual measured finished dimensions later as post-build validation.
+- customer_size_label: Required for a Variant when a customer chooses by size.
+- customer_facing_dimensions: Required for a Variant when dimensions appear in buyer-facing copy or graphics.
+- physical_target_dimensions: Internal build target for a Variant; do not expose unless it is also the approved customer-facing dimension.
 - standard_material_stack:
 - hardware_assumption:
 - drainage_assumption:
@@ -44,4 +51,4 @@ For made-to-order products, small handmade variance does not automatically inval
 
 ## Notes
 
-- notes: Use this file as the standard launch source of truth for pre-sale listing facts when the spec is locked. It does not remove the need for live cost inputs, human approval, or post-build actuals capture.
+- notes: Use this file as the standard launch source of truth for pre-sale listing facts when the spec is locked. It does not remove the need for live cost inputs, human approval, or post-build actuals capture. For a Variant, this spec controls only that variant; do not generalize its facts to sibling variants.

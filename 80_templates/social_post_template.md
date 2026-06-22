@@ -5,6 +5,11 @@
 - content_id:
 - linked_product_id:
 - linked_listing_id:
+- linked_product_family_id: Required when this post presents a selected variant scope.
+- variant_scope: Exact active variant codes shown by a scope-based post; do not use for bundles.
+- scope_reference_asset: Required when the image shows the complete variant scope together.
+- scope_reference_variant_codes: Must exactly match `variant_scope` when `scope_reference_asset` is set.
+- scope_activation_status: Not Needed / All Variants Active / Blocked.
 - sku_activation_status: Active / Not Active / Blocked
 - sku_activation_ref: 30_products/sku_activation_index.md
 - platform: FB Page / Instagram / TikTok / Shorts
@@ -18,6 +23,8 @@
 > Governed status rule: if `publish_ready: No` or the Claude gate is incomplete, keep `publish_status` at `Draft` or `Archived` only. Do not use `Ready to Schedule`, `Scheduled`, or `Published` until the asset has cleared the gate.
 
 > SKU activation rule: create product-specific social posts only for SKUs marked `Active` in `30_products/sku_activation_index.md`. If the linked product is inactive, has no catalog SKU, or has no clean ref file, set `sku_activation_status: Not Active` or `Blocked` and do not create a new image prompt or post package.
+
+> Variant-scope activation rule: a product-family showcase may use `variant_scope` only when every listed variant is `Active`. A grouped scope reference does not activate a variant. When the image shows the full scope together, attach the approved `scope_reference_asset` and keep the individual clean references as the underlying product controls.
 
 ## Creative Direction
 

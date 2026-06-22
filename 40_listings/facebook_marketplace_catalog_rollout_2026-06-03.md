@@ -1,6 +1,6 @@
 ﻿# Facebook Marketplace Catalog Rollout Workflow
 
-Date updated: 2026-06-11
+Date updated: 2026-06-21
 Status: Active workflow hub
 Channel: Facebook Marketplace
 Catalog source of truth: `20_research/catalog_exports/2026-06-03/`
@@ -12,7 +12,7 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 ## Workflow In One Pass
 
 1. Pick the next wave/SKU from the rollout table.
-2. Confirm catalog facts: product name, size/spec, retail price, FBM price, and approved catalog image.
+2. Confirm catalog facts: product name, size/spec, retail price, FBM price, and approved catalog image. For a custom configurable family without a catalog row, confirm the approved family and variant records instead.
 3. Generate images manually in ChatGPT Image 2 from the active prompt pack or generator.
 4. Prepare or update the listing record in `40_listings/`.
 5. Run the Claude final-copy pass from approved facts only.
@@ -30,6 +30,8 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 | Brand text style | `00_brand/TEXT_STYLE_RULES.md` |
 | Brand visual style | `00_brand/VISUAL_STYLE.md` |
 | Standalone external-prompt checklist | `80_templates/standalone_external_prompt_checklist.md` |
+| Variant-scope listing workflow | `40_listings/variant_scope_marketplace_listing_workflow.md` |
+| Variant-scope clean-reference prompt generator | `40_listings/prompts/prompt_fbm_variant_scope_clean_reference_generator_v1.0.md` |
 | Image sequence and per-SKU shot plan | `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md` |
 | Active image prompt generator | `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md` |
 | Wave 1 image prompt pack | `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md` |
@@ -42,6 +44,7 @@ Use this file first. It is the operating map for turning the Drakkar Designs cat
 ## Non-Negotiables
 
 - Catalog facts win for this rollout: SKU names, specs, retail prices, FBM prices, and catalog images come from `20_research/catalog_exports/2026-06-03/`.
+- For a custom configurable family with no saved catalog row, the approved family record, included child-variant records, and linked listing record are the fact source. Do not invent a catalog price, retail label, or catalog image to fill that gap.
 - Current brand assets and reusable identity guidance live in `00_brand/`.
 - `Retail` means the retail catalog price.
 - `FB Marketplace price` means the wholesale price from the partner catalog/order packet.
@@ -89,7 +92,7 @@ Image prompt rules:
 - Do not put SKU letters/numbers inside generated images.
 - Do not repeat the same photo with different flowers. Change the buyer question and the composition.
 - Use `00_brand/COLOR_PALETTE.md`, `00_brand/TEXT_STYLE_RULES.md`, and `00_brand/VISUAL_STYLE.md`; follow the Marketplace text-style guidance for text-bearing graphics, and do not force every image to be dark.
-- FBM price-card graphics use one plain selling-price line from the approved FBM price, plus the product or category name when useful. If the price applies only to a featured configuration, such as K's $240 raised-bed price, label it plainly as a featured-size/configuration price in the exact rendered text. Copied prompts should specify the exact rendered text instead of explaining internal price-label exceptions.
+- FBM price-card graphics use one plain selling-price line from the approved FBM price, plus the product or category name when useful. If the price applies only to a featured configuration, such as K's $240 raised-bed price, label it plainly as a featured-size/configuration price in the exact rendered text. For a non-bundle variant-scope listing with different approved option prices, use a clear option-and-price chart that lists only the variants in `variant_scope` and their exact approved prices. Copied prompts should specify the exact rendered text instead of explaining internal price-label exceptions.
 - Use `Built locally in Georgia`, not repeated exact-city wording.
 - Use `Lead time available by request` in compact image graphics.
 - Use `Pickup or local delivery available` in image graphics.

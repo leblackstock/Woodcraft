@@ -30,12 +30,13 @@ Repository files are preparation sources only. Do not tell the external image mo
 ## Required Inputs
 
 - current Facebook Page content record
-- active SKU status from `30_products/sku_activation_index.md`
+- active SKU status from `30_products/sku_activation_index.md`, or for a scope-based family showcase, active status for every code in `variant_scope`
 - post objective
 - audience or context
 - approved facts
 - approved or governed media/reference images
 - exact clean ref file(s) for the active SKU when product fidelity matters
+- for a scope-based family showcase: exact `variant_scope`, individual active clean refs, and approved `scope_reference_asset` when the image shows the full collection together
 - recent Facebook Page creative-history records
 - image graphic-text goal, any supplied required literal wording, or `NO_TEXT`
 - requested output format, if not square `1:1`
@@ -48,10 +49,10 @@ Fast route:
 
 1. Classify the request. If the operator asks for a Facebook Page post, brand post, post package, post copy, caption/body, or publish-prep bundle, default to the full three-block delivery: filename, standalone image prompt, and Claude post-copy handoff. Deliver only the filename and standalone image prompt when the operator explicitly asks for an image prompt only.
 2. Open `50_content/facebook_brand_post_rules.md`, this generator, and the target content record.
-3. Check `30_products/sku_activation_index.md`. Product-specific posts may be created only for SKUs marked `Active`.
-4. If the linked product is inactive, has no catalog SKU, or has no clean ref file, do not create or deliver a new post prompt. Return `BLOCKED` with the SKU activation reason.
+3. Check `30_products/sku_activation_index.md`. Single-product posts may be created only for SKUs marked `Active`. Scope-based family showcases may be created only when every code in `variant_scope` is `Active`.
+4. If the linked product is inactive, has no catalog SKU, or has no clean ref file, do not create or deliver a new single-product post prompt. If any scoped variant is inactive or missing its individual clean reference, return `BLOCKED` with the scope activation reason.
 5. If the target content record already points to a saved `image_prompt_ref`, open that prompt first.
-6. Reuse the saved selection audit, filename, attachment reminder, and standalone prompt when the facts, objective, active SKU status, and SKU-specific visual rules still match.
+6. Reuse the saved selection audit, filename, attachment reminder, and standalone prompt when the facts, objective, single-SKU or full-scope activation status, and applicable visual rules still match.
 7. Rebuild only when the operator requests a new variation, the saved prompt is missing, the facts changed, the attachment requirement changed, SKU activation changed, a SKU-specific visual rule changed, or the prompt fails the standalone checklist.
 8. For rotation, use targeted `50_content/content_fbpage_*.md` searches for the six creative fields instead of broad file discovery.
 9. Read `00_brand/` files only when rebuilding the prompt or when a missing detail must be refreshed.
@@ -85,7 +86,7 @@ Recent-post history gaps do not block prompt generation. Set `rotation_check_sta
 ## Generator Workflow
 
 1. Confirm the content record and approved facts.
-2. Confirm the linked product resolves to an active SKU with clean ref file(s) in `30_products/sku_activation_index.md`.
+2. Confirm the linked product resolves to an active SKU with clean ref file(s) in `30_products/sku_activation_index.md`. For a scope-based family showcase, confirm every listed variant is Active and the scope reference is approved when the full group appears together.
 3. Read the current Facebook brand-post rules and relevant `00_brand/` sources.
 4. Review the most recent seven Facebook Page records with selected creative fields.
 5. Select one option for each creative field:
@@ -142,6 +143,16 @@ Do not copy local paths into the external prompt. Refer to required attachments 
 
 - For SKU K / Cedar Raised Garden Bed, the raised bed is open-bottom and must be shown over soil, grass, garden bed ground, or yard/garden surface. Do not place K on porch boards, decks, patios, concrete, pavers, indoor floors, showroom floors, or other hard-surface staging.
 - For SKU K, choose garden/backyard/side-yard/soil/grass framing instead of porch or patio framing, even when generic Facebook Page creative pools include porch or patio options.
+
+## Variant-Scope Family Showcase Rules
+
+Use this mode only when the content record has a `linked_product_family_id` and a non-empty `variant_scope`.
+
+- Show every and only the variants named in `variant_scope`; do not imply the whole product family is available.
+- Every scoped variant must be Active in `30_products/sku_activation_index.md` and have its own approved clean reference.
+- When the image shows the full selected collection together, attach the approved `scope_reference_asset` as the primary composition control and use the individual clean references as supporting fidelity controls when needed.
+- The scope reference never activates a variant and never creates a bundle. Do not use bundle, set, savings, discount, or one-price-for-all wording unless a separately approved bundle product is the actual subject.
+- Use the product family's approved facts plus the scoped variants' approved customer-facing facts. Do not include an excluded sibling variation in the image or the Claude post-copy handoff.
 
 ### Internal Prompt Construction Shape
 
@@ -276,6 +287,11 @@ Selection audit:
 - text_intensity:
 - cta_style:
 - exact_in_image_text:
+- linked_product_family_id:
+- variant_scope:
+- scope_reference_asset:
+- scope_reference_variant_codes:
+- scope_activation_status:
 - sku_activation_status:
 - sku_activation_ref:
 - recent_post_history_ref:
@@ -311,7 +327,7 @@ The filename, selection audit, and Claude prompt stay outside the copied image p
 Before saving or delivering the prompt, confirm:
 
 - the concept serves the current post objective
-- the linked product is an active SKU with clean ref file(s) in `30_products/sku_activation_index.md`
+- the linked product is an active SKU with clean ref file(s) in `30_products/sku_activation_index.md`, or every variant in `variant_scope` is Active and the group image has an approved scope reference
 - all six creative fields are selected and recorded
 - the rotation check is truthful
 - compatibility rules pass or an exception is recorded

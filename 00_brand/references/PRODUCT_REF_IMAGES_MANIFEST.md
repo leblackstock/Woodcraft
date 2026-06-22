@@ -1,7 +1,7 @@
 # Product Reference Images Manifest
 
 Status: External source record
-Last checked: 2026-06-10
+Last checked: 2026-06-21
 External folder: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images`
 
 This file records the external folder where created product reference images and Drakkar logo/title examples are stored. The image files listed here are not copied into this repository by this manifest.
@@ -59,3 +59,4 @@ Use rules:
 - `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` - last modified 2026-06-10 17:16
 - `TT_3_pot_tabletop_herb_planter_ref_clean-01.png` - last modified 2026-05-20 22:33
 - `TT_3_pot_tabletop_herb_planter_ref_clean-02.png` - last modified 2026-05-20 22:35
+- `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` - renamed 2026-06-21; original last modified 2026-06-14 09:36 - operator-approved controlling clean reference for USA1-L-NAT image generation

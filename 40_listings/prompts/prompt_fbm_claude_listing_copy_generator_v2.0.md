@@ -28,6 +28,8 @@ Use sources in this order:
 
 Do not use older product names, older prices, older sizes, older website values, or unsupported draft wording when they conflict with the saved catalog artifacts.
 
+For a custom configurable family with no saved catalog row, use the approved family record, included child-variant records, and listing record as the fact source. Do not invent a catalog price, retail label, or catalog image to fill a missing catalog source.
+
 ## Output From This Generator
 
 Create a Claude prompt, not final listing copy.
@@ -86,6 +88,16 @@ Do not invent urgency, scarcity, discounts, durability claims, availability, lea
 
 - For K / Cedar Raised Garden Bed, state that the raised bed is fully customizable by quote, and make clear that the current size, price, and specs apply only to the featured 72 x 36 x 18 in configuration. Do not let Claude imply custom configurations share the featured price or specs.
 
+## Variant-Scope Listing Mode
+
+Use this mode when a Marketplace listing intentionally offers a selected `variant_scope` from one `product_family_id` without creating a bundle.
+
+- Treat `listing_ref` and `listing_handle` as internal routing labels only. Claude must write a customer-facing title from the approved buyer facts; never expose the internal handle or assume it is suitable title copy.
+- Inline every included variant's approved customer name, dimensions, price, finish options, and relevant exclusions. List the included variants in the intended buyer order.
+- State plainly that the buyer may choose from the included options. Do not mention or imply family variants outside `variant_scope`.
+- If the choices have different prices, ask Claude to make the price differences unmistakable and easy to scan. Do not use bundle, set, savings, discount, or one-price-for-all language unless the offer is a separately approved bundle product.
+- Do not create the handoff until every included variant's relevant facts, pricing, and media truth are approved for the scope.
+
 ## Image Text Boundary
 
 Do not send image prompts, graphic prompts, overlay text, or image graphic text to Claude for approval.
@@ -143,7 +155,7 @@ Write the strongest sellable Facebook Marketplace listing you can from the appro
 Brand voice is a guardrail, not the main goal. Keep the copy practical, direct, factual, local when useful, and free of fake hype, but do not make it quieter, prettier, or more brand-like at the expense of selling the product.
 
 Listing type:
-[single-product listing, bundle listing, master catalog listing, etc.]
+ [single-product listing, non-bundle variant-scope listing, bundle listing, master catalog listing, etc.]
 
 Approved facts:
 [facts]
@@ -184,13 +196,14 @@ Do not ask Claude to write or approve image graphic text, image prompts, caption
 
 ## Final Check Before Saving A Claude Prompt
 
-- Every price matches catalog truth.
+- Every price matches catalog truth, or for a custom configurable family without a catalog row, the approved family and scoped variant records.
 - Listing price guidance uses plain customer-facing prices; retail comparison is not included unless Lauren explicitly asks for it.
 - Product names match catalog truth.
 - Dimensions/specs match catalog truth.
 - Media facts are not used as unsupported selling claims.
 - SKU-specific restrictions are included.
 - K prompts, when present, state the fully customizable quote path and featured-configuration-only price/spec boundary.
+- Variant-scope prompts list every and only the included variants, their approved customer-facing facts, and their exact approved prices without bundle wording.
 - Prompt asks Claude for listing prose only.
 - Prompt tells Claude to silently write several internal sales-angle versions, score them, and then produce a stronger final version as the visible output.
 - Prompt makes sellability the main scoring target and brand voice a light guardrail.

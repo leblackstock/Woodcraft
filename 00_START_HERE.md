@@ -46,7 +46,8 @@ Primary goal: help Lauren make better decisions faster, with less stress and les
 
 ## What Not To Do Yet
 
-- Do **not** build scripts/integrations in this phase.
+- Do **not** build new external scripts or platform integrations in this phase.
+- The existing local research database in `60_automation/research_database/` is an approved internal, rebuildable research tool. It may be maintained, but it must not publish, message customers, change prices, or connect to external marketing platforms.
 - Do **not** assume big ad budgets.
 - Do **not** treat every channel as equally important.
 - Do **not** invent metrics or fake certainty.

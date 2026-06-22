@@ -1,7 +1,7 @@
 # SKU Activation Index
 
 Status: Active workflow gate
-Last checked: 2026-06-14
+Last checked: 2026-06-21
 Clean reference source: `00_brand/references/PRODUCT_REF_IMAGES_MANIFEST.md`
 External clean reference folder: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images`
 
@@ -11,6 +11,8 @@ Purpose: define which SKUs are active for Facebook Page, Instagram, and other so
 
 - A SKU is `Active` only when at least one clean reference image exists for that SKU in the external Product Ref Images folder.
 - Do not create new Facebook Page, Instagram, ad, or other social posts for products that do not resolve to an `Active` SKU here.
+- Prompt preparation and clean-reference generation prompts may be created for inactive SKUs; external listing/social image generation and publication remain blocked until the resulting clean reference is operator-approved and this index is updated.
+- A listing-level scope reference does not activate a variant. A scope-based social post may proceed only when every code in its `variant_scope` is individually `Active`; when the post image shows the full scope together, it must also use an approved scope reference.
 - Products without a catalog SKU, or with no matching clean reference file, are `Not Active` for post creation even if the product remains a business candidate or listing-prep item.
 - Existing draft posts for inactive/no-SKU products should be archived or marked blocked before reuse.
 - Final listing/business approval is separate from SKU activation. This file controls content/post eligibility only.
@@ -38,11 +40,13 @@ Purpose: define which SKUs are active for Facebook Page, Instagram, and other so
 | PS | `30_products/prod_cedar_plant_stand_001.md` | Cedar Plant Stand | `PS_cedar_pot_stand_ref_clean-01.png`; `PS_cedar_pot_stand_ref_clean-02.png` |
 | Q | `30_products/prod_cedar_one_picket_planter_001.md` | Mini Cedar Cube Planter | `Q_mini_cedar_cube_planter_ref_clean-01.png`; `Q_mini_cedar_cube_planter_ref_clean-02.png` |
 | TT | `30_products/prod_cedar_tabletop_plant_holder_001.md` | Cedar Tabletop Plant Holder | `TT_3_pot_tabletop_herb_planter_ref_clean-01.png`; `TT_3_pot_tabletop_herb_planter_ref_clean-02.png` |
+| USA1-L-NAT | `30_products/variant_usa1_l_nat.md` | Wavy Wooden American Flag — Large — Natural Wood with Red & Blue Stain | `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` |
 
 ## Not Active For Post Creation
 
 | Product / SKU | Reason | Handling |
 |---|---|---|
-| `30_products/prod_usa_wavy_wooden_american_flag_usa1.md` / `USA1` | No owned clean reference image is recorded yet; product is a candidate/pilot stock item only. | Treat as `Not Active` for Facebook Page, Instagram, ad, or other social post creation until a clean ref exists and this index is updated. FBM listing prep still requires cost, price, media, and Claude-copy approval. |
+| `30_products/variant_usa1_m_nat.md` / `USA1-M-NAT` | Medium clean-reference generation and listing-prompt files are prepared; no approved clean reference exists yet. | Run the prepared clean-reference prompt with the USA1-L-NAT attachment, then approve the result before external listing/social image generation or publication. |
+| `30_products/variant_usa1_s_nat.md` / `USA1-S-NAT` | Small clean-reference generation and listing-prompt files are prepared; no approved clean reference exists yet. | Run the prepared clean-reference prompt with the USA1-L-NAT attachment, then approve the result before external listing/social image generation or publication. |
 | `30_products/prod_cedar_planter_box_001.md` / `f00015` | No catalog SKU is assigned and no matching clean ref file was found in the external Product Ref Images folder. | Do not create new Facebook Page or Instagram posts. Existing draft social records are archived or marked blocked. |
 | Any future product or SKU not listed as `Active` above | No clean ref file is recorded in this index. | Treat as `Not Active` until a clean ref file exists and this index is updated. |

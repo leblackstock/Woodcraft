@@ -11,9 +11,11 @@
 - publish_status: Published
 - publish_ready: Yes
 - approved_facts_status: Approved
-- customer_copy_status: Posted From Operator Screenshot
+- customer_copy_status: Historical Operator Evidence
 - claude_handoff_ref: 50_content/prompts/content_fbpage_classic_square_planter_spotlight_001_claude_post_copy_prompt_2026-06-08.md
-- claude_output_ref: Operator screenshot provided in chat on 2026-06-08; final visible post copy captured in this record.
+- claude_output_ref:
+- historical_publish_evidence_ref: Operator screenshot provided in chat on 2026-06-08; final visible post copy is preserved in this record.
+- historical_gate_exception_reason: The post was already published and the operator screenshot captured its visible copy, but no pasted-back Claude output was recorded. This record is archival only; any revision must restart the Claude gate.
 
 ## Creative Direction
 

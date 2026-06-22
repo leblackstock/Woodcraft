@@ -8,6 +8,7 @@ Optimization target: sell the listing. Marketplace voice is a guardrail for fact
 
 - channel: Facebook Marketplace
 - asset_type: Marketplace listing
+- offer_type: Single product / Non-bundle variant scope / Bundle / Master catalog
 - current_asset:
 - asset_id:
 - voice_mode: Marketplace
@@ -34,6 +35,8 @@ Optimization target: sell the listing. Marketplace voice is a guardrail for fact
 - fulfillment:
 - lead_time:
 - customization_notes:
+- included_variant_options_and_price_table: Required for `Non-bundle variant scope`; list every included option, customer-facing size/spec, finish boundary, and exact approved price.
+- excluded_variant_options: Required for `Non-bundle variant scope`; do not mention or imply excluded family options.
 
 ## Tone and Guardrails
 
@@ -64,6 +67,7 @@ Optimization target: sell the listing. Marketplace voice is a guardrail for fact
 - Use approved facts only.
 - Treat `current_asset` or `customer_copy_prep_notes` as context only, not as an approved fact source.
 - Do not invent pricing, dimensions, materials, lead times, delivery terms, availability, or product claims.
+- For a `Non-bundle variant scope`, write only about the included options and make their separate prices clear. Do not use bundle, set, savings, discount, or one-price-for-all language.
 - Do not soften missing facts with guesses.
 - Before producing the visible answer, silently write several internal versions with different sales angles. Analyze them for buyer response, search usefulness, skim clarity, trust, objection handling, factual safety, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 - Do not use em dashes, en dashes, AI-isms, or common AI tells.

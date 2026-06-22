@@ -8,9 +8,9 @@
 - catalog_sku: A
 - sku_activation_status: Active - SKU A has clean ref files recorded
 - sku_activation_ref: 30_products/sku_activation_index.md
-- customer_copy_status: Posted From Operator Screenshot
+- customer_copy_status: Historical Operator Evidence
 - output_needed_from: Claude
-- use_status: Completed. Final visible Facebook Page post copy was captured from operator screenshot on 2026-06-08.
+- use_status: Historical evidence only. The post was already published and its final visible Facebook Page copy was captured from an operator screenshot on 2026-06-08; no pasted-back Claude output was recorded.
 
 ## Copy-Ready Claude Prompt
 

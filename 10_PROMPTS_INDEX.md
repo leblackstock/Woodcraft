@@ -69,6 +69,7 @@ These shared prompt templates live in [80_templates/](80_templates/):
 Current FBM workflow entry point:
 
 - `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
+- `40_listings/variant_scope_marketplace_listing_workflow.md` for non-bundle Marketplace listings that intentionally include selected variants from one product family
 
 Brand identity references used by prompts:
 
@@ -80,13 +81,20 @@ Brand identity references used by prompts:
 Workflow-specific listing image prompt templates live in [40_listings/prompts/](40_listings/prompts/):
 
 - `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md`
+- `40_listings/prompts/prompt_fbm_variant_scope_clean_reference_generator_v1.0.md`
 - `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md`
 - `40_listings/prompts/fbm_image_prompt_pack_wave1_2026-06-04.md`
 - `40_listings/prompts/fbm_image_prompt_pack_wave1_5_2026-06-10.md`
-- `40_listings/prompts/fbm_image_prompt_pack_usa1_wavy_flag_2026-06-14.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_l_nat_wavy_flag_2026-06-14.md`
 - `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v2.0.md`
 - `40_listings/prompts/claude_fbm_listing_copy_prompt_wave1_2026-06-04.md`
-- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_wavy_flag_2026-06-14.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_l_nat_wavy_flag_2026-06-14.md`
+- `40_listings/prompts/prompt_usa1_m_nat_clean_reference_generator_2026-06-21.md`
+- `40_listings/prompts/prompt_usa1_s_nat_clean_reference_generator_2026-06-21.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_m_nat_wavy_flag_2026-06-21.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_s_nat_wavy_flag_2026-06-21.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_m_nat_wavy_flag_2026-06-21.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_s_nat_wavy_flag_2026-06-21.md`
 
 Current Facebook Page brand-post image workflow:
 
@@ -107,6 +115,7 @@ Fast path for short "fb brand post prompt" requests:
 
 Deprecated but retained for traceability:
 
+- `40_listings/prompts/prompt_usa1_l_nat_clean_reference_generator_2026-06-14.md` - retired after the operator approved `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and abandoned the CAD replacement attempt
 - `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.0.md`
 - `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
 - `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md`
@@ -148,10 +157,10 @@ Each future prompt family must be explicitly scoped to either GPT-5.5 orchestrat
    - Copied image prompts should use direct positive instructions and exact rendered text, not internal repo labels, pricing-policy explanations, or long negative style-category lists.
    - For Facebook Marketplace listing images, exact product fidelity is always required: require the approved catalog image or reference image attachment and stop instead of delivering a text-only approximation when the attachment is missing.
    - When an attachment is required, the copied prompt starts with `Please see attached "[plain-language item being attached]"`.
-   - FBM price-card graphics use one plain selling-price line from the approved FBM price; copied prompts should specify the exact rendered text instead of explaining internal price-label exceptions.
+   - FBM price-card graphics use one plain selling-price line from the approved FBM price. A non-bundle variant-scope listing with different approved option prices uses one clear option-and-price chart listing every scoped variant and its exact approved price. Copied prompts specify the exact rendered text instead of explaining internal price-label exceptions.
 5. **Content Prompts**
    - GPT-5.5 orchestration/prep: short-form concept extraction from listings
-   - GPT-5.5 orchestration/prep: Facebook Page brand-post image concepts, rotation checks, image graphic text, and standalone image prompts for active SKUs only
+   - GPT-5.5 orchestration/prep: Facebook Page brand-post image concepts, rotation checks, image graphic text, and standalone image prompts for active SKUs only, or for an exact variant scope when every included variant is Active
    - Claude final customer-facing prose: one best Facebook Page post-copy or Instagram caption output by default
    - Claude final customer-facing prose: social post-copy or caption CTA variants only when explicitly requested
    - Claude final customer-facing prose: reply-template prompts

@@ -81,6 +81,15 @@ On 2026-06-14, Lauren clarified the USA1 material and prompt-pack pricing direct
 
 This operator follow-up supersedes the earlier $100-$125 draft test range for the USA1 prompt pack. Cost inputs and final publish approval remain pending.
 
+## Current Family Mapping (2026-06-21)
+
+The dated operator follow-up above is preserved as historical context. Current operating truth is now maintained in the USA1 family record:
+
+- Legacy `USA1` is now `USA1-L-NAT`: Large — Natural Wood with Red & Blue Stain, customer-facing 24 3/4 in L × 13 in H × 1 1/2 in thick, physical target 24.7 × 13 × 1.5 in, $120 base, or $145 for requested Glossy, Matte, or Oil finish.
+- `USA1-M-NAT`: Medium, 18 1/2 in L × 9 3/4 in H × 1 1/2 in thick, $90 base or $110 finished; clean reference pending.
+- `USA1-S-NAT`: Small, 14 1/2 in L × 7 1/2 in H × 1 1/2 in thick, $50 base or $60 finished; clean reference pending.
+- Do not treat the dated FL comparison ladder, frame, or draped option as current Drakkar customer-facing pricing.
+
 ## Sources Checked
 
 - Facebook Marketplace search near Lovejoy, GA for wavy wooden American flag terms.

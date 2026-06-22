@@ -132,6 +132,7 @@ Image graphic text governed by an active review-by-exception image workflow is e
   - `Handoff Prepared`
   - `Claude Output Pasted Back`
   - `Final Integrated`
+  - `Historical Operator Evidence` (audit-only exception; never for a new or revised asset)
 - Until `customer_copy_status: Final Integrated`, customer-facing fields must contain `[[CLAUDE_FINAL_COPY_REQUIRED]]` or strictly non-publishable structured bullets.
 - Draft phrasing, outline language, and non-Claude copy experiments belong in internal prep fields such as `customer_copy_prep_notes`, not in publishable customer-facing fields.
 - `claude_handoff_ref` is blank until a valid approved-facts handoff is prepared.
@@ -142,15 +143,17 @@ Image graphic text governed by an active review-by-exception image workflow is e
   - `claude_output_ref` is filled
   - required non-copy asset fields are complete
 - `publish_ready: Yes` does not remove manual approval requirements for pricing, publishing, or scheduling.
+- `Historical Operator Evidence` is permitted only for an already-published asset whose exact visible copy and operator evidence were captured after the fact, but whose Claude output was never recorded. It requires `historical_publish_evidence_ref` and `historical_gate_exception_reason`, may retain its historical `Published` state, and must not be reused as a publish path.
+- A historical-exception asset may not be refreshed, scheduled again, or used as source copy. Any customer-facing revision restarts the normal Claude gate and removes the exception.
 
 ### Publish-State Truthfulness Rules
 
 - `publish_status` may not imply readiness beyond the Claude gate or `publish_ready`.
-- Assets with an incomplete Claude gate may not use readiness, scheduled, or published statuses.
+- Assets with an incomplete Claude gate may not use readiness, scheduled, or published statuses, except an immutable record using the documented `Historical Operator Evidence` audit exception.
 - Prep-only assets must stay in clearly non-publish states.
 - Listing records with `publish_ready: No` may use only `Draft`, `Paused`, or `Archived`.
 - Content records with `publish_ready: No` may use only `Draft` or `Archived`.
-- `Ready for Manual Publish`, `Ready to Schedule`, `Scheduled`, `Published`, and similar publish-near states are allowed only after the Claude gate is complete and `publish_ready: Yes`.
+- `Ready for Manual Publish`, `Ready to Schedule`, `Scheduled`, `Published`, and similar publish-near states are allowed only after the Claude gate is complete and `publish_ready: Yes`, except an immutable historical-evidence record covered by the preceding exception.
 - `publish_date` is the actual publish date only and stays blank until a manual publish event has happened.
 
 ## Change Management Rules

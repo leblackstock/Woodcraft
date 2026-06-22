@@ -1,7 +1,7 @@
 ﻿# FBM Image Prompt Pack — Wave 1
 
 Date created: 2026-06-04
-Generator template: `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
+Generator template: `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md` (retired; retained only as the historical source for this Wave 1 pack)
 Approval mode: review by exception
 Image text owner: GPT/Codex prep
 Listing copy owner: Claude
@@ -15,6 +15,8 @@ Text style SOT: `00_brand/TEXT_STYLE_RULES.md`
 Visual style SOT: `00_brand/VISUAL_STYLE.md`
 
 This prompt pack prepares Facebook Marketplace listing images for Wave 1. It does not create final Marketplace listing prose.
+
+Historical status: this pack remains a dated Wave 1 record. Do not use it to create or refresh new listing images; create a current prompt from `prompt_fbm_listing_image_pack_generator_v2.0.md` instead.
 
 Use: copy the filename first, generate the image from the prompt, and save the output with that filename. Review by exception only.
 

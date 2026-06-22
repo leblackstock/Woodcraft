@@ -10,6 +10,8 @@ Any research, analysis, media, graphic, or other prompt created for an external 
 
 1. **Intake**
    - Capture idea in `30_products/` using template from [80_templates/product_candidate_template.md](80_templates/product_candidate_template.md).
+   - For a configurable product, create the family parent first using `record_type: Configurable Product Family` and a `product_id`. Create a child Variant record only for a permanent, separately priced standard option; each child uses `variant_id`, `family_product_id`, and `variant_code`, never its own `product_id` or catalog ID. Use quote-only handling for one-off custom requests.
+   - When an existing standalone product must become a configurable family, follow [30_products/product_to_family_conversion_workflow.md](30_products/product_to_family_conversion_workflow.md) and create its migration manifest before changing identifiers, listing links, or media references.
 2. **Research**
    - Gather local pricing and demand signals in [20_research/](20_research/).
 3. **Score**
@@ -25,6 +27,8 @@ Any research, analysis, media, graphic, or other prompt created for an external 
 Before an approved product moves forward to listing progression, prepare one bundled operator-review block that confirms:
 
 - product/spec confirmation
+- record type and family/variant relationship confirmation when applicable
+- catalog-ID policy confirmation: standalone products and family parents receive catalog IDs; child variants use permanent variant codes only
 - build model confirmation (`build_model`)
 - standard launch spec confirmation
 - pricing confirmation when relevant
@@ -33,6 +37,7 @@ Before an approved product moves forward to listing progression, prepare one bun
 - estimated lead-time confirmation
 - delivery/pickup terms confirmation
 - media truth confirmation (`media_truth_status` and provenance note when needed)
+- individual clean-reference and activation readiness confirmation for each variant intended for listing or social use
 - whether plans are available (`plans_available`)
 - source confirmation when plans exist (`plans_source_ref` and, when applicable, `reference_source` / `reference_code`)
 

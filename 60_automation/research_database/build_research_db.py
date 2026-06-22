@@ -404,18 +404,33 @@ def transcript_for_video(video_no: int) -> tuple[str, str]:
 
 def parse_products() -> list[dict[str, str]]:
     products: list[dict[str, str]] = []
-    for path in sorted(PRODUCT_DIR.glob("prod_*.md")):
-        fields = parse_bullets(path)
-        product_id = fields.get("product_id") or path.stem
+    paths = sorted([*PRODUCT_DIR.glob("prod_*.md"), *PRODUCT_DIR.glob("variant_*.md")])
+    fields_by_path = {path: parse_bullets(path) for path in paths}
+    family_catalog_ids = {
+        fields.get("product_id", ""): fields.get("catalog_id", "")
+        for path, fields in fields_by_path.items()
+        if path.name.startswith("prod_") and fields.get("product_id") and fields.get("catalog_id")
+    }
+
+    for path in paths:
+        fields = fields_by_path[path]
+        is_variant = fields.get("record_type") == "Variant" or path.name.startswith("variant_")
+        product_id = fields.get("product_id") or fields.get("variant_id") or path.stem
+        catalog_id = fields.get("catalog_id", "")
+        if is_variant:
+            catalog_id = family_catalog_ids.get(
+                fields.get("family_product_id", ""), fields.get("family_catalog_id", "")
+            )
+
         normalized = pricing_normalized(fields)
         products.append(
             {
                 "product_id": product_id,
-                "catalog_id": fields.get("catalog_id", ""),
+                "catalog_id": catalog_id,
                 "product_name": fields.get("product_name", ""),
                 "product_file": str(path.relative_to(REPO_ROOT)),
                 "category": fields.get("category", ""),
-                "status": fields.get("status", ""),
+                "status": fields.get("status", "") or fields.get("family_status", "") or fields.get("variant_status", ""),
                 "build_model": fields.get("build_model", ""),
                 "reference_code": fields.get("reference_code", ""),
                 "reference_source": fields.get("reference_source", ""),

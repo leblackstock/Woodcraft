@@ -15,6 +15,10 @@ This note captures the product-page facts, Shopify product data, image reference
 
 The original customer-facing product description is paraphrased here rather than copied. Recheck the live page before using any price, availability, or shipping assumption in a product decision.
 
+## File Index
+
+See [FILE_INDEX.md](FILE_INDEX.md) for the complete local-file manifest for this exact product URL, including all six saved page images, SHA-256 integrity hashes, and the limited set of related workspace references.
+
 ## Local Image Files
 
 All six product images exposed by the Shopify product JSON were saved locally in `images/`.

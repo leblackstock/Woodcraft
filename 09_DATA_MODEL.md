@@ -18,17 +18,20 @@ These fields make the Claude gate enforceable in records instead of leaving it a
 | Field | Required | Allowed Values / Format | Description |
 |---|---|---|---|
 | approved_facts_status | Yes | `Working` / `Approved` | Whether the asset facts are complete enough for a valid Claude handoff. |
-| customer_copy_status | Yes | `Prep Only` / `Claude Required` / `Handoff Prepared` / `Claude Output Pasted Back` / `Final Integrated` | Current state of customer-facing prose in the asset. |
+| customer_copy_status | Yes | `Prep Only` / `Claude Required` / `Handoff Prepared` / `Claude Output Pasted Back` / `Final Integrated` / `Historical Operator Evidence` | Current state of customer-facing prose in the asset. The historical-evidence value is audit-only and never a new-work option. |
 | claude_handoff_ref | No | Free text ref / file / date | Where the approved-facts Claude handoff is recorded. Leave blank until prepared. |
 | claude_output_ref | No | Free text ref / date | Where pasted-back Claude output is recorded. Leave blank until received. |
+| historical_publish_evidence_ref | No | Free text ref / date | Required only for `Historical Operator Evidence`; identifies the operator screenshot or equivalent evidence of the already-published asset. |
+| historical_gate_exception_reason | No | Free text note | Required only for `Historical Operator Evidence`; explains why no Claude output was recorded. |
 | publish_ready | Yes | `Yes` / `No` | Asset may only be publish-ready when facts are approved, Claude output has been integrated, and required non-copy fields are complete. |
 
 ### Copy-State Rules
 
-- Before `customer_copy_status: Final Integrated`, customer-facing fields must contain `[[CLAUDE_FINAL_COPY_REQUIRED]]` or strictly non-publishable structured bullets.
+- Before `customer_copy_status: Final Integrated`, customer-facing fields must contain `[[CLAUDE_FINAL_COPY_REQUIRED]]` or strictly non-publishable structured bullets, except an immutable `Historical Operator Evidence` record whose exact visible copy is preserved as evidence.
 - Draft phrasing that is useful internally but not Claude-final belongs in `customer_copy_prep_notes`.
 - `claude_handoff_ref` should appear only after `approved_facts_status: Approved`.
-- `publish_ready: Yes` is invalid unless `customer_copy_status: Final Integrated` and `claude_output_ref` is filled.
+- `publish_ready: Yes` is invalid unless `customer_copy_status: Final Integrated` and `claude_output_ref` is filled, except the audit-only `Historical Operator Evidence` case with both required historical-evidence fields filled.
+- `Historical Operator Evidence` may be assigned only during an audit to an already-published asset. It is never valid in a template, draft, handoff, scheduled asset, or newly revised asset; any revision returns the record to the normal Claude gate.
 
 ## Verification Governance Pattern (Approved Products + Listings)
 
@@ -73,7 +76,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 
 | Field | Required | Allowed Values / Format | Description |
 |---|---|---|---|
-| build_model | Yes | `Made to Order` / `In Stock` / `Sample Built` | Truthful operating model for the product or listing. |
+| build_model | Yes | `Made to Order` / `In Stock` / `Sample Built` / `Pilot Build` | Truthful operating model for the product or listing. |
 | media_truth_status | No | `Owned Real Photo` / `Owned AI-Assisted Photo` / `Concept / Mockup` / `Third-Party Reference Only` | Governing label for the media currently planned or used. |
 | media_provenance_note | No | Short free text note | Brief note on owned-photo origin, AI derivation, or why media is reference-only only. |
 
@@ -83,6 +86,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 - For `build_model: Made to Order`, pre-sale dimensions may come from a locked standard spec or approved plan/reference. Actual measured finished dimensions belong in post-build validation unless the launch spec itself is still unresolved.
 - `build_model: In Stock` means the listed item already exists and fulfillment claims should match that inventory truth.
 - `build_model: Sample Built` means a real sample/prototype exists and may support truthful listing media for future builds.
+- `build_model: Pilot Build` means the product or variant is being validated through an initial repeatable build. It is not current inventory and must not support in-stock claims. It may progress only when its applicable pre-sale facts, media truth, and verification gates are satisfied.
 - `Owned Real Photo` is allowed for listing use when the photo comes from an owned prior build, sample, or current finished piece.
 - `Owned AI-Assisted Photo` is allowed only when the source image is owned and the media is still used truthfully.
 - `Concept / Mockup` must not be represented as a fresh finished-product photo.
@@ -91,27 +95,36 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 
 ### Publish-Status Rules
 
-- `publish_status` must not outrun the Claude gate or `publish_ready`.
+- `publish_status` must not outrun the Claude gate or `publish_ready`, except an immutable historical-evidence record that satisfies the documented audit-only exception.
 - Prep-only assets (`customer_copy_status: Prep Only`) must stay in clearly non-publish states.
 - Listing records with `publish_ready: No`, incomplete approved facts, or an incomplete Claude gate may use only `Draft`, `Paused`, or `Archived`.
 - `Ready for Manual Publish` is valid only when the listing has cleared the Claude gate and `publish_ready: Yes`.
 - `Published` is valid only after the listing has cleared the Claude gate, `publish_ready: Yes`, and a manual publish event has happened.
 - Content records with `publish_ready: No`, incomplete approved facts, or an incomplete Claude gate may use only `Draft` or `Archived`.
-- `Ready to Schedule`, `Scheduled`, and `Published` are valid only when the content asset has cleared the Claude gate and `publish_ready: Yes`.
+- `Ready to Schedule`, `Scheduled`, and `Published` are valid only when the content asset has cleared the Claude gate and `publish_ready: Yes`, except an immutable `Historical Operator Evidence` record.
 - `publish_date` is the actual publish date only. Leave it blank until the asset is actually published; do not use it as a tentative schedule field for prep-only assets.
 
 ## Product Record Schema
 
 | Field | Required | Description |
 |---|---|---|
-| product_id | Yes | Unique ID (e.g., `prod_raised_bed_001`) |
-| catalog_id | Yes | Stable short product number (e.g., `f00001`) assigned sequentially and preserved. |
+| record_type | Conditional | `Standalone Product` / `Configurable Product Family` / `Variant`. Required for newly created records; a legacy blank record type means standalone until normalized. |
+| product_id | Conditional | Unique ID (e.g., `prod_raised_bed_001`). Required for a Standalone Product or Configurable Product Family; leave blank for a Variant. |
+| variant_id | Conditional | Unique child-record ID (e.g., `variant_usa1_l_nat`). Required for a Variant; leave blank otherwise. |
+| family_product_id | Conditional | Parent `product_id`; required for a Variant and blank otherwise. |
+| family_catalog_id | No | Inherited parent catalog ID for a Variant; never an independent child catalog ID. |
+| family_code | Conditional | Stable code required for a Configurable Product Family and its Variants; blank for a standalone product. |
+| variant_code | Conditional | Permanent, separately priced standard option code such as `USA1-L-NAT`; required for a Variant and blank otherwise. |
+| colorway_code | No | Approved colorway/style code for a variant, such as `NAT` |
+| catalog_id | Conditional | Required for standalone products and configurable-product family parents. Child variant records do not receive an independent catalog ID; they use `variant_code` under the parent family ID. |
 | catalog_sku | No | Catalog SKU/code when present. Required for active-SKU post creation. |
 | sku_activation_status | No | `Active` / `Not Active`; social post creation is allowed only for active SKUs with clean ref files. |
 | clean_ref_files | No | Exact clean reference image filenames supporting active SKU status. |
+| clean_reference_generation_prompt_ref | No | Prepared external prompt used to generate a clean reference before operator approval. |
+| conversion_manifest_ref | No | Required when an existing standalone product is converted into a configurable family; records the legacy-to-family mapping and validation result. |
 | sku_activation_ref | No | Link to `30_products/sku_activation_index.md` when SKU/post eligibility matters. |
 | product_name | Yes | Human-readable product name |
-| category | Yes | Decor / Planter / Raised Bed / Furniture |
+| category | Yes | Plain-language product category, for example Patriotic Wall Decor, Planter, Raised Bed, or Furniture. |
 | date_created | Yes | Record creation date |
 | owner | Yes | Human owner / approver |
 | build_model | Yes | See build model + media truth pattern |
@@ -140,6 +153,12 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | pricing_strategy_1_price_floor | No | Current-method minimum price based on total-cost guardrails when labor-inclusive inputs exist; otherwise a visible advisory note |
 | pricing_strategy_2_price_floor | No | Materials-benchmark price based on materials being 30% of finished price |
 | target_price | Yes | Initial list price target |
+| customer_size_label | No | Customer-facing size name such as Large, Medium, or Small |
+| customer_facing_dimensions | No | Exact dimensions approved for customer-facing copy and graphics |
+| physical_target_dimensions | No | Internal build target used for production and scale validation |
+| actual_finished_dimensions | No | Measured physical dimensions after a completed unit exists |
+| finish_modifier_codes | No | Permanent priced finish-option codes, when applicable |
+| finish_price_rule | No | Approved calculation or displayed price for a requested finish option |
 | margin_estimate | Yes | Estimated margin at target price |
 | material_cost_percent_of_price | No | Materials cost as a percent of target price |
 | recommended_price_floor | No | Default pricing baseline under the current pricing policy; normally Strategy 2 unless manually overridden |
@@ -153,7 +172,7 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | photo_listability | No | 1–5 score |
 | fulfillment_practicality | No | 1–5 score |
 | repeatability | No | 1–5 score |
-| status | Yes | Candidate / Approved / Hold / Rejected / Active |
+| status | Conditional | Standalone status: Candidate / Approved / Hold / Rejected / Active. A configurable family may use `family_status` and a child Variant may use `variant_status` when that is clearer. |
 | score_total | No | Decision score from workflow |
 | decision_reason | No | Why the current status was chosen |
 | next_action | No | Immediate next step |
@@ -171,10 +190,17 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 - Preferred format: markdown link with a short label, for example `[Build plan — Ana White: Modern Fence Picket Planter](https://example.com)`.
 - If more than one external reference is needed, separate them with ` | ` on the same field or turn them into a short labeled list in notes only when additional context is necessary.
 
+### Configurable Family And Variant Applicability
+
+- The `Yes` fields above describe the complete standalone-product readiness record. They do not require a configurable family parent and every child Variant to duplicate the same shared facts.
+- A configurable family parent requires its identity fields (`record_type`, `product_id`, `family_code`, `catalog_id`, name, owner, build model, and verification state) plus the shared facts needed for the family’s current stage.
+- A child Variant requires its identity fields (`record_type`, `variant_id`, `family_product_id`, `family_code`, `variant_code`, and blank `catalog_id`) plus its own customer name, price/spec/media/activation truth. It may inherit shared material, use-case, fulfillment, plan, and market fields from the family unless the Variant differs.
+- Record a Variant's inherited parent short code in `family_catalog_id`; do not populate its `catalog_id` field.
+
 ### Product Naming + Plans/Reference Tracking Rules
 
 - Imported reference products may use a clean human-readable `product_name` instead of raw source/flyer codes.
-- Preserve `product_id` as the file-safe identifier and use `catalog_id` for short human-facing product numbers such as `f00001`.
+- Preserve `product_id` as the file-safe identifier and use `catalog_id` for short human-facing product numbers such as `f00001`. Assign catalog IDs to standalone products and configurable-product family parents only. Child variants use their permanent `variant_code` and retain the parent catalog ID as a reference.
 - Preserve original source/flyer naming in `reference_code` (for example, use `Cedar Tall Square Planter 16x16x25` as `product_name` and store `Planter Box C` in `reference_code`).
 - Use `reference_source` to identify the originating source set (for example, `Who's the Voss 2026 pricing guide`).
 - `plans_available` defaults to `No` for non-imported products and any product without a real source-backed plan/reference.
@@ -185,7 +211,11 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | Field | Required | Description |
 |---|---|---|
 | listing_id | Yes | Unique ID |
+| listing_ref | No | Required for variant-scope listings. Internal plain-language label for the exact offer or variant collection; never customer-facing title copy. |
+| listing_handle | No | Required for variant-scope listings. Stable lowercase, hyphenated internal handle used in prompts, filenames, and chat requests; never customer-facing title copy. |
 | product_id | Yes | Reference to product record |
+| product_family_id | No | Parent configurable-product record when the listing covers variants |
+| variant_scope | No | Approved variant codes that may appear in this listing; do not use to model bundles |
 | channel | Yes | Marketplace / Etsy / Other |
 | publish_status | Yes | Draft / Ready for Manual Publish / Published / Paused / Archived (`Ready for Manual Publish` and `Published` require `publish_ready: Yes`) |
 | last_updated | Yes | Date updated |
@@ -218,6 +248,9 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | media_provenance_note | No | Short note on media origin/truth boundary |
 | brand_assets_ref | No | Brand asset source for logos, approved photos, palette, and styling; default `00_brand/` when brand-specific media or styling is used |
 | media_assets | Yes | Photos/video references |
+| scope_reference_asset | No | Listing-level clean reference that shows exactly the whole variant scope. It supplements, never replaces, individual variant clean references. |
+| scope_reference_variant_codes | No | Variant codes shown in `scope_reference_asset`; must exactly match `variant_scope`. |
+| scope_reference_status | No | `Not Needed` / `Pending Operator Approval` / `Approved`. |
 | hero_photo | No | Primary photo plan |
 | angle_shots | No | Additional angle shot plan |
 | detail_shots | No | Detail shot plan |
@@ -226,6 +259,8 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | faq_prep | No | Internal FAQ prep notes |
 | objection_handling_prep | No | Internal objection-handling prep notes |
 | publish_date | No | Actual publish date only; leave blank until manually published |
+| published_variant_scope | No | Immutable snapshot of the exact variant scope that was posted live. |
+| live_listing_url | No | Optional direct URL to the manually published Marketplace listing. |
 | views | No | Count metric |
 | saves | No | Count metric |
 | messages | No | Count metric |
@@ -253,6 +288,11 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | content_id | Yes | Unique ID |
 | linked_product_id | No | Optional product reference |
 | linked_listing_id | No | Optional listing reference |
+| linked_product_family_id | No | Parent configurable-product record when content presents a selected variant scope. |
+| variant_scope | No | Exact active variant codes presented by a scope-based content asset. It is not a bundle definition. |
+| scope_reference_asset | No | Approved grouped reference used when the content image shows the full variant scope. |
+| scope_reference_variant_codes | No | Variant codes shown in the scope reference; must exactly match `variant_scope`. |
+| scope_activation_status | No | `Not Needed` / `All Variants Active` / `Blocked`. A scope post may proceed only when every scoped variant is Active. |
 | sku_activation_status | No | `Active` / `Not Active` / `Blocked`; new social posts and image prompts are allowed only for active SKUs. |
 | sku_activation_ref | No | Link to `30_products/sku_activation_index.md` when the content references a product/SKU. |
 | platform | Yes | FB Page / Instagram / TikTok / Shorts |
@@ -321,6 +361,11 @@ These fields keep listing-first made-to-order truth explicit and auditable.
 | audience_notes | No | Targeting notes |
 | budget_total | Yes | Total planned spend |
 | duration_days | Yes | Planned test length |
+| per_test_cap | Yes | Default `$20 max`; an approved exception is required to exceed it. |
+| weekly_spend_cap | Yes | Default `$40 max` across all channels. |
+| monthly_spend_cap | Yes | Default `$120 max` until repeatable organic proof exists. |
+| budget_exception_approval | No | Human approval reference required if any default cap is exceeded. |
+| budget_compliance_check | Yes | `Passed` / `Blocked` / `Approved Exception`. |
 | creative_variant | No | Creative/copy variant being tested |
 | brand_assets_ref | No | Brand asset source for logos, approved photos, palette, and styling; default `00_brand/` when brand-specific ad creative is used |
 | organic_proof_summary | No | Organic signals that justified testing |

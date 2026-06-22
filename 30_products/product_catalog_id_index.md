@@ -2,7 +2,7 @@
 
 date_created: 2026-04-30
 scope: Current product records in `30_products/`
-assignment_rule: Existing catalog IDs are stable. Initial IDs were assigned in alphabetical filename order across `prod_*.md` records; new products are appended with the next available ID unless a future migration is explicitly approved.
+assignment_rule: Existing catalog IDs are stable. Initial IDs were assigned in alphabetical filename order across `prod_*.md` records; new standalone products and configurable-product family parents are appended with the next available ID unless a future migration is explicitly approved. Child variant records do not receive independent catalog IDs; they use permanent variant codes under their family parent.
 
 | Catalog ID | Product ID | Product Name | Product File |
 |---|---|---|---|
@@ -39,4 +39,4 @@ assignment_rule: Existing catalog IDs are stable. Initial IDs were assigned in a
 | `f00031` | `prod_cedar_window_box_001` | Cedar Window Box Planter 36in | [prod_cedar_window_box_001.md](./prod_cedar_window_box_001.md) |
 | `f00032` | `prod_cedar_five_finger_trellis_001` | Cedar Five-Finger Trellis | [prod_cedar_five_finger_trellis_001.md](./prod_cedar_five_finger_trellis_001.md) |
 | `f00033` | `prod_cedar_decorative_obelisk_trellis_001` | Cedar Decorative Obelisk Trellis | [prod_cedar_decorative_obelisk_trellis_001.md](./prod_cedar_decorative_obelisk_trellis_001.md) |
-| `f00034` | `prod_usa_wavy_wooden_american_flag_usa1` | Wavy Wooden American Flag - Natural Stripe | [prod_usa_wavy_wooden_american_flag_usa1.md](./prod_usa_wavy_wooden_american_flag_usa1.md) |
+| `f00034` | `prod_usa_wavy_wooden_american_flag_usa1` | Wavy Wooden American Flag | [prod_usa_wavy_wooden_american_flag_usa1.md](./prod_usa_wavy_wooden_american_flag_usa1.md) |

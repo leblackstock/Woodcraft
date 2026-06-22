@@ -2,17 +2,29 @@
 
 ## Basic Info
 
-- product_id:
-- catalog_id:
+- record_type: Standalone Product / Configurable Product Family / Variant
+- product_id: Required for Standalone Product and Configurable Product Family; leave blank for Variant.
+- variant_id: Required for Variant; leave blank otherwise.
+- family_product_id: Required for Variant; otherwise leave blank.
+- family_catalog_id: Parent catalog ID for Variant reference only; leave blank otherwise.
+- family_code: Required for Configurable Product Family and Variant; otherwise leave blank.
+- variant_code: Required for a permanent standard Variant; otherwise leave blank.
+- colorway_code: Optional approved style/colorway code for a Variant.
+- catalog_id: Required for Standalone Product and Configurable Product Family. Leave blank for Variant; child variants use `variant_code` under the parent catalog ID.
 - catalog_sku:
 - sku_activation_status: Active / Not Active
 - clean_ref_files:
+- clean_reference_generation_prompt_ref:
+- conversion_manifest_ref: Required when this record results from conversion of an existing standalone product into a configurable family or child Variant.
 - sku_activation_ref: 30_products/sku_activation_index.md
 - product_name:
 - category:
 - date_created:
 - owner:
-- build_model: Made to Order / In Stock / Sample Built
+- build_model: Made to Order / In Stock / Sample Built / Pilot Build
+- customer_size_label: Optional for Variant.
+- customer_facing_dimensions: Optional for Variant.
+- physical_target_dimensions: Optional for Variant.
 
 ## Verification Snapshot
 
@@ -88,6 +100,8 @@
 - pending_confirmation:
 
 > Listing-first rule: approved products may move toward made-to-order listing prep before a fresh build exists if the standard launch spec, price logic, lead time, delivery terms, and media truth are locked.
+
+> Configurable-product rule: create the family parent first, then create one child Variant record for every permanent, separately priced standard option. A child Variant has no independent `catalog_id`; it receives a stable `variant_code`, its own price/spec/clean-reference truth, and a link to the family parent. One-off custom requests are quote-only unless later promoted to a permanent Variant.
 
 > Brand asset rule: brand-specific photos, logos, colors, graphics, HTML/template styling, and generated-visual references should point to `00_brand/` rather than older catalog-export folders.
 

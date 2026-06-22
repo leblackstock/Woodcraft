@@ -74,7 +74,7 @@ For Drakkar-specific external prompts:
 - When an attached image is required, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
 - Do not claim text-only prompting can guarantee an exact product match.
 - For Facebook Marketplace listing images, exact product fidelity is always required. Require the approved catalog image or reference image attachment and stop instead of delivering a text-only approximation when the attachment is missing.
-- For Facebook Marketplace price-card graphics, use one plain selling-price line from the approved FBM price. In copied image prompts, specify the exact rendered text instead of explaining internal labels or retail-comparison exceptions.
+- For Facebook Marketplace price-card graphics, use one plain selling-price line from the approved FBM price. For a non-bundle variant-scope listing with different approved option prices, use one clear option-and-price chart listing every included variant and its exact approved price instead. In copied image prompts, specify the exact rendered text instead of explaining internal labels or retail-comparison exceptions.
 
 ### Writing And Claude Handoff Prompts
 

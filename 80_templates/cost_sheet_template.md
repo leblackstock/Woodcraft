@@ -10,7 +10,11 @@ Brand asset reminder: if this cost sheet supports branded listing, ad, graphic, 
 - date_prepared:
 - prepared_by:
 - linked_product_id:
+- linked_product_family_id:
+- linked_variant_id:
+- variant_code:
 - linked_listing_id:
+- variant_scope: Use only when documenting the selected options shown by a linked scope listing. Do not combine separately priced variants into one bundle cost or price without an approved bundle product.
 - standard_spec_ref:
 - cost_basis_date:
 - pricing_status: Draft / Ready for Approval / Approved
@@ -77,3 +81,5 @@ Brand asset reminder: if this cost sheet supports branded listing, ad, graphic, 
 - approval_status:
 - approved_by:
 - approval_date:
+
+> Variant cost rule: prepare or link cost truth per permanent variant. A scope listing may reference those individual cost sheets, but it does not create a combined product cost, bundle price, or savings claim.

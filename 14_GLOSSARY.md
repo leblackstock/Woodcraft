@@ -27,7 +27,13 @@ Use these definitions consistently across this workspace.
 - **Copy Provenance**: The record trail showing which handoff and pasted-back Claude output produced the final customer-facing prose.
 - **Publish Ready**: Record state showing an asset may proceed to manual publish/schedule review because facts, final copy, and required fields are complete.
 - **Publish Status**: Operational state label for the asset. It may not imply readiness, scheduling, or publication ahead of the Claude gate and `publish_ready`.
+- **Historical Operator Evidence**: Audit-only status for an already-published asset whose visible copy and publication evidence were captured after the fact, but whose Claude output was not recorded. It cannot be used for new, revised, scheduled, or republished work.
 - **Weekly Review Draft**: Upcoming or in-progress weekly review record kept outside the completed archive until the review period is actually complete.
+- **Pilot Build**: An initial repeatable build being validated. It is not current inventory and must never support an in-stock claim.
+- **Configurable Product Family**: The parent record for a repeatable product with separately priced standard choices. It owns the stable `product_id`, catalog ID, and shared facts.
+- **Variant**: A permanent, separately priced standard option inside a configurable product family. It uses its own `variant_id` and `variant_code`, not its own catalog ID.
+- **Variant Scope**: The exact set of active Variant codes included in one non-bundle listing or product-family showcase.
+- **Scope Reference**: A grouped clean reference that shows exactly a declared variant scope. It supplements rather than replaces each Variant's individual clean reference and activation evidence.
 
 ## Automation Terms
 

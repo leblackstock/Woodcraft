@@ -14,6 +14,7 @@ Focus: consistency before tooling.
 - Enforce record structure from [09_DATA_MODEL.md](09_DATA_MODEL.md)
 - Use AI for drafting/scoring/checklists
 - Keep publishing/posting/manual buyer communication human-driven
+- Maintain approved local, rebuildable research utilities when they only index saved workspace sources and remain outside customer, pricing, publishing, and platform actions.
 
 ## Phase Next (Semi-Automated Workflows)
 

@@ -14,7 +14,7 @@ This folder contains the free local search setup for the Woodcraft research file
 - `20_research/YouTubeTranscripts/analysis/whosthevoss_video_concept_product_index_2026-04-30.md`
 - `20_research/YouTubeTranscripts/analysis/whosthevoss_video_to_current_products_cross_reference_2026-04-30.md`
 - `20_research/YouTubeTranscripts/WhosTheVoss_transcripts/*.txt`
-- `30_products/prod_*.md`
+- `30_products/prod_*.md` and `30_products/variant_*.md` (family parents, standalone products, and child variants)
 
 ## Generated File
 

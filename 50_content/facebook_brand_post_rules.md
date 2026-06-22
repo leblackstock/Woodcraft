@@ -30,9 +30,9 @@ Use this fast path before broader discovery:
 1. Start with the active/open content or prompt file when the operator context clearly points to one.
 2. Read this file and `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`.
 3. Read the target content record under `50_content/`.
-4. Check `30_products/sku_activation_index.md`. Product-specific Facebook Page posts may be created only for SKUs marked `Active` there.
-5. If the linked product is inactive, has no catalog SKU, or has no clean ref file, do not create or deliver a new post prompt. Return `BLOCKED` or archive/mark the draft as inactive.
-6. If the content record already has `approved_facts_status: Approved`, creative-selection fields, `exact_in_image_text`, `approved_reference_images`, `image_prompt_ref`, and active SKU status, open the saved image prompt and deliver from that rather than rebuilding the concept only when it still matches current SKU-specific visual rules.
+4. Check `30_products/sku_activation_index.md`. A single-product Facebook Page post may be created only for an `Active` SKU. A scope-based product-family showcase may be created only when every code in `variant_scope` is `Active`.
+5. If a linked product is inactive, has no catalog SKU, or has no clean ref file, do not create or deliver a new single-product post prompt. If a scoped variant is inactive, missing a clean ref, or absent from the declared scope, set `scope_activation_status: Blocked` and return `BLOCKED`.
+6. If the content record already has `approved_facts_status: Approved`, creative-selection fields, `exact_in_image_text`, `approved_reference_images`, `image_prompt_ref`, and valid activation status for its single SKU or complete variant scope, open the saved image prompt and deliver from that rather than rebuilding the concept only when it still matches current SKU-specific visual rules.
 7. If the saved image prompt is missing, the operator asks for a new variation, or the saved prompt conflicts with a newer SKU-specific visual rule, read only the linked product/listing records and `00_brand/` source files needed to fill missing approved facts, visual direction, palette, typography, or attachment instructions.
 8. Check recent rotation with targeted searches across `50_content/content_fbpage_*.md`; do not run broad repo discovery unless the target content record is unknown.
 9. Ask one short clarifying question only when there are multiple plausible target content records and the operator context does not identify which one to use.
@@ -119,12 +119,13 @@ Before creating a Facebook brand-post image prompt, gather:
 - linked product or listing records when relevant
 - governed media or approved reference images
 - exact clean ref file(s) for the active SKU when product fidelity matters
+- for a scope-based product-family showcase: `linked_product_family_id`, exact `variant_scope`, `scope_activation_status`, all individual active clean refs, and an approved `scope_reference_asset` when the image shows the full collection together
 - any required product, logo, or layout attachments
 - recent Facebook Page post history with recorded creative-selection fields
 - image graphic-text direction, any required literal wording, or a clear decision to use `NO_TEXT`
 - requested output format; default is square `1:1`
 
-If the linked product is not an active SKU, return `BLOCKED` and list the SKU activation reason. If approved facts are insufficient for the requested message, return `BLOCKED` and list the missing facts. Do not solve missing truth with vague promotional language.
+If the linked product is not an active SKU, return `BLOCKED` and list the SKU activation reason. For a scope-based post, return `BLOCKED` unless every listed variant is Active; do not use a scope reference as a substitute for an inactive variant's clean reference. If approved facts are insufficient for the requested message, return `BLOCKED` and list the missing facts. Do not solve missing truth with vague promotional language.
 
 ## Mix-And-Match System
 
@@ -138,6 +139,8 @@ Choose one option from each category. Treat these as interoperable creative ingr
 - Workshop/process narrative
 - Product close-up
 - Product family showcase
+
+`Product family showcase` may present a selected `variant_scope`, not an implied full catalog. It must show every and only the active scoped variants, use the approved scope reference for a group composition, and never describe the collection as a bundle unless a separately approved bundle product is linked.
 - Minimal logo-forward
 - Local badge/label
 - Poster-style brand graphic
@@ -288,7 +291,7 @@ Review the most recent seven Facebook Page content records that already have sel
 
 - Follow the repository media-truth rules.
 - Use approved or governed owned media for publishable content.
-- Product-specific Facebook Page posts require an active SKU with a clean ref file in `30_products/sku_activation_index.md`.
+- Product-specific Facebook Page posts require an active SKU with a clean ref file in `30_products/sku_activation_index.md`. A scope-based product-family showcase requires every code in `variant_scope` to be Active, plus an approved scope reference when the group is shown together.
 - Do not create new Facebook Page post prompts for inactive/no-SKU products.
 - Require an approved source image attachment when exact product fidelity matters.
 - Require an approved logo attachment when exact logo fidelity matters.
@@ -308,6 +311,11 @@ Before saving a generated image prompt, update the content record with:
 - `cta_style`
 - `exact_in_image_text`
 - `approved_reference_images`
+- `linked_product_family_id`
+- `variant_scope`
+- `scope_reference_asset`
+- `scope_reference_variant_codes`
+- `scope_activation_status`
 - `sku_activation_status`
 - `sku_activation_ref`
 - `recent_post_history_ref`

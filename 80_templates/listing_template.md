@@ -3,8 +3,12 @@
 ## Listing Identity
 
 - listing_id:
+- listing_ref: Internal plain-language reference for this exact offer or variant collection. Never use as customer-facing title copy.
+- listing_handle: Stable lowercase, hyphenated internal handle for prompting, filenames, and chat requests. Never use as customer-facing title copy.
 - product_id:
-- build_model: Made to Order / In Stock / Sample Built
+- product_family_id: Leave blank unless this listing represents a configurable product family.
+- variant_scope: One or more approved variant codes allowed in this listing; do not use bundle contents here.
+- build_model: Made to Order / In Stock / Sample Built / Pilot Build
 - channel: Marketplace / Etsy / Other
 - publish_status: Draft / Ready for Manual Publish / Published / Paused / Archived
 - last_updated:
@@ -53,6 +57,9 @@
 - media_truth_status: Owned Real Photo / Owned AI-Assisted Photo / Concept / Mockup / Third-Party Reference Only
 - media_provenance_note:
 - media_assets:
+- scope_reference_asset: Listing-level clean reference showing the full `variant_scope`; leave blank when no grouped scope image is needed. This does not replace individual variant clean references.
+- scope_reference_variant_codes: Must exactly match `variant_scope` when `scope_reference_asset` is set.
+- scope_reference_status: Not Needed / Pending Operator Approval / Approved.
 - hero_photo:
 - angle_shots:
 - detail_shots:
@@ -75,6 +82,8 @@
 ## Performance Log
 
 - publish_date: Leave blank until the listing is actually published
+- published_variant_scope: Snapshot of the exact `variant_scope` posted live; leave blank until actual publication.
+- live_listing_url:
 - views:
 - saves:
 - messages:

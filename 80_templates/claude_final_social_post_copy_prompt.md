@@ -29,6 +29,8 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - approved_facts:
 - audience_or_context:
 - offer_or_focus:
+- included_variant_scope: When this post is a product-family showcase, list every included variant's approved customer-facing name, relevant facts, and any allowed choice wording. Otherwise leave blank.
+- excluded_variant_scope: When this post is a product-family showcase, list sibling variants that Claude must not mention or imply. Otherwise leave blank.
 - selected_image_mix:
 
 ## Tone and Constraints
@@ -85,6 +87,7 @@ When a Facebook Page image has selected mix-and-match fields, include the derive
 - Use approved facts only.
 - Treat `current_asset` or `customer_copy_prep_notes` as context only, not as an approved fact source.
 - Do not invent product details, timing, availability, customer outcomes, or local claims.
+- For a product-family showcase, write only about the included active variants. Do not imply an entire family is available and do not use bundle, set, savings, discount, or one-price-for-all language unless a separately approved bundle product is the actual subject.
 - Keep the copy aligned to the requested channel and word limit.
 - Default to one strongest final post-copy or caption output, not multiple options.
 - Before producing the visible answer, silently write several internal versions, analyze them for truthfulness, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.

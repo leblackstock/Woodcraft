@@ -32,6 +32,8 @@ Use sources in this order:
 
 Do not use older product names, older prices, older sizes, or website values when they conflict with the saved catalog artifacts.
 
+For a custom configurable family with no saved catalog row, use the approved family record, included child-variant records, and listing record as the fact source. Do not invent a catalog price, retail label, or catalog image to fill a missing catalog source.
+
 ## Required Inputs Per SKU
 
 - SKU
@@ -48,6 +50,28 @@ Do not use older product names, older prices, older sizes, or website values whe
 - lead-time wording
 - delivery/pickup wording
 - special truth notes
+
+## Variant-Scope Listing Mode
+
+Use this mode only when the listing record has a `product_family_id` and a non-empty `variant_scope`. A variant scope is a selected set of separately priced standard options from one product family. It is not a bundle.
+
+Required additional inputs:
+
+- `listing_ref` and `listing_handle` for internal routing only; never put either into customer-facing image text unless the approved product facts independently call for those words
+- exact `variant_scope`, in the intended display order
+- approved name, customer-facing dimensions, price, finish choices, and exclusions for every included variant
+- individual approved clean-reference attachment for every variant shown alone
+- approved `scope_reference_asset` when an image shows the full selected collection together
+- exact customer-facing option-and-price wording when prices differ
+
+Rules for scope images:
+
+- Show exactly the variants named in `variant_scope`, no more and no fewer.
+- A group image must preserve their real relative scale and show one of each variant unless the approved shot plan says otherwise.
+- For a group image, attach the approved scope reference as the primary visual control. Attach individual references as supporting controls when needed for exact fidelity.
+- For a single-variant image, attach that variant's individual clean reference; do not use the group reference as a substitute.
+- When the variants have different prices, create a factual option-and-price graphic that lists every included option and its approved price. Do not use bundle, set, savings, discount, or one-price-for-all wording.
+- Do not generate prompts for a variant that lacks its required approved clean reference. Mark that image blocked until the reference is approved.
 
 ## Global Facts
 
@@ -121,7 +145,7 @@ Default 8-image sequence:
 
 1. Best Thumbnail: the image most likely to stop a Marketplace buyer while still showing the exact product.
 2. Clean Product: show the empty product clearly and define what is included.
-3. Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. If the price applies only to a featured configuration, label the price line plainly.
+3. Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. If the price applies only to a featured configuration, label the price line plainly. For a non-bundle variant-scope listing with different prices, use a clear option-and-price chart listing every included variant and its exact approved price.
 4. Size/Context Photo: answer `how big is it?` with practical scale.
 5. Use-Case Photo: show one specific application, planting idea, or placement use.
 6. Detail/Trust Photo: show cedar grain, shape, rim, post, shelf, tier, corner, or other visible construction detail.
@@ -280,7 +304,7 @@ Avoid near-duplicate image prompts within the same SKU pack.
 - Each no-text photo slot must change the buyer question and at least two visible composition variables: setting, camera distance, camera angle, product state, scale reference, use case, background, or detail focus.
 - Image 1, Best Thumbnail: sell the product at first glance. It may be a lifestyle hero, clean product hero, or use-case hero, whichever is most likely to stop a Marketplace buyer while preserving exact product fidelity.
 - Image 2, Clean Product: show the empty product clearly and define what is included.
-- Image 3, Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. When the approved price applies only to a featured configuration, as with K, label the line plainly, such as `Featured size $240`, so the graphic does not imply every custom build shares that price. For approved sets or bundles, savings wording may be added when the separate-item total, set price, and savings amount are approved facts or Lauren explicitly requests it. Keep it factual, such as `3 separately $130`, `Set price $110`, and `Save $20 as a set`, rather than vague sale hype.
+- Image 3, Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. When the approved price applies only to a featured configuration, as with K, label the line plainly, such as `Featured size $240`, so the graphic does not imply every custom build shares that price. For a non-bundle variant-scope listing with different approved option prices, replace the single price line with a clear option-and-price chart that lists every and only the scoped variants with their exact approved prices. For approved sets or bundles, savings wording may be added when the separate-item total, set price, and savings amount are approved facts or Lauren explicitly requests it. Keep it factual, such as `3 separately $130`, `Set price $110`, and `Save $20 as a set`, rather than vague sale hype.
 - Image 4, Size/Context Photo: answer `how big is it?` quickly. Use practical scale references and a simpler background. Do not repeat the first thumbnail scene.
 - Image 5, Use-Case Photo: show one specific application, planting idea, or placement use. It should not be another broad lifestyle hero.
 - Image 6, Detail/Trust Photo: show material, shape, corners, rim, shelf, post, tier, or other visible construction details.
@@ -465,6 +489,7 @@ Do not create those templates during the current workflow. For now, write concis
 
 - Prices match catalog retail and FBM values.
 - Featured-configuration prices, such as K's current $240 price, are labeled as featured-only when used in image text.
+- Variant-scope packs show every and only the codes in `variant_scope`; when scoped variants have different prices, their option-and-price chart uses the exact approved price for each and no bundle wording.
 - Set or bundle savings graphics show only approved separate-item totals, approved set prices, and approved savings amounts.
 - SKU/product names match catalog truth.
 - At least one image or graphic contains numeric dimensions when approved dimensions exist.

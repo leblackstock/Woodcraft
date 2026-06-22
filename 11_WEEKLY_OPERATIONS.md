@@ -17,7 +17,7 @@ Every external AI/tool prompt created during weekly operations must pass [80_tem
 ## Tuesday — Spec / Build / Prep Day
 
 - Lock the standard launch spec for the week's priority items
-- Set the truthful `build_model` for each priority item (`Made to Order`, `In Stock`, or `Sample Built`)
+- Set the truthful `build_model` for each priority item (`Made to Order`, `In Stock`, `Sample Built`, or `Pilot Build`)
 - Build or prep priority items when useful, but do not treat a fresh build as a universal pre-list requirement
 - Capture one raw verification evidence bundle (spec/dimensions note, draft cost inputs, draft labor note, delivery/lead-time note, and media provenance note when needed)
 - Confirm costs, labor assumptions, margin assumptions, and lead-time logic in a draft cost sheet or linked product record; for `Made to Order`, do not require post-build actuals before pre-sale approval when the standard offer assumptions are explicitly approved
