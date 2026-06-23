@@ -113,12 +113,9 @@ Fast path for short "fb brand post prompt" requests:
 - For Facebook Page post asks, deliver the filename block, standalone image prompt block, and Claude Facebook Page post-copy handoff block by default.
 - Deliver only the filename block plus standalone image prompt block when the operator explicitly asks for an image prompt only.
 
-Deprecated but retained for traceability:
+## Historical Prompt Records
 
-- `40_listings/prompts/prompt_usa1_l_nat_clean_reference_generator_2026-06-14.md` - retired after the operator approved `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and abandoned the CAD replacement attempt
-- `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.0.md`
-- `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md`
-- `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md`
+Retired prompt generators are preserved in [90_archive/RETIREMENT_LEDGER.md](90_archive/RETIREMENT_LEDGER.md). They are not part of current prompt discovery; search the archive explicitly only when historical traceability is required.
 
 Current FBM listing prompt strategy:
 

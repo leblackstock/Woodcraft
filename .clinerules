@@ -74,6 +74,20 @@ These rules exist to prevent the exact failure modes already seen in this repo: 
 - Do not make an external prompt depend on repository paths, prior chat context, surrounding notes, another prompt, or undocumented shorthand.
 - If an image prompt requires an attached image, the first line of the copied prompt must be `Please see attached "[plain-language item being attached]"`.
 
+## Daily Session Briefing
+
+- On the first substantive response in each chat, run python 60_automation/workspace_maintenance/session_repo_briefing.py --status.
+- If due, the notice must tell the user to reply "Brief me" to generate the briefing; treat that phrase as the explicit confirmation to run --write.
+- If today’s America/New_York briefing is due, prompt once while continuing the user request. Run --write only after confirmation and paste the full result into chat.
+- A daily briefing is a read-only operational snapshot and may not schedule, publish, create customer copy, reprioritize work, or create a policy/learning entry.
+
+## Workspace Maintenance
+
+- Default repository searches exclude `90_archive/` and `deprecated/`; use `rg --no-ignore` only when historical material is explicitly needed.
+- For deliberate cleanup, use `60_automation/workspace_maintenance/workspace_maintenance_prompt.md` and its read-only audit before changing records.
+- Consolidate only accidental active duplicates. Keep complete copies in standalone prompts, schemas, templates, and agent-specific rule files when the receiving tool needs local context.
+- Escalate business-policy or factual conflicts, published records, customer-facing copy, raw source evidence, and unclear archive decisions.
+
 ## Completion Rules
 
 - Before finishing, confirm the task matches the original request, not just the last command run.

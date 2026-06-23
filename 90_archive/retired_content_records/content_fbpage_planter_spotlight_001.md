@@ -44,7 +44,7 @@
 - recent_post_history_ref: Reviewed `50_content/content_fbpage_raised_bed_spotlight_001.md` and this record on 2026-06-08; one prior published Facebook Page record with completed selected creative fields was available.
 - rotation_check_status: Checked — Limited History
 - rotation_notes: Compared against the published raised-bed concept. This selection changes all six tracked fields: `layout_family`, `photo_subject`, `message_angle`, `graphic_treatment`, `text_intensity`, and `cta_style`. The selection avoids a direct sales CTA while approved facts, final post copy, and linked Marketplace readiness remain incomplete.
-- image_prompt_ref: Retired prompt retained for traceability: `50_content/prompts/content_fbpage_planter_spotlight_001_image_prompt_2026-06-04.md`
+- image_prompt_ref: Retired prompt retained for traceability in `90_archive/retired_content/content_fbpage_planter_spotlight_001_image_prompt_2026-06-04.md`.
 - thumbnail_note: Archived — do not generate or choose a thumbnail while the linked product remains inactive.
 
 ## Publishing + Outcome

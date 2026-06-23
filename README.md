@@ -46,5 +46,6 @@ It is designed to reduce decision fatigue, keep actions consistent, and prioriti
 - [13_BACKLOG.md](13_BACKLOG.md)
 - [14_GLOSSARY.md](14_GLOSSARY.md)
 - [80_templates/](80_templates/)
+- [60_automation/workspace_maintenance/](60_automation/workspace_maintenance/) — live indexes, daily session briefing, archive routing, audit tools, and maintenance runbooks
 
 For full navigation, use [02_INDEX.md](02_INDEX.md).

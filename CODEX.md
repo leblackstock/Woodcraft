@@ -34,3 +34,18 @@ Guidance for Codex when working in this repository.
 - Local files are preparation sources only. Inline the relevant facts, instructions, brand rules, required text, constraints, inputs/attachments, output format, quality criteria, and failure behavior before delivering the prompt. For image and graphic prompts, choose the background color or photo/overlay background treatment first, then list the remaining approved palette colors without assigning them to text, dividers/rules, accents, panels, or inset fields.
 - Never make an external prompt depend on repository paths, prior chat context, surrounding notes, another prompt, or undocumented shorthand.
 - When a copied image prompt requires an attached image, make the first line `Please see attached "[plain-language item being attached]"` so the attachment requirement is visible before the user pastes the prompt into ChatGPT Image 2 or another image tool.
+
+## Daily Session Briefing
+
+- On the first substantive response in each chat, run python 60_automation/workspace_maintenance/session_repo_briefing.py --status.
+- If due, the notice must tell the user to reply "Brief me" to generate the briefing.
+- If today’s America/New_York briefing is due, issue one concise due notice while continuing the user’s request; do not repeat it during the chat.
+- Treat "Brief me" as explicit confirmation to run --write and paste the complete printed briefing into chat in addition to the requested work.
+- A daily briefing is read-only operational context. It must not publish, schedule, create customer copy, reprioritize work, or create policy/learning entries.
+
+## Workspace Maintenance
+
+- Default searches exclude `90_archive/` and `deprecated/`; use `rg --no-ignore` only when the task specifically needs historical material.
+- Use `60_automation/workspace_maintenance/workspace_maintenance_prompt.md` for a deliberate maintenance pass and run its audit before changing workflow files.
+- Consolidate accidental active duplication into canonical owners and short pointers. Keep required complete copies in separate agent rules, schemas, templates, and standalone external prompts.
+- Limit automatic repairs to generated indexes, clear links, archive pointers, and obvious encoding in editable canonical files. Escalate policy/fact conflicts, source evidence, published records, customer copy, and uncertain archival choices.

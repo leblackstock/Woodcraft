@@ -57,7 +57,7 @@
 - brand_assets_ref: 00_brand/
 - asset_refs: Approved catalog image: `00_brand/photos/planter-k.png`.
 - approved_reference_images: Required before use — approved catalog image `00_brand/photos/planter-k.png` for Cedar Raised Garden Bed.
-- recent_post_history_ref: Reviewed `50_content/content_fbpage_planter_spotlight_001.md` and this record on 2026-06-04; one prior Facebook Page record with completed selected creative fields was available.
+- recent_post_history_ref: Reviewed historical planter record `90_archive/retired_content_records/content_fbpage_planter_spotlight_001.md` and this record on 2026-06-04; one prior Facebook Page record with completed selected creative fields was available.
 - rotation_check_status: Checked — Limited History
 - rotation_notes: Compared against the prior planter concept. This selection changes `layout_family`, `photo_subject`, `message_angle`, `graphic_treatment`, and `text_intensity`; `cta_style` stays No CTA because direct buying CTA remains gated by Claude final copy and publish readiness.
 - image_prompt_ref: `50_content/prompts/content_fbpage_raised_bed_spotlight_001_image_prompt_2026-06-04.md`

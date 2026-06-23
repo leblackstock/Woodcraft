@@ -102,7 +102,7 @@ Image 8 - Final Ordering Graphic
   - `Pickup or local delivery available`
 - Negative/avoid: no extra words; text must be readable; no SKU text; no closed tray bottoms; no liner bottoms; no soil spilling, pouring, cascading, or falling loose; no product inset on porch, deck, patio, concrete, pavers, indoor floor, showroom floor, or other hard-surface staging.
 
-## SKU F-T1 - Cedar Five-Finger Trellis
+## SKU T1 - Cedar Five-Finger Trellis
 
 Facts:
 - Retail: N/A for this prompt pack
@@ -113,21 +113,21 @@ Facts:
 - Special truth notes: offered standalone or as a planter add-on; add-on staging should show T1 behind or beside the planter with no physical attachment implied unless separately approved; built to order; lead time will be given when order is made; pickup or local delivery available.
 
 Image 1 - Best Thumbnail
-- Filename: `f_t1_cedar_five_finger_trellis_fbm_01_best_thumbnail_v01.png`
+- Filename: `t1_cedar_five_finger_trellis_fbm_01_best_thumbnail_v01.png`
 - Purpose: first listing image for the standalone T1 trellis.
 - Sellability reason: quickly shows the simple fan shape, cedar material, and garden use in a mobile Marketplace feed.
 - Prompt: Please see attached "T1_cedar_five_finger_trellis_ref_clean-01.png, the approved clean reference image for Cedar Five-Finger Trellis". Create a realistic square Facebook Marketplace best-thumbnail image for Cedar Five-Finger Trellis. This image should make a local garden buyer immediately understand that the item is a simple handmade cedar fan trellis for climbing plants, sold as a standalone $40 item or planter add-on. Use the attached clean reference to preserve the exact five-finger fan shape, 70 in height, 32 in width, 2.25 in thickness, cedar tone, narrow uprights, crosspiece placement, and overall proportions. Show one trellis standing in a practical garden bed or along a fence line with young climbing greenery nearby for staging, but do not imply plants are included. Camera angle: front three-quarter view from about chest height, full height visible, trellis large in the square crop, with enough breathing room for Marketplace cropping. Physical background: a normal backyard garden edge with soil, grass, fence, or simple porch-adjacent greenery. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep it warm, practical, local, cedar-forward, and unfussy. No text overlay. Allow artistic variation in daylight, greenery, soil texture, and background spacing, but do not stretch, shrink, rotate, redesign, add fingers to, remove fingers from, or change the trellis beyond the attached reference.
 - Negative/avoid: no extra trellis fingers, no metal or plastic trellis, no text, no luxury estate setting, no plants implied as included.
 
 Image 2 - Clean Product
-- Filename: `f_t1_cedar_five_finger_trellis_fbm_02_clean_product_v01.png`
+- Filename: `t1_cedar_five_finger_trellis_fbm_02_clean_product_v01.png`
 - Purpose: clean inclusion anchor showing what is included.
 - Sellability reason: gives buyer trust by showing the actual product shape without props.
 - Prompt: Please see attached "T1_cedar_five_finger_trellis_ref_clean-01.png, the approved clean reference image for Cedar Five-Finger Trellis". Create a clean square Facebook Marketplace product image that acts as the inclusion anchor for Cedar Five-Finger Trellis. Show exactly one empty cedar five-finger fan trellis with the full 70 in height and 32 in width visible. Use the attached reference to preserve the exact five-finger shape, narrow uprights, crosspieces, cedar tone, thickness, and proportions. Camera angle: straight-on or very slight front three-quarter view, full product visible from bottom to top, centered with light breathing room. Physical background: soft cream product field or very simple garden-ground neutral background, clean enough to compare the silhouette at phone size. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. No text overlay, no props, no plants, no planter, and no second trellis. Allow only subtle realistic shadow and natural cedar variation.
 - Negative/avoid: no props, no planter, no flowers, no text, no altered fan shape, no extra pieces.
 
 Image 3 - Price/Value Card
-- Filename: `f_t1_cedar_five_finger_trellis_fbm_03_price_value_v01.png`
+- Filename: `t1_cedar_five_finger_trellis_fbm_03_price_value_v01.png`
 - Purpose: price clarity.
 - Sellability reason: makes the $40 offer easy to understand before the buyer reads the listing.
 - Prompt: Please see attached "T1_cedar_five_finger_trellis_ref_clean-01.png, the approved clean reference image for Cedar Five-Finger Trellis". Create a square Facebook Marketplace price graphic for Cedar Five-Finger Trellis. The image should answer price and product type at a glance. Use the attached trellis as a small realistic product inset or subtle background product signal if helpful, preserving the exact fan shape and cedar proportions. Choose deep charcoal `#13181B` as the background. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the graphic direct, practical, factual, easy to scan, buyer-focused, and free of unsupported hype or first-person language. Typography direction: clean, practical, sales-focused lettering with a premium rustic catalog feel; make `Cedar Five-Finger Trellis` the largest line, make `$40` medium-large and strongly readable, use generous spacing, simple divider lines, restrained rustic styling, and clean undistressed small text. Render exactly these lines and no other readable words: `Cedar Five-Finger Trellis`; `$40`.
@@ -137,28 +137,28 @@ Image 3 - Price/Value Card
 - Negative/avoid: no extra words; text must be readable; no SKU text.
 
 Image 4 - Size/Context Photo
-- Filename: `f_t1_cedar_five_finger_trellis_fbm_04_size_context_v01.png`
+- Filename: `t1_cedar_five_finger_trellis_fbm_04_size_context_v01.png`
 - Purpose: show the 70 in height and 32 in fan width in a practical setting.
 - Sellability reason: helps the buyer understand that this is a tall, lightweight garden support.
 - Prompt: Please see attached "T1_cedar_five_finger_trellis_ref_clean-01.png, the approved clean reference image for Cedar Five-Finger Trellis". Create a realistic square Facebook Marketplace size/context photo for Cedar Five-Finger Trellis. This image should answer how tall and wide the trellis feels in a real yard. Use the attached reference to preserve the exact five-finger fan shape, 70 in height, 32 in width, 2.25 in thickness, crosspiece placement, cedar tone, and proportions. Show one trellis standing near a garden fence, small garden bed, watering can, gloves, or a 1-gallon nursery pot for scale. Camera angle: wider front three-quarter comparison view from about chest height, full height visible, trellis not cropped, with everyday scale objects beside it rather than covering it. Physical background: practical garden edge, fence line, soil, or grass. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. No text overlay. Allow artistic variation in prop placement, daylight, and garden texture, but keep the product shape and scale controlled by the attachment.
 - Negative/avoid: no front-door hero repeat, no text, no exaggerated size, no different trellis style.
 
 Image 5 - Planter C Add-On Use Case
-- Filename: `f_t1_cedar_five_finger_trellis_fbm_05_planter_c_addon_use_case_v01.png`
+- Filename: `t1_cedar_five_finger_trellis_fbm_05_planter_c_addon_use_case_v01.png`
 - Purpose: required T1-with-Planter-C image.
 - Sellability reason: shows how the trellis can be staged with a planter add-on without implying physical attachment.
 - Prompt: Please see attached "T1_cedar_five_finger_trellis_ref_clean-01.png and C_tall_square_cedar_planter_ref_clean-01.png, the approved clean reference images for Cedar Five-Finger Trellis and Planter C". Create a realistic square Facebook Marketplace add-on use-case photo showing Cedar Five-Finger Trellis with the Tall Square Cedar Planter. Use the T1 attachment to preserve the exact five-finger fan shape, 70 in height, 32 in width, crosspieces, cedar tone, and narrow trellis proportions. Use the Planter C attachment to preserve the tall square cedar planter's exact square footprint, height, rim, open top, board layout, and cedar tone. Stage the trellis behind or beside the planter as a loose add-on or companion piece. Do not show screws, brackets, permanent mounting, or physical attachment unless separately approved. Camera angle: front three-quarter view from about chest height, planter in the foreground or lower third, trellis rising behind or beside it, both products fully readable in a square Marketplace crop. Physical background: practical porch edge, patio garden corner, or yard-side planter setting with natural daylight and simple greenery. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. No text overlay. Allow staging plants in the planter or nearby for use-case clarity, but do not imply plants, soil, mounting hardware, or installation are included.
 - Negative/avoid: no screws, no brackets, no physical attachment, no text, no wrong planter shape, no extra products.
 
 Image 6 - Detail/Trust Photo
-- Filename: `f_t1_cedar_five_finger_trellis_fbm_06_detail_trust_v01.png`
+- Filename: `t1_cedar_five_finger_trellis_fbm_06_detail_trust_v01.png`
 - Purpose: show cedar grain and fan construction.
 - Sellability reason: builds trust through material and simple construction detail.
 - Prompt: Please see attached "T1_cedar_five_finger_trellis_ref_clean-01.png, the approved clean reference image for Cedar Five-Finger Trellis". Create a realistic square Facebook Marketplace detail/trust photo for Cedar Five-Finger Trellis. Use the attached reference to preserve the trellis's cedar tone, narrow upright strips, crosspiece placement, five-finger fan shape, and handmade proportions. Frame a close three-quarter detail showing warm cedar grain, the intersection of uprights and crosspieces, clean brad-nail/glue-style assembly cues if visible, and the simple fan layout. Camera angle: close side-front detail with shallow depth of field, sharp enough to show grain and edges while the full fan shape is still partly readable in the background. Physical background: garden workbench, fence-side, or simple yard setting with natural daylight. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. No text overlay. Allow natural wood variation and handmade texture, but do not add ornate hardware, glossy finish, paint, stain, metal, or a different joinery style.
 - Negative/avoid: no metal hardware focus, no glossy finish, no text, no altered construction.
 
 Image 7 - Dimensions/Details Graphic
-- Filename: `f_t1_cedar_five_finger_trellis_fbm_07_dimensions_details_v01.png`
+- Filename: `t1_cedar_five_finger_trellis_fbm_07_dimensions_details_v01.png`
 - Purpose: show dimensions and local ordering facts.
 - Sellability reason: answers size, add-on status, local build, and lead-time questions in one scan.
 - Prompt: Please see attached "T1_cedar_five_finger_trellis_ref_clean-01.png, the approved clean reference image for Cedar Five-Finger Trellis". Create a square Facebook Marketplace dimensions/details graphic for Cedar Five-Finger Trellis. Use the attached trellis as a small realistic inset if helpful, preserving the exact fan shape and cedar proportions. Choose deep charcoal `#13181B` as the background. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the graphic direct, practical, factual, easy to scan, buyer-focused, and free of unsupported hype or first-person language. Typography direction: clean, practical, sales-focused lettering with a premium rustic catalog feel; make `Cedar Five-Finger Trellis` the largest line, make the numeric dimension lines medium and strongly readable, keep the add-on and local lines smaller but clear, use generous spacing, simple divider lines, restrained rustic styling, and no distressing on small text. Render exactly these lines and no other readable words: `Cedar Five-Finger Trellis`; `70 in H x 32 in W`; `2.25 in thick`; `Standalone or planter add-on`; `Built locally in Georgia`; `Lead time available by request`.
@@ -172,7 +172,7 @@ Image 7 - Dimensions/Details Graphic
 - Negative/avoid: no extra words; text must be readable; no SKU text.
 
 Image 8 - Final Ordering Graphic
-- Filename: `f_t1_cedar_five_finger_trellis_fbm_08_final_ordering_v01.png`
+- Filename: `t1_cedar_five_finger_trellis_fbm_08_final_ordering_v01.png`
 - Purpose: final ordering instruction.
 - Sellability reason: gives the buyer a simple next step.
 - Prompt: Please see attached "T1_cedar_five_finger_trellis_ref_clean-01.png, the approved clean reference image for Cedar Five-Finger Trellis". Create a square Facebook Marketplace final ordering graphic for Cedar Five-Finger Trellis. Use the attached trellis as a small realistic inset if helpful, preserving the exact fan shape and cedar proportions. Choose deep charcoal `#13181B` as the background. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the graphic direct, practical, factual, easy to scan, buyer-focused, and free of unsupported hype or first-person language. Typography direction: clean, practical, sales-focused lettering with a premium rustic catalog feel; make `Cedar Five-Finger Trellis` the largest line, keep `Message to order` medium and clearly separated, set `Pickup or local delivery available` smaller and clean, use generous spacing and simple divider lines. Render exactly these lines and no other readable words: `Cedar Five-Finger Trellis`; `Message to order`; `Pickup or local delivery available`.
@@ -182,7 +182,7 @@ Image 8 - Final Ordering Graphic
   - `Pickup or local delivery available`
 - Negative/avoid: no extra words; text must be readable; no SKU text.
 
-## SKU F-T2 - Cedar Decorative Obelisk Trellis
+## SKU T2 - Cedar Decorative Obelisk Trellis
 
 Facts:
 - Retail: N/A for this prompt pack
@@ -192,21 +192,21 @@ Facts:
 - Special truth notes: standalone item only; paid plan purchased and located; use plan-backed dimensions/material facts, but do not reproduce the full paid cut list in customer-facing prompts; built to order; lead time will be given when order is made; pickup or local delivery available.
 
 Image 1 - Best Thumbnail
-- Filename: `f_t2_cedar_decorative_obelisk_trellis_fbm_01_best_thumbnail_v01.png`
+- Filename: `t2_cedar_decorative_obelisk_trellis_fbm_01_best_thumbnail_v01.png`
 - Purpose: first listing image for the standalone T2 trellis.
 - Sellability reason: makes the taller decorative garden shape clear and clickable in the feed.
 - Prompt: Please see attached "T2_cedar_decorative_obelisk_trellis_ref_clean-01.png, the approved clean reference image for Cedar Decorative Obelisk Trellis". Create a realistic square Facebook Marketplace best-thumbnail image for Cedar Decorative Obelisk Trellis. This image should make a local garden buyer immediately understand that the item is a tall freestanding cedar obelisk trellis for flowers, vines, and garden focal-point staging. Use the attached clean reference to preserve the exact four-sided tapered obelisk shape, pointed top, open lattice panels, cedar tone, 70 in consumer-facing height, 26 in x 27 in footprint/top-view, and overall proportions. Show exactly one trellis standing alone in a practical garden bed, yard edge, or flower-border setting with simple climbing greenery nearby for staging, but do not imply plants are included. Camera angle: front three-quarter view from about chest height or slightly lower, full height visible, strong vertical shape readable, product large in the square crop with breathing room. Physical background: normal backyard garden edge, flower bed, lawn border, or fence-side garden. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep it warm, practical, local, cedar-forward, and unfussy. No text overlay. Allow artistic variation in daylight, plants, soil, and garden texture, but do not stretch, shrink, redesign, add extra panels to, remove lattice from, or change the obelisk beyond the attached reference.
 - Negative/avoid: no extra trellises, no metal arbor, no planter attached, no text, no luxury estate setting, no plants implied as included.
 
 Image 2 - Clean Product
-- Filename: `f_t2_cedar_decorative_obelisk_trellis_fbm_02_clean_product_v01.png`
+- Filename: `t2_cedar_decorative_obelisk_trellis_fbm_02_clean_product_v01.png`
 - Purpose: clean inclusion anchor showing the standalone item.
 - Sellability reason: makes clear that the base item is one obelisk trellis only.
 - Prompt: Please see attached "T2_cedar_decorative_obelisk_trellis_ref_clean-01.png, the approved clean reference image for Cedar Decorative Obelisk Trellis". Create a clean square Facebook Marketplace product image that acts as the inclusion anchor for Cedar Decorative Obelisk Trellis. Show exactly one empty freestanding cedar obelisk trellis with the full 70 in consumer-facing height and 26 in x 27 in footprint/top-view proportions visible. Use the attached reference to preserve the exact tapered four-sided shape, pointed top, open lattice panels, warm cedar color, and product proportions. Camera angle: front three-quarter product view from slightly below chest height so the height and footprint read clearly, full product visible from base to top. Physical background: smooth matte soft-cream studio floor/backdrop or clean neutral garden-ground surface, with subtle natural shadow. The background should feel clean, simple, and product-focused, not like an indoor room or household photo. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. No text overlay, no planter, no plants, no second trellis, no anchors, no carpet, no rug, no fabric floor, no indoor room, no showroom, and no household staging. Allow only subtle realistic shadow and natural cedar variation.
 - Negative/avoid: no props, no planter, no plants, no text, no altered obelisk shape, no extra pieces, no carpet, no rug, no fabric floor, no indoor room, no showroom, no household staging.
 
 Image 3 - Price/Value Card
-- Filename: `f_t2_cedar_decorative_obelisk_trellis_fbm_03_price_value_v01.png`
+- Filename: `t2_cedar_decorative_obelisk_trellis_fbm_03_price_value_v01.png`
 - Purpose: price clarity.
 - Sellability reason: makes the $120 standalone offer easy to understand.
 - Prompt: Please see attached "T2_cedar_decorative_obelisk_trellis_ref_clean-01.png, the approved clean reference image for Cedar Decorative Obelisk Trellis". Create a square Facebook Marketplace price graphic for Cedar Decorative Obelisk Trellis. The image should answer price and product type at a glance. Use the attached trellis as a small realistic product inset or subtle background product signal if helpful, preserving the exact obelisk shape and cedar proportions. Choose deep charcoal `#13181B` as the background. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the graphic direct, practical, factual, easy to scan, buyer-focused, and free of unsupported hype or first-person language. Typography direction: clean, practical, sales-focused lettering with a premium rustic catalog feel; make `Cedar Decorative Obelisk Trellis` the largest line, make `$120` medium-large and strongly readable, use generous spacing, simple divider lines, restrained rustic styling, and clean undistressed small text. Render exactly these lines and no other readable words: `Cedar Decorative Obelisk Trellis`; `$120`.
@@ -216,28 +216,28 @@ Image 3 - Price/Value Card
 - Negative/avoid: no extra words; text must be readable; no SKU text.
 
 Image 4 - Size/Context Photo
-- Filename: `f_t2_cedar_decorative_obelisk_trellis_fbm_04_size_context_v01.png`
+- Filename: `t2_cedar_decorative_obelisk_trellis_fbm_04_size_context_v01.png`
 - Purpose: show the 70 in height and garden footprint.
 - Sellability reason: helps buyers understand the tall garden-focal-point scale.
 - Prompt: Please see attached "T2_cedar_decorative_obelisk_trellis_ref_clean-01.png, the approved clean reference image for Cedar Decorative Obelisk Trellis". Create a realistic square Facebook Marketplace size/context photo for Cedar Decorative Obelisk Trellis. This image should answer how tall the 70 in trellis feels and how the 26 in x 27 in footprint sits in a garden. Use the attached reference to preserve the exact tapered four-sided obelisk shape, pointed top, open lattice panels, cedar tone, and proportions. Show one trellis standing in a garden bed or yard edge beside practical scale references such as a watering can, garden gloves, fence rail, or walkway edge. Camera angle: wider front three-quarter comparison view from about chest height, full height visible, top not cropped, product centered and readable in a square crop. Physical background: practical garden bed, fence line, lawn border, or simple flower-border setting. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. No text overlay. Allow artistic variation in daylight and scale props, but keep the obelisk shape and scale controlled by the attachment.
 - Negative/avoid: no cropped top, no exaggerated height, no text, no attached planter, no different trellis style.
 
 Image 5 - Use-Case Photo
-- Filename: `f_t2_cedar_decorative_obelisk_trellis_fbm_05_use_case_v01.png`
+- Filename: `t2_cedar_decorative_obelisk_trellis_fbm_05_use_case_v01.png`
 - Purpose: show a specific standalone garden use.
 - Sellability reason: helps the buyer picture the trellis with climbing flowers or vines while keeping the base item truthful.
 - Prompt: Please see attached "T2_cedar_decorative_obelisk_trellis_ref_clean-01.png, the approved clean reference image for Cedar Decorative Obelisk Trellis". Create a realistic square Facebook Marketplace use-case photo for Cedar Decorative Obelisk Trellis. Show one standalone cedar obelisk trellis as a garden focal point with young climbing flowers, peas, beans, or vines staged around it. Use the attached reference to preserve the exact four-sided tapered obelisk shape, pointed top, lattice pattern, cedar color, 70 in consumer-facing height, and 26 in x 27 in footprint/top-view proportions. Camera angle: slightly higher front three-quarter garden view so the base footprint, open lattice, and vertical shape are visible. Physical background: a normal backyard flower bed, vegetable bed edge, or garden path corner. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. No text overlay. Plants and vines may appear as staging, but do not imply they are included. Allow natural plant styling, sunlight, and garden texture, but do not make it a luxury landscape, metal arbor, pergola, or oversized installation.
 - Negative/avoid: no text, no planter attached, no plants implied as included, no metal arbor, no luxury estate scene.
 
 Image 6 - Detail/Trust Photo
-- Filename: `f_t2_cedar_decorative_obelisk_trellis_fbm_06_detail_trust_v01.png`
+- Filename: `t2_cedar_decorative_obelisk_trellis_fbm_06_detail_trust_v01.png`
 - Purpose: show cedar lattice detail and construction trust.
 - Sellability reason: makes the decorative slat pattern and handmade cedar feel believable.
 - Prompt: Please see attached "T2_cedar_decorative_obelisk_trellis_ref_clean-01.png, the approved clean reference image for Cedar Decorative Obelisk Trellis". Create a realistic square Facebook Marketplace detail/trust photo for Cedar Decorative Obelisk Trellis. Use the attached reference to preserve the cedar tone, open lattice panels, angled slat pattern, tapered frame, pointed top, and handmade proportions. Frame a close three-quarter detail showing warm cedar grain, angled lattice slats, one side frame, and the airy open structure, with enough of the obelisk visible to understand the shape. Camera angle: close side-front detail with shallow depth of field, sharp cedar grain and slat edges in the foreground, rest of the trellis softly receding. Physical background: garden edge, fence-side, or workshop-adjacent outdoor surface with natural daylight. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. No text overlay. Allow natural wood variation and handmade texture, but do not show a full paid cut list, measurements, paper plans, ornate metal hardware, glossy finish, paint, or a different construction style.
 - Negative/avoid: no plan-page closeup, no text, no glossy finish, no metal hardware focus, no altered lattice.
 
 Image 7 - Dimensions/Details Graphic
-- Filename: `f_t2_cedar_decorative_obelisk_trellis_fbm_07_dimensions_details_v01.png`
+- Filename: `t2_cedar_decorative_obelisk_trellis_fbm_07_dimensions_details_v01.png`
 - Purpose: show dimensions and local ordering facts.
 - Sellability reason: answers height, footprint, local build, and lead-time questions in one scan.
 - Prompt: Please see attached "T2_cedar_decorative_obelisk_trellis_ref_clean-01.png, the approved clean reference image for Cedar Decorative Obelisk Trellis". Create a square Facebook Marketplace dimensions/details graphic for Cedar Decorative Obelisk Trellis. Use the attached trellis as a small realistic inset if helpful, preserving the exact obelisk shape and cedar proportions. Choose deep charcoal `#13181B` as the background. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the graphic direct, practical, factual, easy to scan, buyer-focused, and free of unsupported hype or first-person language. Typography direction: clean, practical, sales-focused lettering with a premium rustic catalog feel; make `Cedar Decorative Obelisk Trellis` the largest line, make the numeric dimension lines medium and strongly readable, keep the local and lead-time lines smaller but clear, use generous spacing, simple divider lines, restrained rustic styling, and no distressing on small text. Render exactly these lines and no other readable words: `Cedar Decorative Obelisk Trellis`; `70 in H`; `26 x 27 in footprint`; `Built locally in Georgia`; `Lead time available by request`.
@@ -250,7 +250,7 @@ Image 7 - Dimensions/Details Graphic
 - Negative/avoid: no extra words; text must be readable; no SKU text; do not show paid-plan cut list.
 
 Image 8 - Final Ordering Graphic
-- Filename: `f_t2_cedar_decorative_obelisk_trellis_fbm_08_final_ordering_v01.png`
+- Filename: `t2_cedar_decorative_obelisk_trellis_fbm_08_final_ordering_v01.png`
 - Purpose: final ordering instruction.
 - Sellability reason: gives the buyer a simple next step.
 - Prompt: Please see attached "T2_cedar_decorative_obelisk_trellis_ref_clean-01.png, the approved clean reference image for Cedar Decorative Obelisk Trellis". Create a square Facebook Marketplace final ordering graphic for Cedar Decorative Obelisk Trellis. Use the attached trellis as a small realistic inset if helpful, preserving the exact obelisk shape and cedar proportions. Choose deep charcoal `#13181B` as the background. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the graphic direct, practical, factual, easy to scan, buyer-focused, and free of unsupported hype or first-person language. Typography direction: clean, practical, sales-focused lettering with a premium rustic catalog feel; make `Cedar Decorative Obelisk Trellis` the largest line, keep `Message to order` medium and clearly separated, set `Pickup or local delivery available` smaller and clean, use generous spacing and simple divider lines. Render exactly these lines and no other readable words: `Cedar Decorative Obelisk Trellis`; `Message to order`; `Pickup or local delivery available`.

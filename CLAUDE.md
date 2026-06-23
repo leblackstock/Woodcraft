@@ -53,6 +53,20 @@ Even if asked to suggest commands or workflows, do not recommend patterns that p
 - Do not tell an external target to open local files or rely on prior repository context.
 - If an image prompt requires an attached image, the copied prompt must begin with `Please see attached "[plain-language item being attached]"` before the rest of the prompt text.
 
+## Daily Session Briefing
+
+- On the first substantive response in each chat, run python 60_automation/workspace_maintenance/session_repo_briefing.py --status.
+- If due, the notice must tell the user to reply "Brief me" to generate the briefing; treat that phrase as the explicit confirmation to run --write.
+- If today’s America/New_York briefing is due, prompt once while continuing the user’s request. Run --write only after explicit confirmation and paste its complete summary into chat.
+- Treat the briefing as operational context only. It cannot create customer copy, schedule posts, publish, reprioritize work, or add a learning/policy decision.
+
+## Workspace Maintenance
+
+- Default searches exclude `90_archive/` and `deprecated/`; use `rg --no-ignore` only for an explicitly historical task.
+- Read `60_automation/workspace_maintenance/workspace_maintenance_prompt.md` before a deliberate workflow-maintenance pass.
+- Treat the rule-ownership map as the guide for reducing accidental active duplication. Do not reduce standalone prompts, schemas, templates, or agent instructions to inaccessible pointers.
+- Escalate business-policy conflicts, customer-facing copy changes, published records, raw source evidence, and uncertain archive decisions.
+
 ## Collaboration Rules
 
 - If upstream prep from another model is incomplete or unsafe, say so clearly.

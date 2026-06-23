@@ -87,7 +87,6 @@ Image prompt rules:
 - Copied image prompts should use direct positive instructions and exact text lines. Do not add internal repo labels, pricing-policy explanations, or long negative style-category lists the target model would not otherwise know.
 - For FBM SKU or catalog listing prompt packs with approved catalog image(s), treat the approved catalog image(s) as required attachments for every delivered prompt in that listing's image set, including text graphics. The copied prompt's first line must be `Please see attached "[plain-language item being attached]"`.
 - Exact product fidelity is always required for Facebook Marketplace listing images. Do not deliver or generate an FBM listing image prompt from text only; if the approved catalog image or required reference image is missing, stop and ask for the attachment.
-- If a delivered image prompt requires an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
 - Filename fields are required for every image prompt.
 - Do not put SKU letters/numbers inside generated images.
 - Do not repeat the same photo with different flowers. Change the buyer question and the composition.
@@ -136,22 +135,23 @@ Claude/listing prose should avoid:
 
 | Wave | Listings | Current Action |
 | ---: | --- | --- |
-| 1 | Master catalog; A; ABC; K | A, ABC, and K are posted/completed; decide whether to finish the Master catalog listing or move into Wave 2. |
-| 1.5 | F plus trellis add-ons | F / Tiered Cedar Pyramid Planter posted 2026-06-10; F-T1 / Cedar Five-Finger Trellis posted 2026-06-11; continue remaining F-T2 trellis work as needed from `40_listings/prompts/fbm_image_prompt_pack_wave1_5_2026-06-10.md`. |
-| 2 | B; C; G; H | Create Wave 2 image prompt pack after Wave 1 flow feels good. |
+| 1 | Master catalog; A; ABC; K | A, ABC, and K are posted/completed. The prepared Master Catalog draft remains available, but it is not in the current catalog-product sequence. |
+| 1.5 | F, T1, and T2 | F / Tiered Cedar Pyramid Planter posted 2026-06-10; T1 / Cedar Five-Finger Trellis posted 2026-06-11; T2 / Cedar Decorative Obelisk Trellis externally posted before screenshot evidence was supplied on 2026-06-22. Monitor all Wave 1.5 listing metrics. |
+| Pre-2 | USA1-SML — Wavy Flag Small, Medium & Large | Active before Wave 2: generate and approve the pending Small and Medium clean references using the approved Large attachment, then generate and approve the `usa1-sml_scope_ref_clean-01.png` combination reference from all three individual references and record it in the Product Ref Images manifest. This does not waive listing-image or publication gates. |
+| 2 | B; C; G; H | Begins after USA1-SML prep: create the Wave 2 image prompt pack, then run B first before moving one SKU at a time through C, G, and H. |
 | 3 | N; P; M | Validate pricing/cost notes, then create prompt pack. |
 | 4 | D; J; E; TT; Q; PS | Validate pricing/cost notes, then create prompt pack. |
 
 ## Wave 1.5 Trellis Readiness Note
 
-The following two trellises have been added as product candidates for Wave 1.5 Planter F add-on prep:
+The following two trellises are independent Wave 1.5 products. T1 may also be offered as an add-on to any planter.
 
-| Add-on code | Product | Product record | Draft spec | Draft cost note | Source note | Status |
+| Trellis SKU | Product | Product record | Draft spec | Draft cost note | Source note | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| F-T1 | Cedar Five-Finger Trellis | `30_products/prod_cedar_five_finger_trellis_001.md` | `30_products/spec_cedar_five_finger_trellis_standard.md` | `30_products/cost_cedar_five_finger_trellis_001.md` | `20_research/trellis_wave_1_5_source_notes_2026-06-09.md` | Published 2026-06-11; FBM listing completed; $40 price approved; offered standalone and as add-on to any planter; standalone clean ref `T1_cedar_five_finger_trellis_ref_clean-01.png` approved; dimensions 70 in H x 32 in W x 2.25 in thick; final live title/description and final posted media set not duplicated in repo |
-| F-T2 | Cedar Decorative Obelisk Trellis | `30_products/prod_cedar_decorative_obelisk_trellis_001.md` | `30_products/spec_cedar_decorative_obelisk_trellis_standard.md` | `30_products/cost_cedar_decorative_obelisk_trellis_001.md` | `20_research/trellis_wave_1_5_source_notes_2026-06-09.md` | Candidate; $120 price approved; standalone only; standalone clean ref `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` approved; paid plan purchased and located; use plan-backed dimensions/material facts, but do not reproduce the full paid cut list in customer-facing prompts |
+| T1 | Cedar Five-Finger Trellis | `30_products/prod_cedar_five_finger_trellis_001.md` | `30_products/spec_cedar_five_finger_trellis_standard.md` | `30_products/cost_cedar_five_finger_trellis_001.md` | `20_research/trellis_wave_1_5_source_notes_2026-06-09.md` | Published 2026-06-11; FBM listing completed; $40 price approved; offered standalone and as add-on to any planter; standalone clean ref `T1_cedar_five_finger_trellis_ref_clean-01.png` approved; dimensions 70 in H x 32 in W x 2.25 in thick; final live title/description and final posted media set not duplicated in repo |
+| T2 | Cedar Decorative Obelisk Trellis | `30_products/prod_cedar_decorative_obelisk_trellis_001.md` | `30_products/spec_cedar_decorative_obelisk_trellis_standard.md` | `30_products/cost_cedar_decorative_obelisk_trellis_001.md` | `20_research/trellis_wave_1_5_source_notes_2026-06-09.md` | Published externally; $120 price approved; standalone only; eight-image pack complete; screenshot supplied 2026-06-22 reports the live listing as posted about a week earlier; exact publish date, final live copy, and final posted media set are not duplicated in repo |
 
-Wave 1.5 prompt-pack production can proceed for remaining trellis work. F-T1 is posted as of 2026-06-11. Lead time will be given when order is made. Do not imply physical attachment for T1 unless separately approved; safe staging is alone or behind/beside Planter C. T2 should be shown alone. The T2 paid plan has been purchased and located, so plan-backed dimensions/material facts may be used, but do not reproduce the full paid cut list in customer-facing prompts.
+Wave 1.5 prompt-pack production is complete. T1 is posted as of 2026-06-11, and T2 was externally posted before screenshot evidence was supplied on 2026-06-22. Lead time will be given when order is made. Do not imply physical attachment for T1 unless separately approved; safe staging is alone or behind/beside Planter C. T2 is shown alone. The T2 paid plan has been purchased and located, so plan-backed dimensions/material facts may be used, but do not reproduce the full paid cut list in customer-facing prompts.
 
 ## SKU Rollout Map
 
@@ -164,7 +164,8 @@ Wave 1.5 prompt-pack production can proceed for remaining trellis work. F-T1 is 
 | D | Cedar Post Planter Box | `30_products/prod_cedar_post_planter_box_001.md` | $220 | $110 | `00_brand/photos/planter-d.png` | 4 | Product mapped; media approved | Validate cost/pricing. |
 | E | Mini Adirondack Cedar Planter | `30_products/prod_cedar_bench_planter_001.md` | $120 | $60 | `00_brand/photos/planter-e.png` | 4 | Product synced; media approved | Validate cost/pricing. |
 | F | Tiered Cedar Pyramid Planter | `30_products/prod_cedar_pyramid_planter_001.md` | $320 | $160 | `00_brand/photos/planter-f.png` | 1.5 | Published 2026-06-10; FBM listing completed | Monitor performance and capture metrics; continue trellis follow-up if needed. |
-| F-T1 | Cedar Five-Finger Trellis | `30_products/prod_cedar_five_finger_trellis_001.md` | n/a | $40 | `T1_cedar_five_finger_trellis_ref_clean-01.png` | 1.5 | Published 2026-06-11; FBM listing completed | Monitor performance and capture metrics. |
+| T1 | Cedar Five-Finger Trellis | `30_products/prod_cedar_five_finger_trellis_001.md` | n/a | $40 | `T1_cedar_five_finger_trellis_ref_clean-01.png` | 1.5 | Published 2026-06-11; FBM listing completed | Monitor performance and capture metrics. |
+| T2 | Cedar Decorative Obelisk Trellis | `30_products/prod_cedar_decorative_obelisk_trellis_001.md` | n/a | $120 | `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` | 1.5 | Published externally; screenshot supplied 2026-06-22 reports the listing as posted about a week earlier | Monitor performance and capture metrics. |
 | G | Long Rectangle Cedar Planter | `30_products/prod_cedar_long_planter_box_46in_001.md` | $260 | $130 | `00_brand/photos/planter-g.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack. |
 | H | Tall Cedar Planter w/ Shelf | `30_products/prod_cedar_tall_rectangular_planter_461632_001.md` | $320 | $160 | `00_brand/photos/planter-h.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack. |
 | J | Mailbox Post Cedar Planter | `30_products/prod_cedar_mailbox_post_planter_001.md` | $240 | $120 | `00_brand/photos/planter-j.png` | 4 | Product mapped; media approved | Validate cost/pricing. |
@@ -178,6 +179,6 @@ Wave 1.5 prompt-pack production can proceed for remaining trellis work. F-T1 is 
 
 ## Next Three Actions
 
-1. Continue remaining Wave 1.5 trellis work for F-T2 from `40_listings/prompts/fbm_image_prompt_pack_wave1_5_2026-06-10.md`; F and F-T1 are posted.
-2. Decide whether to finish the Master catalog listing from Wave 1 or move directly into Wave 2.
-3. Monitor posted SKU metrics for A, ABC, K, F, and F-T1: views, saves, messages, and sales.
+1. Advance requested USA1-SML: run and approve the prepared Small and Medium clean-reference prompts using the approved USA1-L-NAT attachment, then generate and approve the `usa1-sml_scope_ref_clean-01.png` combination reference from all three approved individual references. Record it in the Product Ref Images manifest before listing-image generation or final Claude copy.
+2. Create the Wave 2 Facebook Marketplace image prompt pack for B, C, G, and H from their approved catalog references.
+3. Run the Wave 2 pack for B first: generate and review B’s required listing-image set before moving one SKU at a time through C, G, and H.

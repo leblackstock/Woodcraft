@@ -4,7 +4,7 @@
 
 - product_id: prod_cedar_five_finger_trellis_001
 - catalog_id: f00032
-- catalog_sku: F-T1
+- catalog_sku: T1
 - sku_activation_status: Active
 - clean_ref_files: T1_cedar_five_finger_trellis_ref_clean-01.png
 - sku_activation_ref: 30_products/sku_activation_index.md

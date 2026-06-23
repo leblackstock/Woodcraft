@@ -70,7 +70,7 @@
 ## Notes and Approval
 
 - unresolved_inputs: First-build labor time / anchoring or ground-contact assumptions / exact fastener count if needed for build execution.
-- operator_notes: Lauren set f00033 / F-T2 price at $120 on 2026-06-09 and approved T2 as standalone. Standalone clean ref `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` documented 2026-06-10. Lauren clarified on 2026-06-10 that the paid plan has been purchased and supplied this path: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Woodshop Marketing\Projects - Plans\Obelisk Trellis - Large\Decorative Obelisk Trellis - Plans.pdf`.
+- operator_notes: Lauren set f00033 / T2 price at $120 on 2026-06-09 and approved T2 as standalone. Standalone clean ref `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` documented 2026-06-10. Lauren clarified on 2026-06-10 that the paid plan has been purchased and supplied this path: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Woodshop Marketing\Projects - Plans\Obelisk Trellis - Large\Decorative Obelisk Trellis - Plans.pdf`.
 - approval_status: Price Approved / Listing Not Approved
 - approved_by: Lauren
 - approval_date: 2026-06-09

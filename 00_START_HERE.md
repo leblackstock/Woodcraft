@@ -23,6 +23,12 @@ Primary goal: help Lauren make better decisions faster, with less stress and les
 - Use repository files during preparation, then inline the relevant facts, brand guidance, constraints, required text, reference instructions, output format, and quality criteria into the delivered prompt.
 - Never expect an external target to open repository paths or know prior repo context.
 
+## Workspace Maintenance
+
+- Use `60_automation/workspace_maintenance/` for safe repository maintenance, generated live indexes, and the reusable maintenance prompt.
+- Default searches intentionally exclude `90_archive/` and `deprecated/` paths. Search historical files only when the task specifically requires them, using `rg --no-ignore`.
+- Consolidate repeated active guidance into its canonical owner and short pointers. Keep intentional full copies only where a separate agent tool, schema, or standalone external prompt needs the information locally.
+
 ## Read in This Exact Order
 
 1. [01_VISION.md](01_VISION.md)
@@ -61,3 +67,6 @@ Before creating new plans or tasks:
 2. Confirm hard constraints in [04_BUSINESS_RULES.md](04_BUSINESS_RULES.md).
 3. Confirm channel purpose in [05_CHANNEL_STRATEGY.md](05_CHANNEL_STRATEGY.md).
 4. Pull next actionable tasks from [13_BACKLOG.md](13_BACKLOG.md).
+5. On the first substantive AI response in a chat, run session_repo_briefing.py --status from the maintenance toolkit.
+6. If today’s America/New_York briefing is due, say once that it is due while continuing the user’s actual request. Run --write only after the user confirms, then paste the full briefing into chat in addition to the requested work.
+7. The due notice must ask the user to reply "Brief me". Treat that phrase as confirmation to run --write.

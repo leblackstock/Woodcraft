@@ -4,16 +4,19 @@ Ordered next tasks after initial scaffold. Keep this list short, practical, and 
 
 ## Now (Highest Priority)
 
-1. Continue remaining Wave 1.5 trellis work for `prod_cedar_decorative_obelisk_trellis_001` / F-T2 from `40_listings/prompts/fbm_image_prompt_pack_wave1_5_2026-06-10.md`; `prod_cedar_pyramid_planter_001` / F was posted to FBM on 2026-06-10 and `prod_cedar_five_finger_trellis_001` / F-T1 was posted to FBM on 2026-06-11.
-2. Resolve the first bundled made-to-order approval packet for `prod_cedar_planter_box_001` using the locked standard spec plus approved draft pricing, labor, fulfillment, and media assumptions.
-3. Finish locked standard dimensions or launch-size decisions, photo sets, and delivery-fee wording for the first approved listings; capture measured finished dimensions later as post-build validation when the launch spec is already locked.
-4. Advance `list_marketplace_planter_box_001.md` from prep-only status through its verification packet and Claude handoff using approved facts only. `list_marketplace_raised_bed_001.md` is already published.
-5. Run the Claude final-copy step for the next Marketplace listing that clears fact approval, paste the output back, and then publish only after human approval.
-6. After listing facts and timing are final, run the Claude final post-copy pass for the next Facebook Page support post and the Claude final caption pass for the next Instagram support post.
-7. Review `20_research/current_product_portfolio_triage.md` and resolve the remaining bundled operator approval packet for Cedar Planter Box 24x24x18; the raised bed and Classic Square Cedar Planter already have published Marketplace records.
-8. Build draft assumption-based cost sheets, labor assumptions, and verification packets for those first-wave products only before advancing secondary products; capture receipt-backed actuals later through the post-build validation loop.
-9. Capture required photo sets for the approved first-wave products once the bundled packet is resolved: hero, angle, detail, and in-use shots with clear scale references.
-10. Keep lower-priority imported, accessory, and furniture items in secondary/reference status until first-wave fact approval is complete.
+1. Advance requested USA1-SML before Wave 2: run and approve the prepared Small and Medium clean-reference prompts using the approved USA1-L-NAT attachment, then generate and approve the `usa1-sml_scope_ref_clean-01.png` combination reference from all three approved individual references. Record it in the Product Ref Images manifest before listing-image generation or final Claude copy.
+2. Create the Wave 2 Facebook Marketplace image prompt pack for B, C, G, and H from their approved catalog references.
+3. Run the Wave 2 pack for B first: generate and review B’s required listing-image set before moving one SKU at a time through C, G, and H.
+4. After listing facts and timing are final, run the Claude final post-copy pass for the next Facebook Page support post and the Claude final caption pass for the next Instagram support post.
+5. Build draft assumption-based cost sheets, labor assumptions, and verification packets for catalog products before advancing secondary products; capture receipt-backed actuals later through the post-build validation loop.
+6. Capture required photo sets for approved catalog products: hero, angle, detail, and in-use shots with clear scale references.
+7. Keep lower-priority imported, accessory, furniture, and non-catalog items in secondary/reference status until catalog-product work is complete.
+
+## Not in Line Yet (After Catalog Products)
+
+1. Resolve the bundled made-to-order approval packet for `prod_cedar_planter_box_001` using the locked standard spec plus approved draft pricing, labor, fulfillment, and media assumptions.
+2. Advance `list_marketplace_planter_box_001.md` from prep-only status through its verification packet and Claude handoff using approved facts only.
+3. Review `20_research/current_product_portfolio_triage.md` and resolve the remaining Cedar Planter Box 24x24x18 operator approval packet.
 
 ## Soon
 

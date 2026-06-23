@@ -1,7 +1,7 @@
 ﻿# Claude FBM Listing Copy Prompt — Wave 1
 
 Date created: 2026-06-04
-Generator template: `40_listings/prompts/prompt_fbm_claude_listing_copy_generator_v1.0.md`
+Historical generator: [90_archive/RETIREMENT_LEDGER.md](../../90_archive/RETIREMENT_LEDGER.md). The current generator for new work is `prompt_fbm_claude_listing_copy_generator_v2.0.md`.
 Status: Older Wave 1 batch prompt. For SKU K, use the focused v2.0 sellability-first prompt at `40_listings/prompts/claude_fbm_listing_copy_prompt_k_raised_bed_2026-06-09.md`.
 Listing copy owner: Claude
 Image text owner: GPT/Codex prep

@@ -48,6 +48,7 @@ Every external AI/tool prompt created during weekly operations must pass [80_tem
 - If any made-to-order sale/build finished this week, capture actual receipts, labor, finished dimensions, finished photos, and pricing learnings before closing the week
 - Log decisions in [12_DECISION_LOG.md](12_DECISION_LOG.md)
 - Update [13_BACKLOG.md](13_BACKLOG.md) with next highest-value tasks
+- Run [weekly workspace maintenance](60_automation/workspace_maintenance/run_weekly_maintenance.ps1) to refresh the live indexes and capture a read-only integrity report
 
 ## Minimum-Viable Week (Low Energy Mode)
 

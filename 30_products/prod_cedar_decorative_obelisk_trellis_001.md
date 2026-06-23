@@ -4,7 +4,7 @@
 
 - product_id: prod_cedar_decorative_obelisk_trellis_001
 - catalog_id: f00033
-- catalog_sku: F-T2
+- catalog_sku: T2
 - sku_activation_status: Active
 - clean_ref_files: T2_cedar_decorative_obelisk_trellis_ref_clean-01.png
 - sku_activation_ref: 30_products/sku_activation_index.md

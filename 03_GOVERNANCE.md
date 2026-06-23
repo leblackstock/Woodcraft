@@ -156,6 +156,20 @@ Image graphic text governed by an active review-by-exception image workflow is e
 - `Ready for Manual Publish`, `Ready to Schedule`, `Scheduled`, `Published`, and similar publish-near states are allowed only after the Claude gate is complete and `publish_ready: Yes`, except an immutable historical-evidence record covered by the preceding exception.
 - `publish_date` is the actual publish date only and stays blank until a manual publish event has happened.
 
+## Document Lifecycle, Search, and Rule Ownership
+
+- Live workflow files are the default discovery scope. `90_archive/` and `deprecated/` paths are historical-only and must be excluded from routine repository searches; use `rg --no-ignore` only when historical material is explicitly needed.
+- Archive a document only when it is explicitly Deprecated, Superseded, or Retired and an active successor or traceability pointer is known. Preserve history and record the move in `90_archive/RETIREMENT_LEDGER.md`; do not delete it.
+- One live file owns each active rule, fact, or workflow. Other live files use short pointers or summaries instead of restating it.
+- Required complete copies remain valid in standalone external prompts, agent-specific instruction files, schemas, templates, and historical evidence. Do not reduce those copies to repository-only pointers.
+- The maintenance toolkit at `60_automation/workspace_maintenance/` may update generated indexes, archive-ledger pointers, clear relative links, and obvious encoding errors in editable canonical files. Escalate policy conflicts, factual disagreements, customer-facing copy, published records, raw source evidence, and uncertain archive decisions.
+
+## Daily Session Briefing
+
+- The required user confirmation phrase is "Brief me". A due notice asks for that reply; agents treat it as confirmation to create or replay the briefing.
+- A daily session briefing is an operational snapshot, not a workflow action. At first substantive response, agents check its America/New_York date. If due, they prompt once while continuing the user’s request; after explicit confirmation, they create/replay the briefing and paste its full summary into chat.
+- A briefing may summarize todos, open projects, campaigns, posting schedules, and maintenance freshness, but may not publish, schedule, create customer copy, reprioritize work, or create a policy/learning entry.
+
 ## Change Management Rules
 
 - Major changes must include:

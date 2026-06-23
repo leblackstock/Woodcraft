@@ -35,6 +35,7 @@ Use this folder as the current source of truth for reusable Drakkar Designs iden
 - Use product photos in `00_brand/photos/` for FBM image prompts and listing-media references.
 - Do not overwrite or regenerate approved assets without operator approval.
 - If a new brand asset or identity rule is approved, add it here and record its source or provenance in this README or a dated note.
+- Use [the generated asset locator](../60_automation/workspace_maintenance/ASSET_LOCATOR.md) to find reusable brand assets, external created-reference manifests, and research-snapshot boundaries without duplicating files.
 
 ## Provenance
 

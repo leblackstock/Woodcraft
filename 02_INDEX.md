@@ -27,6 +27,7 @@ Master map of this workspace. Start with [00_START_HERE.md](00_START_HERE.md).
 - [50_content/facebook_brand_post_rules.md](50_content/facebook_brand_post_rules.md) — Facebook Page brand-post visual, variation, rotation, and image graphic-text rules.
 - [12_DECISION_LOG.md](12_DECISION_LOG.md) — key decisions and rationale.
 - [13_BACKLOG.md](13_BACKLOG.md) — prioritized next actions.
+- [60_automation/workspace_maintenance/](60_automation/workspace_maintenance/) — maintenance prompt, live indexes, daily session briefing, archive routing, and script runbooks.
 
 ## Historical Operating Records
 

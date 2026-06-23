@@ -70,6 +70,21 @@ Agents must actively avoid repeating those patterns.
 - ChatGPT Image 2 is considered capable for text-bearing image generation in this workflow. Do not apply older generic advice that image models cannot or should not render words.
 - Only remove text from an image prompt when the user explicitly asks for a text-free image or when the target workflow is documented as not supporting text.
 
+## Daily Session Briefing
+
+- On the first substantive response in each chat, run python 60_automation/workspace_maintenance/session_repo_briefing.py --status.
+- If due, the notice must tell the user to reply "Brief me" to generate the briefing.
+- If today’s America/New_York briefing is due, say once that it is due and continue the user’s actual request. Do not repeat the notice in the same chat.
+- Treat "Brief me" as explicit confirmation to run --write. Paste the complete printed briefing into chat as an addition to the requested work; a saved report alone is insufficient.
+- If the briefing is current, continue normally without replaying it unless the user explicitly asks for the daily briefing.
+
+## Workspace Maintenance
+
+- Default repository searches exclude `90_archive/` and `deprecated/` paths through the root .ignore file. Search them only when historical material is explicitly requested, using `rg --no-ignore`.
+- For deliberate cleanup, read `60_automation/workspace_maintenance/workspace_maintenance_prompt.md` and run the read-only audit before changing records.
+- Keep one canonical owner for active rules and use short pointers elsewhere. Preserve complete intentional copies in agent instructions, schemas, templates, and standalone external prompts.
+- Automatically repair only generated indexes, clear relative links, archive-ledger pointers, and obvious encoding in editable canonical files. Escalate factual or policy conflicts, published records, customer copy, raw source evidence, and uncertain archive decisions.
+
 ## Preferred Working Style
 
 1. Read the relevant source-of-truth file(s).

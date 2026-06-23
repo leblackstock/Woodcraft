@@ -295,7 +295,7 @@ Review the most recent seven Facebook Page content records that already have sel
 - Do not create new Facebook Page post prompts for inactive/no-SKU products.
 - Require an approved source image attachment when exact product fidelity matters.
 - Require an approved logo attachment when exact logo fidelity matters.
-- If a delivered image prompt requires an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
+- Apply the attachment-first requirement in [80_templates/standalone_external_prompt_checklist.md](../80_templates/standalone_external_prompt_checklist.md) whenever an image prompt needs an attachment.
 - Do not ask an image model to invent or redraw an exact product or logo from text alone.
 - Keep third-party reference media internal and out of publishable content.
 

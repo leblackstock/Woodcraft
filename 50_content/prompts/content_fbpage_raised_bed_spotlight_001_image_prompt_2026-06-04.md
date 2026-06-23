@@ -14,7 +14,7 @@ Selection audit:
 - text_intensity: Minimal: short headline only
 - cta_style: No CTA
 - exact_in_image_text: CEDAR RAISED GARDEN BED
-- recent_post_history_ref: Reviewed 50_content/content_fbpage_planter_spotlight_001.md and 50_content/content_fbpage_raised_bed_spotlight_001.md on 2026-06-04; one prior Facebook Page record with completed selected creative fields was available.
+- recent_post_history_ref: Reviewed one prior Facebook Page record with completed selected creative fields before this post on 2026-06-04; the historical record is retained in the workspace archive.
 - rotation_check_status: Checked — Limited History
 - rotation_notes: Compared against the prior planter concept. This selection changes layout_family, photo_subject, message_angle, graphic_treatment, and text_intensity; cta_style stays No CTA because direct buying CTA remains gated by Claude final copy and publish readiness.
 - approved_reference_images: Required before use — approved catalog image 00_brand/photos/planter-k.png for Cedar Raised Garden Bed.

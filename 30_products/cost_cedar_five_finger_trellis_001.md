@@ -69,7 +69,7 @@
 ## Notes and Approval
 
 - unresolved_inputs: First-build labor time.
-- operator_notes: Lauren set f00032 / F-T1 price at $40 on 2026-06-09 and approved T1 as both standalone and add-on to any planter. Standalone clean ref `T1_cedar_five_finger_trellis_ref_clean-01.png` documented 2026-06-10. Approved dimensions set 2026-06-10: 70 in H x 32 in W x 2.25 in thick.
+- operator_notes: Lauren set f00032 / T1 price at $40 on 2026-06-09 and approved T1 as both standalone and add-on to any planter. Standalone clean ref `T1_cedar_five_finger_trellis_ref_clean-01.png` documented 2026-06-10. Approved dimensions set 2026-06-10: 70 in H x 32 in W x 2.25 in thick.
 - approval_status: Price Approved / Listing Not Approved
 - approved_by: Lauren
 - approval_date: 2026-06-09

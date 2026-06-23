@@ -1,7 +1,7 @@
 ﻿# FBM Image Prompt Pack — Wave 1
 
 Date created: 2026-06-04
-Generator template: `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v1.1.md` (retired; retained only as the historical source for this Wave 1 pack)
+Historical generator: [90_archive/RETIREMENT_LEDGER.md](../../90_archive/RETIREMENT_LEDGER.md). The current generator for new work is `prompt_fbm_listing_image_pack_generator_v2.0.md`; this pack remains historical Wave 1 evidence.
 Approval mode: review by exception
 Image text owner: GPT/Codex prep
 Listing copy owner: Claude
