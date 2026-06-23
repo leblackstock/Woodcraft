@@ -44,6 +44,7 @@
 - post_copy: [[CLAUDE_FINAL_COPY_REQUIRED]] for Facebook Page
 - caption: [[CLAUDE_FINAL_COPY_REQUIRED]] for Instagram
 - exact_in_image_text: `NO_TEXT` or final literal image graphic text
+- post_copy_exception_approval: None / Approval Required / Approved — category, buyer-facing reason, and exact allowed fact or wording
 - customer_copy_prep_notes:
 - hashtag_notes:
 - local_context_tags:

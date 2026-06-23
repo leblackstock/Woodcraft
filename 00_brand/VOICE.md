@@ -47,6 +47,7 @@ Use for Facebook Page posts, Instagram captions, maker/process posts, and other 
 - Use short maker, shop, cedar, place, or process details to create connection.
 - Keep claims grounded and specific.
 - Do not turn emotional language into hype, fake luxury, or generic inspiration copy.
+- For image graphic text, use a concrete product use, form, material, feature, or scene instead of a vague lifestyle slogan.
 
 ### Marketplace Mode
 

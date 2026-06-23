@@ -15,6 +15,7 @@ GENERATED_NAMES = {
     "CURRENT_MAINTENANCE_STATUS.md",
     "LEARNING_REVIEW.md",
     "SESSION_BRIEFING_STATUS.md",
+    "WORKFLOW_TRACE_BASELINE.json",
 }
 CANONICAL_OWNERS = (
     ("Session orientation and startup order", "00_START_HERE.md", "Short summaries may link here; do not repeat its full sequence."),

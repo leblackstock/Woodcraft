@@ -102,6 +102,7 @@ Current Facebook Page brand-post image workflow:
 - `50_content/facebook_brand_post_rules.md`
 - `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
 - `80_templates/social_post_template.md`
+- Saved T2 garden-poster draft: `50_content/prompts/content_fbpage_cedar_obelisk_trellis_vines_001_image_prompt_2026-06-23.md` and `50_content/prompts/content_fbpage_cedar_obelisk_trellis_vines_001_claude_post_copy_prompt_2026-06-23.md`
 
 Fast path for short "fb brand post prompt" requests:
 

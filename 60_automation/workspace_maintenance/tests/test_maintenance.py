@@ -77,6 +77,166 @@ class AuditWorkspaceTests(unittest.TestCase):
         self.assertEqual(1, len(findings))
         self.assertIn("choose canonical owner", findings[0].detail)
 
+    def test_workflow_document_classifier_includes_rules_and_excludes_instance_records(self) -> None:
+        self.assertTrue(audit_workspace.is_workflow_document("00_brand/VOICE.md"))
+        self.assertTrue(audit_workspace.is_workflow_document("40_listings/prompts/listing_prompt.md"))
+        self.assertTrue(audit_workspace.is_workflow_document("80_templates/social_post_template.md"))
+        self.assertTrue(audit_workspace.is_workflow_document("30_products/product_to_family_conversion_workflow.md"))
+        self.assertTrue(audit_workspace.is_workflow_document("50_content/facebook_brand_post_rules.md"))
+        self.assertTrue(audit_workspace.is_workflow_document("60_automation/workspace_maintenance/audit_workspace.md"))
+        self.assertFalse(audit_workspace.is_workflow_document("30_products/prod_cedar_planter_001.md"))
+        self.assertFalse(audit_workspace.is_workflow_document("40_listings/list_marketplace_planter_001.md"))
+        self.assertFalse(audit_workspace.is_workflow_document("50_content/content_fbpage_planter_001.md"))
+        self.assertFalse(audit_workspace.is_workflow_document("20_research/notes.md"))
+        self.assertFalse(audit_workspace.is_workflow_document("90_archive/old_workflow.md"))
+
+    def test_workflow_trace_baseline_is_persistent_only_when_written(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        workflow = root / "40_listings" / "variant_scope_marketplace_listing_workflow.md"
+        workflow.parent.mkdir()
+        workflow.write_text("# Workflow\n", encoding="utf-8")
+
+        first = audit_workspace.build_workflow_trace(root)
+        self.assertFalse(first.baseline_exists)
+        self.assertEqual(["initial"], [change.change_type for change in first.changes])
+        self.assertFalse(audit_workspace.workflow_trace_baseline_path(root).exists())
+
+        audit_workspace.write_workflow_trace_baseline(root, first.fingerprints)
+        second = audit_workspace.build_workflow_trace(root)
+        self.assertTrue(second.baseline_exists)
+        self.assertEqual([], second.changes)
+
+        workflow.write_text("# Workflow\n\nChanged\n", encoding="utf-8")
+        third = audit_workspace.build_workflow_trace(root)
+        self.assertEqual(["modified"], [change.change_type for change in third.changes])
+        self.assertEqual(first.fingerprints, audit_workspace.load_workflow_trace_baseline(root))
+
+    def test_workflow_change_classification_handles_add_rename_and_remove(self) -> None:
+        previous = {"old.md": "same", "modified.md": "old", "removed.md": "gone"}
+        current = {"renamed.md": "same", "modified.md": "new", "added.md": "added"}
+
+        changes = audit_workspace.classify_workflow_changes(previous, current)
+
+        self.assertEqual(
+            [
+                ("added.md", "added", None),
+                ("modified.md", "modified", None),
+                ("renamed.md", "renamed", "old.md"),
+                ("removed.md", "removed", None),
+            ],
+            [(change.path, change.change_type, change.previous_path) for change in changes],
+        )
+
+    def test_package_trace_follows_links_and_reports_proven_findings(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        for name in audit_workspace.GOVERNANCE_ROOTS:
+            (root / name).write_text(f"# {name}\n", encoding="utf-8")
+        workflow = root / "40_listings" / "variant_scope_marketplace_listing_workflow.md"
+        workflow.parent.mkdir()
+        rules = root / "50_content" / "facebook_brand_post_rules.md"
+        rules.parent.mkdir()
+        child = root / "40_listings" / "linked_rules.md"
+        retired = root / "40_listings" / "retired_rule.md"
+        archived = root / "90_archive" / "retired.md"
+        long_rule = "This active rule is deliberately long enough to be detected as an exact repeated rule in this package trace without relying on prose heuristics."
+        workflow.write_text(
+            "[child](linked_rules.md)\n"
+            "[retired](retired_rule.md)\n"
+            "[archive](../90_archive/retired.md)\n"
+            "[missing](missing.md)\n"
+            f"{long_rule}\n",
+            encoding="utf-8",
+        )
+        child.write_text(f"[brand](../00_brand/VOICE.md)\n{long_rule}\n", encoding="utf-8")
+        (root / "00_brand").mkdir()
+        (root / "00_brand" / "VOICE.md").write_text("# Voice\n", encoding="utf-8")
+        rules.write_text("[workflow](../40_listings/variant_scope_marketplace_listing_workflow.md)\n", encoding="utf-8")
+        retired.write_text("Status: Retired\n", encoding="utf-8")
+        archived.write_text("Status: Retired\n", encoding="utf-8")
+
+        live_paths = {audit_workspace.rel(path, root): path for path in audit_workspace.markdown_files(root, False)}
+        outgoing, incoming = audit_workspace.build_live_link_index(root, live_paths)
+        trace = audit_workspace.build_package_trace(
+            root,
+            audit_workspace.WorkflowChange("40_listings/variant_scope_marketplace_listing_workflow.md", "modified"),
+            live_paths,
+            outgoing,
+            incoming,
+            audit_workspace.find_retired_files(root, False),
+        )
+
+        self.assertIn("00_START_HERE.md", trace.members)
+        self.assertIn("40_listings/linked_rules.md", trace.members)
+        self.assertIn("00_brand/VOICE.md", trace.members)
+        self.assertIn("50_content/facebook_brand_post_rules.md", trace.members)
+        self.assertNotIn("90_archive/retired.md", trace.members)
+        self.assertEqual(
+            [("40_listings/variant_scope_marketplace_listing_workflow.md", 1)],
+            [(link.source, link.line) for link in trace.link_evidence if link.resolved == "40_listings/linked_rules.md"],
+        )
+        self.assertTrue(any(finding.category == "package-broken-relative-link" and finding.line == 4 for finding in trace.findings))
+        self.assertTrue(any(finding.category == "retired-reference" and finding.line == 2 for finding in trace.findings))
+        self.assertTrue(any(finding.category == "package-repeated-guidance" for finding in trace.findings))
+
+    def test_package_duplicate_guidance_ignores_intentional_prompt_and_template_copy(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        prompt = root / "50_content" / "prompts" / "prompt.md"
+        template = root / "80_templates" / "template.md"
+        prompt.parent.mkdir(parents=True)
+        template.parent.mkdir()
+        repeated = "This standalone prompt rule is deliberately long enough to prove that intentional prompt and template copies remain excluded from redundancy warnings."
+        prompt.write_text(repeated, encoding="utf-8")
+        template.write_text(repeated, encoding="utf-8")
+
+        findings = audit_workspace.find_package_duplicate_guidance(
+            root,
+            ["50_content/prompts/prompt.md", "80_templates/template.md"],
+        )
+
+        self.assertEqual([], findings)
+
+    def test_trace_report_and_status_include_baseline_summary(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        workflow = root / "40_listings" / "variant_scope_marketplace_listing_workflow.md"
+        workflow.parent.mkdir()
+        workflow.write_text("# Workflow\n", encoding="utf-8")
+        trace = audit_workspace.build_workflow_trace(root)
+        report = audit_workspace.render_report(root, [], False, trace)
+
+        self.assertIn("## Workflow Package Trace", report)
+        written = audit_workspace.write_report(root, report, trace)
+        status = (root / "60_automation" / "workspace_maintenance" / "CURRENT_MAINTENANCE_STATUS.md").read_text(encoding="utf-8")
+
+        self.assertTrue(written.exists())
+        self.assertTrue(audit_workspace.workflow_trace_baseline_path(root).exists())
+        self.assertIn("Workflow package trace: 1 changed workflow documents", status)
+
+    def test_package_broken_link_is_not_counted_twice_in_summary(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        workflow = root / "40_listings" / "variant_scope_marketplace_listing_workflow.md"
+        workflow.parent.mkdir()
+        workflow.write_text("[missing](missing.md)\n", encoding="utf-8")
+
+        trace = audit_workspace.build_workflow_trace(root)
+        report = audit_workspace.render_report(
+            root,
+            audit_workspace.find_broken_links(root, False),
+            False,
+            trace,
+        )
+
+        self.assertIn("- Errors: 1", report)
+
 
 class RefreshLiveIndexesTests(unittest.TestCase):
     def test_outputs_are_deterministic_and_exclude_archive(self) -> None:
@@ -88,11 +248,17 @@ class RefreshLiveIndexesTests(unittest.TestCase):
             (root / "live.md").write_text("# Live\n", encoding="utf-8")
             (root / "90_archive").mkdir()
             (root / "90_archive" / "hidden.md").write_text("# Historical\n", encoding="utf-8")
+            (root / "60_automation" / "workspace_maintenance" / "WORKFLOW_TRACE_BASELINE.json").write_text(
+                "{}\n",
+                encoding="utf-8",
+            )
 
             first = refresh_live_indexes.expected_outputs(root)
             second = refresh_live_indexes.expected_outputs(root)
             self.assertEqual(first, second)
-            self.assertNotIn("hidden.md", next(iter(first.values())))
+            live_map = next(iter(first.values()))
+            self.assertNotIn("hidden.md", live_map)
+            self.assertNotIn("WORKFLOW_TRACE_BASELINE.json", live_map)
 
 
 class LearningConsolidationTests(unittest.TestCase):

@@ -82,6 +82,12 @@ Allowed image graphic text may include:
 - local or handmade positioning supported by approved facts
 - product, process, material, or seasonal wording supported by approved facts
 
+### Image Text Quality Floor
+
+- Image text must be concrete and earn its place through an approved product use, form, material, feature, or scene.
+- Prefer useful, product-specific language such as `Give your vines somewhere to go` for a trellis over vague, interchangeable lifestyle slogans.
+- Do not recommend generic mood statements that could apply to any garden product unless Lauren explicitly supplies that wording.
+
 Do not generate:
 
 - unsupported quality, durability, sourcing, availability, timing, pricing, discount, or customization claims
@@ -103,9 +109,19 @@ Do not combine the filename, image prompt, and Claude prompt in one code block. 
 
 The Claude prompt must also carry the Brand Post Mode emotional job explicitly: ask Claude to make the post feel like something specific while staying truthful. Use approved maker, shop, cedar, place, process, product-use, or image-context details to create connection. Avoid bland fact summaries, compliance-checklist captions, generic inspirational language, AI-isms, and common AI tells. The prompt must prohibit em dashes and en dashes in Claude's final output; regular hyphens are okay when needed.
 
-For Facebook Page post copy, the Claude prompt must request a complete organic post body rather than a tiny caption or product-spec paragraph. It should support a hook, short brand/product/shop/material context, useful body copy, an approved CTA or soft close, optional signature/location line, and hashtags when useful. When location wording is useful, use `locally in Georgia` or `Built locally in Georgia`; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it. If the operator provides an example of good post copy, preserve that example's social-post energy and structure while using only approved facts for the current post.
+For Facebook Page post copy, the Claude prompt must request a complete organic post body rather than a tiny caption or product-spec paragraph. For process, community, shop-proof, and other non-product-focused posts, it should support a hook, short brand/product/shop/material context, useful body copy, an approved CTA or soft close, optional signature/location line, and hashtags when useful. When location wording is useful, use `locally in Georgia` or `Built locally in Georgia`; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it. If the operator provides an example of good post copy, preserve that example's social-post energy and structure while using only approved facts for the current post.
 
 Every Claude post-copy handoff prompt must include an internal draft pass: tell Claude to silently write several internal versions, analyze them for truthfulness, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
+
+### Product-Focused Problem-Led Handoffs
+
+For a single product, product pair, product family, or approved variant scope, use the product-post shape in `80_templates/claude_final_social_post_copy_prompt.md`. It starts with a direct, flat product label, then moves through buyer frustration, concrete examples, what the product addresses, quiet pride, placement, approved Georgia fulfillment, and a soft message close. `cedar [product], made to order.` is an example opening, not required literal wording.
+
+Claude chooses the buyer frustration and the concrete examples. Garden products use real plant names or planting uses; non-garden products use concrete places, uses, or situations. Product details, logistics, availability, exclusions, and performance claims still require approved facts.
+
+The normal finished post does not include measurements, technical specifications, price, or disclaimers. Recommend an exception only when one materially affects buyer awareness, eligibility, or a genuinely new offer. Before preparing that handoff, return `APPROVAL REQUIRED` with the category, buyer-facing reason, exact allowed fact or wording, and proposed final-post scope. Permit only an approved exception recorded in `post_copy_exception_approval`; do not add other excluded details or disclaimer language.
+
+These are final-post-copy rules only. Do not automatically transfer them to the image prompt or image graphic text; those remain governed by their existing image workflow rules.
 
 ## Required Inputs
 
@@ -123,6 +139,7 @@ Before creating a Facebook brand-post image prompt, gather:
 - any required product, logo, or layout attachments
 - recent Facebook Page post history with recorded creative-selection fields
 - image graphic-text direction, any required literal wording, or a clear decision to use `NO_TEXT`
+- `post_copy_exception_approval: None` for normal product posts, or the exact approved exception record when one is authorized
 - requested output format; default is square `1:1`
 
 If the linked product is not an active SKU, return `BLOCKED` and list the SKU activation reason. For a scope-based post, return `BLOCKED` unless every listed variant is Active; do not use a scope reference as a substitute for an inactive variant's clean reference. If approved facts are insufficient for the requested message, return `BLOCKED` and list the missing facts. Do not solve missing truth with vague promotional language.
@@ -234,7 +251,7 @@ Example combinations:
 
 ## Post-Copy Variance Mapping
 
-When a full Facebook Page post package is requested, derive the Claude post-copy lane from the selected image mix-and-match fields. Do not ask Claude for multiple options by default; use the selected lane to request one strongest final Facebook Page post body.
+When a full Facebook Page post package is requested, first classify whether it is product-focused. Product-focused posts use the fixed problem-led product-post shape. Process, community, shop-proof, and other non-product-focused posts use the selected image mix-and-match lane. Do not ask Claude for multiple options by default; request one strongest final Facebook Page post body.
 
 Use the fields this way:
 
@@ -245,16 +262,18 @@ Use the fields this way:
 - `text_intensity` controls how much the post should echo or support the image text.
 - `cta_style` controls the close: no CTA, soft engagement, order inquiry, local-support close, follow/new-builds close, or custom inquiry when approved.
 
+For product-focused posts, use these fields to supply the buyer context, examples, placement, and CTA without changing the required problem-led order.
+
 Default post-copy lanes:
 
-- **Product spotlight:** use for single products, product pairs, product families, product variety, or clean catalog-style product graphics. Shape: hook, product/use context, useful fact, approved CTA or soft close.
-- **Garden/use-scene post:** use for garden inspiration, porch or patio inspiration, seasonal planting, raised beds, porch/patio scenes, and garden scenes. Shape: scene-first hook, feeling/use context, practical product detail, soft close.
+- **Product spotlight:** use for single products, product pairs, product families, product variety, or clean catalog-style product graphics. Shape: fixed problem-led product-post sequence.
+- **Garden/use-scene post:** use the fixed problem-led product-post sequence when the image promotes a product. Retain the scene-first shape only when the post is not product-focused.
 - **Local shop proof:** use for handmade-shop proof, local Georgia shop, local badge/label, minimal logo-forward, or community/trust graphics. Shape: place/shop hook, short shop context, product or proof detail, local-support close.
 - **Material/process note:** use for cedar material detail, raw cedar boards, product in progress, workshop/process narrative, one-bench maker process, or raw cedar to finished-piece transformation. Shape: material/process hook, shop or bench detail, product relevance, soft close.
 - **Craft/detail post:** use for construction, craftsmanship detail, product close-up, cedar grain close-up, rim, corner, shelf, post, or detail imagery. Shape: detail-first hook, why the detail matters visually or practically, restrained close.
 - **Community/support post:** use for small-business thank-you, community/thank-you, local-support message, follow/new-builds message, or non-sales trust posts. Shape: warm community hook, short gratitude or activity note, soft local-support or follow close.
 
-Use the selected lane as guidance, not a rigid template. If fields conflict, prioritize `message_angle`, then `photo_subject`, then `cta_style`. Record any exception in `rotation_notes` or the Claude handoff notes when the post-copy lane intentionally diverges from the image concept.
+For non-product-focused posts, use the selected lane as guidance, not a rigid template. If fields conflict, prioritize `message_angle`, then `photo_subject`, then `cta_style`. Record any exception in `rotation_notes` or the Claude handoff notes when the post-copy lane intentionally diverges from the image concept.
 
 ## Rotation Rules
 

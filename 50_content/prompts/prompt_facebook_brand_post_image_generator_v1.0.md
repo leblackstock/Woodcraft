@@ -39,6 +39,7 @@ Repository files are preparation sources only. Do not tell the external image mo
 - for a scope-based family showcase: exact `variant_scope`, individual active clean refs, and approved `scope_reference_asset` when the image shows the full collection together
 - recent Facebook Page creative-history records
 - image graphic-text goal, any supplied required literal wording, or `NO_TEXT`
+- `post_copy_exception_approval: None` for normal product posts, or the exact approved exception record when one is authorized
 - requested output format, if not square `1:1`
 
 ## Fast Path
@@ -62,10 +63,11 @@ Fast route:
 - Generate image graphic text directly from approved facts under review by exception.
 - Follow Brand Post Mode and the shared voice guardrails in `00_brand/VOICE.md`.
 - Keep image text short, readable, truthful, and specific.
+- Prefer concrete product-use, form, material, feature, or scene language. Do not default to vague, interchangeable lifestyle slogans; use them only when Lauren explicitly supplies the wording.
 - Record the final literal wording in `exact_in_image_text`.
 - Do not request Claude approval for image graphic text or the image prompt.
 - Do not generate the final Facebook Page post copy. Claude owns the post copy.
-- When a full Facebook Page post package is requested, create a standalone Claude post-copy handoff prompt from approved facts; do not write the final post copy yourself.
+- When a full Facebook Page post package is requested, create a standalone Claude post-copy handoff prompt. Product claims, logistics, availability, exclusions, and performance claims must use approved facts; Claude may choose the ordinary buyer frustration and concrete examples required by the product-post shape. Do not write the final post copy yourself.
 - `NO_TEXT` is an explicit creative choice for images that should have no readable words, not a default restriction and not a requirement caused by Claude ownership.
 
 ## Blocked Conditions
@@ -80,6 +82,7 @@ Return `BLOCKED` with a concise missing-information list when:
 - exact logo fidelity is required but no approved logo asset is available
 - the requested visual would violate media-truth rules
 - required literal wording, dimensions, or output requirements cannot be determined safely
+- a measurement, specification, price, or disclaimer is recommended for a product post but `post_copy_exception_approval` is not Approved; return `APPROVAL REQUIRED` with the category, buyer-facing reason, exact allowed fact or wording, and proposed final-post scope
 
 Recent-post history gaps do not block prompt generation. Set `rotation_check_status: Not Enough History` and do not claim the concept was checked against unavailable history.
 
@@ -101,8 +104,8 @@ Recent-post history gaps do not block prompt generation. Set `rotation_check_sta
 8. Identify every required attachment or reference image.
 9. Create one standalone external image prompt.
 10. Run the standalone-prompt and final self-checks.
-11. Update the linked content record with the selected fields, SKU activation status, literal image text, history check, attachment refs, and `image_prompt_ref`.
-12. If the operator requested a full Facebook Page post package, derive the post-copy lane from the selected mix-and-match fields, then create a standalone Claude final-post-copy handoff prompt using approved facts only.
+11. Update the linked content record with the selected fields, SKU activation status, literal image text, post-copy exception state, history check, attachment refs, and `image_prompt_ref`.
+12. If the operator requested a full Facebook Page post package, classify it. For a product-focused post, use the fixed problem-led product-post shape and the recorded `post_copy_exception_approval` state. For process, community, shop-proof, and other non-product-focused posts, derive the post-copy lane from the selected mix-and-match fields. Then create the standalone Claude final-post-copy handoff.
 
 ## Image Graphic-Text Rules
 
@@ -246,7 +249,7 @@ Image prompt:
 Claude prompt:
 
 ```text
-[One standalone Claude final-post-copy handoff prompt with approved facts, Brand Post Mode rules, a specific feeling target, scene/connection direction, post-shape guidance, and internal draft/analyze/improve instruction inlined]
+[One standalone Claude final-post-copy handoff prompt with approved product facts, Brand Post Mode rules, actual image-text context, the applicable product-post or non-product post shape, any approved exception only, and internal draft/analyze/improve instruction inlined]
 ```
 
 Do not combine these into one block. Do not put the filename inside the image prompt. The Claude prompt is for final Facebook Page post copy only and must not ask Claude to approve image prompts, image graphic text, or generated visuals.
@@ -256,21 +259,24 @@ Do not combine these into one block. Do not put the filename inside the image pr
 When generating the Claude prompt for a Facebook Page post package:
 
 - Keep the prompt clean and usable, not a long compliance dump.
-- Derive the post-copy lane from the selected image mix-and-match fields in `50_content/facebook_brand_post_rules.md`.
-- Treat `message_angle` as the primary post-copy shape, `photo_subject` as the concrete scene/detail source, `layout_family` as length/structure guidance, `text_intensity` as image-text echo guidance, and `cta_style` as the close/CTA control.
-- Ask Claude to make the post feel like something specific while staying grounded in approved facts.
-- Include a `feeling_target`, such as backyard readiness, porch warmth, cedar-and-soil garden energy, one-bench shop proof, local usefulness, or relief from a full DIY weekend.
-- Include a `specific_scene_or_connection`, such as cedar grain, soil, herbs, flowers, porch, patio, garden bed, shop, bench, cut, fit, or one pair of hands, only when supported by approved facts or the image context.
-- Include the image context and literal image graphic text so Claude can support the graphic without rewriting or approving it.
+- Classify the post first. For a product-focused post, use the fixed problem-led product-post shape in `80_templates/claude_final_social_post_copy_prompt.md`. For a process, community, shop-proof, or other non-product-focused post, derive the post-copy lane from the selected image mix-and-match fields.
+- For a product-focused post, require a direct flat product-label opening, buyer frustration, two to four concrete examples, what the product addresses, quiet pride, placement, approved Georgia fulfillment, and a soft message close. `cedar [product], made to order.` is an example opening, not required literal wording.
+- Let Claude choose the buyer frustration and concrete examples. Use real plant names or planting uses for garden products; use concrete uses, places, or situations for non-garden products. Do not let those choices create unsupported product claims, inclusions, or customer outcomes.
+- Inline product-post voice direction: plain, specific, and a little excited; short varied sentences; fragments are fine; sound like the person who built it. Require Claude to return only the final post.
+- Default to no measurements, technical specifications, price, or disclaimers in the finished product post. If one is recommended, return `APPROVAL REQUIRED` before generating the handoff. After approval, permit only the recorded category and exact fact or wording.
+- Treat the image context and literal image graphic text as context only. Do not rewrite, validate, or apply final-post restrictions or exception rules to the image prompt or image graphic text.
+- For a non-product-focused post, treat `message_angle` as the primary post-copy shape, `photo_subject` as the concrete scene/detail source, `layout_family` as length/structure guidance, `text_intensity` as image-text echo guidance, and `cta_style` as the close/CTA control. Include an appropriate `feeling_target` and `specific_scene_or_connection` grounded in approved facts or image context.
 - Default to requesting one strongest final Facebook Page post-copy output.
 - Tell Claude to silently write several internal versions, analyze them for truthfulness, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 - Do not request multiple post-copy options unless the operator explicitly asks for options or variants.
 - If options are explicitly requested, ask for meaningfully different emotional angles, sentence rhythm, and scene details.
 - Ask for a complete organic Facebook Page post body, not a tiny caption or product-spec paragraph.
-- Include post-shape guidance: opening hook, short brand/product/shop/material context, useful body copy, approved CTA or soft close, optional signature/location line, and hashtags when useful.
+- For non-product-focused posts, include post-shape guidance: opening hook, short brand/product/shop/material context, useful body copy, approved CTA or soft close, optional signature/location line, and hashtags when useful.
 - For Facebook Page post copy, use `locally in Georgia` or `Built locally in Georgia` when location wording is useful; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it.
 - If the operator supplied an example of good Facebook post copy, tell Claude to match its social-post energy and structure while using only current approved facts.
 - Require no first person, no hard-sell CTA unless approved, no invented facts, no em dashes or en dashes, no AI-isms or common AI tells, and no generic inspirational language.
+- Explicitly prohibit invented weatherproofing, anchoring, included plants, delivery radius, or customer outcomes.
+- Require no disclaimer language in a finished product post unless the approved exception explicitly permits that exact eligibility or safety statement.
 - Keep the Claude prompt standalone with no repository-path dependency.
 
 ## Required Delivery Format
@@ -287,6 +293,7 @@ Selection audit:
 - text_intensity:
 - cta_style:
 - exact_in_image_text:
+- post_copy_exception_approval:
 - linked_product_family_id:
 - variant_scope:
 - scope_reference_asset:
@@ -317,7 +324,7 @@ For a full Facebook Page post package, also return:
 Claude prompt:
 
 ```text
-[One standalone Claude final-post-copy handoff prompt with no repository-path dependency, including a specific feeling target, scene/connection direction, and internal draft/analyze/improve instruction]
+[One standalone Claude final-post-copy handoff prompt with no repository-path dependency, the applicable product-post or non-product post shape, and internal draft/analyze/improve instruction]
 ```
 
 The filename, selection audit, and Claude prompt stay outside the copied image prompt.
@@ -344,3 +351,5 @@ Before saving or delivering the prompt, confirm:
 - failure behavior prohibits invented substitutes
 - the prompt does not ask Claude to approve image graphic text
 - the prompt asks for no unsupported claims
+- a product-focused final post defaults to no measurements, technical specifications, price, or disclaimers, unless `post_copy_exception_approval` records the exact approved exception
+- final-post restrictions and exception rules have not been copied into the image prompt or image graphic-text instructions

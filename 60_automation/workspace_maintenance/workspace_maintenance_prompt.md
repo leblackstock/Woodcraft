@@ -15,6 +15,8 @@ Use this prompt for a deliberate Woodcraft maintenance session.
     - Stale or conflicting duplicate: repeated active content that could mislead work or lengthen discovery.
     - Needs user decision: unclear ownership, factual disagreement, business-policy conflict, published record, raw source evidence, or uncertain archive choice.
 
+    Review the workflow package trace for every workflow document changed since the prior persistent audit. Its package contains the changed document, governance roots, recursive live relative links, and direct live inbound links; archive material is never a package member. Treat broken links, active references to Deprecated/Retired/Superseded files, workflow-file removals lacking a clear lifecycle, and non-intentional exact repeated guidance as evidence-based findings. Do not claim that free-form prose is contradictory without a specific, verifiable conflict; use the trace as review context instead.
+
     For safe mechanical work only, consolidate accidental duplicates into one canonical owner and short pointers; repair relative links; regenerate indexes; correct mojibake only in editable canonical files; and archive files explicitly marked Deprecated, Superseded, or Retired when an active replacement is known. Preserve history with git mv and update the archive ledger. Do not delete files.
 
     Never remove required context from standalone external prompts. Never replace the separate agent instruction files with pointers that their tools cannot read. Do not change final customer-facing prose, publish status, prices, business rules, source evidence, or a locked reference without explicit approval.
@@ -22,4 +24,4 @@ Use this prompt for a deliberate Woodcraft maintenance session.
     Treat daily session briefings as operational snapshots only. They may summarize current facts in chat and save a dated report, but they do not create tasks, lessons, policy changes, customer copy, schedules, or publishing actions.
     When a due briefing needs confirmation, ask the user to reply "Brief me"; treat that phrase as confirmation to run the briefing.
 
-    Finish by running the checks, reviewing git diff and git status, updating CURRENT_MAINTENANCE_STATUS.md through the audit, and drafting a compact maintenance-learning entry only for a verified recurring lesson. Report completed mechanical repairs, unresolved decisions, commands run, and any follow-up.
+    Finish by running the checks, reviewing git diff and git status, updating CURRENT_MAINTENANCE_STATUS.md and WORKFLOW_TRACE_BASELINE.json through the persistent audit when appropriate, and drafting a compact maintenance-learning entry only for a verified recurring lesson. Report completed mechanical repairs, unresolved decisions, commands run, and any follow-up.

@@ -46,12 +46,13 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - cta_goal:
 - hashtag_direction:
 - banned_claims_or_words:
+- post_copy_exception_approval: `None` by default. For a rare approved exception, record `Approved — [measurement/specification/price/disclaimer] — [buyer-facing reason] — [exact allowed fact or wording]`.
 
 ## Facebook Page Post Shape
 
 For Facebook Page post copy, ask Claude for a complete organic post body, not a tiny caption or product-spec paragraph.
 
-Default structure:
+Default structure for process, community, shop-proof, and other non-product-focused posts:
 
 - opening hook line with some life in it
 - short brand, product, shop, or material context
@@ -63,6 +64,29 @@ Default structure:
 If the operator supplies a good example, match the example's social-post energy and structure while rewriting from the current approved facts. Do not copy unapproved claims, prices, promises, locations, included items, or wording from the example.
 
 When a Facebook Page image has selected mix-and-match fields, include the derived post-copy lane in the delivered Claude prompt. The lane should come from the image concept: `message_angle` chooses the primary post-copy shape, `photo_subject` supplies scene/detail, `layout_family` informs length/structure, `text_intensity` controls how much to support the image text, and `cta_style` controls the close.
+
+## Facebook Page Product-Post Shape
+
+Use this branch when the primary subject is one product, a product pair, a product family, or an approved variant scope. It supersedes the default Facebook Page structure above.
+
+- Open with a direct, flat product label. Do not begin with a scene, meditation, or buildup. Example: `cedar [product], made to order.` This is an example of the desired directness, not required literal wording.
+- Let Claude choose an ordinary buyer frustration that suits the product and introduce it in plain language, starting from the buyer's problem rather than the product.
+- Give two to four concrete examples. For garden products, use real plant names or planting uses. For non-garden products, use concrete uses, places, or situations that fit the product. These examples must not imply unapproved capability, included items, or customer outcomes.
+- Say what the product addresses, then add one short line of quiet pride.
+- Include one line on where the product goes or gets used.
+- When the approved facts include the exact fulfillment wording, include: `Here in Georgia, pickup or local delivery by arrangement.`
+- Close with a soft CTA framed as a small human question, then `send me a message.`
+- Keep the voice plain, specific, and a little excited. Use short sentences with varied length; fragments are fine. Sound like the person who built it.
+- Return only the final post.
+- Treat the actual `exact_in_image_text` as image context only. Do not rewrite, validate, or impose post-copy restrictions on the image prompt or its graphic text.
+
+### Product-Post Exceptions
+
+- Default final-post rule: do not include measurements, technical specifications, price, or disclaimers.
+- Recommend an exception only when one of those details materially affects buyer awareness, eligibility, or a genuinely new offer, such as a new smaller or larger size, a new low price, or `adults only`.
+- If an exception is recommended, stop before preparing the Claude handoff and request Lauren's approval with the category, reason, exact allowed fact or wording, and proposed final-post scope.
+- Permit an exception only when `post_copy_exception_approval` records that approval. Include only the approved category and exact fact or wording; all other default exclusions remain in force.
+- Do not add disclaimer language to the finished post unless the approved exception explicitly permits that exact eligibility or safety statement.
 
 ## Voice Rules To Include In The Delivered Prompt
 
@@ -84,9 +108,10 @@ When a Facebook Page image has selected mix-and-match fields, include the derive
 ## Hard Rules
 
 - Write only final customer-facing prose for the requested fields.
-- Use approved facts only.
+- Use approved facts for product details, logistics, availability, exclusions, and performance claims. Claude may choose the buyer frustration and concrete examples within the product-post shape, but must not turn them into unsupported claims.
 - Treat `current_asset` or `customer_copy_prep_notes` as context only, not as an approved fact source.
 - Do not invent product details, timing, availability, customer outcomes, or local claims.
+- Do not invent weatherproofing, anchoring, included plants, delivery radius, or customer outcomes.
 - For a product-family showcase, write only about the included active variants. Do not imply an entire family is available and do not use bundle, set, savings, discount, or one-price-for-all language unless a separately approved bundle product is the actual subject.
 - Keep the copy aligned to the requested channel and word limit.
 - Default to one strongest final post-copy or caption output, not multiple options.
@@ -96,6 +121,7 @@ When a Facebook Page image has selected mix-and-match fields, include the derive
 - Do not ask for repository files or assume access to them.
 - Do not approve or rewrite image prompts, graphic prompts, overlay text, or image graphic text.
 - GPT/Codex owns image graphic text under active review-by-exception workflows. This template is only for the final Facebook Page post copy or Instagram caption text block outside the image.
+- Do not apply the product-post's measurement, specification, price, disclaimer, or exception rules to image prompts or image graphic text.
 
 ## Standalone Delivery Gate
 
