@@ -63,18 +63,24 @@ Default SKU image pack:
 
 1. Lifestyle hero, no text overlay
 2. Clean/empty product image, no text overlay, defines what is included
-3. Price card
-4. Size/context photo
-5. Use-case photo
-6. Detail/craftsmanship photo
+3. Size/context photo
+4. Use-case photo
+5. Detail/craftsmanship photo
+6. Price card
 7. Dimensions/details graphic
 8. Final ordering graphic
 
 Use 10 images only when the SKU needs it:
 
-7. Support/variation photo, no text overlay
+1. Lifestyle hero, no text overlay
+2. Clean/empty product image, no text overlay, defines what is included
+3. Size/context photo
+4. Use-case photo
+5. Detail/craftsmanship photo
+6. Support/variation photo, no text overlay
+7. Price card
 8. Dimensions/details graphic
-9. Important details graphic
+9. Important details graphic, approved facts only
 10. Final ordering graphic
 
 Image prompt rules:
@@ -96,6 +102,7 @@ Image prompt rules:
 - Use `Lead time available by request` in compact image graphics.
 - Use `Pickup or local delivery available` in image graphics.
 - Do not include deposit terms.
+- For every 8-image or 10-image pack, all real photographs occupy the leading positions in one continuous run and all composite text cards follow in one continuous run at the end. For eight images, Images 1 through 5 are photographs and Images 6 through 8 are price, dimensions/details, and final ordering cards. For ten images, Images 1 through 6 are photographs and Images 7 through 10 are price, dimensions/details, important details, and final ordering cards. The final ordering card is always last. If fewer usable photographs exist than lead slots, fill the available leading photo slots and leave the rest empty rather than moving a text card forward. For the ten-image important-details card, use only approved facts; if no approved fact justifies it, omit the card and run nine images with final ordering as Image 9.
 
 ## Listing Copy Defaults
 
@@ -137,7 +144,7 @@ Claude/listing prose should avoid:
 | ---: | --- | --- |
 | 1 | Master catalog; A; ABC; K | A, ABC, and K are posted/completed. The prepared Master Catalog draft remains available, but it is not in the current catalog-product sequence. |
 | 1.5 | F, T1, and T2 | F / Tiered Cedar Pyramid Planter posted 2026-06-10; T1 / Cedar Five-Finger Trellis posted 2026-06-11; T2 / Cedar Decorative Obelisk Trellis externally posted before screenshot evidence was supplied on 2026-06-22. Monitor all Wave 1.5 listing metrics. |
-| Pre-2 | USA1-SML — Wavy Flag Small, Medium & Large | Active before Wave 2: generate and approve the pending Small and Medium clean references using the approved Large attachment, then generate and approve the `usa1-sml_scope_ref_clean-01.png` combination reference from all three individual references and record it in the Product Ref Images manifest. This does not waive listing-image or publication gates. |
+| Pre-2 | USA1-L-NAT — Wavy Flag Large; USA1-SML — Wavy Flag Small, Medium & Large | USA1-L-NAT was posted 2026-06-23; monitor its metrics. Before Wave 2, generate and approve the pending Small and Medium clean references using the approved Large attachment, then generate and approve the `usa1-sml_scope_ref_clean-01.png` combination reference from all three individual references and record it in the Product Ref Images manifest. This does not waive listing-image or publication gates. |
 | 2 | B; C; G; H | Begins after USA1-SML prep: create the Wave 2 image prompt pack, then run B first before moving one SKU at a time through C, G, and H. |
 | 3 | N; P; M | Validate pricing/cost notes, then create prompt pack. |
 | 4 | D; J; E; TT; Q; PS | Validate pricing/cost notes, then create prompt pack. |
@@ -166,6 +173,7 @@ Wave 1.5 prompt-pack production is complete. T1 is posted as of 2026-06-11, and 
 | F | Tiered Cedar Pyramid Planter | `30_products/prod_cedar_pyramid_planter_001.md` | $320 | $160 | `00_brand/photos/planter-f.png` | 1.5 | Published 2026-06-10; FBM listing completed | Monitor performance and capture metrics; continue trellis follow-up if needed. |
 | T1 | Cedar Five-Finger Trellis | `30_products/prod_cedar_five_finger_trellis_001.md` | n/a | $40 | `T1_cedar_five_finger_trellis_ref_clean-01.png` | 1.5 | Published 2026-06-11; FBM listing completed | Monitor performance and capture metrics. |
 | T2 | Cedar Decorative Obelisk Trellis | `30_products/prod_cedar_decorative_obelisk_trellis_001.md` | n/a | $120 | `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` | 1.5 | Published externally; screenshot supplied 2026-06-22 reports the listing as posted about a week earlier | Monitor performance and capture metrics. |
+| USA1-L-NAT | Wavy Wooden American Flag — Large — Natural Wood with Red & Blue Stain | `30_products/variant_usa1_l_nat.md` | n/a | $120 | `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Facebook Marketing\Marketplace\USA1\USA1-L-NAT` | Pre-2 | Published 2026-06-23; final live copy not archived | Monitor performance and capture metrics; USA1-SML preparation still precedes Wave 2. |
 | G | Long Rectangle Cedar Planter | `30_products/prod_cedar_long_planter_box_46in_001.md` | $260 | $130 | `00_brand/photos/planter-g.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack. |
 | H | Tall Cedar Planter w/ Shelf | `30_products/prod_cedar_tall_rectangular_planter_461632_001.md` | $320 | $160 | `00_brand/photos/planter-h.png` | 2 | Draft exists; media approved | Include in Wave 2 prompt pack. |
 | J | Mailbox Post Cedar Planter | `30_products/prod_cedar_mailbox_post_planter_001.md` | $240 | $120 | `00_brand/photos/planter-j.png` | 4 | Product mapped; media approved | Validate cost/pricing. |

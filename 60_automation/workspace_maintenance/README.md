@@ -26,9 +26,9 @@ For a due chat briefing, the user confirmation phrase is "Brief me"; it authoriz
 
 ## Maintenance Boundary
 
-- The audit and indexes exclude archives by default and never delete files.
+- The audit and indexes exclude archive content by default and never delete files. Every audit still validates the retirement ledger and the managed retired/deprecated archive targets.
 - The audit traces each changed live workflow document against the prior persistent-audit baseline. A package includes governance roots, recursive live relative links, and direct live inbound links; archive material remains outside package membership.
-- Package findings are evidence-based only: broken links, active references to Deprecated/Retired/Superseded files, removed workflow documents needing lifecycle review, and non-intentional exact repeated guidance. Free-form prose remains human-review context, not an automated contradiction finding.
+- Package findings are evidence-based only: broken links, retirement-lifecycle integrity, active references to Deprecated/Retired/Superseded files, removed workflow documents needing lifecycle review, and non-intentional exact repeated guidance. A live reference to retired material is a warning; an archive-to-archive trace reference is informational history. Free-form prose remains human-review context, not an automated contradiction finding.
 - A mechanically safe repair may update generated indexes, archive ledgers, relative links, or obvious encoding errors in editable canonical files.
 - Escalate business-rule conflicts, unclear source ownership, customer-facing copy, published-record changes, raw source evidence, and uncertain archive decisions.
 - Record a confirmed recurring lesson in MAINTENANCE_LEARNINGS.md; record an actual policy decision in 12_DECISION_LOG.md.

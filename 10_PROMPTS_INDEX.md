@@ -80,6 +80,7 @@ Brand identity references used by prompts:
 
 Workflow-specific listing image prompt templates live in [40_listings/prompts/](40_listings/prompts/):
 
+- `40_listings/prompts/fbm_image_prompt_generation_order_index_2026-06-23.md` — navigation index for the active FBM listing-image generation workflow, its photo-first standard 8-image and 10-image orders, live sources, and concrete prompt-pack examples
 - `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md`
 - `40_listings/prompts/prompt_fbm_variant_scope_clean_reference_generator_v1.0.md`
 - `40_listings/prompts/fbm_sku_image_plan_2026-06-04.md`

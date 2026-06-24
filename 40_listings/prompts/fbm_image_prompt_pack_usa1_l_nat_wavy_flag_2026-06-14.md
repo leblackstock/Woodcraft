@@ -1,7 +1,7 @@
 # FBM Image Prompt Pack — USA1-L-NAT Wavy Flag
 
-Date revised: 2026-06-21
-Status: Current external-generation prompts; generate replacements externally before using stale text-bearing graphics.
+Date revised: 2026-06-23
+Status: Finished external media set posted 2026-06-23; retain these prompts for future revisions.
 Product family: `USA1` — Wavy Wooden American Flag
 Variant: `USA1-L-NAT` — Large — Natural Wood with Red & Blue Stain
 Variant record: `30_products/variant_usa1_l_nat.md`
@@ -21,13 +21,13 @@ Brand assets: `00_brand/`
 
 ## Existing Facebook Marketing Asset Status
 
-The following renamed legacy assets are **not approved for customer use until externally regenerated from this pack** because they contain stale text or pricing:
+The following renamed legacy assets are **retired from customer use** because they contain stale text or pricing:
 
-- `USA1-L-NAT - 02.png`
-- `usa1_l_nat_wavy_wooden_american_flag_fbm_03_price_value_v01.png`
-- `usa1_l_nat_wavy_wooden_american_flag_fbm_07_dimensions_details_v01.png`
+- `USA1-L-NAT - 02.png` — stale price/options text; replaced by `usa1_l_nat_wavy_wooden_american_flag_fbm_03_price_value_v02.png`.
+- `usa1_l_nat_wavy_wooden_american_flag_fbm_03_price_value_v01.png` — stale $150/old option ladder; replaced by `usa1_l_nat_wavy_wooden_american_flag_fbm_03_price_value_v02.png`.
+- `usa1_l_nat_wavy_wooden_american_flag_fbm_07_dimensions_details_v01.png` — replaced by `usa1_l_nat_wavy_wooden_american_flag_fbm_07_dimensions_details_v02.png`.
 
-All other renamed visual-only assets require an operator review before use but do not carry known stale text.
+The finished 2026-06-23 Marketplace set is stored externally at `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Facebook Marketing\Marketplace\USA1\USA1-L-NAT`. Current files are `usa1_l_nat_wavy_wooden_american_flag_fbm_01_best_thumbnail_v01.png`, `usa1_l_nat_wavy_wooden_american_flag_fbm_02_clean_product_v01.png`, `usa1_l_nat_wavy_wooden_american_flag_fbm_03_price_value_v02.png`, `usa1_l_nat_wavy_wooden_american_flag_fbm_04_size_context_v01.png`, `usa1_l_nat_wavy_wooden_american_flag_fbm_05_use_case_v01.png`, `usa1_l_nat_wavy_wooden_american_flag_fbm_06_detail_trust_v01.png`, `usa1_l_nat_wavy_wooden_american_flag_fbm_07_dimensions_details_v02.png`, and `usa1_l_nat_wavy_wooden_american_flag_fbm_08_final_ordering_v02.png`.
 
 ## Image 1 — Best Thumbnail
 
@@ -51,7 +51,7 @@ Create a clean square Facebook Marketplace product image showing exactly one Lar
 
 ## Image 3 — Price And Finish Card
 
-Filename: `usa1_l_nat_wavy_wooden_american_flag_fbm_03_price_value_v01.png`
+Filename: `usa1_l_nat_wavy_wooden_american_flag_fbm_03_price_value_v02.png`
 
 ```text
 Please see attached "USA1-L-NAT clean reference image for the Large Natural Wood with Red & Blue Stain wavy solid wood American flag".
@@ -91,7 +91,7 @@ Create a realistic square Facebook Marketplace close detail photo for one Large 
 
 ## Image 7 — Dimensions And Details Card
 
-Filename: `usa1_l_nat_wavy_wooden_american_flag_fbm_07_dimensions_details_v01.png`
+Filename: `usa1_l_nat_wavy_wooden_american_flag_fbm_07_dimensions_details_v02.png`
 
 ```text
 Please see attached "USA1-L-NAT clean reference image for the Large Natural Wood with Red & Blue Stain wavy solid wood American flag".
@@ -101,7 +101,7 @@ Create a polished square Facebook Marketplace dimensions-and-details graphic for
 
 ## Image 8 — Ordering Card
 
-Filename: `usa1_l_nat_wavy_wooden_american_flag_fbm_08_final_ordering_v01.png`
+Filename: `usa1_l_nat_wavy_wooden_american_flag_fbm_08_final_ordering_v02.png`
 
 ```text
 Please see attached "USA1-L-NAT clean reference image for the Large Natural Wood with Red & Blue Stain wavy solid wood American flag".

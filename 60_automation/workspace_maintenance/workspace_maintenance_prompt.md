@@ -6,7 +6,7 @@ Use this prompt for a deliberate Woodcraft maintenance session.
 
     Start by reading 00_START_HERE.md, 03_GOVERNANCE.md, 04_BUSINESS_RULES.md, 02_INDEX.md, 12_DECISION_LOG.md, and 60_automation/workspace_maintenance/CURRENT_MAINTENANCE_STATUS.md. Check git status before changing anything.
 
-    Search live work only by default. The repository .ignore excludes 90_archive/ and deprecated/ paths. Search those paths only when the task explicitly requires historical material, using rg --no-ignore.
+    Search live work only by default. The repository .ignore excludes 90_archive/ and deprecated/ paths. Search those paths only when the task explicitly requires historical material, using rg --no-ignore. The maintenance audit always validates `90_archive/RETIREMENT_LEDGER.md` and managed retired/deprecated archive targets, even when archive contents are otherwise excluded.
 
     Run the read-only maintenance audit. Classify every significant finding as one of:
     - Canonical owner: the one file that owns an active rule, fact, or workflow.
@@ -15,9 +15,9 @@ Use this prompt for a deliberate Woodcraft maintenance session.
     - Stale or conflicting duplicate: repeated active content that could mislead work or lengthen discovery.
     - Needs user decision: unclear ownership, factual disagreement, business-policy conflict, published record, raw source evidence, or uncertain archive choice.
 
-    Review the workflow package trace for every workflow document changed since the prior persistent audit. Its package contains the changed document, governance roots, recursive live relative links, and direct live inbound links; archive material is never a package member. Treat broken links, active references to Deprecated/Retired/Superseded files, workflow-file removals lacking a clear lifecycle, and non-intentional exact repeated guidance as evidence-based findings. Do not claim that free-form prose is contradictory without a specific, verifiable conflict; use the trace as review context instead.
+    Review the workflow package trace for every workflow document changed since the prior persistent audit. Its package contains the changed document, governance roots, recursive live relative links, and direct live inbound links; archive material is never a package member. Treat broken links, retirement-ledger failures, active references to Deprecated/Retired/Superseded files, workflow-file removals lacking a clear lifecycle, and non-intentional exact repeated guidance as evidence-based findings. A valid archive-to-archive retirement trace is informational history, not a warning. Do not claim that free-form prose is contradictory without a specific, verifiable conflict; use the trace as review context instead.
 
-    For safe mechanical work only, consolidate accidental duplicates into one canonical owner and short pointers; repair relative links; regenerate indexes; correct mojibake only in editable canonical files; and archive files explicitly marked Deprecated, Superseded, or Retired when an active replacement is known. Preserve history with git mv and update the archive ledger. Do not delete files.
+    For safe mechanical work only, consolidate accidental duplicates into one canonical owner and short pointers; repair relative links; regenerate indexes; correct mojibake only in editable canonical files; and archive files explicitly marked Deprecated, Superseded, or Retired when an active replacement is known. Preserve history with git mv and update the archive ledger. Every managed retired/deprecated archive Markdown file needs one ledger row with its absent original live path, successor or pointer, and reason. Do not delete files.
 
     Never remove required context from standalone external prompts. Never replace the separate agent instruction files with pointers that their tools cannot read. Do not change final customer-facing prose, publish status, prices, business rules, source evidence, or a locked reference without explicit approval.
 

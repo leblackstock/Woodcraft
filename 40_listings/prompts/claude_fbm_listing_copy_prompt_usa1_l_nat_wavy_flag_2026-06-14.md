@@ -1,7 +1,7 @@
 # Claude FBM Listing Copy Prompt — USA1-L-NAT
 
-Date revised: 2026-06-21
-Status: Draft external handoff; final copy still requires Claude output and standard publication gates.
+Date revised: 2026-06-23
+Status: Reference handoff for the listing posted externally on 2026-06-23; final live copy was not duplicated in this repository.
 Product family: USA1 — Wavy Wooden American Flag
 Variant: USA1-L-NAT — Large — Natural Wood with Red & Blue Stain
 Product record: `30_products/variant_usa1_l_nat.md`

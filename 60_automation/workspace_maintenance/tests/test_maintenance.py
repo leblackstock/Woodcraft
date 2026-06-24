@@ -23,6 +23,19 @@ class AuditWorkspaceTests(unittest.TestCase):
         (root / "90_archive").mkdir()
         return temp
 
+    def write_retirement_ledger(self, root: Path, rows: list[tuple[str, str, str, str]]) -> None:
+        lines = [
+            "# Retirement Ledger",
+            "",
+            "| Archived file | Original live path | Active successor or pointer | Reason |",
+            "| --- | --- | --- | --- |",
+        ]
+        lines.extend(f"| {' | '.join(row)} |" for row in rows)
+        (root / audit_workspace.RETIREMENT_LEDGER_PATH).write_text(
+            "\n".join(lines) + "\n",
+            encoding="utf-8",
+        )
+
     def test_default_scan_excludes_archive(self) -> None:
         temp = self.make_root()
         self.addCleanup(temp.cleanup)
@@ -44,6 +57,173 @@ class AuditWorkspaceTests(unittest.TestCase):
         findings = audit_workspace.find_retired_references(root, retired, False)
         self.assertEqual(["retired.md"], sorted(retired))
         self.assertEqual(1, len(findings))
+
+    def test_retirement_lifecycle_accepts_complete_ledger_entry(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        archived = root / "90_archive" / "retired_content" / "old.md"
+        archived.parent.mkdir()
+        archived.write_text("Status: Retired\n", encoding="utf-8")
+        self.write_retirement_ledger(
+            root,
+            [("retired_content/old.md", "50_content/old.md", "50_content/new.md", "Superseded record")],
+        )
+
+        targets, findings = audit_workspace.retirement_lifecycle(root)
+
+        self.assertEqual({"90_archive/retired_content/old.md"}, set(targets))
+        self.assertEqual([], findings)
+
+    def test_retirement_lifecycle_reports_missing_target_and_live_original(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        (root / "50_content").mkdir()
+        (root / "50_content" / "old.md").write_text("Status: Retired\n", encoding="utf-8")
+        self.write_retirement_ledger(
+            root,
+            [("retired_content/missing.md", "50_content/old.md", "50_content/new.md", "Superseded record")],
+        )
+
+        _, findings = audit_workspace.retirement_lifecycle(root)
+
+        self.assertIn("retirement-ledger-missing-archived-file", {finding.category for finding in findings})
+        self.assertIn("retirement-ledger-original-still-live", {finding.category for finding in findings})
+
+    def test_retirement_lifecycle_reports_duplicate_and_unledgered_archive_paths(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        archive_directory = root / "90_archive" / "deprecated_prompts"
+        archive_directory.mkdir()
+        (archive_directory / "one.md").write_text("Status: Deprecated\n", encoding="utf-8")
+        (archive_directory / "orphan.md").write_text("Status: Deprecated\n", encoding="utf-8")
+        self.write_retirement_ledger(
+            root,
+            [
+                ("deprecated_prompts/one.md", "40_listings/one.md", "40_listings/two.md", "Superseded prompt"),
+                ("deprecated_prompts/one.md", "40_listings/one.md", "40_listings/two.md", "Superseded prompt"),
+            ],
+        )
+
+        _, findings = audit_workspace.retirement_lifecycle(root)
+
+        categories = {finding.category for finding in findings}
+        self.assertIn("retirement-ledger-duplicate-archived-path", categories)
+        self.assertIn("retirement-ledger-duplicate-original-path", categories)
+        self.assertIn("retirement-ledger-missing-entry", categories)
+
+    def test_retirement_lifecycle_reports_malformed_and_incomplete_ledger_rows(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        archived = root / "90_archive" / "retired_content" / "one.md"
+        archived.parent.mkdir()
+        archived.write_text("Status: Retired\n", encoding="utf-8")
+        (root / audit_workspace.RETIREMENT_LEDGER_PATH).write_text(
+            "| Archived file | Original live path | Active successor or pointer | Reason |\n"
+            "| --- | --- | --- | --- |\n"
+            "| retired_content/one.md | 50_content/one.md |  |  |\n"
+            "| retired_content/bad.md | 50_content/bad.md | Missing reason |\n",
+            encoding="utf-8",
+        )
+
+        _, findings = audit_workspace.retirement_lifecycle(root)
+
+        categories = {finding.category for finding in findings}
+        self.assertIn("retirement-ledger-malformed-row", categories)
+        self.assertIn("retirement-ledger-missing-successor", categories)
+        self.assertIn("retirement-ledger-missing-reason", categories)
+
+    def test_retirement_lifecycle_rejects_archive_path_that_escapes_managed_folder(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        target = root / "90_archive" / "maintenance_audits" / "old.md"
+        target.parent.mkdir()
+        target.write_text("# Historical audit\n", encoding="utf-8")
+        self.write_retirement_ledger(
+            root,
+            [("retired_content/../maintenance_audits/old.md", "50_content/old.md", "50_content/new.md", "Invalid path test")],
+        )
+
+        _, findings = audit_workspace.retirement_lifecycle(root)
+
+        self.assertIn("retirement-ledger-invalid-archive-path", {finding.category for finding in findings})
+
+    def test_retirement_lifecycle_normalizes_original_path_separators(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        archive_directory = root / "90_archive" / "retired_content"
+        archive_directory.mkdir()
+        (archive_directory / "one.md").write_text("Status: Retired\n", encoding="utf-8")
+        (archive_directory / "two.md").write_text("Status: Retired\n", encoding="utf-8")
+        self.write_retirement_ledger(
+            root,
+            [
+                ("retired_content/one.md", "50_content/old.md", "50_content/new.md", "Superseded record"),
+                ("retired_content/two.md", "50_content\\old.md", "50_content/new.md", "Superseded record"),
+            ],
+        )
+
+        _, findings = audit_workspace.retirement_lifecycle(root)
+
+        self.assertIn("retirement-ledger-duplicate-original-path", {finding.category for finding in findings})
+
+    def test_retirement_lifecycle_reports_unarchived_live_retired_file(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        (root / "live_retired.md").write_text("Status: Retired\n", encoding="utf-8")
+        self.write_retirement_ledger(root, [])
+
+        _, findings = audit_workspace.retirement_lifecycle(root)
+
+        self.assertTrue(any(finding.category == "retirement-live-file-unarchived" for finding in findings))
+
+    def test_default_scan_reports_live_reference_to_ledger_retired_file(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        archived = root / "90_archive" / "retired_content" / "old.md"
+        archived.parent.mkdir()
+        archived.write_text("Status: Retired\n", encoding="utf-8")
+        (root / "live.md").write_text("[old](90_archive/retired_content/old.md)\n", encoding="utf-8")
+        self.write_retirement_ledger(
+            root,
+            [("retired_content/old.md", "50_content/old.md", "50_content/new.md", "Superseded record")],
+        )
+
+        retired = audit_workspace.retired_targets(root, False)
+        findings = audit_workspace.find_retired_references(root, retired, False)
+
+        self.assertTrue(any(finding.category == "retired-reference" and finding.severity == "warning" for finding in findings))
+
+    def test_archive_trace_to_retired_target_is_info_not_warning(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        prompt = root / "90_archive" / "retired_content" / "prompt.md"
+        record = root / "90_archive" / "retired_content_records" / "record.md"
+        prompt.parent.mkdir()
+        record.parent.mkdir()
+        prompt.write_text("Use status: Retired\n", encoding="utf-8")
+        record.write_text("[prompt](../retired_content/prompt.md)\n", encoding="utf-8")
+        self.write_retirement_ledger(
+            root,
+            [
+                ("retired_content/prompt.md", "50_content/prompts/prompt.md", "50_content/prompts/new.md", "Superseded prompt"),
+                ("retired_content_records/record.md", "50_content/record.md", "50_content/new.md", "Archived record"),
+            ],
+        )
+
+        retired = audit_workspace.retired_targets(root, True)
+        findings = audit_workspace.find_retired_references(root, retired, True)
+
+        self.assertTrue(any(finding.category == "archival-trace-reference" and finding.severity == "info" for finding in findings))
+        self.assertFalse(any(finding.severity == "warning" for finding in findings))
 
     def test_mojibake_is_detected(self) -> None:
         temp = self.make_root()

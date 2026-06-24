@@ -134,32 +134,43 @@ Use enough text-bearing graphics to make the listing easy to buy from, but not s
 
 - 8-image listing default: use 3 text-overlay images.
 - 10-image listing default: use 4 text-overlay images.
-- Image 1 is usually a no-text best-thumbnail image. Add a small factual overlay only when it clearly improves the click or offer clarity and does not crowd the product.
-- Image 2 should stay the clean/empty product image by default because it is the inclusion anchor and trust builder.
+- In every new 8-image or 10-image pack, real photographs occupy the leading positions in one continuous run. Composite text cards occupy one continuous run at the end. Never place a photograph after the first text card or a text card inside the photograph run.
+- For the standard 8-image pack, Images 1 through 5 are reserved for real photographs with no composite text card or text overlay. For the 10-image pack, Images 1 through 6 are reserved for real photographs with no composite text card or text overlay.
+- Image 1 is a no-text best-thumbnail photograph. Image 2 is the clean/empty product photograph because it is the inclusion anchor and trust builder.
 - Product photos, clean product images, size/context photos, use-case photos, detail shots, and variation photos should usually have no text overlay unless the image's purpose is explicitly a graphic or overlay-led image.
 - Product photos carry trust and desire first; graphics support price, size/details, local terms, and ordering.
-- Put the price card at Image 3 by default unless a different sequence is plainly more sellable. Document the reason for any sequence change.
+- For the standard 8-image pack, Images 6 through 8 are the Price/Value Card, Dimensions/Details Graphic, and Final Ordering Graphic in that order. The ordering graphic is always last.
+- For the 10-image pack, Images 7 through 10 are the Price/Value Card, Dimensions/Details Graphic, Important Details Graphic, and Final Ordering Graphic in that order. The ordering graphic is always last.
+- If a product has fewer usable photographs than its leading photo slots, use the available photographs in those slots and leave the remaining photo slots empty. Do not promote a text card forward.
 - Do not include deposit terms unless Lauren explicitly approves them later.
 
 Default 8-image sequence:
 
 1. Best Thumbnail: the image most likely to stop a Marketplace buyer while still showing the exact product.
 2. Clean Product: show the empty product clearly and define what is included.
-3. Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. If the price applies only to a featured configuration, label the price line plainly. For a non-bundle variant-scope listing with different prices, use a clear option-and-price chart listing every included variant and its exact approved price.
-4. Size/Context Photo: answer `how big is it?` with practical scale.
-5. Use-Case Photo: show one specific application, planting idea, or placement use.
-6. Detail/Trust Photo: show cedar grain, shape, rim, post, shelf, tier, corner, or other visible construction detail.
+3. Size/Context Photo: answer `how big is it?` with practical scale.
+4. Use-Case Photo: show one specific application, planting idea, or placement use.
+5. Detail/Trust Photo: show cedar grain, shape, rim, post, shelf, tier, corner, or other visible construction detail.
+6. Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. If the price applies only to a featured configuration, label the price line plainly. For a non-bundle variant-scope listing with different prices, use a clear option-and-price chart listing every included variant and its exact approved price.
 7. Dimensions/Details Graphic: use exact numeric dimensions/specs and local/order facts.
 8. Final Ordering Graphic: simple order instruction and pickup/delivery availability.
 
 Default 10-image extension:
 
-7. Support/Variation Photo: no-text practical variation or alternate use.
+1. Best Thumbnail: the image most likely to stop a Marketplace buyer while still showing the exact product.
+2. Clean Product: show the empty product clearly and define what is included.
+3. Size/Context Photo: answer `how big is it?` with practical scale.
+4. Use-Case Photo: show one specific application, planting idea, or placement use.
+5. Detail/Trust Photo: show cedar grain, shape, rim, post, shelf, tier, corner, or other visible construction detail.
+6. Support/Variation Photo: no-text practical variation or alternate use.
+7. Price/Value Card: show the product name and one plain selling-price line from the approved FBM price.
 8. Dimensions/Details Graphic: exact numeric dimensions/specs.
 9. Important Details Graphic: supported inclusion, customization, size, or quote facts.
 10. Final Ordering Graphic: simple order instruction and pickup/delivery availability.
 
-If only 6 images are needed, keep Images 1, 2, 3, 6, 7, plus the stronger of Image 4 or Image 5. Do not use the 10-image extension for a reduced pack.
+For Image 9, use only approved product facts. Do not introduce claims about hanging hardware, wall anchors, weatherproofing, outdoor durability, shipping, installation, current inventory, lead-time ranges, delivery fees, or any size, color, or variation outside the approved list. If no approved fact justifies Image 9, omit it and run the sequence as nine images, with Final Ordering Graphic as Image 9.
+
+Do not use the former six-image shortcut for new packs. The standard 8-image sequence preserves the five leading photo positions, then price, dimensions, and final ordering.
 
 ## Best Thumbnail Rules
 
@@ -304,17 +315,17 @@ Avoid near-duplicate image prompts within the same SKU pack.
 - Each no-text photo slot must change the buyer question and at least two visible composition variables: setting, camera distance, camera angle, product state, scale reference, use case, background, or detail focus.
 - Image 1, Best Thumbnail: sell the product at first glance. It may be a lifestyle hero, clean product hero, or use-case hero, whichever is most likely to stop a Marketplace buyer while preserving exact product fidelity.
 - Image 2, Clean Product: show the empty product clearly and define what is included.
-- Image 3, Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. When the approved price applies only to a featured configuration, as with K, label the line plainly, such as `Featured size $240`, so the graphic does not imply every custom build shares that price. For a non-bundle variant-scope listing with different approved option prices, replace the single price line with a clear option-and-price chart that lists every and only the scoped variants with their exact approved prices. For approved sets or bundles, savings wording may be added when the separate-item total, set price, and savings amount are approved facts or Lauren explicitly requests it. Keep it factual, such as `3 separately $130`, `Set price $110`, and `Save $20 as a set`, rather than vague sale hype.
-- Image 4, Size/Context Photo: answer `how big is it?` quickly. Use practical scale references and a simpler background. Do not repeat the first thumbnail scene.
-- Image 5, Use-Case Photo: show one specific application, planting idea, or placement use. It should not be another broad lifestyle hero.
-- Image 6, Detail/Trust Photo: show material, shape, corners, rim, shelf, post, tier, or other visible construction details.
+- Image 3, Size/Context Photo: answer `how big is it?` quickly. Use practical scale references and a simpler background. Do not repeat the first thumbnail scene.
+- Image 4, Use-Case Photo: show one specific application, planting idea, or placement use. It should not be another broad lifestyle hero.
+- Image 5, Detail/Trust Photo: show material, shape, corners, rim, shelf, post, tier, or other visible construction details.
+- Image 6, Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. When the approved price applies only to a featured configuration, as with K, label the line plainly, such as `Featured size $240`, so the graphic does not imply every custom build shares that price. For a non-bundle variant-scope listing with different approved option prices, replace the single price line with a clear option-and-price chart that lists every and only the scoped variants with their exact approved prices. For approved sets or bundles, savings wording may be added when the separate-item total, set price, and savings amount are approved facts or Lauren explicitly requests it. Keep it factual, such as `3 separately $130`, `Set price $110`, and `Save $20 as a set`, rather than vague sale hype.
 - Image 7, Dimensions/Details Graphic: use exact numeric dimensions/specs and built-to-order/local facts. For bundles or sets, include the numeric dimensions for each included size.
 - Image 8, Final Ordering Graphic: simple final order instruction and pickup/delivery availability.
-- For 10-image packs, Image 7 becomes a no-text support/variation photo, Image 8 becomes the dimensions/details graphic with numeric dimensions, Image 9 becomes the important-details graphic, and Image 10 becomes the final ordering graphic.
+- For 10-image packs, Images 1 through 5 retain the standard photo roles, Image 6 is the no-text support/variation photo, Image 7 is the price/value card, Image 8 is the dimensions/details graphic with numeric dimensions, Image 9 is the approved-facts-only important-details graphic, and Image 10 is the final ordering graphic. If no approved fact justifies Image 9, omit it and run nine images with the final ordering graphic as Image 9.
 
-For Image 4, prefer everyday scale references such as watering cans, gloves, nursery pots, doors, porch rails, garden paths, fence posts, or a hand when appropriate. Keep it more practical than pretty.
+For Image 3, prefer everyday scale references such as watering cans, gloves, nursery pots, doors, porch rails, garden paths, fence posts, or a hand when appropriate. Keep it more practical than pretty.
 
-For Image 5, prefer a tighter practical use scene, an overhead/three-quarter planted example, or a specific application such as herbs, seasonal flowers, patio growing, entryway pair, mailbox display, tabletop herbs, or raised-bed vegetables. Avoid repeating the same porch/door hero composition from Image 1.
+For Image 4, prefer a tighter practical use scene, an overhead/three-quarter planted example, or a specific application such as herbs, seasonal flowers, patio growing, entryway pair, mailbox display, tabletop herbs, or raised-bed vegetables. Avoid repeating the same porch/door hero composition from Image 1.
 
 ## Output Structure
 
@@ -344,33 +355,33 @@ Image 2 - Clean Product
 - Optional exact-fidelity prompt if regeneration is needed:
 - Negative/avoid:
 
-Image 3 - Price/Value Card
+Image 3 - Size/Context Photo
+- Filename:
+- Purpose:
+- Sellability reason:
+- Prompt:
+- Negative/avoid:
+
+Image 4 - Use-Case Photo
+- Filename:
+- Purpose:
+- Sellability reason:
+- Prompt:
+- Negative/avoid:
+
+Image 5 - Detail/Trust Photo
+- Filename:
+- Purpose:
+- Sellability reason:
+- Prompt:
+- Negative/avoid:
+
+Image 6 - Price/Value Card
 - Filename:
 - Purpose:
 - Sellability reason:
 - Prompt:
 - Exact in-image text:
-- Negative/avoid:
-
-Image 4 - Size/Context Photo
-- Filename:
-- Purpose:
-- Sellability reason:
-- Prompt:
-- Negative/avoid:
-
-Image 5 - Use-Case Photo
-- Filename:
-- Purpose:
-- Sellability reason:
-- Prompt:
-- Negative/avoid:
-
-Image 6 - Detail/Trust Photo
-- Filename:
-- Purpose:
-- Sellability reason:
-- Prompt:
 - Negative/avoid:
 
 Image 7 - Dimensions/Details Graphic
@@ -391,11 +402,21 @@ Image 8 - Final Ordering Graphic
 
 10-image extension:
 
-Image 7 - Support/Variation Photo
+Images 1 through 5 use the same Best Thumbnail, Clean Product, Size/Context, Use-Case, and Detail/Trust fields as the standard 8-image structure above.
+
+Image 6 - Support/Variation Photo
 - Filename:
 - Purpose:
 - Sellability reason:
 - Prompt:
+- Negative/avoid:
+
+Image 7 - Price/Value Card
+- Filename:
+- Purpose:
+- Sellability reason:
+- Prompt:
+- Exact in-image text:
 - Negative/avoid:
 
 Image 8 - Dimensions/Details Graphic
@@ -413,6 +434,7 @@ Image 9 - Important Details Graphic
 - Prompt:
 - Exact in-image text:
 - Negative/avoid:
+- Approved-facts check: omit this image when no approved fact requires it; do not substitute unsupported claims.
 
 Image 10 - Final Ordering Graphic
 - Filename:

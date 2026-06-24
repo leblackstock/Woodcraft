@@ -52,16 +52,16 @@
 - plans_source_ref: 20_research/YouTubeTranscripts/WoodDoofus_transcripts/analysis/001_wavy_wooden_american_flag_build_instructions.md | 20_research/YouTubeTranscripts/WhosTheVoss_transcripts/analysis/005_wavy_flag_woodshop_cut_list_and_build_instructions.md
 - reference_source: Migrated operator-approved Large/Natural clean reference, Lovejoy-area FBM research, competitor research, and internal wavy-flag build analysis.
 - source_links: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images\USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` | 20_research/fbm_wavy_flag_size_recommendation_lovejoy_ga_2026-06-14.md | 20_research/competitor_snapshots/README.md
-- media_truth_status: Operator-approved clean reference available for image generation; owned finished-product photos remain pending.
-- media_provenance_note: The approved clean reference controls visible Large/Natural geometry, natural wood light stripes, red/blue stain direction, blue union, stars, and wave appearance for image generation. Third-party images remain research only.
+- media_truth_status: AI-assisted finished Marketplace media is stored externally; actual finished-product photos remain pending.
+- media_provenance_note: The approved clean reference controlled visible Large/Natural geometry, natural wood light stripes, red/blue stain direction, blue union, stars, and wave appearance for the finished Marketplace media. The current set is stored at `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Facebook Marketing\Marketplace\USA1\USA1-L-NAT`; third-party images remain research only.
 - standard_spec_ref: 30_products/spec_usa1_l_nat_standard.md
 - cost_sheet_ref: 30_products/cost_usa1_l_nat.md
 - image_prompt_pack_ref: 40_listings/prompts/fbm_image_prompt_pack_usa1_l_nat_wavy_flag_2026-06-14.md
 - claude_handoff_ref: 40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_l_nat_wavy_flag_2026-06-14.md
-- verification_evidence_ref: Pending — first-build dimensions, material usage, labor timing, finish/hardware choices, and owned photos.
+- verification_evidence_ref: FBM posting confirmed by operator on 2026-06-23; first-build dimensions, material usage, labor timing, finish/hardware choices, and actual finished-product photos remain pending.
 - verification_packet_ref: Pending — create before listing-first progression.
-- verification_status: Intake Collected
-- unresolved_fact_gaps: Actual build measurements, material/labor costs, star method, hanging hardware, finish products, final weight, owned media, and Claude final listing copy.
+- verification_status: FBM published; first-build verification remains pending.
+- unresolved_fact_gaps: Actual build measurements, material/labor costs, star method, hanging hardware, finish products, final weight, and actual finished-product photos.
 
 ## Buyer, Build, And Fulfillment
 
@@ -71,5 +71,5 @@
 - build_time_estimate: Pending — record during the first build.
 - lead_time_estimate: Pending — provide when ordered; do not promise same-day availability.
 - delivery_shipping_mode: Pickup / local delivery by arrangement. Shipping is not evaluated.
-- status: Active variant for image preparation; not approved for publication.
-- next_action: Complete first build, record actual finished dimensions and costs, then generate final customer copy through Claude.
+- status: Active variant; Facebook Marketplace listing posted 2026-06-23.
+- next_action: Monitor listing performance, then complete the first-build record and capture actual finished dimensions and costs.

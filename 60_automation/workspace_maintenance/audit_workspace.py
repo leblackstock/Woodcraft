@@ -21,6 +21,13 @@ from pathlib import Path
 from typing import Iterable
 
 ARCHIVE_DIRS = {"90_archive", "deprecated", ".git", "__pycache__"}
+RETIREMENT_LEDGER_PATH = "90_archive/RETIREMENT_LEDGER.md"
+MANAGED_RETIREMENT_DIRS = (
+    "deprecated_prompts",
+    "retired_workflows",
+    "retired_content",
+    "retired_content_records",
+)
 TRACE_BASELINE_NAME = "WORKFLOW_TRACE_BASELINE.json"
 GENERATED_MAINTENANCE_NAMES = {
     "ASSET_LOCATOR.md",
@@ -122,6 +129,15 @@ class LinkReference:
 
 
 @dataclass(frozen=True)
+class RetirementLedgerEntry:
+    archived_path: str
+    original_live_path: str
+    successor_or_pointer: str
+    reason: str
+    line: int
+
+
+@dataclass(frozen=True)
 class WorkflowChange:
     path: str
     change_type: str
@@ -165,6 +181,202 @@ def markdown_files(root: Path, include_archive: bool = False) -> Iterable[Path]:
 
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
+
+
+def is_archive_relative_path(path_text: str) -> bool:
+    return path_text == "90_archive" or path_text.startswith("90_archive/")
+
+
+def is_managed_retirement_path(path_text: str) -> bool:
+    return any(path_text.startswith(f"90_archive/{directory}/") for directory in MANAGED_RETIREMENT_DIRS)
+
+
+def resolve_repository_relative_path(root: Path, path_text: str) -> Path | None:
+    candidate = Path(path_text.replace("\\", "/"))
+    if not path_text or candidate.is_absolute():
+        return None
+    resolved = (root / candidate).resolve()
+    try:
+        resolved.relative_to(root.resolve())
+    except ValueError:
+        return None
+    return resolved
+
+
+def parse_retirement_ledger(root: Path) -> tuple[list[RetirementLedgerEntry], list[Finding]]:
+    ledger = root / RETIREMENT_LEDGER_PATH
+    if not ledger.exists():
+        return [], [
+            Finding(
+                "retirement-ledger-missing",
+                RETIREMENT_LEDGER_PATH,
+                "Required retirement ledger is missing.",
+                "error",
+            )
+        ]
+
+    entries: list[RetirementLedgerEntry] = []
+    findings: list[Finding] = []
+    for line_number, line in enumerate(read_text(ledger).splitlines(), start=1):
+        if not line.lstrip().startswith("|"):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if not cells or cells[0] in {"Archived file", "---"} or set(cells[0]) == {"-"}:
+            continue
+        if len(cells) != 4:
+            findings.append(
+                Finding(
+                    "retirement-ledger-malformed-row",
+                    RETIREMENT_LEDGER_PATH,
+                    "Expected exactly four table columns: archived file, original live path, successor or pointer, and reason.",
+                    "error",
+                    line_number,
+                )
+            )
+            continue
+        entries.append(RetirementLedgerEntry(*cells, line_number))
+    return entries, findings
+
+
+def retirement_lifecycle(root: Path) -> tuple[dict[str, Path], list[Finding]]:
+    entries, findings = parse_retirement_ledger(root)
+    retired_targets: dict[str, Path] = {}
+    archived_seen: dict[str, int] = {}
+    original_seen: dict[str, int] = {}
+
+    for entry in entries:
+        archived_entry_path = entry.archived_path.replace("\\", "/")
+        archived_requested_path = f"90_archive/{archived_entry_path}"
+        archived_path = resolve_repository_relative_path(root, archived_requested_path)
+        original_path = resolve_repository_relative_path(root, entry.original_live_path)
+        archived_relative = rel(archived_path, root) if archived_path is not None else ""
+        original_relative = rel(original_path, root) if original_path is not None else ""
+        original_key = original_relative or entry.original_live_path.replace("\\", "/")
+
+        if not entry.successor_or_pointer:
+            findings.append(
+                Finding(
+                    "retirement-ledger-missing-successor",
+                    RETIREMENT_LEDGER_PATH,
+                    "Successor or pointer is required.",
+                    "error",
+                    entry.line,
+                )
+            )
+        if not entry.reason:
+            findings.append(
+                Finding(
+                    "retirement-ledger-missing-reason",
+                    RETIREMENT_LEDGER_PATH,
+                    "Retirement reason is required.",
+                    "error",
+                    entry.line,
+                )
+            )
+        if archived_path is None or not is_managed_retirement_path(archived_relative):
+            findings.append(
+                Finding(
+                    "retirement-ledger-invalid-archive-path",
+                    RETIREMENT_LEDGER_PATH,
+                    entry.archived_path,
+                    "error",
+                    entry.line,
+                )
+            )
+        elif not archived_path.is_file():
+            findings.append(
+                Finding(
+                    "retirement-ledger-missing-archived-file",
+                    RETIREMENT_LEDGER_PATH,
+                    archived_requested_path,
+                    "error",
+                    entry.line,
+                )
+            )
+        else:
+            retired_targets[archived_relative] = archived_path
+
+        if original_path is None or is_archive_relative_path(original_relative):
+            findings.append(
+                Finding(
+                    "retirement-ledger-invalid-original-path",
+                    RETIREMENT_LEDGER_PATH,
+                    entry.original_live_path,
+                    "error",
+                    entry.line,
+                )
+            )
+        elif original_path.exists():
+            findings.append(
+                Finding(
+                    "retirement-ledger-original-still-live",
+                    RETIREMENT_LEDGER_PATH,
+                    entry.original_live_path,
+                    "error",
+                    entry.line,
+                )
+            )
+
+        if archived_relative and archived_relative in archived_seen:
+            findings.append(
+                Finding(
+                    "retirement-ledger-duplicate-archived-path",
+                    RETIREMENT_LEDGER_PATH,
+                    archived_relative,
+                    "error",
+                    entry.line,
+                )
+            )
+        if archived_relative:
+            archived_seen[archived_relative] = entry.line
+        if original_key in original_seen:
+            findings.append(
+                Finding(
+                    "retirement-ledger-duplicate-original-path",
+                    RETIREMENT_LEDGER_PATH,
+                    original_key,
+                    "error",
+                    entry.line,
+                )
+            )
+        original_seen[original_key] = entry.line
+
+    for directory in MANAGED_RETIREMENT_DIRS:
+        archive_directory = root / "90_archive" / directory
+        if not archive_directory.exists():
+            continue
+        for path in sorted(archive_directory.rglob("*.md")):
+            path_text = rel(path, root)
+            if path_text not in archived_seen:
+                findings.append(
+                    Finding(
+                        "retirement-ledger-missing-entry",
+                        path_text,
+                        "Managed retired or deprecated archive file has no retirement-ledger row.",
+                        "error",
+                    )
+                )
+
+    for path in markdown_files(root, False):
+        path_text = rel(path, root)
+        if RETIRED_STATUS.search(read_text(path)) and path_text not in original_seen:
+            findings.append(
+                Finding(
+                    "retirement-live-file-unarchived",
+                    path_text,
+                    "Live file is marked Deprecated, Retired, or Superseded but has no completed retirement-ledger move.",
+                    "error",
+                )
+            )
+
+    return retired_targets, findings
+
+
+def retired_targets(root: Path, include_archive: bool) -> dict[str, Path]:
+    targets = find_retired_files(root, include_archive)
+    ledger_targets, _ = retirement_lifecycle(root)
+    targets.update(ledger_targets)
+    return targets
 
 
 def resolve_link(source: Path, target: str) -> Path | None:
@@ -230,15 +442,17 @@ def find_retired_references_in_paths(
     for path in paths:
         content = read_text(path)
         current = rel(path, root)
+        source_is_archive = is_archive_relative_path(current)
         linked_retired_paths: set[str] = set()
         for reference in markdown_link_references(root, path):
             if reference.resolved in retired and reference.resolved != current:
+                archival_trace = source_is_archive and is_archive_relative_path(reference.resolved)
                 findings.append(
                     Finding(
-                        "retired-reference",
+                        "archival-trace-reference" if archival_trace else "retired-reference",
                         current,
                         reference.resolved,
-                        "warning",
+                        "info" if archival_trace else "warning",
                         reference.line,
                     )
                 )
@@ -249,7 +463,16 @@ def find_retired_references_in_paths(
             position = content.find(retired_path)
             if position >= 0:
                 line = content.count("\n", 0, position) + 1
-                findings.append(Finding("retired-reference", current, retired_path, "warning", line))
+                archival_trace = source_is_archive and is_archive_relative_path(retired_path)
+                findings.append(
+                    Finding(
+                        "archival-trace-reference" if archival_trace else "retired-reference",
+                        current,
+                        retired_path,
+                        "info" if archival_trace else "warning",
+                        line,
+                    )
+                )
     return findings
 
 
@@ -549,7 +772,7 @@ def build_workflow_trace(root: Path) -> WorkflowTraceResult:
     changes = classify_workflow_changes(baseline, fingerprints)
     live_paths = {rel(path, root): path for path in markdown_files(root, False)}
     outgoing, incoming = build_live_link_index(root, live_paths)
-    retired = find_retired_files(root, False)
+    retired = retired_targets(root, False)
     packages: list[PackageTrace] = []
     findings: list[Finding] = []
     for change in changes:
@@ -599,7 +822,7 @@ def render_workflow_trace(trace: WorkflowTraceResult) -> list[str]:
         f"- Baseline: {state}.",
         f"- Eligible live workflow documents: {len(trace.fingerprints)}",
         f"- Changed workflow documents: {len(trace.changes)}",
-        "- Checks: broken package links, active references to retired files, and non-intentional exact repeated guidance.",
+        "- Checks: broken package links, retirement lifecycle, active references to retired files, and non-intentional exact repeated guidance.",
         "- Free-form prose is trace context for human review; this audit does not claim semantic contradictions.",
     ]
     if not trace.changes:
@@ -669,7 +892,7 @@ def render_report(
         f"- Errors: {errors}",
         f"- Warnings: {warnings}",
         f"- Intentional copies: {intentional}",
-        "- Archive searches are excluded unless --include-archive is supplied.",
+        "- Archive content searches are excluded unless --include-archive is supplied; retirement-ledger integrity runs in every audit.",
     ]
     if not all_findings:
         lines.extend(["", "No findings."])
@@ -752,9 +975,12 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     root = args.root.resolve()
 
+    ledger_targets, retirement_findings = retirement_lifecycle(root)
     retired = find_retired_files(root, args.include_archive)
+    retired.update(ledger_targets)
     findings = (
-        find_broken_links(root, args.include_archive)
+        retirement_findings
+        + find_broken_links(root, args.include_archive)
         + find_retired_references(root, retired, args.include_archive)
         + find_mojibake(root, args.include_archive)
         + find_duplicate_guidance(root, args.include_archive)
