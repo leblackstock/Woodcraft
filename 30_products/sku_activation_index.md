@@ -1,7 +1,7 @@
 # SKU Activation Index
 
 Status: Active workflow gate
-Last checked: 2026-06-21
+Last checked: 2026-06-23
 Clean reference source: `00_brand/references/PRODUCT_REF_IMAGES_MANIFEST.md`
 External clean reference folder: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images`
 
@@ -16,6 +16,7 @@ Purpose: define which SKUs are active for Facebook Page, Instagram, and other so
 - Products without a catalog SKU, or with no matching clean reference file, are `Not Active` for post creation even if the product remains a business candidate or listing-prep item.
 - Existing draft posts for inactive/no-SKU products should be archived or marked blocked before reuse.
 - Final listing/business approval is separate from SKU activation. This file controls content/post eligibility only.
+- A product-specific decision may authorize named fallback visual references for an explicitly limited Marketplace-image workflow. That exception does not make the variant Active for social-post creation or waive factual, first-build, or publication gates.
 
 ## Active SKUs
 
@@ -46,7 +47,7 @@ Purpose: define which SKUs are active for Facebook Page, Instagram, and other so
 
 | Product / SKU | Reason | Handling |
 |---|---|---|
-| `30_products/variant_usa1_m_nat.md` / `USA1-M-NAT` | Medium clean-reference generation and listing-prompt files are prepared; no approved clean reference exists yet. | Run the prepared clean-reference prompt with the USA1-L-NAT attachment, then approve the result before external listing/social image generation or publication. |
-| `30_products/variant_usa1_s_nat.md` / `USA1-S-NAT` | Small clean-reference generation and listing-prompt files are prepared; no approved clean reference exists yet. | Run the prepared clean-reference prompt with the USA1-L-NAT attachment, then approve the result before external listing/social image generation or publication. |
+| `30_products/variant_usa1_m_nat.md` / `USA1-M-NAT` | Not Active for social posts: individual Medium clean reference is intentionally bypassed under DEC-110. | Marketplace-image preparation may use the paired `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png` fallback references. Do not treat either file as an individual Medium clean reference or publish before remaining gates clear. |
+| `30_products/variant_usa1_s_nat.md` / `USA1-S-NAT` | Not Active for social posts: individual Small clean reference is intentionally bypassed under DEC-110. | Marketplace-image preparation may use the paired `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png` fallback references. Do not treat either file as an individual Small clean reference or publish before remaining gates clear. |
 | `30_products/prod_cedar_planter_box_001.md` / `f00015` | No catalog SKU is assigned and no matching clean ref file was found in the external Product Ref Images folder. | Do not create new Facebook Page or Instagram posts. Existing draft social records are archived or marked blocked. |
 | Any future product or SKU not listed as `Active` above | No clean ref file is recorded in this index. | Treat as `Not Active` until a clean ref file exists and this index is updated. |

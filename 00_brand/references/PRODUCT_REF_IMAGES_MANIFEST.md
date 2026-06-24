@@ -1,7 +1,7 @@
 # Product Reference Images Manifest
 
 Status: External source record
-Last checked: 2026-06-21
+Last checked: 2026-06-23
 External folder: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images`
 
 This file records the external folder where created product reference images and Drakkar logo/title examples are stored. The image files listed here are not copied into this repository by this manifest.
@@ -59,4 +59,5 @@ Use rules:
 - `T2_cedar_decorative_obelisk_trellis_ref_clean-01.png` - last modified 2026-06-10 17:16
 - `TT_3_pot_tabletop_herb_planter_ref_clean-01.png` - last modified 2026-05-20 22:33
 - `TT_3_pot_tabletop_herb_planter_ref_clean-02.png` - last modified 2026-05-20 22:35
-- `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` - renamed 2026-06-21; original last modified 2026-06-14 09:36 - operator-approved controlling clean reference for USA1-L-NAT image generation
+- `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` - renamed 2026-06-21; original last modified 2026-06-14 09:36; SHA-256 `BA068194476AADD93430EE33D83646A097550E9B3DC8857B4EE3A0796368AA61` - operator-approved controlling clean reference for USA1-L-NAT and paired fallback visual source for USA1-M-NAT and USA1-S-NAT under DEC-110.
+- `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png` - last modified 2026-06-23 20:19; SHA-256 `0F25611A11E9F7E0531597238D590AEE6486D754F4A2290AAF9A7E0EA18091C0` - operator-authorized three-size fallback visual reference for USA1-S-NAT, USA1-M-NAT, and the USA1-SML scope under DEC-110. It replaces the missing individual Medium and Small clean-reference generation requirement for the explicitly approved Marketplace-image workflow; it is not an owned finished-product photo.

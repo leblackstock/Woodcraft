@@ -38,14 +38,14 @@ For every code in `variant_scope`, confirm the variant record has:
 
 - approved customer-facing name, dimensions, price, and included/excluded options
 - a price review suitable for the current listing
-- an individual approved clean reference for any image that shows that variant alone
+- an individual approved clean reference for any image that shows that variant alone, or an explicitly documented exception that names the fallback visual-reference attachments and the limited authorized use
 - accurate media truth, pickup/delivery, and lead-time facts
 
 Drafting the record and preparing clean-reference prompts may happen before every variant is ready. Publication cannot proceed until every variant actually shown has cleared its applicable gates.
 
 ## 3. Create And Record Clean References
 
-Each individual variant keeps its own clean reference. If the listing needs images that show the entire selected collection together, create one additional listing-level scope reference.
+Each individual variant normally keeps its own clean reference. If a documented operator decision authorizes a fallback visual-reference exception, use only the named attachments and record that limited exception in the affected product and listing records. If the listing needs images that show the entire selected collection together, create one additional listing-level scope reference unless the same decision specifically names an existing grouped fallback reference.
 
 Example filename:
 
@@ -53,7 +53,7 @@ Example filename:
 usa1-sml_scope_ref_clean-01.png
 ```
 
-Use `40_listings/prompts/prompt_fbm_variant_scope_clean_reference_generator_v1.0.md` to prepare the standalone external image prompt. Attach every included individual clean reference. The resulting scope reference must:
+Use `40_listings/prompts/prompt_fbm_variant_scope_clean_reference_generator_v1.0.md` to prepare the standalone external image prompt. Attach every included individual clean reference, unless a documented exception names the fallback attachments to use instead. The resulting scope reference must:
 
 - show exactly one of each scoped variant
 - preserve accurate relative scale and the approved visual details of each variant
@@ -67,18 +67,18 @@ After approval, record the file in the external `Product Ref Images` folder and 
 - scope_reference_status: Approved
 ```
 
-The scope reference is listing-level media only. It does not replace individual references, create a new SKU, or activate a variant in `30_products/sku_activation_index.md`.
+The scope reference is listing-level media only. It does not replace individual references, create a new SKU, or activate a variant in `30_products/sku_activation_index.md`, except within the exact, limited purpose stated by a documented fallback-reference decision.
 
 ## 4. Prepare Listing Image Prompts
 
 Use `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md` in Variant-Scope Listing Mode.
 
-Provide the exact scope, every included variant's approved facts and prices, the individual clean references, and the scope reference when group images are needed.
+Provide the exact scope, every included variant's approved facts and prices, the individual clean references or explicitly authorized fallback attachment set, and the scope reference when group images are needed.
 
 - Group images attach the scope reference as the primary control and show only the scoped variants.
-- Single-option images attach that option's individual clean reference.
+- Single-option images attach that option's individual clean reference, or the exact fallback attachment set named in the documented exception.
 - When prices differ, include a readable option-and-price chart for every scoped choice. This is not a bundle price card and must not use savings or set wording.
-- Do not create any customer-facing image prompt for an included variant whose required clean reference is still pending.
+- Do not create any customer-facing image prompt for an included variant whose required clean reference is still pending, unless the relevant product and listing records cite an operator decision authorizing named fallback visual references for that exact use.
 
 Save the output pack using the handle, for example:
 

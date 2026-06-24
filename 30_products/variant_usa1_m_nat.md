@@ -14,7 +14,7 @@
 - product_name: Wavy Wooden American Flag — Medium — Natural Wood with Red & Blue Stain
 - owner: Lauren
 - build_model: Pilot Build
-- variant_status: Planned standard variant; blocked pending its own approved clean reference.
+- variant_status: Planned standard variant; individual clean-reference generation bypassed under DEC-110 for the approved Marketplace-image workflow.
 
 ## Dimensions
 
@@ -34,9 +34,10 @@
 - glossy_price: $110
 - matte_price: $110
 - oil_price: $110
-- clean_reference_status: Generation prompt ready; operator approval pending after external generation.
+- clean_reference_status: Individual clean-reference generation bypassed under DEC-110; paired fallback visual references are authorized for Marketplace-image preparation.
+- fallback_visual_reference_assets: `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png`.
 - clean_reference_generation_prompt_ref: 40_listings/prompts/prompt_usa1_m_nat_clean_reference_generator_2026-06-21.md
-- image_prompt_pack_ref: 40_listings/prompts/fbm_image_prompt_pack_usa1_m_nat_wavy_flag_2026-06-21.md — prepared now; run only after the Medium clean reference is approved.
+- image_prompt_pack_ref: 40_listings/prompts/fbm_image_prompt_pack_usa1_m_nat_wavy_flag_2026-06-21.md — use the DEC-110 paired fallback visual references; do not claim the fallback composite is an individual Medium clean reference.
 - claude_copy_prep_ref: 40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_m_nat_wavy_flag_2026-06-21.md — draft now; paste only when approved facts are complete.
 - current_unavailable_options: Frame, draped, Wood Burned, Blacked Out, Black & Blue, and custom dimensions.
 
@@ -44,6 +45,6 @@
 
 - shared_family_spec_ref: 30_products/spec_usa1_family.md
 - shared_family_cost_ref: 30_products/cost_usa1_family.md
-- media_truth_status: No approved clean reference or owned finished-product media yet.
+- media_truth_status: Operator-authorized fallback visual-reference set is available for Marketplace-image preparation; owned finished-product media remains pending.
 - verification_status: Not Started
-- next_action: Run the Medium clean-reference generator with the approved USA1-L-NAT attachment, save and approve `USA1-M-NAT_wavy_wooden_american_flag_ref_clean-01.png`, then run the prepared image pack and verify the first physical build.
+- next_action: Use the paired DEC-110 fallback visual references for Medium Marketplace-image preparation, then verify the first physical build and record actual dimensions, costs, and owned media before publication.

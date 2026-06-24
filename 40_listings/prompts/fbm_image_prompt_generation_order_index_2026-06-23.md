@@ -92,8 +92,9 @@ For the ten-image pack, Images 1 through 6 are photographs and Images 7 through 
 | [ABC operator run sheet](fbm_abc_operator_run_sheet_2026-06-08.md) | A run-ready eight-image execution sheet for the Cedar Planter Trio Set. | Historical example in the former price-at-Image-3 sequence; do not use its order for new packs. |
 | [Wave 1.5 prompt pack](fbm_image_prompt_pack_wave1_5_2026-06-10.md) | Eight-image examples for the pyramid planter and two trellises. | Historical example in the former price-at-Image-3 sequence; do not use its order for new packs. |
 | [USA1-L-NAT Wavy Flag pack](fbm_image_prompt_pack_usa1_l_nat_wavy_flag_2026-06-14.md) | An eight-image product-specific pack. | Historical example in the former price-at-Image-3 sequence; do not use its order for new packs. |
-| [USA1-M-NAT Wavy Flag pack](fbm_image_prompt_pack_usa1_m_nat_wavy_flag_2026-06-21.md) | An earlier compact product-specific draft, pending the required Medium clean reference. | Six images: thumbnail, clean product, price/finish, size context, detail, ordering. No saved rationale or approval makes this the current standard; rebuild from v2.0 when the scoped listing is ready. |
-| [USA1-S-NAT Wavy Flag pack](fbm_image_prompt_pack_usa1_s_nat_wavy_flag_2026-06-21.md) | An earlier compact product-specific draft, pending the required Small clean reference. | Same six-image draft pattern as Medium. No saved rationale or approval makes this the current standard; rebuild from v2.0 when the scoped listing is ready. |
+| [USA1-M-NAT Wavy Flag pack](fbm_image_prompt_pack_usa1_m_nat_wavy_flag_2026-06-21.md) | An earlier compact product-specific draft using the DEC-110 paired fallback visual references. | Six images: thumbnail, clean product, price/finish, size context, detail, ordering. No saved rationale or approval makes this the current standard; rebuild the USA1-SML pack from v2.0 when the scoped listing is ready. |
+| [USA1-S-NAT Wavy Flag pack](fbm_image_prompt_pack_usa1_s_nat_wavy_flag_2026-06-21.md) | An earlier compact product-specific draft using the DEC-110 paired fallback visual references. | Same six-image draft pattern as Medium. No saved rationale or approval makes this the current standard; rebuild the USA1-SML pack from v2.0 when the scoped listing is ready. |
+| [USA1-SML Wavy Flag pack](fbm_image_prompt_pack_usa1_sml_wavy_flag_2026-06-23.md) | Active scoped pack under DEC-110 and DEC-111. | Image 1 is generated from the paired SML and Large reference attachments, Images 2–5 reuse approved Large-option listing photos, and Images 6–8 are generated scoped cards. |
 
 ### Product, listing, and media-truth records
 
@@ -105,6 +106,7 @@ For the ten-image pack, Images 1 through 6 are photographs and Images 7 through 
 | [T1 listing record](../list_marketplace_cedar_five_finger_trellis_001.md) | Links the posted listing’s media provenance and image prompt pack. |
 | [Tiered Cedar Pyramid Planter listing record](../list_marketplace_tiered_cedar_pyramid_planter_001.md) | Links the published F listing to the Wave 1.5 prompt pack. |
 | [Wavy Flag listing record](../list_marketplace_wavy_wooden_american_flag_standard_001.md) | Links the family listing to the variant image-prompt workflow. |
+| [USA1-SML Wavy Flag listing record](../list_marketplace_usa1_sml_001.md) | Owns the exact Small, Medium & Large scope, fallback-reference exception, media map, and pending publication gates. |
 | [USA1-L-NAT variant record](../../30_products/variant_usa1_l_nat.md) | Links the approved Large reference and eight-image pack. |
 | [USA1-M-NAT variant record](../../30_products/variant_usa1_m_nat.md) | Records the Medium clean-reference dependency before running its prepared pack. |
 | [USA1-S-NAT variant record](../../30_products/variant_usa1_s_nat.md) | Records the Small clean-reference dependency before running its prepared pack. |
@@ -121,6 +123,7 @@ For the ten-image pack, Images 1 through 6 are photographs and Images 7 through 
 ## Legacy and Exception Handling
 
 - Do not infer a new standard from an older prompt pack’s naming or a compact product-specific exception.
+- DEC-111 is a product-specific USA1-SML reuse plan: use the supplied three-flag fallback composite as Image 1, reuse selected proven USA1-L-NAT listing photos as Images 2–5, then create the scoped text-bearing price, dimensions, and ordering cards. Attach the SML or Large reference as needed and enforce the exact Small, Medium, and Large dimension and scale comparison.
 - The standard sequence is eight images unless a documented 10-image extension is justified. Do not treat an older shorter pack as an approved standard without an explicit operator decision.
 - Use the approved attachment for every product-specific listing image, including text-bearing graphics. A graphic may use a small product inset only when it can preserve the product faithfully.
 - For a variant-scope listing, show exactly the selected variants in the intended buyer display order. Do not turn separately priced variants into a bundle in the price graphic.

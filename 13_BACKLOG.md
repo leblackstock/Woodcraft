@@ -4,7 +4,7 @@ Ordered next tasks after initial scaffold. Keep this list short, practical, and 
 
 ## Now (Highest Priority)
 
-1. Advance requested USA1-SML before Wave 2: run and approve the prepared Small and Medium clean-reference prompts using the approved USA1-L-NAT attachment, then generate and approve the `usa1-sml_scope_ref_clean-01.png` combination reference from all three approved individual references. Record it in the Product Ref Images manifest before listing-image generation or final Claude copy.
+1. Advance requested USA1-SML before Wave 2: generate Image 1 from the paired SML and Large clean-reference attachments, reuse the selected USA1-L-NAT listing photos for Images 2–5, then create scoped price, dimensions, and ordering cards using the SML or Large reference as needed. Enforce the Small, Medium, and Large dimension and scale comparison; complete the remaining first-build and publication gates.
 2. Create the Wave 2 Facebook Marketplace image prompt pack for B, C, G, and H from their approved catalog references.
 3. Run the Wave 2 pack for B first: generate and review B’s required listing-image set before moving one SKU at a time through C, G, and H.
 4. After listing facts and timing are final, run the Claude final post-copy pass for the next Facebook Page support post and the Claude final caption pass for the next Instagram support post.

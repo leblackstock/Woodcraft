@@ -1,6 +1,6 @@
 # Claude FBM Listing Copy Prompt — USA1-S-NAT
 
-Status: Draft handoff prepared for later use. Do not paste into Claude until the Small clean reference is approved and remaining listing facts are approved.
+Status: Draft handoff prepared for later use. DEC-110 resolves the individual Small clean-reference blocker for Marketplace-image preparation; do not paste into Claude until the remaining listing facts are approved.
 Variant: USA1-S-NAT — Small — Natural Wood with Red & Blue Stain
 Variant record: `30_products/variant_usa1_s_nat.md`
 

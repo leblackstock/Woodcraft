@@ -1,6 +1,6 @@
 # Claude FBM Listing Copy Prompt — USA1-M-NAT
 
-Status: Draft handoff prepared for later use. Do not paste into Claude until the Medium clean reference is approved and remaining listing facts are approved.
+Status: Draft handoff prepared for later use. DEC-110 resolves the individual Medium clean-reference blocker for Marketplace-image preparation; do not paste into Claude until the remaining listing facts are approved.
 Variant: USA1-M-NAT — Medium — Natural Wood with Red & Blue Stain
 Variant record: `30_products/variant_usa1_m_nat.md`
 

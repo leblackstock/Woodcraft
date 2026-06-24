@@ -144,7 +144,7 @@ Claude/listing prose should avoid:
 | ---: | --- | --- |
 | 1 | Master catalog; A; ABC; K | A, ABC, and K are posted/completed. The prepared Master Catalog draft remains available, but it is not in the current catalog-product sequence. |
 | 1.5 | F, T1, and T2 | F / Tiered Cedar Pyramid Planter posted 2026-06-10; T1 / Cedar Five-Finger Trellis posted 2026-06-11; T2 / Cedar Decorative Obelisk Trellis externally posted before screenshot evidence was supplied on 2026-06-22. Monitor all Wave 1.5 listing metrics. |
-| Pre-2 | USA1-L-NAT — Wavy Flag Large; USA1-SML — Wavy Flag Small, Medium & Large | USA1-L-NAT was posted 2026-06-23; monitor its metrics. Before Wave 2, generate and approve the pending Small and Medium clean references using the approved Large attachment, then generate and approve the `usa1-sml_scope_ref_clean-01.png` combination reference from all three individual references and record it in the Product Ref Images manifest. This does not waive listing-image or publication gates. |
+| Pre-2 | USA1-L-NAT — Wavy Flag Large; USA1-SML — Wavy Flag Small, Medium & Large | USA1-L-NAT was posted 2026-06-23; monitor its metrics. DEC-110 authorizes `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` plus `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png` as the paired fallback visual-reference set for Medium, Small, and USA1-SML Marketplace-image preparation. DEC-111 maps USA1-SML to a new three-size best thumbnail generated from those references as Image 1, reuses four proven USA1-L-NAT listing photos as Images 2–5, and creates three text-bearing scoped cards from the Large and/or SML reference as needed. First-build, factual, and publication gates remain. |
 | 2 | B; C; G; H | Begins after USA1-SML prep: create the Wave 2 image prompt pack, then run B first before moving one SKU at a time through C, G, and H. |
 | 3 | N; P; M | Validate pricing/cost notes, then create prompt pack. |
 | 4 | D; J; E; TT; Q; PS | Validate pricing/cost notes, then create prompt pack. |
@@ -187,6 +187,6 @@ Wave 1.5 prompt-pack production is complete. T1 is posted as of 2026-06-11, and 
 
 ## Next Three Actions
 
-1. Advance requested USA1-SML: run and approve the prepared Small and Medium clean-reference prompts using the approved USA1-L-NAT attachment, then generate and approve the `usa1-sml_scope_ref_clean-01.png` combination reference from all three approved individual references. Record it in the Product Ref Images manifest before listing-image generation or final Claude copy.
+1. Advance requested USA1-SML: generate Image 1 from the paired SML and Large clean-reference attachments, reuse the selected USA1-L-NAT listing photos for Images 2–5, then create scoped price, dimensions, and ordering cards. The new images attach the SML or Large reference as needed and enforce the Small, Medium, and Large dimension and scale comparison. First-build, factual, and publication gates still apply.
 2. Create the Wave 2 Facebook Marketplace image prompt pack for B, C, G, and H from their approved catalog references.
 3. Run the Wave 2 pack for B first: generate and review B’s required listing-image set before moving one SKU at a time through C, G, and H.
