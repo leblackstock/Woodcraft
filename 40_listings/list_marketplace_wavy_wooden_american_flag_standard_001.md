@@ -42,8 +42,8 @@
 - customization_options: No frame, draped, alternate colorway, or custom-dimension offer is currently approved.
 - brand_assets_ref: 00_brand/
 - media_truth_status: DEC-110 fallback-reference-based Marketplace-image preparation authorized; owned finished-product media remains pending.
-- media_provenance_note: Use the paired `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png` attachments. They replace the missing individual Small and Medium clean-reference generation requirement for this Marketplace-image workflow only.
-- media_assets: DEC-110 fallback visual references: `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png`; `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png`. Generate scoped listing images from the paired attachments; do not represent either fallback as an owned finished-product photo.
+- media_provenance_note: Use the paired `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML-NAT_wavy_wooden_american_flag_ref_clean-01.png` attachments. They replace the missing individual Small and Medium clean-reference generation requirement for this Marketplace-image workflow only.
+- media_assets: DEC-110 fallback visual references: `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png`; `USA1-SML-NAT_wavy_wooden_american_flag_ref_clean-01.png`. Generate scoped listing images from the paired attachments; do not represent either fallback as an owned finished-product photo.
 - scope_reference_asset:
 - scope_reference_variant_codes:
 - scope_reference_status: Not Needed

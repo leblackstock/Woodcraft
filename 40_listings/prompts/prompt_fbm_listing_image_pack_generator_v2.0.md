@@ -9,6 +9,7 @@ Image text owner: GPT/Codex may generate factual in-image text as needed
 Listing prose owner: Claude remains responsible for final Marketplace title, description, captions, CTAs, promo blurbs, and reply copy outside governed image graphic text
 Current image creation path: Lauren generates images manually with ChatGPT Image 2 from these prompt packs.
 Automation status: do not build Canva, Figma, HTML, or scripted graphic templates right now. Keep automation/template notes only as future-reference ideas.
+Default output ratio: square `1:1` for every Facebook Marketplace listing photo, listing card, and final-ordering card.
 
 ## Strategy Change From v1.1
 
@@ -55,6 +56,8 @@ For a custom configurable family with no saved catalog row, use the approved fam
 
 Use this mode only when the listing record has a `product_family_id` and a non-empty `variant_scope`. A variant scope is a selected set of separately priced standard options from one product family. It is not a bundle.
 
+Use the 10-image pack by default for every variant-scope listing. A nine-image exception is allowed only when no approved, non-duplicative selection-detail fact justifies Image 9; do not fall back to the standard eight-image sequence without an explicit operator decision.
+
 Required additional inputs:
 
 - `listing_ref` and `listing_handle` for internal routing only; never put either into customer-facing image text unless the approved product facts independently call for those words
@@ -63,6 +66,8 @@ Required additional inputs:
 - individual approved clean-reference attachment for every variant shown alone
 - approved `scope_reference_asset` when an image shows the full selected collection together
 - exact customer-facing option-and-price wording when prices differ
+- count of variants in `variant_scope`
+- when the scope has four or more variants, the two or three selected `individual_combo_variant_codes` and a documented relevance reason for each
 
 Rules for scope images:
 
@@ -72,6 +77,28 @@ Rules for scope images:
 - For a single-variant image, attach that variant's individual clean reference; do not use the group reference as a substitute.
 - When the variants have different prices, create a factual option-and-price graphic that lists every included option and its approved price. Do not use bundle, set, savings, discount, or one-price-for-all wording.
 - Do not generate prompts for a variant that lacks its required approved clean reference. Mark that image blocked until the reference is approved.
+
+### Variant-Scope 10-Image Sequence
+
+This sequence overrides the standard single-SKU 10-image photo roles below. Every group image must show every and only the scoped variants. Every individual-combo or detail image must identify its `shown_variant_codes` in the internal prompt metadata and attach the applicable individual clean reference or an explicitly authorized fallback attachment set.
+
+| Image | Required role | Variant-scope rule |
+| --- | --- | --- |
+| 1 | Group hero | No-text best thumbnail showing one of every scoped variant at true relative scale in a specific buyer-use backdrop that makes the full scope feel desirable and easy to understand. |
+| 2 | Clean group view | No-text full-range inclusion anchor showing one of every scoped variant clearly. |
+| 3–5 | Individual variation combo | No-text photo that combines a real use case and practical size context for one selected variant. |
+| 6 | Detail / Trust | No-text close proof of material, construction, joints, grain, shape, or another tangible detail. This slot is permanently Detail / Trust for variant-scope packs. |
+| 7 | Options + Prices | Readable chart listing every and only the scoped options, their exact approved prices, and no bundle implication. |
+| 8 | Dimensions | Exact numeric dimensions for every scoped option. |
+| 9 | Selection Details | Approved finish, configuration, inclusion, or difference facts that help the buyer choose among the scoped options. |
+| 10 | Final Ordering | Clear next action to message with the selected option and finish, plus approved pickup or delivery wording. |
+
+Individual-combo allocation for Images 3–5:
+
+- For a scope of one to three variants, give each scoped variant one dedicated individual-combo photo in buyer display order. An unused combo slot becomes a no-text alternate group comparison or another truthful product view; it never replaces Image 6 Detail / Trust.
+- For a scope of four or more variants, select two or three variants for dedicated individual-combo photos. Select from explicit operator direction or documented buyer relevance first; otherwise prioritize meaningful functional or visual differences and size extremes. Do not infer a best seller or buyer preference without evidence.
+- Images 1, 2, 7, and 8 remain the complete-scope coverage. A scoped variant that does not receive an individual-combo slot must still appear accurately in those images and cards.
+- An individual-combo photo must answer both `how big is it?` and `how is it used?` in one composition. Use a practical scale reference in a genuine use setting; do not add text overlay.
 
 ## Global Facts
 
@@ -84,6 +111,7 @@ Rules for scope images:
 - Material: Western red cedar unless otherwise noted.
 - Visible Marketplace wording should use `cedar`, not `Western red cedar`, unless Lauren explicitly requests the full material spec for that asset.
 - Numeric dimension image rule: every FBM listing/post image pack must include at least one generated image or graphic with numeric dimensions when approved dimensions exist. For bundles or sets, include the numeric dimensions for each included size. If approved dimensions are missing, mark the dimension image as blocked instead of producing a dimensionless substitute.
+- Non-solid backdrop scale rule: every FBM product photo prompt that uses a physical, scenic, lifestyle, use-case, wall, porch, patio, garden, workshop-adjacent, or other non-solid backdrop must include the approved customer-facing measurements in the copied prompt as scale guidance. Use the wording `Use these measurements only to preserve scale:` and then list the relevant approved dimensions. For no-text photo slots, immediately add `Do not render measurement labels or any other text in the image.` Exempt solid-background clean-reference prompts, plain product-field prompts, and text-bearing graphic cards unless the graphic's role is dimensions/details.
 - Catalog SKU images: all saved catalog SKU images were approved for FBM use by Lauren on 2026-06-04 and copied into `00_brand/photos/` for active use.
 - Text-bearing image prompts are allowed when text is part of the desired visual output.
 - Do not strip requested text from image prompts by default.
@@ -141,6 +169,7 @@ Use enough text-bearing graphics to make the listing easy to buy from, but not s
 - Product photos carry trust and desire first; graphics support price, size/details, local terms, and ordering.
 - For the standard 8-image pack, Images 6 through 8 are the Price/Value Card, Dimensions/Details Graphic, and Final Ordering Graphic in that order. The ordering graphic is always last.
 - For the 10-image pack, Images 7 through 10 are the Price/Value Card, Dimensions/Details Graphic, Important Details Graphic, and Final Ordering Graphic in that order. The ordering graphic is always last.
+- Variant-scope listings use the dedicated Variant-Scope 10-Image Sequence above: Images 3 through 5 are individual variation combo photos, and Image 6 is permanently Detail / Trust rather than Support / Variation.
 - If a product has fewer usable photographs than its leading photo slots, use the available photographs in those slots and leave the remaining photo slots empty. Do not promote a text card forward.
 - Do not include deposit terms unless Lauren explicitly approves them later.
 
@@ -155,7 +184,7 @@ Default 8-image sequence:
 7. Dimensions/Details Graphic: use exact numeric dimensions/specs and local/order facts.
 8. Final Ordering Graphic: simple order instruction and pickup/delivery availability.
 
-Default 10-image extension:
+Default 10-image extension for standard single-SKU listings:
 
 1. Best Thumbnail: the image most likely to stop a Marketplace buyer while still showing the exact product.
 2. Clean Product: show the empty product clearly and define what is included.
@@ -178,7 +207,12 @@ Image 1 should be judged by whether a buyer would stop scrolling.
 
 - Make the product large and readable in a square mobile crop.
 - Use the approved attachment to keep the product's exact shape, count, dimensions, board proportions, rim, legs/posts/shelf/tier details, cedar tone, and included pieces.
-- Use a desirable but believable porch, patio, garden, doorstep, entryway, or workshop-adjacent setting.
+- Image 1 must always include a specific, product-appropriate backdrop or physical setting. Do not deliver an Image 1 prompt with an undefined background, plain reference-sheet background, floating product, or clean product field unless Lauren explicitly requests a reference-only hero.
+- Choose the Image 1 backdrop before writing the rest of the prompt, and name it in both a `Backdrop:` field and the copied prompt text.
+- When Image 1 uses any non-solid backdrop, include approved measurements in the copied prompt as non-rendered scale guidance using the standard wording from the Non-solid backdrop scale rule.
+- Use a desirable but believable porch, patio, garden, doorstep, entryway, wall, or workshop-adjacent setting.
+- For garden goods, default to a real porch, patio, garden bed, yard edge, doorstep, or workshop-adjacent surface that fits the product's actual use. For wall decor, flags, signs, or indoor/outdoor hanging items, default to a warm neutral entry wall, covered porch wall, workshop-adjacent wall, or practical local-home wall setting with enough surrounding context to read as a finished thumbnail.
+- For variant-scope group heroes, the backdrop must still feel like a real thumbnail: use a setting wide enough to show the scoped options at true relative scale while keeping the group large, readable, and grounded in a believable buyer-use environment.
 - Prefer useful staging over generic prettiness: herbs, flowers, vegetables, gloves, watering cans, porch rails, patio stone, garden paths, or entry details when they support the product.
 - Keep the scene honest and local, not luxury real estate, fantasy, glossy studio, or generic stock.
 - If text is used on Image 1, keep it minimal, factual, and mobile-readable.
@@ -266,7 +300,7 @@ Every delivered `Prompt:` must also pass `80_templates/standalone_external_promp
 
 Required standalone brand direction for photo prompts:
 
-> Drakkar Designs direction for FBM listing photos: sell the product clearly first. Show realistic warm cedar grain, honest handmade character, and exact product proportions from the attached reference. Use practical local porch, patio, garden, doorstep, entryway, or workshop-adjacent settings with natural daylight and soft shadows. Choose a specific physical background or surface before describing the rest of the scene. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the product large, trustworthy, and easy to understand in a square mobile Marketplace crop.
+> Drakkar Designs direction for FBM listing photos: sell the product clearly first. Show realistic warm cedar grain, honest handmade character, and exact product proportions from the attached reference. Use practical local porch, patio, garden, doorstep, entryway, or workshop-adjacent settings with natural daylight and soft shadows. Choose a specific physical background or surface before describing the rest of the scene. Remaining approved palette colors, listed without assigning roles: warm stone/cream `#DEDCD6`, soft cream `#ebe9e3`, deep charcoal `#13181B`, charcoal `#414444`, cedar/burnt orange `#CF4E17`, and muted silver `#A4A9A5`. Keep the product large, trustworthy, and easy to understand in a square `1:1` mobile Marketplace crop.
 
 Required standalone palette wording for graphic prompts:
 
@@ -284,8 +318,11 @@ For every FBM prompt:
 
 - State that the image is for a Facebook Marketplace listing and should read quickly in a mobile Marketplace feed.
 - Name the image role and buyer job, such as best thumbnail, inclusion anchor, price clarity, size check, specific use case, detail proof, dimensions/details, or final ordering instruction.
+- State square `1:1` output for every Facebook Marketplace listing photo, listing card, and final-ordering card.
 - Explain what makes this slot sell: click appeal, confidence, price clarity, size proof, use-case desire, trust, or action.
 - Explicitly name the background color or physical background/surface. Graphic prompts must choose a background color first. Photo prompts must state the actual environment background, such as porch boards, patio stone, garden path, soft cream product field, or workshop-adjacent surface.
+- For Image 1 in any standard, extension, master, category, or variant-scope FBM pack, include a `Backdrop:` field before `Prompt:` and repeat that same backdrop inside the copied prompt text. The backdrop must be more than `clean background` or `neutral background`; it must be a sellable physical setting or deliberate graphic/photo treatment that improves thumbnail appeal.
+- For every product photo prompt with a non-solid backdrop, include a `Scale measurements:` field before `Prompt:` and repeat those measurements inside the copied prompt with the wording `Use these measurements only to preserve scale:`. For a single product, list that product's approved customer-facing dimensions. For a set, bundle, or variant-scope photo, list every shown item's approved customer-facing dimensions. Do not tell the image model to render those measurements unless the slot is a text-bearing dimensions/details graphic.
 - Require realistic product proportions. Use the approved attachment to control the product's exact shape, count, dimensions, board proportions, rim, legs/posts/shelf/tier details, cedar tone, and included pieces.
 - Say not to stretch, shrink, rotate, add, remove, or redesign the product beyond what the approved attachment supports.
 - Allow artistic expression in staging, lighting, background texture, divider placement, typography rhythm, and small catalog-style ornaments, as long as the product facts, exact text, proportions, readability, and brand palette remain correct.
@@ -293,9 +330,10 @@ For every FBM prompt:
 For photo, hero, lifestyle, use-case, size/context, clean-product, variation, and detail prompts:
 
 - Include a camera angle and distance.
-- Include framing guidance for a square crop: leave breathing room, keep the product large enough to read at phone size, and avoid cropping off important edges.
+- Include framing guidance for a square `1:1` crop: leave breathing room, keep the product large enough to read at phone size, and avoid cropping off important edges.
 - Include lighting and color direction for materials and setting: natural daylight, soft shadows, warm realistic cedar, practical porch/patio/garden surfaces, natural greenery, and believable concrete, stone, or metal when useful.
 - Choose only the background or physical setting first, then list remaining palette colors without assigning them to scene elements.
+- If the prompt uses a non-solid backdrop, include approved measurements as scale guidance only and prohibit rendered measurement labels.
 - Do not make lifestyle or hero images look like luxury real estate ads, fantasy scenes, glossy studio renders, or generic stock photos.
 
 For text-bearing graphic prompts:
@@ -314,14 +352,16 @@ Avoid near-duplicate image prompts within the same SKU pack.
 - Do not create a new image slot by repeating the same setting, camera angle, product pose, and composition with different flowers or plants.
 - Each no-text photo slot must change the buyer question and at least two visible composition variables: setting, camera distance, camera angle, product state, scale reference, use case, background, or detail focus.
 - Image 1, Best Thumbnail: sell the product at first glance. It may be a lifestyle hero, clean product hero, or use-case hero, whichever is most likely to stop a Marketplace buyer while preserving exact product fidelity.
+- Image 1 must have the strongest backdrop in the pack: a named porch, patio, garden, entry, wall, workshop-adjacent, or other product-appropriate setting that helps the buyer understand where the item belongs. If the first draft lacks that backdrop, revise Image 1 before saving the pack.
+- Any no-text photo role with a non-solid backdrop must carry non-rendered measurements for scale. This includes Image 1, size/context, use-case, detail/trust, support/variation, and variant-scope individual-combo prompts when approved dimensions exist.
 - Image 2, Clean Product: show the empty product clearly and define what is included.
 - Image 3, Size/Context Photo: answer `how big is it?` quickly. Use practical scale references and a simpler background. Do not repeat the first thumbnail scene.
 - Image 4, Use-Case Photo: show one specific application, planting idea, or placement use. It should not be another broad lifestyle hero.
 - Image 5, Detail/Trust Photo: show material, shape, corners, rim, shelf, post, tier, or other visible construction details.
-- Image 6, Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. When the approved price applies only to a featured configuration, as with K, label the line plainly, such as `Featured size $240`, so the graphic does not imply every custom build shares that price. For a non-bundle variant-scope listing with different approved option prices, replace the single price line with a clear option-and-price chart that lists every and only the scoped variants with their exact approved prices. For approved sets or bundles, savings wording may be added when the separate-item total, set price, and savings amount are approved facts or Lauren explicitly requests it. Keep it factual, such as `3 separately $130`, `Set price $110`, and `Save $20 as a set`, rather than vague sale hype.
+- Image 6, Price/Value Card: show the product name and one plain selling-price line from the approved FBM price. When the approved price applies only to a featured configuration, as with K, label the line plainly, such as `Featured size $240`, so the graphic does not imply every custom build shares that price. For an explicitly approved 8-image non-bundle variant-scope exception with different approved option prices, replace the single price line with a clear option-and-price chart that lists every and only the scoped variants with their exact approved prices. For approved sets or bundles, savings wording may be added when the separate-item total, set price, and savings amount are approved facts or Lauren explicitly requests it. Keep it factual, such as `3 separately $130`, `Set price $110`, and `Save $20 as a set`, rather than vague sale hype.
 - Image 7, Dimensions/Details Graphic: use exact numeric dimensions/specs and built-to-order/local facts. For bundles or sets, include the numeric dimensions for each included size.
 - Image 8, Final Ordering Graphic: simple final order instruction and pickup/delivery availability.
-- For 10-image packs, Images 1 through 5 retain the standard photo roles, Image 6 is the no-text support/variation photo, Image 7 is the price/value card, Image 8 is the dimensions/details graphic with numeric dimensions, Image 9 is the approved-facts-only important-details graphic, and Image 10 is the final ordering graphic. If no approved fact justifies Image 9, omit it and run nine images with the final ordering graphic as Image 9.
+- For standard single-SKU 10-image packs, Images 1 through 5 retain the standard photo roles, Image 6 is the no-text support/variation photo, Image 7 is the price/value card, Image 8 is the dimensions/details graphic with numeric dimensions, Image 9 is the approved-facts-only important-details graphic, and Image 10 is the final ordering graphic. If no approved fact justifies Image 9, omit it and run nine images with the final ordering graphic as Image 9. Variant-scope packs instead use their dedicated 10-image sequence, with Image 6 fixed as Detail / Trust.
 
 For Image 3, prefer everyday scale references such as watering cans, gloves, nursery pots, doors, porch rails, garden paths, fence posts, or a hand when appropriate. Keep it more practical than pretty.
 
@@ -345,6 +385,8 @@ Image 1 - Best Thumbnail
 - Filename:
 - Purpose:
 - Sellability reason:
+- Backdrop:
+- Scale measurements:
 - Prompt:
 - Negative/avoid:
 
@@ -352,6 +394,7 @@ Image 2 - Clean Product
 - Filename:
 - Purpose:
 - Use:
+- Scale measurements if non-solid backdrop:
 - Optional exact-fidelity prompt if regeneration is needed:
 - Negative/avoid:
 
@@ -359,6 +402,7 @@ Image 3 - Size/Context Photo
 - Filename:
 - Purpose:
 - Sellability reason:
+- Scale measurements:
 - Prompt:
 - Negative/avoid:
 
@@ -366,6 +410,7 @@ Image 4 - Use-Case Photo
 - Filename:
 - Purpose:
 - Sellability reason:
+- Scale measurements:
 - Prompt:
 - Negative/avoid:
 
@@ -373,6 +418,7 @@ Image 5 - Detail/Trust Photo
 - Filename:
 - Purpose:
 - Sellability reason:
+- Scale measurements if non-solid backdrop:
 - Prompt:
 - Negative/avoid:
 
@@ -408,6 +454,7 @@ Image 6 - Support/Variation Photo
 - Filename:
 - Purpose:
 - Sellability reason:
+- Scale measurements if non-solid backdrop:
 - Prompt:
 - Negative/avoid:
 
@@ -445,18 +492,41 @@ Image 10 - Final Ordering Graphic
 - Negative/avoid:
 ```
 
+For a Variant-Scope 10-Image pack, replace the generic photo-role labels with the dedicated sequence. Include `shown_variant_codes` and reference attachments for every no-text photo prompt:
+
+```text
+Image 1 - Group Hero
+Image 2 - Clean Group View
+Image 3 - Individual Variation Combo: [variant code]
+Image 4 - Individual Variation Combo: [variant code]
+Image 5 - Individual Variation Combo: [variant code or alternate group/product view]
+Image 6 - Detail / Trust
+Image 7 - Options + Prices Card
+Image 8 - Dimensions Card
+Image 9 - Selection Details Card
+Image 10 - Final Ordering Card
+```
+
+For each of Images 3 through 5, state the intended use case, scale reference, `shown_variant_codes`, and the individual reference attachment. For a scope of four or more variants, also record why the selected two or three variants received the dedicated combo slots. Image 6 must retain the Detail / Trust role; do not use it as a fourth individual-combo or variation slot.
+
+For Image 1 in a Variant-Scope 10-Image pack, include `Backdrop:` before `Prompt:` and repeat that same backdrop inside the copied prompt text. A group hero may use a broader setting than an individual SKU hero, but it must not become a blank comparison sheet or plain clean-reference image.
+
+For every Variant-Scope no-text photo prompt with a non-solid backdrop, include `Scale measurements:` before `Prompt:` and repeat those measurements inside the copied prompt as non-rendered scale guidance. For group heroes and clean group photos that use a real physical setting, list every scoped variant's approved dimensions. For individual-combo photos, list the shown variant's approved dimensions.
+
 ## Shared Visual Direction
 
 Photo prompts:
 
 - start from the image role, buyer question, and sellability reason
+- for Image 1, choose and name the thumbnail backdrop first
+- for any non-solid backdrop, include approved measurements as non-rendered scale guidance
 - realistic local porch, garden, patio, doorstep, entryway, or workshop-adjacent environment
 - useful lifestyle props are encouraged when they make the product easier to imagine buying or using
 - natural daylight with soft shadows, not harsh studio glare
 - warm realistic cedar color with visible grain; keep cedar orange-brown, not painted orange, yellow pine, plastic, or glossy furniture finish
 - choose the background or physical setting explicitly, then list the remaining approved palette colors without assigning them to specific elements
 - product shape clearly readable, with realistic proportions, count, size, board scale, rims, posts, legs, shelves, tiers, or open-top structure controlled by the approved attachment
-- square composition with enough breathing room for Marketplace cropping; product large enough to read in a mobile feed
+- square `1:1` composition with enough breathing room for Marketplace cropping; product large enough to read in a mobile feed
 - camera angle named in the prompt
 - clean composition that still allows natural handmade imperfection, staging warmth, and artistic daylight variation
 - no heavy overlay text on product/context/detail photos unless that slot is intentionally planned as a graphic or overlay-led image
@@ -467,7 +537,7 @@ Photo prompts:
 
 Graphic prompts:
 
-- square Marketplace-ready composition
+- square `1:1` Marketplace-ready composition
 - choose the exact background color in the copied prompt, then list the remaining approved palette colors without assigning them to graphic elements
 - choose dark or light backgrounds based on readability and sellability for the specific card
 - use clean, practical, sales-focused lettering that still feels like Drakkar
@@ -499,7 +569,7 @@ Apply the required direction inside each generated graphic prompt, then add role
 - Other palette colors: list the approved palette colors without assigning them to text, dividers, accents, panels, badges, or inset fields
 - Optional small DD mark only if available/approved
 - Layout: simple, legible, not crowded, with clear scale contrast and enough breathing room
-- Aspect ratio: square 1:1 unless the output target says otherwise
+- Aspect ratio: square `1:1` for every Facebook Marketplace listing photo, listing card, and final-ordering card
 
 ## Future Automation Note
 
@@ -512,16 +582,23 @@ Do not create those templates during the current workflow. For now, write concis
 - Prices match catalog retail and FBM values.
 - Featured-configuration prices, such as K's current $240 price, are labeled as featured-only when used in image text.
 - Variant-scope packs show every and only the codes in `variant_scope`; when scoped variants have different prices, their option-and-price chart uses the exact approved price for each and no bundle wording.
+- Variant-scope packs default to ten images: Images 1 and 2 cover the full scope, Images 3 through 5 follow the individual-combo allocation rule, Image 6 is Detail / Trust, and Images 7 through 10 are the buyer-decision cards.
+- Each individual-combo prompt identifies the exact shown variant, supplies the applicable reference attachment, and combines a real use case with practical size context.
+- For a scope of four or more variants, the prompt pack records the evidence-based reason for selecting its two or three individual-combo variants.
 - Set or bundle savings graphics show only approved separate-item totals, approved set prices, and approved savings amounts.
 - SKU/product names match catalog truth.
 - At least one image or graphic contains numeric dimensions when approved dimensions exist.
 - Dimensions/details graphics include numeric dimensions, not count-only wording such as `set of 3`.
+- Every no-text product photo prompt with a non-solid backdrop includes a `Scale measurements:` field and repeats those measurements in the copied prompt as scale guidance only.
 - Approved catalog image path is present.
 - Suggested filename is present for each image prompt.
 - Filenames are outside the prompt text, placed in their own filename-only codebox, and never embedded inside the prompt codebox.
 - Every copied prompt is standalone and does not require access to repository files or unnamed reference guidance.
 - Every copied prompt says what the image is for, what buyer question it answers, and why the slot helps sell the listing.
+- Every copied prompt states square `1:1` output.
 - Every generated product photo prompt names a camera angle, framing/crop intent, lighting/tone, and practical color environment.
+- Every Image 1 prompt includes a `Backdrop:` field and a copied prompt that names the same strong product-appropriate backdrop.
+- No no-text photo prompt renders measurement labels unless the slot is explicitly a text-bearing dimensions/details graphic.
 - Every generated product prompt explicitly requires realistic proportions controlled by the approved attachment.
 - Any K / Cedar Raised Garden Bed product photo or product-inset prompt places the bed over soil, grass, garden bed ground, or yard/garden surface and explicitly avoids porch/deck/patio/concrete/hard-surface staging.
 - Every photo prompt contains the standalone FBM visual direction.

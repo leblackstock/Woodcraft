@@ -1,6 +1,15 @@
+# Deprecated Archive Header
+
+- Status: Deprecated
+- Former role: Natural S/M/L eight-image FBM prompt pack
+- Successor: `40_listings/prompts/fbm_image_prompt_pack_usa1_sml_nat_wavy_flag_2026-06-24.md`
+- Reason: Scope renamed to `USA1-SML-NAT` and replaced by the DEC-113 variant-scope ten-image sequence.
+
+The original body is preserved below as historical evidence.
+
 # FBM Image Prompt Pack — USA1-SML Wavy Wooden American Flag
 
-Status: Ready for Image 1 and the three new text-bearing cards. Only Images 2–5 are existing operator-selected media and must be reused without regeneration.
+Status: Held for a DEC-113 10-image variant-scope replan. Do not generate the remaining Image 1 or Images 6–8 prompts from this earlier eight-image draft. Retain the paired fallback attachments and the existing Large media as available source evidence; assign or regenerate media only through the new group, individual-combo, fixed-detail, and four-card sequence.
 
 Listing scope: USA1-S-NAT, USA1-M-NAT, USA1-L-NAT. The buyer chooses one size; this is not a bundle or set.
 

@@ -55,9 +55,13 @@ Each SKU pack should answer four shopper questions:
 
 Use the 10-image extension only for real SKU complexity, such as included pots, mailbox clarification, custom sizes, cut/preferred height, finish options, featured configuration/custom quote path, or another necessary clarity note.
 
+Variant-scope listings are a defined 10-image exception to this standard-SKU rule. Use the dedicated sequence in `prompt_fbm_listing_image_pack_generator_v2.0.md`: group hero, clean group view, up to three individual use-case-and-size-context combo photos, fixed Image 6 Detail / Trust, then the four buyer-decision cards. Do not use Image 6 as a support/variation slot for a variant-scope pack.
+
 The standard order is a default planning structure, not a hard cap on graphic or overlay text. If Lauren asks for additional image text, or a SKU needs another approved-fact graphic for clarity, keep the text and document the reason in the prompt pack.
 
 For every 8-image or 10-image pack, all real photographs occupy the leading positions in one continuous run and all composite text cards follow in one continuous run at the end. For eight images, Images 1 through 5 are photographs and Images 6 through 8 are price, dimensions/details, and final ordering cards. For ten images, Images 1 through 6 are photographs and Images 7 through 10 are price, dimensions/details, important details, and final ordering cards. The final ordering card is always last. If fewer usable photographs exist than lead slots, fill the available leading photo slots and leave the rest empty rather than moving a text card forward. For the ten-image important-details card, use only approved facts; if no approved fact justifies it, omit the card and run nine images with final ordering as Image 9.
+
+For any real photograph prompt that uses a physical, scenic, lifestyle, wall, porch, patio, garden, workshop-adjacent, or other non-solid backdrop, include the approved customer-facing dimensions in the prompt as scale guidance only. Use the measurements to preserve product scale, but do not render measurement labels or other text unless the slot is a dimensions/details graphic.
 
 ## Shared Graphic Text
 

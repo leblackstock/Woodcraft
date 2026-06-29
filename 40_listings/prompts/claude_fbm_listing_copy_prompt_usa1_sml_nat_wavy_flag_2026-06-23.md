@@ -1,6 +1,6 @@
-# Claude FBM Listing Copy Prompt — USA1-SML Wavy Flag
+# Claude FBM Listing Copy Prompt — USA1-SML-NAT Wavy Flag
 
-Status: Standalone Claude handoff prepared. Final copy remains subject to Claude output, integration, and operator publication approval.
+Status: Standalone Claude handoff prepared for the renamed Natural S/M/L scope. Final copy remains subject to Claude output, integration, and operator publication approval.
 
 Copy only the fenced block into Claude.
 
