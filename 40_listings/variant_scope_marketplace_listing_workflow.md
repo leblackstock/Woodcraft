@@ -2,14 +2,14 @@
 
 Purpose: create, publish, and maintain a Facebook Marketplace listing that offers a specific collection of standard variants from one product family. This workflow is for a buyer choosing one approved option from the stated scope. It is not for bundles, mix-and-match set pricing, or one-off custom quotes.
 
-Use this workflow when a request sounds like: "Create the USA1-SML listing" or "Update image prompts for Wavy Flag Small, Medium, and Large."
+Use this workflow when a request sounds like: "Create the USA1-SML-NAT listing" or "Update image prompts for Wavy Flag Small, Medium, and Large."
 
 ## The Three Names To Keep Separate
 
 | Field | Example | Who sees it | Purpose |
 | --- | --- | --- | --- |
 | `listing_ref` | `Wavy Flag Small, Medium & Large` | Internal only | Plain operator reference for the exact offer. |
-| `listing_handle` | `usa1-sml` | Internal only | Short, stable name for chat requests, prompt files, and scope-reference files. |
+| `listing_handle` | `usa1-sml-nat` | Internal only | Short, stable name for chat requests, prompt files, and scope-reference files. |
 | `listing_title` | `[[CLAUDE_FINAL_COPY_REQUIRED]]` until complete | Customers | Carefully considered Marketplace title written by Claude from approved facts. |
 
 Never treat the internal reference or handle as customer title copy.
@@ -22,9 +22,9 @@ Never treat the internal reference or handle as customer title copy.
 4. Set these identity fields:
 
 ```md
-- listing_id: list_marketplace_usa1_sml_001
+- listing_id: list_marketplace_usa1_sml_nat_001
 - listing_ref: Wavy Flag Small, Medium & Large
-- listing_handle: usa1-sml
+- listing_handle: usa1-sml-nat
 - product_id: prod_usa_wavy_wooden_american_flag_usa1
 - product_family_id: prod_usa_wavy_wooden_american_flag_usa1
 - variant_scope: USA1-S-NAT, USA1-M-NAT, USA1-L-NAT
@@ -50,7 +50,7 @@ Each individual variant normally keeps its own clean reference. If a documented 
 Example filename:
 
 ```text
-usa1-sml_scope_ref_clean-01.png
+USA1-SML-NAT_wavy_wooden_american_flag_ref_clean-01.png
 ```
 
 Use `40_listings/prompts/prompt_fbm_variant_scope_clean_reference_generator_v1.0.md` to prepare the standalone external image prompt. Attach every included individual clean reference, unless a documented exception names the fallback attachments to use instead. The resulting scope reference must:
@@ -62,7 +62,7 @@ Use `40_listings/prompts/prompt_fbm_variant_scope_clean_reference_generator_v1.0
 After approval, record the file in the external `Product Ref Images` folder and in `00_brand/references/PRODUCT_REF_IMAGES_MANIFEST.md`. Then add it to the listing record:
 
 ```md
-- scope_reference_asset: usa1-sml_scope_ref_clean-01.png
+- scope_reference_asset: USA1-SML-NAT_wavy_wooden_american_flag_ref_clean-01.png
 - scope_reference_variant_codes: USA1-S-NAT, USA1-M-NAT, USA1-L-NAT
 - scope_reference_status: Approved
 ```
@@ -77,13 +77,16 @@ Provide the exact scope, every included variant's approved facts and prices, the
 
 - Group images attach the scope reference as the primary control and show only the scoped variants.
 - Single-option images attach that option's individual clean reference, or the exact fallback attachment set named in the documented exception.
+- Use the dedicated 10-image variant-scope sequence by default. Images 1 and 2 are the complete-scope hero and clean group view; Images 3 through 5 are individual variation combo photos; Image 6 is permanently Detail / Trust; Images 7 through 10 are the option-and-price, dimensions, selection-details, and final-ordering cards.
+- For one to three scoped variants, assign one individual use-case-and-size-context combo image to every variant in Images 3 through 5. For four or more scoped variants, select two or three for those individual combo slots using explicit operator direction or documented buyer relevance; otherwise use meaningful functional or visual differences and size extremes, never an invented best-seller claim.
+- Complete-scope coverage remains mandatory in Images 1, 2, 7, and 8 even when a variant does not receive an individual combo slot. Record `shown_variant_codes`, attachments, and any four-plus selection rationale in the prompt pack.
 - When prices differ, include a readable option-and-price chart for every scoped choice. This is not a bundle price card and must not use savings or set wording.
 - Do not create any customer-facing image prompt for an included variant whose required clean reference is still pending, unless the relevant product and listing records cite an operator decision authorizing named fallback visual references for that exact use.
 
 Save the output pack using the handle, for example:
 
 ```text
-fbm_image_prompt_pack_usa1_sml_2026-06-21.md
+fbm_image_prompt_pack_usa1_sml_nat_2026-06-21.md
 ```
 
 ## 5. Prepare The Claude Handoff
@@ -95,7 +98,7 @@ The handoff must inline all buyer-visible facts for every scoped option: name, d
 Save the handoff using the handle, for example:
 
 ```text
-claude_fbm_listing_copy_prompt_usa1_sml_2026-06-21.md
+claude_fbm_listing_copy_prompt_usa1_sml_nat_2026-06-21.md
 ```
 
 Paste the returned Claude copy into the same listing record, set `customer_copy_status: Final Integrated`, and complete the normal publish-readiness checks.

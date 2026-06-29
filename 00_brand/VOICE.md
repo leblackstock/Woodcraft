@@ -45,6 +45,7 @@ Use for Facebook Page posts, Instagram captions, maker/process posts, and other 
 
 - Allow more feeling, personality, and expressive rhythm than catalog copy.
 - Use short maker, shop, cedar, place, or process details to create connection.
+- For brand posts, when approved facts would normally say `Pine` or `pine`, use `Solid wood` or `solid wood` instead. Do not put `pine` in Facebook Page post copy, Instagram captions, or social brand-post image graphic text unless Lauren explicitly asks for species/spec wording.
 - Keep claims grounded and specific.
 - Do not turn emotional language into hype, fake luxury, or generic inspiration copy.
 - For image graphic text, use a concrete product use, form, material, feature, or scene instead of a vague lifestyle slogan.

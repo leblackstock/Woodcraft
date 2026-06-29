@@ -4,9 +4,9 @@ Ordered next tasks after initial scaffold. Keep this list short, practical, and 
 
 ## Now (Highest Priority)
 
-1. Advance requested USA1-SML before Wave 2: generate Image 1 from the paired SML and Large clean-reference attachments, reuse the selected USA1-L-NAT listing photos for Images 2–5, then create scoped price, dimensions, and ordering cards using the SML or Large reference as needed. Enforce the Small, Medium, and Large dimension and scale comparison; complete the remaining first-build and publication gates.
-2. Create the Wave 2 Facebook Marketplace image prompt pack for B, C, G, and H from their approved catalog references.
-3. Run the Wave 2 pack for B first: generate and review B’s required listing-image set before moving one SKU at a time through C, G, and H.
+1. Create the Wave 2 Facebook Marketplace image prompt pack for B, C, G, and H from their approved catalog references.
+2. Run the Wave 2 pack for B first: generate and review B’s required listing-image set before moving one SKU at a time through C, G, and H.
+3. Maintain the daily Facebook Page + Instagram brand-post cadence tracker: minimum one Facebook Page brand post and one Instagram brand/support post per America/New_York day in `50_content/social_post_cadence_tracker.md`.
 4. After listing facts and timing are final, run the Claude final post-copy pass for the next Facebook Page support post and the Claude final caption pass for the next Instagram support post.
 5. Build draft assumption-based cost sheets, labor assumptions, and verification packets for catalog products before advancing secondary products; capture receipt-backed actuals later through the post-build validation loop.
 6. Capture required photo sets for approved catalog products: hero, angle, detail, and in-use shots with clear scale references.

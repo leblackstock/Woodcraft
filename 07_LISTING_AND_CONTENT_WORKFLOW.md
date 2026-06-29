@@ -71,7 +71,7 @@ Use a variant-scope listing when one Marketplace offer intentionally includes a 
 - Before publishing, every variant shown in the live listing must have cleared its applicable fact, pricing, media, and Claude-copy gates.
 - At actual publication, set `publish_status: Published`, record `publish_date`, copy the exact scope into `published_variant_scope`, add the live URL when available, and begin tracking views, saves, messages, and sales in that same listing record.
 
-The detailed operating method and prompt routing live in `40_listings/variant_scope_marketplace_listing_workflow.md`.
+The detailed operating method and prompt routing live in `40_listings/variant_scope_marketplace_listing_workflow.md`. Variant-scope listing image packs default to the dedicated ten-image sequence owned by the active FBM image generator; do not apply the standard single-SKU Image 6 support/variation role.
 
 ## Minimal-Input Verification Workflow (Approved Products + Listings)
 
@@ -149,6 +149,15 @@ After the first real sale/build for a made-to-order listing:
 
 ## Facebook Page + Instagram Workflow (Trust/Support)
 
+- Track the daily organic cadence in [50_content/social_post_cadence_tracker.md](50_content/social_post_cadence_tracker.md): minimum one Facebook Page brand post and one Instagram brand/support post per America/New_York calendar day.
+- Track Facebook Page and Instagram separately; one channel's post does not satisfy the other channel's minimum.
+- A dual `platform: FB Page + Instagram` content record may be used for both channels, but each channel still needs its own Claude output, readiness, and manual schedule/publish evidence before that channel's cadence minimum is met.
+- The cadence tracker may show draft or handoff-prepared candidates, but the daily minimum is not satisfied until the linked content record clears the normal approved-facts, Claude-copy, readiness, and manual publish/schedule gates.
+- Canonical image ratios for future social/content prompt generation:
+  - Static Facebook Page brand-awareness post: `4:5`
+  - Static Instagram feed brand/support post: `4:5`
+  - Facebook or Instagram Story/Reel: `9:16`
+  - Facebook Marketplace listing photo, listing card, or final-ordering card: `1:1`
 - Reuse listing source material; do not reinvent from scratch.
 - Content types:
   - finished product spotlight
@@ -159,20 +168,21 @@ After the first real sale/build for a made-to-order listing:
 - GPT-5.5 may prepare channel facts, post structure, CTA goals, and blocked/missing-info notes.
 - Claude must write the final customer-facing Facebook Page post copy or Instagram caption before the post is considered publish-ready or schedulable.
 
-### Facebook Page Brand-Post Image Workflow
+### Social Brand-Post Image Workflow
 
-- Use `50_content/facebook_brand_post_rules.md` for Facebook Page visual-purpose, mix-and-match, compatibility, rotation, and image graphic-text rules.
-- Use `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md` to create one standalone ChatGPT Image 2 prompt.
+- Use `50_content/facebook_brand_post_rules.md` for shared Facebook Page + Instagram feed visual-purpose, mix-and-match, compatibility, rotation, dual-channel handoff, and image graphic-text rules.
+- Use `50_content/prompts/prompt_social_brand_post_generator_v2.0.md` to create one shared standalone ChatGPT Image 2 prompt and one Claude handoff for both `Facebook Page post copy:` and `Instagram caption:`.
+- Use `4:5` for static Facebook Page + Instagram feed brand-awareness graphics unless Lauren explicitly requests another approved output. Use `9:16` only when the requested content type is Story/Reel.
 - Before creating any product-specific Facebook Page or Instagram post, verify the linked product resolves to an `Active` SKU in `30_products/sku_activation_index.md`.
 - For a product-family showcase with a selected `variant_scope`, verify every included variant is Active. A grouped scope reference supports the composition but does not replace the individual activation requirement.
 - Do not create new social posts or post image prompts for inactive/no-SKU products, even if the product is still a listing candidate.
-- Review recent Facebook Page content records and record the six selected creative fields before saving the image prompt.
-- GPT/Codex owns Facebook Page image graphic text under review by exception. Use approved facts and Brand Post Mode; do not request Claude approval for image graphic text.
-- Claude still owns the final Facebook Page post copy.
-- Facebook Page post-copy handoffs should use `locally in Georgia` or `Built locally in Georgia` when location wording is useful; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it.
+- Review recent social brand-post content records and record the six selected creative fields before saving the image prompt.
+- GPT/Codex owns social brand-post image graphic text under review by exception. Use approved facts and Brand Post Mode; do not request Claude approval for image graphic text.
+- Claude still owns final Facebook Page post copy and Instagram captions.
+- Dual-channel Claude handoffs should request one complete Facebook Page post body and one shorter Instagram feed caption. Facebook Page post-copy handoffs should use `locally in Georgia` or `Built locally in Georgia` when location wording is useful; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it.
 - Require approved reference-image attachments when exact product or logo fidelity matters.
-- If a Facebook Page image prompt requires an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
-- When a Facebook Page post is requested in chat, present the filename, image prompt, and Claude post-copy handoff prompt in three separate code/text blocks.
+- If a social image prompt requires an attached image, begin the copied prompt with `Please see attached "[plain-language item being attached]"`.
+- When a brand post is requested in chat, present the filename, shared image prompt, and dual-channel Claude handoff prompt in three separate code/text blocks.
 - Record the exact image text, reference images, recent-history check, rotation result, and `image_prompt_ref` in the content record.
 - The image prompt may be ready before the Claude post-copy gate, but the content asset still cannot become publish-ready until the final Facebook Page post copy and all other checks are complete.
 

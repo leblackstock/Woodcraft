@@ -70,6 +70,7 @@ Current FBM workflow entry point:
 
 - `40_listings/facebook_marketplace_catalog_rollout_2026-06-03.md`
 - `40_listings/variant_scope_marketplace_listing_workflow.md` for non-bundle Marketplace listings that intentionally include selected variants from one product family
+- Variant-scope listing images default to the dedicated 10-image sequence in `40_listings/prompts/prompt_fbm_listing_image_pack_generator_v2.0.md`; it keeps Image 6 as Detail / Trust.
 
 Brand identity references used by prompts:
 
@@ -96,25 +97,41 @@ Workflow-specific listing image prompt templates live in [40_listings/prompts/](
 - `40_listings/prompts/fbm_image_prompt_pack_usa1_s_nat_wavy_flag_2026-06-21.md`
 - `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_m_nat_wavy_flag_2026-06-21.md`
 - `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_s_nat_wavy_flag_2026-06-21.md`
-- `40_listings/prompts/fbm_image_prompt_pack_usa1_sml_wavy_flag_2026-06-23.md`
-- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_sml_wavy_flag_2026-06-23.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_sml_nat_wavy_flag_2026-06-24.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_sml_nat_wavy_flag_2026-06-23.md`
+- `40_listings/prompts/prompt_usa1_s_rus_clean_reference_generator_2026-06-24.md`
+- `40_listings/prompts/prompt_usa1_m_rus_clean_reference_generator_2026-06-24.md`
+- `40_listings/prompts/prompt_usa1_l_rus_clean_reference_generator_2026-06-24.md`
+- `40_listings/prompts/prompt_usa1_sml_rus_scope_clean_reference_generator_2026-06-24.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_s_rus_wavy_flag_2026-06-24.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_m_rus_wavy_flag_2026-06-24.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_l_rus_wavy_flag_2026-06-24.md`
+- `40_listings/prompts/fbm_image_prompt_pack_usa1_sml_rus_wavy_flag_2026-06-24.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_s_rus_wavy_flag_2026-06-24.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_m_rus_wavy_flag_2026-06-24.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_l_rus_wavy_flag_2026-06-24.md`
+- `40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_sml_rus_wavy_flag_2026-06-24.md`
 
-Current Facebook Page brand-post image workflow:
+Current social brand-post image workflow:
 
 - `30_products/sku_activation_index.md`
 - `50_content/facebook_brand_post_rules.md`
-- `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`
+- `50_content/prompts/prompt_social_brand_post_generator_v2.0.md`
+- `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md` is legacy and retained for historical Facebook-only saved prompts.
 - `80_templates/social_post_template.md`
+- Static Facebook Page + Instagram feed brand-awareness graphics default to one shared `4:5` image prompt; Story/Reel output uses `9:16` only when explicitly requested.
+- New social brand-post packages default to `platform: FB Page + Instagram`, filename pattern `{content_id}_social_{layout_or_role_slug}_v01.png`, one shared image prompt, and one Claude handoff that requests `Facebook Page post copy:` plus `Instagram caption:`.
+- Claude social brand-post handoffs ask for 3 to 5 restrained, relevant hashtags written with leading `#` characters by default unless the content record explicitly says `NO_HASHTAGS`.
 - Saved T2 garden-poster draft: `50_content/prompts/content_fbpage_cedar_obelisk_trellis_vines_001_image_prompt_2026-06-23.md` and `50_content/prompts/content_fbpage_cedar_obelisk_trellis_vines_001_claude_post_copy_prompt_2026-06-23.md`
 
-Fast path for short "fb brand post prompt" requests:
+Fast path for short social brand-post requests:
 
-- Treat as a Facebook Page brand-post prompt request unless the operator explicitly says Marketplace, ad, Instagram, or another channel.
+- Treat "brand post for today," "fb brand post," "ig brand post," "Facebook brand post," and similar short requests as shared Facebook Page + Instagram feed brand-post requests unless the operator explicitly says Marketplace, ad, single-channel only, Story/Reel, or another channel.
 - Start from the active/open content or prompt file when the target is clear.
-- Read `30_products/sku_activation_index.md`, `50_content/facebook_brand_post_rules.md`, the active generator, and the target `50_content/content_fbpage_*.md` record before broader discovery.
+- Read `30_products/sku_activation_index.md`, `50_content/facebook_brand_post_rules.md`, `50_content/prompts/prompt_social_brand_post_generator_v2.0.md`, and the target `50_content/content_*.md` record before broader discovery.
 - Create or deliver product-specific post prompts only for SKUs marked `Active` in the SKU activation index.
-- If the content record already has an `image_prompt_ref`, open and deliver from that saved prompt instead of rebuilding the concept only when the linked SKU is still active.
-- For Facebook Page post asks, deliver the filename block, standalone image prompt block, and Claude Facebook Page post-copy handoff block by default.
+- If the content record already has an `image_prompt_ref`, open and deliver from that saved prompt instead of rebuilding the concept only when the linked SKU is still active and the saved prompt already matches the requested channel scope.
+- For social brand-post asks, deliver the filename block, shared standalone image prompt block, and dual-channel Claude handoff block by default.
 - Deliver only the filename block plus standalone image prompt block when the operator explicitly asks for an image prompt only.
 
 ## Historical Prompt Records
@@ -159,10 +176,11 @@ Each future prompt family must be explicitly scoped to either GPT-5.5 orchestrat
    - For Facebook Marketplace listing images, exact product fidelity is always required: require the approved catalog image or reference image attachment and stop instead of delivering a text-only approximation when the attachment is missing.
    - When an attachment is required, the copied prompt starts with `Please see attached "[plain-language item being attached]"`.
    - FBM price-card graphics use one plain selling-price line from the approved FBM price. A non-bundle variant-scope listing with different approved option prices uses one clear option-and-price chart listing every scoped variant and its exact approved price. Copied prompts specify the exact rendered text instead of explaining internal price-label exceptions.
+   - Static brand-awareness/social feed images use `4:5`; Story/Reel images use `9:16`; Facebook Marketplace listing images and listing cards use square `1:1`.
 5. **Content Prompts**
    - GPT-5.5 orchestration/prep: short-form concept extraction from listings
-   - GPT-5.5 orchestration/prep: Facebook Page brand-post image concepts, rotation checks, image graphic text, and standalone image prompts for active SKUs only, or for an exact variant scope when every included variant is Active
-   - Claude final customer-facing prose: one best Facebook Page post-copy or Instagram caption output by default
+   - GPT-5.5 orchestration/prep: shared Facebook Page + Instagram feed brand-post image concepts, rotation checks, image graphic text, and standalone image prompts for active SKUs only, or for an exact variant scope when every included variant is Active
+   - Claude final customer-facing prose: one best Facebook Page post-copy and one best Instagram caption output by default for dual-channel packages
    - Claude final customer-facing prose: social post-copy or caption CTA variants only when explicitly requested
    - Claude final customer-facing prose: reply-template prompts
 6. **Ad Test Prompts**
