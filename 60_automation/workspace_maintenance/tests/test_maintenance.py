@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import sys
 import tempfile
 import unittest
@@ -504,6 +505,12 @@ class SessionRepoBriefingTests(unittest.TestCase):
             "- content_id: ready-post\n- platform: FB Page\n- publish_status: Ready to Schedule\n- publish_date: 2026-06-23\n",
             encoding="utf-8",
         )
+        (root / "50_content" / "social_post_cadence_tracker.md").write_text(
+            "| Date | Facebook Page record | Facebook Page status | Instagram record | Instagram status | Daily status | Notes |\n"
+            "| --- | --- | --- | --- | --- | --- | --- |\n"
+            "| 2026-06-22 | ready-post | Ready to Schedule | draft-post | Draft | Partially Met | Test row |\n",
+            encoding="utf-8",
+        )
         (root / "60_automation" / "workspace_maintenance" / "CURRENT_MAINTENANCE_STATUS.md").write_text(
             "Last audit: [audit](../../90_archive/maintenance_audits/maintenance_audit_2026-06-14_120000.md)\n"
             "- Errors: 0\n- Warnings: 2\n",
@@ -551,7 +558,171 @@ class SessionRepoBriefingTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertEqual("current", session_repo_briefing.status(root, briefing_day)[0])
         self.assertEqual(1, len(list((root / "90_archive" / "session_briefings").glob("*.md"))))
+        latest_json = session_repo_briefing.json_path(root)
+        self.assertTrue(latest_json.exists())
+        payload = json.loads(latest_json.read_text(encoding="utf-8"))
+        self.assertEqual("current", payload["state"])
+        self.assertEqual("woodcraft_brief_me", payload["source"])
+        self.assertGreaterEqual(len(payload["priorities"]), 1)
+        self.assertGreaterEqual(len(payload["next_actions"]), 1)
         self.assertNotIn(report, list(audit_workspace.markdown_files(root, False)))
+
+    def test_current_write_replays_markdown_and_refreshes_dashboard_json(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        briefing_day = date(2026, 6, 22)
+
+        first, created, report = session_repo_briefing.write_briefing(root, briefing_day)
+        latest_json = session_repo_briefing.json_path(root)
+        latest_json.unlink()
+        second, created_again, same_report = session_repo_briefing.write_briefing(root, briefing_day)
+
+        self.assertTrue(created)
+        self.assertFalse(created_again)
+        self.assertEqual(report, same_report)
+        self.assertEqual(first, second)
+        self.assertTrue(latest_json.exists())
+
+    def test_dashboard_json_is_summary_only(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        (root / "13_BACKLOG.md").write_text(
+            "# Backlog\n\n## Now (Highest Priority)\n\n"
+            "1. Review E:\\Woodcraft\\private\\brief.md raw prompt body with token value\n"
+            "2. Safe dashboard priority\n\n"
+            "## Soon\n\n1. Later priority\n",
+            encoding="utf-8",
+        )
+
+        payload = session_repo_briefing.render_dashboard_json(root, date(2026, 6, 22))
+        rendered = json.dumps(payload, ensure_ascii=False)
+
+        self.assertEqual("Priority item 1", payload["priorities"][0]["title"])
+        self.assertIn("Safe dashboard priority", payload["priorities"][1]["title"])
+        self.assertNotIn("E:\\Woodcraft", rendered)
+        self.assertNotIn("raw prompt body", rendered)
+        self.assertNotIn("token value", rendered)
+        self.assertNotIn("## Sources", rendered)
+        self.assertNotIn("13_BACKLOG.md", rendered)
+
+    def test_dashboard_json_normalizes_known_long_actions(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        cadence = (
+            "Maintain the daily Facebook Page + Instagram brand-post cadence tracker: "
+            "minimum one Facebook Page brand post and one Instagram brand/support post per "
+            "America/New_York day in `50_content/social_post_cadence_tracker.md`."
+        )
+        run_pack = (
+            "Run the Wave 2 pack for B first: generate and review B’s required listing-image "
+            "set before moving one SKU at a time through C, G, and H."
+        )
+        (root / "13_BACKLOG.md").write_text(
+            "# Backlog\n\n## Now (Highest Priority)\n\n"
+            f"1. {cadence}\n\n"
+            "## Soon\n\n1. Later priority\n",
+            encoding="utf-8",
+        )
+        (root / "40_listings" / "facebook_marketplace_catalog_rollout_2026-06-03.md").write_text(
+            f"## Next Three Actions\n\n1. {run_pack}\n",
+            encoding="utf-8",
+        )
+
+        briefing = session_repo_briefing.render_briefing(root, date(2026, 6, 22))
+        payload = session_repo_briefing.render_dashboard_json(root, date(2026, 6, 22))
+        priority = payload["priorities"][0]
+        action = payload["next_actions"][0]
+
+        self.assertIn(cadence, briefing)
+        self.assertIn(run_pack, briefing)
+        self.assertEqual("Update daily Facebook and Instagram cadence", priority["title"])
+        self.assertEqual("Keeps the current social posting rhythm on track.", priority["reason"])
+        self.assertEqual(
+            "Minimum one Facebook Page brand post and one Instagram brand/support post per America/New_York day.",
+            priority["detail"],
+        )
+        self.assertEqual("Run Wave 2 image pack for SKU B", action["title"])
+        self.assertEqual("SKU B should be reviewed before moving through C, G, and H.", action["reason"])
+        self.assertEqual("Generate and review B’s required listing-image set.", action["detail"])
+        for item in payload["priorities"] + payload["next_actions"]:
+            self.assertLessEqual(len(item["title"]), 100)
+            self.assertLessEqual(len(item["reason"]), 180)
+
+    def test_dashboard_item_lengths_are_bounded(self) -> None:
+        long_item = (
+            "Coordinate the next product photography review with every active workstream and "
+            "capture all follow-up decisions for the catalog rollout, social schedule, listing "
+            "pipeline, and maintenance queue before starting another batch"
+        )
+        normalized = session_repo_briefing.normalize_dashboard_item(
+            long_item,
+            "Fallback priority",
+            "Keeps the current highest-priority backlog work moving.",
+        )
+
+        self.assertLessEqual(len(normalized["title"]), 100)
+        self.assertLessEqual(len(normalized["reason"]), 180)
+        self.assertIn("detail", normalized)
+        self.assertLessEqual(len(normalized["detail"]), 280)
+        self.assertNotEqual(long_item, normalized["title"])
+
+    def test_dashboard_json_deduplicates_actions_and_prefers_priority(self) -> None:
+        temp = self.make_root()
+        self.addCleanup(temp.cleanup)
+        root = Path(temp.name)
+        duplicate = (
+            "Maintain the daily Facebook Page + Instagram brand-post cadence tracker: "
+            "minimum one Facebook Page brand post and one Instagram brand/support post."
+        )
+        (root / "13_BACKLOG.md").write_text(
+            "# Backlog\n\n## Now (Highest Priority)\n\n"
+            f"1. {duplicate}\n\n"
+            "## Soon\n\n1. Later priority\n",
+            encoding="utf-8",
+        )
+        (root / "40_listings" / "facebook_marketplace_catalog_rollout_2026-06-03.md").write_text(
+            "## Next Three Actions\n\n"
+            f"1. {duplicate}\n"
+            "2. Finish a distinct rollout action\n",
+            encoding="utf-8",
+        )
+
+        payload = session_repo_briefing.render_dashboard_json(root, date(2026, 6, 22))
+        combined = payload["priorities"] + payload["next_actions"]
+        keys = [session_repo_briefing.normalized_action_key(item["title"]) for item in combined]
+
+        self.assertEqual(1, len(payload["priorities"]))
+        self.assertEqual(1, len(payload["next_actions"]))
+        self.assertEqual("brief_now", payload["priorities"][0]["source"])
+        self.assertEqual(len(keys), len(set(keys)))
+
+    def test_dashboard_action_ids_ignore_formatting_reason_and_detail(self) -> None:
+        first_title = "Update daily Facebook + Instagram cadence"
+        second_title = "  update DAILY Facebook and Instagram cadence!!! "
+        first = {
+            "source": "brief_now",
+            "title": first_title,
+            "reason": "First reason.",
+        }
+        second = {
+            "source": "brief_next_three_actions",
+            "title": second_title,
+            "reason": "Different reason.",
+            "detail": "Different detail.",
+        }
+
+        priorities, next_actions = session_repo_briefing.dedupe_dashboard_suggestions([first], [second])
+
+        self.assertEqual(
+            session_repo_briefing.normalized_action_key(first_title),
+            session_repo_briefing.normalized_action_key(second_title),
+        )
+        self.assertEqual(session_repo_briefing.stable_action_id(first_title), priorities[0]["id"])
+        self.assertEqual("Different detail.", priorities[0]["detail"])
+        self.assertEqual([], next_actions)
 
     def test_summary_separates_schedules_drafts_campaigns_and_stale_maintenance(self) -> None:
         temp = self.make_root()
@@ -562,6 +733,7 @@ class SessionRepoBriefingTests(unittest.TestCase):
         self.assertIn("No active ad campaign records exist", briefing)
         self.assertIn("Scheduled or ready: ready-post on FB Page", briefing)
         self.assertIn("Drafts awaiting schedule: 1.", briefing)
+        self.assertIn("Daily social cadence (2026-06-22): Partially Met; FB Page Ready to Schedule (ready-post); Instagram Draft (draft-post).", briefing)
         self.assertIn("overdue by more than one week", briefing)
         self.assertNotIn("Scheduled or ready: draft-post", briefing)
 
