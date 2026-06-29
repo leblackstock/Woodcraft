@@ -1,7 +1,7 @@
 # SKU Activation Index
 
 Status: Active workflow gate
-Last checked: 2026-06-23
+Last checked: 2026-06-24
 Clean reference source: `00_brand/references/PRODUCT_REF_IMAGES_MANIFEST.md`
 External clean reference folder: `C:\Users\outdo\Documents\Woodcraft Catalog Setup\Product Ref Images`
 
@@ -42,12 +42,15 @@ Purpose: define which SKUs are active for Facebook Page, Instagram, and other so
 | Q | `30_products/prod_cedar_one_picket_planter_001.md` | Mini Cedar Cube Planter | `Q_mini_cedar_cube_planter_ref_clean-01.png`; `Q_mini_cedar_cube_planter_ref_clean-02.png` |
 | TT | `30_products/prod_cedar_tabletop_plant_holder_001.md` | Cedar Tabletop Plant Holder | `TT_3_pot_tabletop_herb_planter_ref_clean-01.png`; `TT_3_pot_tabletop_herb_planter_ref_clean-02.png` |
 | USA1-L-NAT | `30_products/variant_usa1_l_nat.md` | Wavy Wooden American Flag — Large — Natural Wood with Red & Blue Stain | `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` |
+| USA1-L-RUS | `30_products/variant_usa1_l_rus.md` | Wavy Wooden American Flag — Large — Rustic Torched Wood | `USA1-L-RUS_wavy_wooden_american_flag_ref_clean-01.png` |
 
 ## Not Active For Post Creation
 
 | Product / SKU | Reason | Handling |
 |---|---|---|
-| `30_products/variant_usa1_m_nat.md` / `USA1-M-NAT` | Not Active for social posts: individual Medium clean reference is intentionally bypassed under DEC-110. | Marketplace-image preparation may use the paired `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png` fallback references. Do not treat either file as an individual Medium clean reference or publish before remaining gates clear. |
-| `30_products/variant_usa1_s_nat.md` / `USA1-S-NAT` | Not Active for social posts: individual Small clean reference is intentionally bypassed under DEC-110. | Marketplace-image preparation may use the paired `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png` fallback references. Do not treat either file as an individual Small clean reference or publish before remaining gates clear. |
+| `30_products/variant_usa1_m_nat.md` / `USA1-M-NAT` | Not Active for social posts: individual Medium clean reference is intentionally bypassed under DEC-110. | Marketplace-image preparation may use the paired `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML-NAT_wavy_wooden_american_flag_ref_clean-01.png` fallback references. Do not treat either file as an individual Medium clean reference or publish before remaining gates clear. |
+| `30_products/variant_usa1_s_nat.md` / `USA1-S-NAT` | Not Active for social posts: individual Small clean reference is intentionally bypassed under DEC-110. | Marketplace-image preparation may use the paired `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML-NAT_wavy_wooden_american_flag_ref_clean-01.png` fallback references. Do not treat either file as an individual Small clean reference or publish before remaining gates clear. |
+| `30_products/variant_usa1_m_rus.md` / `USA1-M-RUS` | Not Active for social posts: RUS clean-reference prompt is prepared but no RUS image has been generated or approved. | Do not create social posts, listing images, or publication assets until `USA1-M-RUS_wavy_wooden_american_flag_ref_clean-01.png` is generated, operator-approved, and recorded here. |
+| `30_products/variant_usa1_s_rus.md` / `USA1-S-RUS` | Not Active for social posts: RUS clean-reference prompt is prepared but no RUS image has been generated or approved. | Do not create social posts, listing images, or publication assets until `USA1-S-RUS_wavy_wooden_american_flag_ref_clean-01.png` is generated, operator-approved, and recorded here. |
 | `30_products/prod_cedar_planter_box_001.md` / `f00015` | No catalog SKU is assigned and no matching clean ref file was found in the external Product Ref Images folder. | Do not create new Facebook Page or Instagram posts. Existing draft social records are archived or marked blocked. |
 | Any future product or SKU not listed as `Active` above | No clean ref file is recorded in this index. | Treat as `Not Active` until a clean ref file exists and this index is updated. |

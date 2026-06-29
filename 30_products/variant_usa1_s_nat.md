@@ -35,7 +35,7 @@
 - matte_price: $60
 - oil_price: $60
 - clean_reference_status: Individual clean-reference generation bypassed under DEC-110; paired fallback visual references are authorized for Marketplace-image preparation.
-- fallback_visual_reference_assets: `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML_wavy_wooden_american_flag_ref_clean-01.png`.
+- fallback_visual_reference_assets: `USA1-L-NAT_wavy_wooden_american_flag_ref_clean-01.png` and `USA1-SML-NAT_wavy_wooden_american_flag_ref_clean-01.png`.
 - clean_reference_generation_prompt_ref: 40_listings/prompts/prompt_usa1_s_nat_clean_reference_generator_2026-06-21.md
 - image_prompt_pack_ref: 40_listings/prompts/fbm_image_prompt_pack_usa1_s_nat_wavy_flag_2026-06-21.md — use the DEC-110 paired fallback visual references; do not claim the fallback composite is an individual Small clean reference.
 - claude_copy_prep_ref: 40_listings/prompts/claude_fbm_listing_copy_prompt_usa1_s_nat_wavy_flag_2026-06-21.md — draft now; paste only when approved facts are complete.
