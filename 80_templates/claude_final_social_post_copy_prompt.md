@@ -22,6 +22,7 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 
 - facebook_page_post_copy: one best final output for Facebook Page
 - instagram_caption: one best final output for Instagram
+- dual_channel_package: when requested, return both labeled outputs in one response: `Facebook Page post copy:` and `Instagram caption:`
 - optional_variants: only when the operator explicitly asks for options or variants
 
 ## Approved Facts Only
@@ -44,9 +45,24 @@ Use this template when Claude is needed to write final customer-facing Facebook 
 - location_wording: for Facebook Page, prefer `locally in Georgia` or `Built locally in Georgia`; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it
 - output_count: default `1`; use more only when the operator explicitly asks for options or variants
 - cta_goal:
-- hashtag_direction:
+- hashtag_direction: Ask for a short hashtag line by default. Use 3 to 5 restrained, relevant hashtags written with leading `#` characters and tied to the product, use, garden/shop context, or local Georgia maker context. Use `NO_HASHTAGS` only when the record explicitly says no hashtags.
 - banned_claims_or_words:
+- material_wording_override: For brand-post final copy, if approved facts say `Pine` or `pine`, tell Claude to write `Solid wood` or `solid wood` anywhere that material would otherwise be named. Do not let Claude say `pine` unless Lauren explicitly approved species/spec wording for this post.
 - post_copy_exception_approval: `None` by default. For a rare approved exception, record `Approved — [measurement/specification/price/disclaimer] — [buyer-facing reason] — [exact allowed fact or wording]`.
+
+## Dual-Channel Facebook Page + Instagram Shape
+
+Use this branch when a shared social brand-post package needs both Facebook Page post copy and Instagram caption copy for the same `4:5` feed image.
+
+- Return exactly two labeled outputs: `Facebook Page post copy:` and `Instagram caption:`.
+- Write one strongest output per channel, not options.
+- The Facebook Page output must be a complete organic post body, not a tiny caption or product-spec paragraph.
+- The Instagram output must be shorter, visual-first, and natural for the feed. It should share the same approved facts and feeling, but not duplicate the Facebook post word for word.
+- Use the same approved facts, image context, voice mode, CTA limits, banned claims, and hashtag direction for both outputs.
+- End each channel output with 3 to 5 restrained, relevant hashtags written with leading `#` characters unless the record explicitly says `NO_HASHTAGS`.
+- For product-focused posts, use the Facebook Page Product-Post Shape for the Facebook output, then adapt the same approved facts into the shorter Instagram caption.
+- For process, community, shop-proof, and other non-product-focused posts, use the selected image mix-and-match lane for both outputs, with the Instagram caption kept tighter.
+- Before producing the visible answer, silently draft and compare several versions for each channel, then return only the strongest final outputs.
 
 ## Facebook Page Post Shape
 
@@ -59,7 +75,7 @@ Default structure for process, community, shop-proof, and other non-product-focu
 - 1 to 2 useful body paragraphs, depending on the post goal
 - CTA only when the record allows it; otherwise use a softer engagement or no-CTA close
 - signature, location, or brand line when useful and approved
-- hashtag line when useful and requested by the record
+- short hashtag line by default, unless the record explicitly says `NO_HASHTAGS`
 
 If the operator supplies a good example, match the example's social-post energy and structure while rewriting from the current approved facts. Do not copy unapproved claims, prices, promises, locations, included items, or wording from the example.
 
@@ -76,8 +92,9 @@ Use this branch when the primary subject is one product, a product pair, a produ
 - Include one line on where the product goes or gets used.
 - When the approved facts include the exact fulfillment wording, include: `Here in Georgia, pickup or local delivery by arrangement.`
 - Close with a soft CTA framed as a small human question, then `send me a message.`
+- End with a short hashtag line by default. Use 3 to 5 restrained, relevant hashtags written with leading `#` characters unless the record explicitly says `NO_HASHTAGS`.
 - Keep the voice plain, specific, and a little excited. Use short sentences with varied length; fragments are fine. Sound like the person who built it.
-- Return only the final post.
+- Return only the requested final output or labeled final outputs.
 - Treat the actual `exact_in_image_text` as image context only. Do not rewrite, validate, or impose post-copy restrictions on the image prompt or its graphic text.
 
 ### Product-Post Exceptions
@@ -96,6 +113,7 @@ Use this branch when the primary subject is one product, a product pair, a produ
 - Keep the writing plainspoken, specific, local, and unfussy.
 - Use short, confident sentences, no first person, and restraint instead of hype.
 - Use `cedar` instead of `wood` when cedar is true.
+- For brand posts where approved facts say `Pine` or `pine`, use `Solid wood` or `solid wood` instead of `pine` in final Facebook Page post copy and Instagram captions. Do not call those products cedar.
 - Use no em dashes or en dashes in final output. Regular hyphens are okay when needed.
 - Avoid AI-isms and common AI tells. If a phrase, transition, structure, or cadence is commonly recognized as AI-written, do not use it.
 - For Facebook Page post copy, use `locally in Georgia` or `Built locally in Georgia` when location wording is useful; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it.
@@ -109,12 +127,13 @@ Use this branch when the primary subject is one product, a product pair, a produ
 
 - Write only final customer-facing prose for the requested fields.
 - Use approved facts for product details, logistics, availability, exclusions, and performance claims. Claude may choose the buyer frustration and concrete examples within the product-post shape, but must not turn them into unsupported claims.
+- For social brand-post final copy, do not say `pine` when the material fact is pine. Say `Solid wood` or `solid wood` instead, unless the delivered prompt records Lauren's explicit approval to use species/spec wording.
 - Treat `current_asset` or `customer_copy_prep_notes` as context only, not as an approved fact source.
 - Do not invent product details, timing, availability, customer outcomes, or local claims.
 - Do not invent weatherproofing, anchoring, included plants, delivery radius, or customer outcomes.
 - For a product-family showcase, write only about the included active variants. Do not imply an entire family is available and do not use bundle, set, savings, discount, or one-price-for-all language unless a separately approved bundle product is the actual subject.
 - Keep the copy aligned to the requested channel and word limit.
-- Default to one strongest final post-copy or caption output, not multiple options.
+- Default to one strongest final post-copy or caption output per requested channel, not multiple options.
 - Before producing the visible answer, silently write several internal versions, analyze them for truthfulness, voice fit, specificity, natural rhythm, and AI-isms, then write a stronger final version as the visible output.
 - Do not use em dashes, en dashes, AI-isms, or common AI tells.
 - If the operator explicitly requests variants, make each delivered variant meaningfully different in emotional angle, sentence rhythm, and scene detail.

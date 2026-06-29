@@ -16,7 +16,7 @@ You are writing one final organic Facebook Page post for Drakkar Designs.
 
 This is a product-focused post. Return only the finished post.
 
-The accompanying square brand poster says:
+The accompanying vertical 4:5 brand poster says:
 GIVE YOUR VINES SOMEWHERE TO GO
 CEDAR OBELISK TRELLIS
 DRAKKAR DESIGNS
@@ -48,6 +48,7 @@ Write with the quiet satisfaction of giving a garden one strong vertical element
 Voice rules:
 Use Brand Post Mode. Keep it plainspoken, local, grounded, and unfussy. Use short, confident sentences. No hard-sell CTA is needed. A gentle close is fine.
 Use short, varied sentences. Fragments are fine. Sound like the person who built it, without first person.
+End with 3 to 5 restrained, relevant hashtags written with leading `#` characters and tied to the trellis, climbing plants, cedar, garden use, local shop, or Georgia maker context.
 
 Avoid:
 No em dashes or en dashes. Regular hyphens are okay. No AI-isms, generic inspiration, hype, or sales language. Do not use artisan, artisanal, curated, thoughtfully, lovingly, carefully crafted, handcrafted, elevate, experience, journey, story, sustainable, eco-friendly, luxury, bespoke, timeless, heirloom, or crafted. Do not invent availability, weatherproofing, installation, anchoring, delivery radius, included plants, or customer outcomes.

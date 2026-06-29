@@ -8,6 +8,8 @@
 - sku_activation_status: Active - SKU K has clean ref files recorded
 - sku_activation_ref: 30_products/sku_activation_index.md
 - platform: Instagram
+- cadence_date: Not Assigned
+- cadence_tracker_ref: 50_content/social_post_cadence_tracker.md
 - publish_status: Draft
 - publish_ready: No
 - approved_facts_status: Working
@@ -50,4 +52,4 @@
 ## Publishing + Outcome
 
 - publish_date:
-- outcome_notes: Prep-only support post. Publish date intentionally blank until approved facts are complete, Claude caption output is pasted back, and the linked Marketplace record is no longer paused and is publish-ready.
+- outcome_notes: Removed from the 2026-06-24 cadence on 2026-06-24 so the social queue only points at `content_social_usa1_l_nat_fourth_july_001`. Prep-only support post remains parked; publish date intentionally blank until approved facts are complete, Claude caption output is pasted back, and the linked Marketplace record is no longer paused and is publish-ready.

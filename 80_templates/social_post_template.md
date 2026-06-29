@@ -12,19 +12,30 @@
 - scope_activation_status: Not Needed / All Variants Active / Blocked.
 - sku_activation_status: Active / Not Active / Blocked
 - sku_activation_ref: 30_products/sku_activation_index.md
-- platform: FB Page / Instagram / TikTok / Shorts
+- platform: FB Page / Instagram / FB Page + Instagram / TikTok / Shorts
+- cadence_date: YYYY-MM-DD / Not Assigned
+- cadence_tracker_ref: 50_content/social_post_cadence_tracker.md
+- output_aspect_ratio: 4:5 / 9:16 / 1:1 / Other approved requested format
 - publish_status: Draft / Ready to Schedule / Scheduled / Published / Archived
 - publish_ready: Yes / No
+- facebook_page_publish_status: Not Used / Draft / Ready to Schedule / Scheduled / Published / Missed / Waived
+- facebook_page_publish_date:
+- instagram_publish_status: Not Used / Draft / Ready to Schedule / Scheduled / Published / Missed / Waived
+- instagram_publish_date:
 - approved_facts_status: Working / Approved
 - customer_copy_status: Prep Only / Claude Required / Handoff Prepared / Claude Output Pasted Back / Final Integrated
 - claude_handoff_ref:
 - claude_output_ref:
 
-> Governed status rule: if `publish_ready: No` or the Claude gate is incomplete, keep `publish_status` at `Draft` or `Archived` only. Do not use `Ready to Schedule`, `Scheduled`, or `Published` until the asset has cleared the gate.
+> Governed status rule: if `publish_ready: No` or the Claude gate is incomplete, keep `publish_status` and each channel publish status at `Draft`, `Archived`, or `Not Used` only. Do not use `Ready to Schedule`, `Scheduled`, or `Published` until the asset has cleared the gate for that channel.
 
 > SKU activation rule: create product-specific social posts only for SKUs marked `Active` in `30_products/sku_activation_index.md`. If the linked product is inactive, has no catalog SKU, or has no clean ref file, set `sku_activation_status: Not Active` or `Blocked` and do not create a new image prompt or post package.
 
 > Variant-scope activation rule: a product-family showcase may use `variant_scope` only when every listed variant is `Active`. A grouped scope reference does not activate a variant. When the image shows the full scope together, attach the approved `scope_reference_asset` and keep the individual clean references as the underlying product controls.
+
+> Daily cadence rule: Facebook Page and Instagram brand/support posts are tracked separately in `50_content/social_post_cadence_tracker.md`. A dual `platform: FB Page + Instagram` content record may appear in both tracker columns, but each channel counts toward the daily minimum only after that channel's approved-facts, Claude-copy, readiness, and manual publish/schedule gates are complete.
+
+> Output ratio rule: static Facebook Page brand-awareness and static Instagram feed posts use `4:5`; Facebook or Instagram Story/Reel content uses `9:16`; Facebook Marketplace listing images and cards use `1:1`.
 
 ## Creative Direction
 
@@ -46,7 +57,7 @@
 - exact_in_image_text: `NO_TEXT` or final literal image graphic text
 - post_copy_exception_approval: None / Approval Required / Approved — category, buyer-facing reason, and exact allowed fact or wording
 - customer_copy_prep_notes:
-- hashtag_notes:
+- hashtag_notes: Ask Claude for 3 to 5 restrained, relevant hashtags written with leading `#` characters by default / `NO_HASHTAGS` if explicitly waived
 - local_context_tags:
 
 ## Asset Plan
@@ -64,9 +75,9 @@
 
 > External prompt rule: any post-copy, caption, image, graphic, or transformation prompt sent outside this repository must pass `80_templates/standalone_external_prompt_checklist.md` and inline all relevant facts, brand/voice/visual rules, literal text, constraints, attachments, output requirements, quality criteria, and failure behavior.
 
-> Facebook Page image rule: use `50_content/facebook_brand_post_rules.md` and `50_content/prompts/prompt_facebook_brand_post_image_generator_v1.0.md`. GPT/Codex owns image graphic text under review by exception; Claude approval is not required for image graphic text. Claude still owns the final Facebook Page post copy.
+> Social brand-post image rule: use `50_content/facebook_brand_post_rules.md` and `50_content/prompts/prompt_social_brand_post_generator_v2.0.md` for new dual Facebook Page + Instagram feed posts. GPT/Codex owns image graphic text under review by exception; Claude approval is not required for image graphic text. Claude still owns the final Facebook Page post copy and Instagram caption.
 
 ## Publishing + Outcome
 
-- publish_date: Leave blank until the post is actually published
+- publish_date: Legacy/single-channel field; for dual records, use `facebook_page_publish_date` and `instagram_publish_date`
 - outcome_notes:

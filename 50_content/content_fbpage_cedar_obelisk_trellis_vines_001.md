@@ -9,6 +9,8 @@
 - sku_activation_status: Active — SKU T2 has an approved clean reference
 - sku_activation_ref: 30_products/sku_activation_index.md
 - platform: FB Page
+- cadence_date: Not Assigned
+- cadence_tracker_ref: 50_content/social_post_cadence_tracker.md
 - publish_status: Draft
 - publish_ready: No
 - approved_facts_status: Approved
@@ -19,6 +21,7 @@
 ## Creative Direction
 
 - content_type: Photo post
+- output_aspect_ratio: 4:5
 - hook: Give your vines somewhere to go.
 - core_message: Show the standalone Cedar Decorative Obelisk Trellis as a tall, useful garden element for climbing plants and garden structure.
 - cta: No direct CTA; use a calm, garden-focused close in the final Claude post copy.
@@ -42,7 +45,7 @@
     BUILT LOCALLY IN GEORGIA
 - post_copy_exception_approval: None
 - customer_copy_prep_notes: The image is a brand-poster garden scene, not a price card or listing advertisement. Use only approved T2 standalone facts.
-- hashtag_notes: Claude may include restrained, relevant garden or local-shop hashtags if useful.
+- hashtag_notes: Ask Claude for 3 to 5 restrained, relevant garden, trellis, cedar, local-shop, or Georgia maker hashtags written with leading `#` characters.
 - local_context_tags: Built locally in Georgia.
 
 ## Asset Plan
@@ -59,4 +62,4 @@
 ## Publishing + Outcome
 
 - publish_date:
-- outcome_notes:
+- outcome_notes: Removed from the 2026-06-24 cadence on 2026-06-24 and replaced by `content_social_usa1_l_nat_fourth_july_001`. Draft image prompt and Claude handoff are preserved for possible future use.

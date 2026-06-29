@@ -1,5 +1,9 @@
 # Facebook Page Brand Post Image Prompt Generator v1.0
 
+Status: Legacy / superseded for new work
+Superseded by: `50_content/prompts/prompt_social_brand_post_generator_v2.0.md`
+Legacy use: retained for historical Facebook-only prompt records and saved prompt references. Do not use for new default brand-post packages.
+
 Purpose: create one standalone, copy-ready ChatGPT Image 2 prompt for a Facebook Page brand-post graphic while recording a varied, auditable creative selection in the linked content record. When a full Facebook Page post package is requested, also prepare a separate standalone Claude Facebook Page post-copy handoff prompt.
 
 Owner: GPT/Codex orchestration and image-prompt preparation
@@ -8,7 +12,7 @@ Approval mode: Review by exception
 Image graphic-text owner: GPT/Codex
 Facebook Page post-copy owner: Claude
 Current image creation path: manual generation in ChatGPT Image 2
-Default output: square `1:1` Facebook Page graphic
+Default output: vertical `4:5` static Facebook Page brand-awareness graphic
 
 ## Source Priority
 
@@ -40,7 +44,8 @@ Repository files are preparation sources only. Do not tell the external image mo
 - recent Facebook Page creative-history records
 - image graphic-text goal, any supplied required literal wording, or `NO_TEXT`
 - `post_copy_exception_approval: None` for normal product posts, or the exact approved exception record when one is authorized
-- requested output format, if not square `1:1`
+- requested output format, if not the static brand-awareness default of `4:5`
+- `output_aspect_ratio`: use `4:5` for static Facebook Page brand-awareness graphics, `9:16` only for Story/Reel output, or another explicitly approved requested format
 
 ## Fast Path
 
@@ -64,6 +69,7 @@ Fast route:
 - Follow Brand Post Mode and the shared voice guardrails in `00_brand/VOICE.md`.
 - Keep image text short, readable, truthful, and specific.
 - Prefer concrete product-use, form, material, feature, or scene language. Do not default to vague, interchangeable lifestyle slogans; use them only when Lauren explicitly supplies the wording.
+- For Facebook Page brand-post customer-facing wording, convert any `Pine` or `pine` material reference from approved facts into `Solid wood` or `solid wood`. Do not put `pine` in image graphic text or Claude post-copy instructions unless Lauren explicitly asks for species/spec wording.
 - Record the final literal wording in `exact_in_image_text`.
 - Do not request Claude approval for image graphic text or the image prompt.
 - Do not generate the final Facebook Page post copy. Claude owns the post copy.
@@ -104,7 +110,7 @@ Recent-post history gaps do not block prompt generation. Set `rotation_check_sta
 8. Identify every required attachment or reference image.
 9. Create one standalone external image prompt.
 10. Run the standalone-prompt and final self-checks.
-11. Update the linked content record with the selected fields, SKU activation status, literal image text, post-copy exception state, history check, attachment refs, and `image_prompt_ref`.
+11. Update the linked content record with the selected fields, output aspect ratio, SKU activation status, literal image text, post-copy exception state, history check, attachment refs, and `image_prompt_ref`.
 12. If the operator requested a full Facebook Page post package, classify it. For a product-focused post, use the fixed problem-led product-post shape and the recorded `post_copy_exception_approval` state. For process, community, shop-proof, and other non-product-focused posts, derive the post-copy lane from the selected mix-and-match fields. Then create the standalone Claude final-post-copy handoff.
 
 ## Image Graphic-Text Rules
@@ -135,7 +141,7 @@ The copied prompt must inline:
 - the literal `exact_in_image_text`, or an explicit instruction to use no readable text
 - required reference-image and attachment instructions
 - a first prompt line of `Please see attached "[plain-language item being attached]"` when an attached image is required
-- square `1:1` output unless another format was requested
+- the correct output aspect ratio: `4:5` for static brand-awareness graphics, `9:16` for Story/Reel output, or another explicitly approved requested format
 - visible avoid rules
 - quality criteria
 - failure behavior that prohibits invented substitutes when a required attachment, fact, logo, product detail, or literal text cannot be used
@@ -164,7 +170,7 @@ Use this structure while generating the external prompt. Replace every bracketed
 ```text
 [If an attached image is required, start with: Please see attached "[plain-language item being attached]". Omit this line only when no image attachment is required.]
 
-Create a square 1:1 Facebook Page brand graphic for Drakkar Designs.
+Create a vertical 4:5 Facebook Page brand-awareness graphic for Drakkar Designs.
 
 Objective and audience:
 [Inline the post objective, audience, and use case.]
@@ -188,7 +194,7 @@ Readable text:
 [State NO_TEXT, or list the exact literal wording and require no extra words.]
 
 Output and quality:
-[State 1:1 output, mobile-feed readability, material realism, visual hierarchy, and other relevant quality criteria.]
+[State the output aspect ratio, mobile-feed readability, material realism, visual hierarchy, and other relevant quality criteria.]
 
 Failure behavior:
 [State what the external model must do instead of inventing missing references, facts, product details, logos, or replacement wording.]
@@ -263,6 +269,8 @@ When generating the Claude prompt for a Facebook Page post package:
 - For a product-focused post, require a direct flat product-label opening, buyer frustration, two to four concrete examples, what the product addresses, quiet pride, placement, approved Georgia fulfillment, and a soft message close. `cedar [product], made to order.` is an example opening, not required literal wording.
 - Let Claude choose the buyer frustration and concrete examples. Use real plant names or planting uses for garden products; use concrete uses, places, or situations for non-garden products. Do not let those choices create unsupported product claims, inclusions, or customer outcomes.
 - Inline product-post voice direction: plain, specific, and a little excited; short varied sentences; fragments are fine; sound like the person who built it. Require Claude to return only the final post.
+- Ask Claude to end the final post with 3 to 5 restrained, relevant hashtags written with leading `#` characters by default, tied to the product, use, garden/shop context, or local Georgia maker context. Omit hashtags only when the content record explicitly says `NO_HASHTAGS`.
+- If approved facts say `Pine` or `pine`, tell Claude to use `Solid wood` or `solid wood` anywhere that material would otherwise be named. Do not ask Claude to say `pine`, and do not call the product cedar unless cedar is the approved material.
 - Default to no measurements, technical specifications, price, or disclaimers in the finished product post. If one is recommended, return `APPROVAL REQUIRED` before generating the handoff. After approval, permit only the recorded category and exact fact or wording.
 - Treat the image context and literal image graphic text as context only. Do not rewrite, validate, or apply final-post restrictions or exception rules to the image prompt or image graphic text.
 - For a non-product-focused post, treat `message_angle` as the primary post-copy shape, `photo_subject` as the concrete scene/detail source, `layout_family` as length/structure guidance, `text_intensity` as image-text echo guidance, and `cta_style` as the close/CTA control. Include an appropriate `feeling_target` and `specific_scene_or_connection` grounded in approved facts or image context.
@@ -271,7 +279,7 @@ When generating the Claude prompt for a Facebook Page post package:
 - Do not request multiple post-copy options unless the operator explicitly asks for options or variants.
 - If options are explicitly requested, ask for meaningfully different emotional angles, sentence rhythm, and scene details.
 - Ask for a complete organic Facebook Page post body, not a tiny caption or product-spec paragraph.
-- For non-product-focused posts, include post-shape guidance: opening hook, short brand/product/shop/material context, useful body copy, approved CTA or soft close, optional signature/location line, and hashtags when useful.
+- For non-product-focused posts, include post-shape guidance: opening hook, short brand/product/shop/material context, useful body copy, approved CTA or soft close, optional signature/location line, and 3 to 5 restrained, relevant hashtags written with leading `#` characters by default.
 - For Facebook Page post copy, use `locally in Georgia` or `Built locally in Georgia` when location wording is useful; do not use Lovejoy unless logistics require the exact city or the operator explicitly asks for it.
 - If the operator supplied an example of good Facebook post copy, tell Claude to match its social-post energy and structure while using only current approved facts.
 - Require no first person, no hard-sell CTA unless approved, no invented facts, no em dashes or en dashes, no AI-isms or common AI tells, and no generic inspirational language.
@@ -293,6 +301,7 @@ Selection audit:
 - text_intensity:
 - cta_style:
 - exact_in_image_text:
+- output_aspect_ratio:
 - post_copy_exception_approval:
 - linked_product_family_id:
 - variant_scope:
@@ -336,9 +345,11 @@ Before saving or delivering the prompt, confirm:
 - the concept serves the current post objective
 - the linked product is an active SKU with clean ref file(s) in `30_products/sku_activation_index.md`, or every variant in `variant_scope` is Active and the group image has an approved scope reference
 - all six creative fields are selected and recorded
+- the output aspect ratio is recorded and matches the requested channel/content type
 - the rotation check is truthful
 - compatibility rules pass or an exception is recorded
 - image graphic text uses approved facts and Brand Post Mode
+- customer-facing Facebook Page brand-post material wording uses `Solid wood` or `solid wood` instead of `Pine` or `pine` wherever pine would otherwise be said
 - the prompt contains the literal image text or explicitly requests no readable text
 - the prompt contains no local-path instruction
 - relevant palette, typography, and visual direction are inlined
